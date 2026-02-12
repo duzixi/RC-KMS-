@@ -1,0 +1,213 @@
+<!DOCTYPE HTML> 
+<HTML>
+<HEAD>
+<TITLE>爱思>>关联搜索</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<script language="javascript" src="common.js"></script>
+<script language="javascript">
+
+var strHTMLcondition;
+var arrElementProp=new Array(); //用于存储要素属性
+var elementNum;
+var xmlDocElement=[];
+var arrIndexBrief=[];
+
+var elm1;
+var prop;
+var elm2;
+
+InfoElementProp=function(element,elementName,elementImg){  //要素属性类的定义
+	this.element=element;
+	this.elementName=elementName;
+	this.elementImg="<img src='../IMG/"+elementImg+"' />";
+	this.prop=new Array();
+	this.propName=new Array();
+	this.propNameIndex=new Array();
+	this.brief;
+}
+
+function init(){	//进入页面后
+	//STEP 0 从URL中获取参数
+	var str=new String(document.location);
+	var i=str.lastIndexOf("?")+1;
+	var j=str.length;	
+	str=str.substring(i,j);
+	//alert(str);
+	if (str.indexOf("&")>-1){
+		elm1=str.split("&")[0].split("=")[1];
+		prop=str.split("&")[1].split("=")[1];
+		elm2=str.split("&")[2].split("=")[1];
+	}
+	//alert(elm1+","+prop+","+elm2);
+
+	//STEP 1 从system文件中读取要素及属性信息
+	loadFiles();
+
+	//STEP 2 动态生成多选框界面
+	var strHTMLcondition="";
+	for (var i=0;i<elementNum ;i++ ){
+		var isSelect="";
+		if (arrElementProp[i].element==elm1){
+			isSelect=" selected='true''";
+		}
+		strHTMLcondition+="<option  value='"+arrElementProp[i].element+"'"+isSelect+"/>";
+		strHTMLcondition+=arrElementProp[i].elementName+"</option>";
+	}
+	
+	document.getElementById("elm1").innerHTML="<select name='element1' onchange='showCondition()'>"+strHTMLcondition+"</select>";
+
+	showCondition();
+
+	strHTMLcondition="";
+	for (var i=0;i<elementNum ;i++ ){
+		var isSelect="";
+		if (arrElementProp[i].element==elm2){
+			isSelect=" selected='true'";
+		}
+		strHTMLcondition+="<option  value='"+arrElementProp[i].element+"'"+isSelect+"/>";
+		strHTMLcondition+=arrElementProp[i].elementName+"</option>";
+	}
+	document.getElementById("elm2").innerHTML="<select name='element2'>"+strHTMLcondition+"</select>";
+	
+	if (elm1){
+		search();
+	}
+	
+}
+function loadFiles(){
+	var xmlDocSys=getXMLFile("dt_system");
+	var elementClass=xmlDocSys.documentElement.selectSingleNode("datatag");
+	elementNum=elementClass.childNodes.length;
+	
+	for (var i=0;i<elementNum ; i++){
+		var element=elementClass.childNodes[i].tagName;
+		var elementName=elementClass.childNodes[i].getAttribute("text");
+		var elementImg =elementClass.childNodes[i].getAttribute("img");
+		arrElementProp[i]=new InfoElementProp(element,elementName,elementImg);
+		var xPath="datatag/"+element;
+		var propInfo=xmlDocSys.documentElement.selectNodes(xPath);
+
+		for (var j=0;j<propInfo[0].childNodes.length ;j++ ){
+			arrElementProp[i].prop[j]=propInfo[0].childNodes[j].tagName;
+			arrElementProp[i].propName[j]=propInfo[0].childNodes[j].childNodes[0].nodeValue;
+			try{
+				arrElementProp[i].propNameIndex[propInfo[0].childNodes[j].tagName]=propInfo[0].childNodes[j].childNodes[0].nodeValue;
+			}catch (e){
+			}
+		}
+		//读入文件变量
+		xmlDocElement[i]=getXMLFile("dt_"+element);
+		var xPath="idcode/"+element+"/brief";
+		var brief=xmlDocSys.documentElement.selectSingleNode(xPath).childNodes[0].nodeValue;
+		arrElementProp[i].brief=brief
+		arrIndexBrief[brief]=i;
+	}
+}
+
+function showCondition(){//显示条件
+	element=document.all.element1.value;
+	//alert(element);
+	var strHTML="";
+	var optionHTML=""; 
+	for (var i=0;i<arrElementProp.length ;i++ ){
+		if (element==arrElementProp[i].element){
+			for (var j=0;j<arrElementProp[i].prop.length ;j++ ){
+				if (arrElementProp[i].prop[j]!="name"){ //条件太宽泛，有待完善
+					var isSelect="";
+					if (arrElementProp[i].prop[j]==prop){
+						isSelect=" selected='true''";
+					}
+					optionHTML+="<option value='"+arrElementProp[i].prop[j]+"'"+isSelect+">";
+					optionHTML+=arrElementProp[i].propName[j]+"</option>";			
+				}
+			}
+		}
+	}
+
+	//STEP 2 生成条件选择列表
+
+	strHTML="<select name='relation'>"+optionHTML+"</select>";
+	document.getElementById("prop").innerHTML=strHTML;
+}
+
+function search(){//点击开始检索出发
+	//alert("search");
+	var strHTMLresult="";
+	//STEP 0 获取页面设置信息
+	if (!elm1){
+		elm1=document.all.element1.value;
+		prop=document.all.relation.value;
+		elm2=document.all.element2.value;
+	}
+
+	//alert(elm1+","+prop+","+elm2);
+	
+	//STEP 1 读取数据
+	var i1,i2,j1;
+	for (var i=0;i<arrElementProp.length ;i++ ){
+		if (arrElementProp[i].element==elm1){
+			i1=i;
+			for (var j=0;j< arrElementProp[i].prop.length; j++){
+				if (arrElementProp[i].prop[j]==prop){
+					j1=j;
+				}
+			}
+		}
+		if (arrElementProp[i].element==elm2){
+			i2=i;
+		}
+	}
+
+	var xPath="//"+elm1+"/"+prop+"[contains(@refer,'"+arrElementProp[i2].brief+"20')]";
+	var arrResult=xmlDocElement[i1].documentElement.selectNodes(xPath);
+	//alert(arrResult.length);
+
+	//STEP 2 显示结果
+	for (var i=0;i<arrResult.length ;i++ ){
+		//step 2.1 显示第一个要素类别
+		var tempParentId=arrResult[i].parentNode.getAttribute("id");
+		var tempParentName=arrResult[i].parentNode.selectSingleNode("name").childNodes[0].nodeValue;
+
+		strHTMLresult+="</br><a href='#' onclick='editInfo(\""+tempParentId+"\",\""+tempParentId+"\")'>";
+		strHTMLresult+="<span class='title'>"+arrElementProp[i1].elementImg+" "+tempParentName+"</span></a>";
+		strHTMLresult+="<span class='propname' style='padding-left:10px;padding-right:5px'>"+arrElementProp[i1].propName[j1]+"：</span>";
+
+		//step 2.2 显示第二个要素类别
+		var refer=arrResult[i].getAttribute("refer");
+		var refers    = getRefers(refer); 
+		var keywords  = getKeyWords(refer);
+		for (var j=0; j<refers.length; j++){
+			if (j!=0){
+				strHTMLresult+="、";
+			}
+			if (refers[j].charAt(0)==arrElementProp[i2].brief){
+				strHTMLresult+="<a href='#' onclick='editInfo(\""+refers[j]+"\",\""+refers[j]+"\")'>";
+				strHTMLresult+="<span class='title'>"+arrElementProp[i2].elementImg+" "+keywords[j]+"</span></a>";		
+			}
+		}
+		strHTMLresult+="</br>";
+	}
+	if (arrResult.length==0){
+		strHTMLresult+="</br>没有相关结果";
+	}
+	document.getElementById("searchResult").innerHTML=strHTMLresult;
+	elm1=null;
+	elm2=null;
+	prop=null;
+}
+
+</script>
+</HEAD>
+
+<body onload="init()">
+<h3>关联搜索</h3>
+<form onsubmit="search();return false;">
+关系模式: <span id="elm1"></span><span id="prop"></span><span id="elm2"></span>
+<input id ="btSearch" type='submit' value='开始检索'/>
+</form><hr/>
+<div id="searchResult" style="clear:both;">
+</div>
+
+</body>
+</html>

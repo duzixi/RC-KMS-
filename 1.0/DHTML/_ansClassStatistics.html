@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<TITLE>爱思>>分类统计</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<style>
+	v\:* { behavior: url(#default#VML);} 
+</style>
+<script language="javascript" src="common.js"></script>
+<script language="javascript" src="commonVisual.js"></script>
+<script language="javascript">
+
+var element="";
+
+InfoClass = function (name){
+    this.name=name;
+    this.member=[];     //成员ID
+	this.memberName=[]; //成员名
+}
+
+var arrClass;
+var lastSelectedI=0;
+
+//STEP 1 从system中读取要素信息 
+var xmlDocSys=getXMLFile("dt_system");
+var xPath="datatag";
+var nameTags=xmlDocSys.documentElement.selectNodes(xPath);
+var userElementsName=[];
+var userElementsImg=[];
+var arrIndexElement=[];
+
+function init(){ // 初始化
+    var strHTML="<select name='element' onchange='showCondition()'>";
+  
+    //STEP 2 生成要素选择列表 并初始化各类要素的图片
+    for (i=0;i<nameTags[0].childNodes.length ; i++){
+		var elementName=nameTags[0].childNodes[i].tagName;
+	    strHTML+="<option value='"+elementName+"'>";
+	    strHTML+=nameTags[0].childNodes[i].getAttribute("text")+"</option>";
+		userElementsName[i]=nameTags[0].childNodes[i].getAttribute("text");
+		userElementsImg[i]="<img src='../IMG/"+nameTags[0].childNodes[i].getAttribute("img")+"'/>";
+		arrIndexElement[elementName]=i;
+    }
+    strHTML+="</select>";
+    document.getElementById("elementSelect").innerHTML=strHTML;
+    showCondition();
+	//STEP 3 生成过滤器
+	var arrInstanceNum=[0,1,2,5,10,20,50];
+	strHTML="<select name='instanceNum'>";
+	for (var i=0;i<arrInstanceNum.length ;i++ ){
+		strHTML+="<option value='"+arrInstanceNum[i]+"'>"+arrInstanceNum[i]+"</option>";;
+	}
+	document.getElementById("selectInstanceNum").innerHTML=strHTML;
+}
+
+function showCondition(){//显示条件
+	element=document.all.element.value;
+	var strHTML="";
+	//STEP 1 从system中读取关键标签
+	var tags=nameTags[0].selectSingleNode(element);
+	//STEP 2 生成条件选择列表
+
+	var selectHTML="";
+	for (i=0; i<tags.childNodes.length;i++ ){
+	   if (tags.childNodes[i].getAttribute("dataType")=="class"){
+		   selectHTML+="<option value='"+tags.childNodes[i].tagName+"'>";
+		   selectHTML+=tags.childNodes[i].childNodes[0].nodeValue+"</option>";
+	   }
+	}
+	strHTML+="<select name='condition'>"+selectHTML+"</select>";
+	document.getElementById("classifyBy").innerHTML=strHTML;
+}
+
+function showClass(){
+	document.getElementById("vInstance").innerHTML="";
+	arrClass=new Array();
+	var condition=document.all.condition.value;
+	//STEP 1 获得所有依据的值
+	var xmlDoc=getXMLFile("dt_"+element);
+	var xPath=element+"/"+condition;
+	arrNodes=xmlDoc.documentElement.selectNodes(xPath);
+    
+	//STEP 2 根据属性值提取分类
+	for (var i=0;i<arrNodes.length ; i++){
+		var arrTemp=new Array();
+		try{ //2012年6月13日追加
+			var str=arrNodes[i].childNodes[0].nodeValue;
+		}catch (e){
+			continue;
+		}
+		var nodeID=arrNodes[i].parentNode.getAttribute("id");
+		var nodeName=arrNodes[i].parentNode.selectSingleNode("name").childNodes[0].nodeValue;
+		//step 2.0 预处理，消除括号内的任意字符
+		var re=new RegExp("\\(.*\\)|（.*）|\\[.*\\]","g");
+		str=str.replace(re,"");
+		//step 2.1 按分隔符分隔属性值 —— 先将所有的分割符都统一为, 2010-3-1
+		var re=new RegExp("，|、|\n|:|：|\\?|？|\\(|\\)|（|）|;|；|/|\\[|\\]|\\+|and|&|\\\\","g");
+		str=str.replace(re,",");
+
+		if (str.indexOf(",")>-1){
+			arrTemp=str.split(",");
+		}else{
+			arrTemp[0]=str;
+		}
+		//step 2.2 查看分类数组中是否已经存在 2010-10-26 有问题
+		for (var j=0;j<arrTemp.length ;j++ ){
+			var re=new RegExp(" ","g");
+			arrTemp[j]=arrTemp[j].replace(re,"");
+			if ((arrTemp[j]=="")||(arrTemp[j]=="-")){
+				continue;
+			}
+			var has=false;
+			for (var k=0;k<arrClass.length ;k++ ){//如果存在，在已有数组中添加
+				if (arrClass[k].name==arrTemp[j]){
+					has=true;
+					arrClass[k].member[arrClass[k].member.length]=nodeID;
+					arrClass[k].memberName[arrClass[k].memberName.length]=nodeName;
+					break;
+				}
+			}
+			if (!has){//如果不存在，创建新类别, 并添加当前成员
+				arrClass[arrClass.length]=new InfoClass(arrTemp[j]);
+				arrClass[arrClass.length-1].member[0]=nodeID;
+				arrClass[arrClass.length-1].memberName[0]=nodeName;
+			}
+		}
+	}
+	//alert("step 3 ");
+	//STEP 3 对类别进行排序
+	var sortType=getRadioValueX("sortBy");
+	switch (sortType){
+		case "num":	  //case 1: 按成员数量
+			arrClass.sort(function(e1,e2) {  return e1.member.length>e2.member.length ? -1:(e1.member.length<e2.member.length ? 1:0)}); 
+			break;
+		case "name":  //case 2: 按类别名
+			arrClass.sort(function(e1,e2) {  return e1.name.localeCompare(e2.name)}); 
+			break;
+	}
+	//alert("step 4 ");
+	//STEP 4 可视化分类结果
+	var strHTML="";
+	var instanceNum=document.all.instanceNum.value; //2013/6/12 getElmentById -> all
+	//alert(instanceNum);
+	lastSelectedI="";
+	for (var i=0;i<arrClass.length ;i++ ){
+		if (arrClass[i].member.length <= instanceNum){
+			if (sortType=="name"){
+				continue;
+			}else{
+				break;
+			}
+		}
+		if (lastSelectedI!=""){
+			lastSelectedI=i;
+		}
+		var rate=1;
+		var re=new RegExp("[a-z]| |[A-Z]","g");
+		if (arrClass[i].name.match(re)){
+			rate=0.5;
+		}
+		var tagLength=arrClass[i].name.length/5*120*rate;
+		
+		strHTML+="<b><div id='class_"+i+"' class='text_class' style='width:100px;'>";
+
+		strHTML+=addLinkButton(arrClass[i].name,"showInstance(\""+i+"\")","点击查看 "+arrClass[i].name+" 类");
+		strHTML+="</div></b>";
+	}
+	document.getElementById("vClass").innerHTML=strHTML;
+	//showInstance(lastSelectedI);
+}
+
+function showInstance(i){ //显示第i类的 要素实例
+	var strHTML="";
+	//step 1 生成标题
+	var I=arrIndexElement[element];
+	var prop=document.all.condition.value;
+	var xPath="datatag/"+element+"/"+prop;
+	var propName=xmlDocSys.documentElement.selectSingleNode(xPath).childNodes[0].nodeValue;
+	var elementName=arrClass[i].name;
+	var num=arrClass[i].member.length;
+	strHTML+="<span class='propname'>"+propName+"</span>";
+	strHTML+=" 为 "+arrClass[i].name+" 的";
+	strHTML+="<span class='mini_title'>【"+userElementsName[I]+"】</span>有"+num+"个：<hr/>";
+	//step 2 生成实例
+	for (var j=0;j<num ;j++ ){
+		strHTML+="<div>";
+		strHTML+=userElementsImg[I]+" <a href='javascript:void(0)' onclick='editInfo(\""+arrClass[i].member[j]+"\",\""+arrClass[i].member[j]+"\")'>"
+				+arrClass[i].memberName[j]+" </a>";
+		strHTML+="</div>";
+	}
+	strHTML+="<br/><br/>";
+	try{
+		document.getElementById("class_"+lastSelectedI).style.backgroundColor="#c4e1ff";
+	}catch (e){
+	}
+	lastSelectedI=i;
+	document.getElementById("class_"+i).style.backgroundColor="#f0f0f0";  
+	document.getElementById("vInstance").innerHTML=strHTML;
+}
+
+</script>
+</HEAD>
+
+<BODY onload="init()">
+<h3>知识分析 >> 分类统计</h3>
+要素大类:<span id="elementSelect"></span>
+分类依据:<span id="classifyBy"></span>
+排序依据:<input type="radio" name="sortBy" value ="num" checked="checked">数量 
+<input type="radio" name="sortBy" value ="name" >拼音    
+成员数大于：<span id="selectInstanceNum"></span>
+<input id="autoFocus" type="button" value="显示分类结果" onclick="showClass()"/>  
+<input id="elementId" type="hidden" value=""/>  
+</br> </br>
+<div id="vClass">
+</div>
+<br/>
+<div id="vInstance">
+
+</div>
+</BODY>
+</HTML>

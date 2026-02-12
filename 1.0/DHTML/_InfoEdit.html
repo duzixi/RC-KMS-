@@ -1,0 +1,1029 @@
+<!DOCTYPE HTML> 
+<HTML>
+<HEAD>
+<TITLE>爱思>>信息查看</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<script language="javascript" src="common.js"></script>
+<script language="javascript" src="commonVisual.js"></script>
+<script language="javascript">
+
+var changed=false;  //内容是否修改
+var mode;           //显示模式
+var xmlDocElement;  //数据文件
+var xmlDocSys;      //系统文件
+var arrData=[];     //[0]:要素类别英文名 [1]:属性1英文名 [2]:属性2英文名
+var elmCnName;      //对象类中文名
+var id=null;        //当前id
+var idName="";
+var node;           //当前节点
+var propNum;        //node节点的属性个数
+var lastSelProp;    //上一次选中的属性  
+
+var newDataNum=0;   //新添加的属性个数
+
+function init(){
+	if (id==null){
+		id=getIDfromURL();
+	}
+	mode=(mode=="show")?"edit":"show";
+	var brief=id.charAt(0); 
+	xmlDocSys=getXMLFile("dt_system"); //获取系统文件
+	var xPath="//*[brief='"+brief+"']";
+	var elementNameEn=xmlDocSys.documentElement.selectSingleNode(xPath);
+	arrData[0]=elementNameEn.tagName;
+	//alert(arrData[0]);
+	var xPath="datatag/"+arrData[0];
+	var elmCnName=xmlDocSys.documentElement.selectSingleNode(xPath).getAttribute("text");
+	var img=xmlDocSys.documentElement.selectSingleNode(xPath).getAttribute("img");
+	//alert(elmCnName);
+	document.getElementById("elmType").innerHTML=
+		"<span style='margin:8px;border-bottom:2px solid #003366;'>要素类别："
+												+"<img src='../IMG/"+img+"' />   "
+												+"<b>"+elmCnName+"</b></span>";
+	lastSelProp="";
+	showInfo();
+}	
+
+function addFileSrc(inputId){  
+	var strHTML="";
+	strHTML+="<span class='text' style='clear:left;height:10px'>追加路径:</span>";
+	strHTML+="<input type='file' id='add_localsrc' class='filepath' onchange='addPath(\""+inputId+"\")'/>";
+	return strHTML;
+}
+
+function addNewData(tagEN,tagCN){ //添加属性
+	newDataNum++;
+
+	var strHTML="<div class='left'>";
+	if ((tagEN!=null)&&(tagEN!="")){ //添加已有属性
+		strHTML+="<span class='text_add'><b>"+tagCN+"</b>:</span>";
+		strHTML+="<input id='newTagEN"+newDataNum+"' type='hidden' value='"+tagEN+"' />";
+		strHTML+="<input id='newTagCN"+newDataNum+"' type='hidden' value='"+tagCN+"' />";
+		
+		var str=document.getElementById("existTagArea").innerHTML;
+		var strDel="<a onclick='addNewData(\""+tagEN+"\",\""+tagCN+"\")' href=\"javascript:void(0);//undefined\">"+tagCN+", </a>";
+		var i=str.indexOf(tagEN)-24;
+		var j=i+strDel.length + 1;
+		document.getElementById("existTagArea").innerHTML=str.substring(0,i)+str.substring(j,str.length);
+
+		strHTML+="<textarea style='width:600px' id='newDataValue"+newDataNum+"' rows='2' onchange='changed=true'></textarea>";
+		if (tagEN=="localsrc"){
+			strHTML+=addFileSrc("newDataValue"+newDataNum);
+		}
+	}else{                           //添加新属性
+		strHTML+="<span class='text_new'><b>新属性</b>";
+		strHTML+="中文名:<input id='newTagCN"+newDataNum+"' type='text' style='width:83px' />";
+		strHTML+=" — 英文名:<input id='newTagEN"+newDataNum+"' type='text' style='width:83px;'/>";
+		strHTML+="</span><br/><br/>";
+		strHTML+="<span class='text_add'>属性值:</span><textarea style='float:left;width:75%' id='newDataValue"+newDataNum+"' rows='2' onchange='changed=true'></textarea><br/>";
+	}
+	strHTML+="</div><br/><br/><br/>";
+	if (tagEN=="localsrc"){
+		strHTML+="<br/>";
+	}
+	//alert(strHTML);
+	strHTML+="<input  id='endNew"+newDataNum+"' type='hidden'/>";
+	
+	document.getElementById("newDataArea").innerHTML+=strHTML;
+	document.body.scrollTop=document.body.scrollHeight;
+}
+
+function addPath(inputId){ //自动追加路径
+	var strNewFile=document.getElementById("add_localsrc").value;
+	if (strNewFile==""){
+		return;
+	}
+	var sysPath= document.location.pathname;
+	targetValue=getRelativePath(sysPath,strNewFile);
+
+	var oLocalsrc=document.getElementById(inputId);
+	if (oLocalsrc.value=="-"){
+		oLocalsrc.value="";
+	}
+	if (oLocalsrc.value!=""){
+		targetValue="\n"+targetValue;
+	}
+	oLocalsrc.value+=targetValue;
+	if (selectRadio(inputId)){
+		changeRows(1);
+	}
+	//var strMsg=targetValue.substring(targetValue.length-20,targetValue.length);
+	document.getElementById("messageArea").innerHTML="追加了新路径(有待保存)";
+}
+
+function showInfo(){ //显示相关信息
+	xmlDocSys=getXMLFile("dt_system");
+	xmlDocElement=getXMLFile("dt_"+arrData[0]);
+	node=getNodeFromFile(xmlDocElement,id);
+	if (!node){
+		document.getElementById("messageArea").innerHTML="未找到相应的对象<br/>可能原因：<br/>(1)对象已被删除<br/>(2)URL中的id参数有误";
+		return false;
+	}
+
+	//======================查看关联、编辑、评论及删除按钮==========================
+	var strHTML="";
+	
+	strHTML+=addButton("编辑","changeMode()","","btMode");
+	strHTML+=addButton("评论","showComment(\""+id+"\")","","btComment");
+	strHTML+=addButton("删除","delThisElm()","","btDelt");
+	strHTML+=addButton("搜索","searchInside()","","btSearch") + "<br/>";
+	//alert(strHTML);
+	document.getElementById("buttonsArea").innerHTML=strHTML;
+
+	var tagEN,tagCN;
+	var xPath="datatag";
+	var nameTags=xmlDocSys.documentElement.selectNodes(xPath);
+	var tags=nameTags[0].selectSingleNode(arrData[0]);
+	propNum=tags.childNodes.length;
+
+	//================添加属性 标签 及 保存 按钮===========================
+	if (mode=="edit"){ 
+		var strHTML="<div style='margin:25px;padding-right:25px;'>";
+		strHTML+="<fieldset>";
+		strHTML+="<legend>"+addTitle("添加属性: ","mini")+"</legend>";
+	    var totalNum=xmlDocElement.documentElement.childNodes.length;
+		for (var i=0;i<propNum ;i++ ){ 
+			tagEN=tags.childNodes[i].tagName;
+			if (node.selectSingleNode(tagEN)==null){ //如果节点中未使用该属性标签，就显示
+				tagCN=tags.childNodes[i].childNodes[0].nodeValue;
+				var tempStr=addLinkButton(tagCN+",","addNewData(\""+tagEN+"\",\""+tagCN+"\")");
+				strHTML+=tempStr;
+			}
+		}
+		strHTML+=addButton("新属性","addNewData()");
+		strHTML+="</fieldset>";
+		strHTML+="</div>";
+		document.getElementById("existTagArea").innerHTML=strHTML;
+	}else{
+		document.getElementById("existTagArea").innerHTML="";
+	}
+	//===================生成"上一个" "刷新页面" "下一个"按钮==========================
+	var xmlId;
+	strHTML="";
+	if (node.previousSibling!=null){ 
+		xmlId=node.previousSibling.getAttribute("id");
+		strHTML+=addLinkButton("<b>← 上一个</b>",
+								"checkSave();showNext(\""+xmlId+"\")","显示上一个对象");
+	}else{
+		strHTML+="<b>  【 上一个 </b>";
+	}
+	if (node.nextSibling!=null){
+		strHTML+=" · ";
+		xmlId=node.nextSibling.getAttribute("id");
+		strHTML+=addLinkButton("<b>下一个 → </b>","checkSave();showNext(\""+xmlId+"\")","显示下一个对象");
+	}else{
+		strHTML+=" · "+"<b> 下一个 】 </b>";
+	}
+	// alert(node.parentNode.childNodes.length);
+	var totalNum = node.parentNode.childNodes.length;
+	var index = parseInt(Math.random() * totalNum) - 1;
+	// alert(node.parentNode.childNodes[index].previousSibling.getAttribute("id"));
+	xmlId = node.parentNode.childNodes[index].previousSibling.getAttribute("id");
+	strHTML+=addLinkButton("<b> 随机下一个 → </b>","checkSave();showNext(\""+xmlId+"\")","显示下一个随机对象");
+	document.getElementById("getSubling").innerHTML="<br/>"+strHTML;
+
+	//document.getElementById("titleArea").innerHTML=strHTML;
+
+	//====================生成节点的全部信息=============================
+	strHTML="<span>ID:"+id+"</span>";
+
+	var dataValue;
+	var refer;
+	propNum=node.childNodes.length;
+    document.getElementById("imgShow").innerHTML="";
+	//添加最后更新时间
+	if (mode!="edit"){
+		if (node.getAttribute("lastedit")){
+			strHTML+="<span style='color:#5b5b5b;font-size:12'>(最后更新："+node.getAttribute("lastedit")+")</span>";
+		}else{
+			strHTML+="<span style='color:#5b5b5b;font-size:12'>(最后更新："+xmlId.substr(1,4)+"年"+xmlId.substr(5,2)+"月"+xmlId.substr(7,2)+"日)</span>";
+		}	
+	}
+	strHTML+="<br/>";
+	//alert(strHTML);
+	for (var i=0;i<propNum ;i++ ){ //对于每个属性
+		tagEN=node.childNodes[i].tagName;
+		arrData[i+1]=tagEN;
+		if (node.childNodes[i].childNodes[0]==null){
+			dataValue="-";
+		}else{
+			dataValue=node.childNodes[i].childNodes[0].nodeValue;
+			if (tagEN=="name"){
+				var brief=id.charAt(0);
+				idName=dataValue;
+				document.title=brief+":"+dataValue;
+			}
+		}
+		try{
+			tagCN=nameTags[0].selectSingleNode(arrData[0]+"/"+tagEN).childNodes[0].nodeValue;
+		}catch (e){ //如果system.xml不知道英文标签的中文名，就直接显示其英文名
+			tagCN=tagEN;
+		}			
+		refer=node.childNodes[i].getAttribute("refer");
+		//alert(refer);
+		
+		var sReturn=dataValue.indexOf("\n");
+		var sysMsg=(mode=="edit")?"编辑模式":"显示模式";
+		if (mode=="edit"){//如果为编辑模式
+			document.getElementById("btMode").value="保存";
+			var styleClass=((refer!=null)&&(refer!=""))?"text_refer":"text";
+			strHTML+="<span id='prop_"+tagEN+"' >";
+			strHTML+="<span class='"+styleClass+"' id='propTag_"+tagEN+"' onclick='focusTag(\""+tagEN+"\")' onmouseover='this.style.color=\"#0000c6\"' onmouseout='this.style.color=\"#000000\"'>";
+			strHTML+="<input type='radio' name='tagData' value='"+tagEN+"' />";
+            strHTML+="<b>"+tagCN+"</b>"+": </span>";
+			var rows=len(dataValue)/80;
+			if (sReturn>-1){
+				rows++;
+			}
+			if (rows>10){
+				rows=10;
+			}
+			strHTML+='<span><textarea class="textbox" rows="'+Math.round(rows)+'" id="'+tagEN+'" onchange="changed=true" onmouseup="addRelation()">'+dataValue+'</textarea></span>';
+			if (tagEN=="localsrc"){//如果为本地资源，则增加浏览功能
+				strHTML+=addFileSrc("localsrc");
+			}
+			if (i!=propNum-1){
+				strHTML+="<br/>";
+			}
+			strHTML+="</span>";
+		}else{ //如果为显示模式
+			document.getElementById("btMode").value="编辑";
+			strHTML+="<div><div class='text_show' id='propTag_"+tagEN+"'>";
+			strHTML+="<b>"+tagCN+"</b>"+": </div>";
+			
+			if ((tagEN=="link")||(tagEN=="localsrc")||(tagEN=="img")){ //如果为外部资源属性	
+				strHTML+="<div class='show'>";
+				var arrLinks=[];
+				if (dataValue.indexOf("\n")>-1){
+					arrLinks=dataValue.split("\n");
+				}else{
+					arrLinks[0]=dataValue;
+				}
+				var re=new RegExp("\\\\","g");
+				for (var j=0;j<arrLinks.length ;j++ ){
+					
+					var link=arrLinks[j].replace(re,"/");
+					//alert(link);
+					strHTML+="<a href='"+link+"'>"+arrLinks[j]+"</a>";
+					if (j!=arrLinks.length){
+						strHTML+="<br/>";
+					}
+				}
+		   }else{ //如果不是资源类属性
+			   var maxlen = 0;
+			   var array = dataValue.split("\n");
+
+			   for (var j=0;j<array.length ;j++ ){
+			       if (array[j].length > maxlen){
+				       maxlen = array[j].length;
+					   //alert(maxlen);
+			       }
+			   }
+
+			   if (maxlen > 70){
+				   strHTML+="<div class='show' style='margin-left:120px' >";
+			   }else{   
+				   strHTML+="<div class='show'>";
+			   }
+
+			   if (sReturn>-1){
+					var re=new RegExp("\n","g");
+					dataValue=dataValue.replace(re,"<br/>");
+			   }
+			   if ((refer!=null)&&(refer!="")){
+					var keyWords=new Array();//存储关键词的数组
+					var refers=new Array(); //存储关联的数组
+					refers=getRefers(refer);  //将关联字符串拆分为关联数组
+					keyWords=getKeyWords(refer);
+					for (var j=0;j<refers.length ;j++ ){
+						var tempKeyWord=keyWords[j];
+						if (tempKeyWord.indexOf("(")>-1){
+							tempKeyWord=keyWords[j].replace("(","\\(");
+							tempKeyWord=tempKeyWord.replace(")","\\)");
+						}
+						if (tempKeyWord.indexOf("+")>-1){
+							tempKeyWord=keyWords[j].replace("+","\\+");
+						}
+						var re=new RegExp(tempKeyWord,"g");
+						dataValue= dataValue.replace(re,"<b>"+addLinkButton(keyWords[j],"editInfo(\""+refers[j]+"\",\""+refers[j]+"\")"
+																			,"点击查看\""+keyWords[j]+"\"详细信息")+"</b>");
+					}
+				}
+				strHTML+=dataValue;
+			}
+			strHTML+="</div></div>";
+			if (i!=propNum-1){
+				strHTML+="<br/>";
+			}
+			if (i==0){
+				strHTML+="<hr/>";
+			}
+		}
+	}
+	document.getElementById("briefInfo").innerHTML=strHTML;
+	//======================认知分析=======================
+	document.getElementById("newDataArea").innerHTML="";
+	if (mode=="show"){
+		try{
+			showImg(tags.selectSingleNode("img").childNodes[0].nodeValue);
+		}catch (e){
+		}
+        showAnalysis();
+		document.getElementById("relationArea").innerHTML="";
+	}else{
+		document.getElementById("analysisArea").innerHTML="";
+	}
+	selectRadio(tags.childNodes[0].tagName);
+    //document.getElementById("messageArea").innerHTML="当前模式为："+sysMsg;
+}
+
+function searchInside(){
+	var keyWord = node.childNodes[0].childNodes[0].nodeValue;
+	// 打开另一个页面
+	var oNewWin=window.open("_srcContents.html?keyword="+keyWord,keyWord,"location=yes,resizable=yes,left=50,scrollbars=yes,status=yes,toolbar=yes,menubar=yes");
+	oNewWin.focus();
+}
+
+function addRelation(){
+	//step 1 获得被选中字串 
+	// IE 11 only
+    var selectionObj = document.activeElement;
+    var i = selectionObj.selectionStart;
+    var j = selectionObj.selectionEnd;
+    strSel=selectionObj.value.substring(i,j);
+
+	//step 2 检索
+	if ((strSel!="")&&(strSel!="-")){
+		document.getElementById("newKeyWord").value=strSel;
+		searchID();
+	}
+}
+
+function delThisElm(){
+	try{
+		xmlId=node.nextSibling.getAttribute("id");
+	}catch (e){
+		xmlId=node.previousSibling.getAttribute("id");
+	}
+	//alert(xmlId);
+	if (delFromXML(arrData[0],id)){
+		showNext(xmlId);
+	}
+	/*
+	var str=new String(this.location);
+	var si=str.indexOf("?id");
+	this.location=str.substring(0,si)+"?id="+xmlId;
+	changeMode();
+	*/
+}
+
+var showNum=0;
+function showImg(title,next){
+	try{
+		var dataValue=node.selectSingleNode("img").childNodes[0].nodeValue;
+	}catch (e){		return;}
+
+	var strHTML="<fieldset><legend>"+addTitle(title+"：","mini");
+	if (dataValue.charAt(dataValue.length-1)=="\n"){
+		dataValue=dataValue.substring(0,dataValue.length-1);
+	}
+	var si=dataValue.indexOf("\n");
+	var imgShowValue=dataValue;
+	if (si>-1){ //取一个图像资源
+		var total=dataValue.split("\n").length;
+		if (!next){
+			next=0;
+		}
+		showNum+=next;
+		if (showNum<0){
+			showNum=total-1;
+		}
+		imgShowValue=dataValue.split("\n")[showNum%total];
+		strHTML+=addLinkButton("<img src=\"../IMG/go_left.gif\"/>","showImg(\""+title+"\",-1)");
+		strHTML+=showNum%total+1+"/"+total;
+		strHTML+=addLinkButton("<img src=\"../IMG/go_right.gif\"/>","showImg(\""+title+"\",1)");
+	}
+	strHTML+="</legend>";
+	var Img = new Image();
+	Img.src=imgShowValue;
+	var showWidth=200;
+	if ((Img.width<=200)&&(Img.width!=0)){//不缩放
+		showWidth=Img.width;
+	}
+	strHTML+="<center>"+addLinkButton("<img alt='(点击显示原图)' width='"+showWidth+"px' src='"+Img.src+"' />","window.open(\""+imgShowValue+"\")","点击显示原图")+"</center>";
+	strHTML+="</fieldset>";
+	document.getElementById("imgShow").innerHTML=strHTML;
+}
+
+function showAnalysis(){//2009-12-17 显示模式：认知分析
+    var congnitive=0;//认知度
+	var index=[0,0,propNum];  //客观 主观 关联
+	//STEP 1 计算相关评价数量
+	var xmlDoc=getXMLFile("dt_comment");
+	xPath="comment[object='"+id+"']";
+    arr= xmlDoc.documentElement.selectNodes(xPath);
+	index[0]=arr.length;
+
+	//STEP 2 计算关联对象个数
+	//step 2.1 自身与其他对象的关联
+    var referNodes=node.selectNodes("child::node()[@refer]");
+	var refer;
+	for (var i=0;i<referNodes.length; i++){
+	    refer=referNodes[i].getAttribute("refer");
+	    if (refer!=""){ //如果refer值为空，跳出"本"循环
+			temp=getRefers(refer); 
+			index[1]+=temp.length;
+		}
+	}
+    //step 2.2 其他对象与自身的关联
+	var xPath="datatag/*";
+	var sysElements=xmlDocSys.documentElement.selectNodes(xPath);
+
+	for (var i=0;i<sysElements.length ;i++ ){
+        var xmlDoc=getXMLFile("dt_"+sysElements[i].tagName);
+		var xPath="//"+sysElements[i].tagName+"/*[contains(@refer,'"+id+"')]"; 
+		var arrResult=xmlDoc.documentElement.selectNodes(xPath); //搜索所有包含关联信息的结点
+        index[1]+=arrResult.length;
+	}
+
+	congnitive=index[0]+index[1]+index[2];
+	strHTML="<fieldset><legend>"+addTitle("认知结构:","mini")+"</legend>";
+	//step 2.3 自身定位
+	var xPath="datatag/"+arrData[0];
+	var imgSelf="none.gif";
+	try{
+		imgSelf=xmlDocSys.documentElement.selectSingleNode(xPath).getAttribute("img");
+	}catch (e){		}
+	var txtSelf=xmlDocSys.documentElement.selectSingleNode(xPath).getAttribute("text");
+
+    var maxDegree=0;
+	for (i=0;i<3 ;i++ ){
+	    if (index[i]>maxDegree){
+		    maxDegree=index[i];
+	    }
+	}
+	//2010-2-6 有待取以2为底的log
+	//alert(maxDegree/25);
+	//alert(Math.)
+    maxDegree=20;
+	//STEP 3 可视化
+	var oX=100,oY=90;
+	var radius=70;
+	var unitAngle=120;
+	var dimention=["主观维","关联维","客观维"];
+	var arrX=[];
+	var arrY=[];
+	var arrTip=[];
+	var arrX2=[];
+	var arrY2=[];
+	var x,y;
+    
+
+	strHTML+=getSimbolImg(oX-2,oY+7,5,imgSelf,idName,"img_itself");
+	//step 3.1 背景射线
+	strHTML+="<svg>";
+	for (var i=0;i<3;i++ ){
+		x=(radius+10)*Math.sin((unitAngle*i+180)*(Math.PI/180))+oX;
+		y=(radius+10)*Math.cos((unitAngle*i+180)*(Math.PI/180))+oY;
+		var tip="";
+		switch (i){
+			case 0:tip=addLinkButton(dimention[i]+"<br/>("+index[i]+")","showComment(\""+id+"\")","查看相关评论");break;
+			case 1:tip=addLinkButton(dimention[i]+"<br/>("+index[i]+")","relationInfo(\"relation"+id+"\",\""+id+"\")","查看关联对象");break;
+			case 2:tip=dimention[i]+"<br/>("+index[i]+")";break;
+		}
+		//strHTML+=getTip(tip,x,y,3,"",12);
+		arrTip[i]=tip;
+        arrX2[i]=(radius+20)*Math.sin((unitAngle*i+180)*(Math.PI/180))+oX-15;
+		arrY2[i]=(radius+20)*Math.cos((unitAngle*i+180)*(Math.PI/180))+oY+15;
+		strHTML+=getLine(oX,oY,x,y,2,1,"#003d79");
+		if (maxDegree!=0){
+		    arrX[i]=(index[i]/maxDegree)*radius*Math.sin((unitAngle*i+180)*(Math.PI/180))+oX;
+			arrY[i]=(index[i]/maxDegree)*radius*Math.cos((unitAngle*i+180)*(Math.PI/180))+oY;
+		}else{
+		    arrX[i]=0;
+            arrY[i]=0;
+		}
+	}
+	//step 3.2 环线
+    for (var i=0;i<3 ;i++ ){
+		var nextI=0;
+		if (i!=2){
+		    nextI=i+1;
+		}
+	    strHTML+=getLine(arrX[i],arrY[i],arrX[nextI],arrY[nextI],2,2,"#0080ff",1);
+    }
+	//strHTML+=getTran(arrX[0],arrY[0],arrX[1],arrY[1],arrX[2],arrY[2],"#d2e9ff",0);
+	strHTML+="</svg>";
+	//step 3.3 文字
+	for (var i=0;i<3 ;i++ ){
+		strHTML+=getTip(arrTip[i],arrX2[i],arrY2[i],3,"",12);
+	}
+	strHTML+="</fieldset>";
+
+	strHTML+="<br/><fieldset style='color:#336666'><legend>"+addTitle("学习建议:","mini")+"</legend>";
+	var x=index[1]; //关联
+	var y=index[2]; //客观
+	var z=index[0]; //主观
+	if (x+y/1.5+z<=4){
+		strHTML+="您对该对象知之甚少，请重新判断其重要性。若重要，则从三个维度加深理解；否则删之";
+	}else if ((x>=5)&&(y>=10)&&(z>=10)){
+		strHTML+="您对该事物了解比较充分，建议进一步了解其相关联的对象";
+	}else if (z<=(x+y)/3){
+		strHTML+="您对该事物缺乏主观的评价或摘录，请认真回顾后填写评论";
+	}else if (y<=(x+z)/3.5){
+		strHTML+="您对该事物的客观情况缺乏了解，请补充属性描述";
+	}else if (x<=(y+z)/4){
+		strHTML+="该对象缺乏关联，请审视相关性";
+	}else {
+		strHTML+="您对该事物认知比较均衡";
+	}
+	strHTML+="<br/></fieldset>";
+	document.getElementById("analysisArea").innerHTML=strHTML;
+}
+
+function changeMode(){//切换模式：显示·编辑
+   	if (mode=="show"){
+		mode="edit";	
+	}else{
+		confirmEdit();
+		mode="show";
+	}
+	showInfo();
+}
+
+function changeRows(change){ //调整编辑框高度
+	var tagDataId=getRadioValue();
+	var targetTextBox=document.getElementById(tagDataId);
+	if ((change==-1)&&(targetTextBox.rows>1)||(change==1)&&(targetTextBox.rows<50)){
+		targetTextBox.rows=targetTextBox.rows+change;
+		targetTextBox.style.height=targetTextBox.rows*21;
+	}
+}
+
+function moveUp(mode){ 
+	var tagDataId=getRadioValue();
+	var DOM=document.getElementById("briefInfo");
+	var currentSpan=document.getElementById("prop_"+tagDataId);
+	var currentNode=node.selectSingleNode(tagDataId);
+	var msg=(mode==1)?"上移":"下移";
+
+	if (mode==1){ //如果是上移
+		var previousNode=currentNode.previousSibling;
+	}else{  //如果是下移
+		var previousNode=currentNode.nextSibling;
+	}
+	if (previousNode==null){
+		return;
+	}
+	var previousId=previousNode.tagName;
+	var previousSpan=document.getElementById("prop_"+previousId);
+	
+	if (mode==1){ //如果是上移
+		var tempSpan=previousSpan;
+		DOM.insertBefore(currentSpan,tempSpan);
+		var tempNode=previousNode;
+		node.insertBefore(currentNode,tempNode);
+	}else{  //如果是下移
+		var tempSpan=currentSpan;
+		DOM.insertBefore(previousSpan,tempSpan);
+		var tempNode=currentNode;
+		node.insertBefore(previousNode,tempNode);
+	}
+	selectRadio(tagDataId);
+}
+
+function delTagData(){
+	var xmlDoc=getXMLFile("dt_"+arrData[0]);
+	var tagDataId=getRadioValue();
+	var currentNode;
+	if (tagDataId){
+		currentNode=node.selectSingleNode(tagDataId);
+	}
+	var str=currentNode.xml;
+	if (confirm("确定要移除该属性值么？\n"+str)){
+		currentNode.parentNode.removeChild(currentNode);
+		var oOld=xmlDoc.documentElement.selectSingleNode(""+arrData[0]+"[@id ='"+id+"']");
+		oOld.parentNode.replaceChild(node,oOld);
+
+		xmlRoot=xmlDoc.documentElement;
+		if (saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_'+arrData[0]+'.xml')){
+		    alert("删除成功");
+		}else{
+		    alert("删除失败");
+		}
+		showInfo();
+        selectRadio("name");
+		showRelation();
+	}
+}
+
+function clearTextbox(id){
+	var str=document.getElementById(id).value;
+	if ((str=='[输入关联字串]')||(str=='[关联对象ID]')){
+		document.getElementById(id).value="";
+	}
+}
+function searchID(){ //搜索ID
+	var arrElementsXML=xmlDocSys.documentElement.selectNodes("datatag/*");
+	var elements=[];
+	for (var i=0;i<arrElementsXML.length ; i++){
+		elements[i]=arrElementsXML[i].tagName;	
+	}
+    var strHTML="";
+	var firstID="";
+    var referID=[];
+	var keyWord=getIdValue("newKeyWord");
+    for (var i=0;i<elements.length ;i++ ){ //对于每一类知识对象
+	    var xmlDoc=getXMLFile("dt_"+elements[i]);
+		var imgFile=xmlDocSys.documentElement.selectSingleNode("datatag/"+elements[i]).getAttribute("img");
+		if (imgFile){
+			var img="<img src='../IMG/"+imgFile+"'/>";
+		}else{
+			var img="<img src='../IMG/none.gif'/>";
+		}
+		if (keyWord.indexOf('"')>-1){
+			var xPath=elements[i]+"/name[contains(text(),'"+keyWord+"')]";
+		}else{
+			var xPath=elements[i]+"/name[contains(text(),\""+keyWord+"\")]";
+		}
+	    
+	    referID=xmlDoc.documentElement.selectNodes(xPath);
+	    if (referID.length==0){
+			continue;
+		}
+		firstID=referID[0].parentNode.getAttribute("id");
+		for (var j=0;j<referID.length ; j++){
+			var ID=referID[j].parentNode.getAttribute("id");
+			var ID_Name=referID[j].parentNode.selectSingleNode("name").childNodes[0].nodeValue;
+			strHTML+=addLinkButton(img+" "+ID,"setID(\""+ID+"\")",ID_Name);
+			strHTML+="<span class='tip'>"+ID_Name+"</span><br/>";
+		}
+    }
+	if (strHTML!=""){
+		document.getElementById("relations").innerHTML="可选要素：<br/>"+strHTML;
+		document.getElementById("newRelation").value=firstID;
+		//document.getElementById("messageArea").innerHTML="保存后添加关联";
+	}else{
+		//document.getElementById("messageArea").innerHTML="该属性的值中可能没有对象";
+		document.getElementById("relations").innerHTML=" ※ 未找到相关要素";
+	}
+} 
+function setID(id){ //设置关联ID文本框中的ID,为所选的候选ID
+	document.getElementById("newRelation").value=id;
+}
+
+function focusTag(tag){
+    selectRadio(tag);
+	showRelation();
+} 
+
+function showRelation(areaTop){ //显示已有关联
+	var tagDataId=getRadioValue();
+	var nodeProp=node.selectSingleNode(tagDataId);
+	var propTag=nodeProp.tagName;
+
+    var focusColor="yellow";
+	//STEP 1 取消上一个被选中的属性的焦点样式
+	try{ 
+		var propLastSel=document.getElementById("propTag_"+lastSelProp);
+		if (propLastSel.className=="text"){
+			propLastSel.style.backgroundColor="white";
+		}else{
+			propLastSel.style.backgroundColor="#c4e1ff";
+		}
+	}catch (e){
+	}
+	//STEP 2 添加当前选中的属性的焦点样式
+	var propFocus=document.getElementById("propTag_"+propTag);
+	if (propFocus.className=="text"){
+		propFocus.style.backgroundColor="yellow";
+	}else{
+		propFocus.style.backgroundColor="#b7ff4a";
+		focusColor="green";
+	}	
+	lastSelProp=propTag;
+
+	var refer="";
+	try{
+		refer=nodeProp.getAttribute("refer");
+	}catch (e){
+		alert(tagDataId+"\n"+node.xml);
+	}
+	var xPath="datatag/"+arrData[0]+"/"+propTag;
+	var tags=xmlDocSys.documentElement.selectSingleNode(xPath);
+	try
+	{
+		var propTagName=tags.childNodes[0].nodeValue;
+	}
+	catch (e)
+	{
+		var propTagName=propTag;
+	}
+	var strHTML="";
+	if (propTag!="name"){
+		
+
+		strHTML+="<br/>";
+		strHTML+="<fieldset>";
+		strHTML+="<legend>"+addTitle("编辑属性：","mini")+"</legend>";
+		strHTML+="<span style='float:right' class='"+focusColor+"'>  <b>"+propTagName+"</b></span> "
+	
+		strHTML+=addButton("删除","delTagData()");
+		strHTML+=addButton("保存","confirmEdit();showRelation()");
+		strHTML+="<br/>" + addButton("上移","moveUp(1)")
+			+addButton("下移","moveUp(-1)")
+			//+addButton("展开","changeRows(1)")
+		    //+addButton("折叠","changeRows(-1)")
+			+"<br/>";
+		strHTML+="<br/>"+addTitle("知识要素关键字：","micro");
+
+		strHTML+="<br/><input type='text' class='relation_word' id='newKeyWord' value='' onclick='clearTextbox(\"newKeyWord\")' onchange='searchID()'/>";
+		strHTML+="<br/><input type='text' class='relation_id' id='newRelation' value='' onclick='clearTextbox(\"newRelation\")'/>";
+		strHTML+=addLinkButton("搜索","searchID()");
+		strHTML+="<br/><span id='relations'></span>";
+	}
+
+	if ((refer!=null)&&(refer!="")){  //如果有已有关联
+		var refers=getRefers(refer);  
+		var keyWords=getKeyWords(refer);
+		strHTML+="<br/>"+addTitle("已有关联: ","micro");
+		for (var i=0;i<refers.length ;i++ ){
+			strHTML+="<div id='unitRelation"+i+"' style='background-color:#ffe153;margin-bottom:5px'>";
+			strHTML+="<input type='text' id='KeyWord"+i+"' value=\""+keyWords[i]+"\"/>";
+			strHTML+=addLinkButton("查看","editInfo(\""+refers[i]+"\",\""+refers[i]+"\")","查看该对象");
+			strHTML+="<br/>";
+			strHTML+="<input type='text' class='relation_id' id='Relation"+i+"' value='"+refers[i]+"'/>";
+			strHTML+=addLinkButton("删除","delRelation("+i+")","删除该关联");
+			strHTML+="<br/></div>";
+		}
+		//document.getElementById("messageArea").innerHTML="该属性已有关联对象<br/>";
+	}/*else{
+		document.getElementById("messageArea").innerHTML="该属性尚无关联对象<br/>";
+	}*/
+	strHTML+="</fieldset>";
+	if (areaTop){
+		var top=areaTop;
+	}else{
+		var top=event.clientY+document.body.scrollTop-40;
+	}
+	if (top<30){
+		top=30;
+	}
+	document.getElementById("relationArea").style.top=top+"px";
+	document.getElementById("relationArea").innerHTML=strHTML;
+	//======自动搜索 关联ID=========
+	var propValue=nodeProp.childNodes[0].nodeValue;
+ 
+	if ((tagDataId!="name")
+	 &&((refer==null)||(refer==""))
+	 &&(propValue.length<=ELEMENT_NAME_LEN)&&(propValue!="-")){
+		var str=propValue;
+		var re=new RegExp(",|\\(|-|，|\\.|。| /|：|:|;|；");
+		str=str.split(re)[0];
+		document.getElementById("newKeyWord").value=str;
+		searchID();
+	}
+}
+
+function delRelation(i){ //从页面上删除第i个关联(保存修改后，真正删除)
+	//STEP 1 将下面的一次窜到上面
+	var isOK=true;
+	while(isOK){
+		try{
+			var tempKeyWord=document.getElementById("KeyWord"+(i+1)).value;
+			var tempRelation=document.getElementById("Relation"+(i+1)).value;
+		}
+		catch (e){
+			isOK=false;
+			break;
+		}
+		document.getElementById("KeyWord"+i).value=tempKeyWord;
+		document.getElementById("Relation"+i).value=tempRelation;
+		i++;
+	}
+	//STEP 2 删除最下面的
+	var tempNode=document.getElementById("unitRelation"+i);
+	var dom=document.getElementById("relationArea");
+	document.getElementById("relationArea").childNodes[1].removeChild(tempNode);
+}
+
+function showNext(xmlId){
+	id=xmlId;
+	changed=false;
+	showInfo();
+	if (mode=="edit"){
+		if (document.all.tagData.length>1){ 
+			document.all.tagData[0].checked=true;
+		}else{
+			document.all.tagData.checked=true;
+		}
+		showRelation();
+	}	
+	document.getElementById("newDataArea").innerHTML="";
+}
+
+function confirmEdit(){ //确认更改,保存文件
+	var xmlDoc=getXMLFile("dt_"+arrData[0]);
+	var xmlDocSys=getXMLFile("dt_system");
+
+    //0 确定最后更改时间
+	node.setAttribute("lastedit",getTimeStr());
+
+	//1 添加原有部分的
+	for (var i=0;i<propNum ;i++ ){
+		  if (node.childNodes[i].childNodes[0]==null){ //如果不存在节点值，则添加文本子节点
+			  var newText=xmlDoc.createTextNode(getIdValue(arrData[i+1]));
+			  node.childNodes[i].appendChild(newText);
+		  }else{ //如果存在节点值，则直接对值进行修改
+			  setXMLValue(node,arrData[i+1],getIdValue(arrData[i+1]));
+		  }
+	}
+	var xPath="datatag";
+	var nameTags=xmlDocSys.documentElement.selectNodes(xPath);
+	var tags=nameTags[0].selectSingleNode(arrData[0]);
+	var dataValue,tagEN,tagCN;
+	var tagNode;
+
+	//2 再添加扩展部分的
+	for (var i=1;i<=newDataNum ;i++ ){
+		dataValue=getIdValue("newDataValue"+i);
+		if (dataValue!="-"){
+			tagEN    =getIdValue("newTagEN"+i);
+			tagCN    =getIdValue("newTagCN"+i);
+			try{
+				tagNode=tags.selectSingleNode(tagEN);
+			}catch (e){//若没找到
+				alert("从dt_system.xml中查找标签出错");
+			}
+			
+			if (tagNode!=null){
+				if (tagNode.childNodes[0].nodeValue==tagCN){
+					//如果数据标签节点合法，给节点添加该数据项
+					var newTextNode=xmlDoc.createTextNode(dataValue);
+					var newTagNode=xmlDoc.createElement(tagEN);
+					newTagNode.appendChild(newTextNode);
+					node.appendChild(newTagNode);
+				}else{
+					alert("该属性名已被使用，请换用其它名称");
+					break;
+				}
+			}else{
+				var newTagEN=xmlDocSys.createElement(tagEN);
+				var newTagCN=xmlDocSys.createTextNode(tagCN);
+				newTagEN.appendChild(newTagCN);
+				newTagEN.setAttribute("size","100");
+				newTagEN.setAttribute("key","no");
+				newTagEN.setAttribute("dataType","normal");		
+				tags.appendChild(newTagEN); //添加新的属性定义
+				var newTextNode=xmlDoc.createTextNode(dataValue);
+				var newTagNode=xmlDoc.createElement(tagEN);
+				newTagNode.appendChild(newTextNode);
+				node.appendChild(newTagNode);
+			}
+		}		
+	}
+	
+	var oldNodeSys=xmlDocSys.selectSingleNode("system/datatag/"+arrData[0]); 
+	oldNodeSys.parentNode.replaceChild(tags,oldNodeSys);
+	var xmlRoot=xmlDocSys.documentElement;
+	saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_system.xml');
+
+	var oOld=xmlDoc.documentElement.selectSingleNode(""+arrData[0]+"[@id ='"+id+"']");
+	oOld.parentNode.replaceChild(node,oOld);
+	
+	//3 添加关联部分
+ 	var relationID=getIdValue("relationID");
+	var tagDataId=getRadioValue();
+
+	if (tagDataId!=null){		
+		var dataTag=node.selectSingleNode(tagDataId);
+		var keyWords=new Array();//存储关键词的数组
+		var refers=new Array(); //存储关联的数组
+		var refer="";
+		var k=0;
+		//STEP 1 根据页面信息拼接refer字符串
+		//step 1.1 原有的关联
+		while (getIdValue('KeyWord'+k)!="-"){
+			//处理keyWords中包含 # 和 $ 的情况
+			keyWords[k]=getIdValue('KeyWord'+k);
+			refers[k]  =getIdValue('Relation'+k);
+			if ((keyWords[k]=='-')||(refers[k]=='-')){ //循环出口
+				break;
+			}
+			keyWords[k]=keyWords[k].replace("#","≠≠");
+			keyWords[k]=keyWords[k].replace("$","∮");
+			if (refer!=""){
+				refer+="#";
+			}
+			refer+=keyWords[k]+"$"+refers[k];
+			k++;
+		}
+		//step 1.2 新加的关联
+		if ((getIdValue('newKeyWord')!='-')&&(getIdValue('newRelation')!='-')
+		  &&(getIdValue('newKeyWord')!='[输入关联字串]')
+		  &&(getIdValue('newRelation')!='[关联对象ID]')){
+			keyWords[k]=getIdValue('newKeyWord');
+			refers[k]=getIdValue('newRelation');
+			//处理keyWords中包含 # 和 $ 的情况
+			keyWords[k]=keyWords[k].replace("#","≠≠");
+			keyWords[k]=keyWords[k].replace("$","∮");
+			if (refer!=""){
+				refer+="#";
+			}
+			refer+=keyWords[k]+"$"+refers[k];
+		}
+		//STEP 2 添加refer属性
+		node.selectSingleNode(tagDataId).setAttribute("refer",refer);	
+		var oOld=xmlDoc.documentElement.selectSingleNode(""+arrData[0]+"[@id ='"+id+"']");
+		oOld.parentNode.replaceChild(node,oOld);
+		//showInfo();
+		//document.getElementById("messageArea").innerHTML="关联添加成功！<br/>";
+	}else{
+		tagDataId="name";
+	}
+	xmlRoot=xmlDoc.documentElement;
+	if (saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_'+arrData[0]+'.xml')){
+		showInfo();
+		selectRadio(tagDataId);
+		//document.getElementById("messageArea").innerHTML="修改成功！<br/>";
+		document.getElementById("newDataArea").innerHTML="";
+        //更新时间
+		recordLastEditTime();
+		newDataNum=0;
+	}else{
+		//检查页面中的特殊字符
+		var path= document.location.pathname;
+		if (path.lastIndexOf('\\')>=0){
+			path=path.slice(1,path.lastIndexOf('\\')); //IE 6.0 是这样的
+		}else{
+			path=path.slice(1,path.lastIndexOf('/')); //IE 7.0 是这样的
+		}
+		var fso= new ActiveXObject("Scripting.FileSystemObject");
+		f = fso.OpenTextFile(path+"/../XML/sys_temp.xml");
+		f = fso.CreateTextFile(path+"/../XML/sys_temp.xml",true,false);
+		for (var i=0;i<propNum ;i++ ){
+			try{
+				f.WriteLine(getIdValue(arrData[i+1]));
+				document.getElementById("prop_"+arrData[i+1]).style.border="0px";
+			}catch (e){
+				document.getElementById("prop_"+arrData[i+1]).style.border="2px solid #F00";
+			}
+		}
+		f.close();
+        alert("保存失败，请检查是否有非国标字符");
+	}
+	var top=document.getElementById("relationArea").style.top;
+	showRelation(top);
+	changed=false;
+}
+function save(){
+	if (mode!="edit"){
+		return false;
+	}
+	if ((window.event.keyCode==83)&&(window.event.ctrlKey)){
+		confirmEdit();
+		return true;
+	}
+}
+
+function checkSave(){
+	if (changed){
+		if (confirm("是否保存对 \""+node.selectSingleNode("name").childNodes[0].nodeValue+"\" 的更改?")){
+			confirmEdit();
+		}
+	}
+}
+
+</script>
+</HEAD>
+<body onload="init()" onkeydown="save()" onunload="checkSave()">
+<div><a href='../RC-KMS.html'>← 返回首页</a></div>
+<div id="block2">
+	<div id ="relationArea" style="position:absolute;left:10px;top:50px;width:200px">
+	</div>
+	<div id ="analysisArea" style="position:absolute;left:10px;top:50px;width:212px">
+	</div>
+	<div id="imgShow" style="position:absolute;left:10px;top:300px;width:212px">
+	</div>
+</div>
+<div id="block1" >
+	<div id="elmType" style="position:absolute;left:10px;top:-5px;color:#5151a2;background-color:#d1e9e9;padding:3px;z-index:-2"></div>
+	<span id="getSubling"></span>
+	<span id="buttonsArea" style="margin-left:20px;"></span>
+	<!--
+	<input id="btMode" type="button" value='编辑' onclick="changeMode()"/>
+	<input id="btComment" type="button" value='评论' onclick="showComment()"/>
+	<input id="btDelt" type="button" class='right' value='删除' onclick="delThisElm()"/>
+	-->
+	<div id="titleArea"></div><br>
+	<div id="briefInfo">
+	</div>
+	<div id="newDataArea">
+	</div>
+	<div id="existTagArea">
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE HTML> 
+<HTML>
+<HEAD>
+<TITLE>爱思>>近期评论</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<script language="javascript" src="common.js"></script>
+<script language="javascript">
+InfoComment=function(xml,id,subject,object,time,content){ //存储评论信息的类的机构
+	this.xml=xml;
+	this.id=id;
+	this.subject=subject;
+	this.object=object;
+	this.time=time;
+	this.content=content;
+}
+
+function init(){
+	//alert("!");
+	var arrIndexBrief=[];
+	var arrElementTag=[];
+	var arrElementImg=[];
+	var xmlDocElement=[];
+
+	var xmlDocSys=getXMLFile("dt_system");
+	var dataTag=xmlDocSys.documentElement.selectSingleNode("datatag");
+
+	for (var i=0;i<dataTag.childNodes.length ;i++ ){
+		var element=dataTag.childNodes[i].tagName;
+		arrElementTag[i]=element;
+		arrElementImg[i]="<img src='../IMG/"+dataTag.childNodes[i].getAttribute("img")+"'/>";
+		xmlDocElement[i]=getXMLFile("dt_"+element);
+		var xPath="idcode/"+element+"/brief";
+		var brief=xmlDocSys.documentElement.selectSingleNode(xPath).childNodes[0].nodeValue;
+		arrIndexBrief[brief]=i;
+	}
+
+	var xmlDoc=getXMLFile("dt_comment");  
+	var arr=new Array();
+	var arrInfoComment=new Array();
+	arr=xmlDoc.documentElement.selectNodes("comment"); //存储该用户的每条
+
+	//STEP 3 将该用户评论整理到类当中
+	//alert(arr.length);
+	if (arr.length>50){
+		var first=arr.length-50;
+	}else{
+		var first=0;
+	}
+	var j=0;
+	for (var i=first;i<arr.length ;i++ ){
+		arrInfoComment[j]=new InfoComment();
+		arrInfoComment[j].xml=arr[i].xml;
+		arrInfoComment[j].id=arr[i].getAttribute("id");
+		arrInfoComment[j].object=getXMLValue(arr[i],"object");
+		arrInfoComment[j].time=getXMLValue(arr[i],"time");
+		var str=getXMLValue(arr[i],"content");
+		re=new RegExp("<b>|</b>|<span class='yellow'>|</span>","g");
+		str=str.replace(re,"");
+		arrInfoComment[j].content=str;
+		j++;
+	}
+	//alert("step 4");
+	//STEP 4 将评论的要素按日期倒序列出
+	var currentTime=arrInfoComment[arrInfoComment.length-1].time.split(" ")[0];
+	//var currentTime="";
+	var nextTime="";
+	var currentContent =[];
+	var currentObjects =[];
+	var currentObjectsNum= new Array();	
+	var strHTML="";
+	var isChanged=false;
+
+	for (var i=arrInfoComment.length-1;i>=0 ;i-- ){ //对于每一条评论
+		if (i==0){
+			nextTime="";
+		}else{
+			nextTime=arrInfoComment[i-1].time.split(" ")[0];
+		}
+		
+		if (currentTime!=nextTime){//当日期改变时
+			strHTML+="<span class='time'> ◎ "+currentTime+" :</span>";
+			isChanged=true;
+		}else{
+			isChanged=false;
+		}
+		//alert("step 1");
+		//step 1 查看currentObjects中是否已经存在
+		var has=false;  //假设不存在
+		for (var j=0;j<currentObjects.length ;j++ ){
+			if (arrInfoComment[i].object==currentObjects[j]){//step 2 如果存在，累计计数
+				has=true;
+				currentObjectsNum[j]++;
+				break;
+			}
+		}
+		if (!has){ //step 3 如果不存在,添加新的
+			currentObjectsNum[currentObjects.length]=1;
+			currentObjects[currentObjects.length]=arrInfoComment[i].object;
+			currentContent[currentContent.length]=arrInfoComment[i].content.substring(0,100);
+		}
+		if ((isChanged)&&(currentObjects.length>0)){
+			writeElement();
+			currentContent=[];
+			currentObjects    = [];
+			currentObjectsNum = [];
+			currentTime=nextTime;
+		}
+	}
+
+	if ((!isChanged)&&(currentObjects.length>0)){
+		//alert("!");
+		strHTML+="<div style='float:clear' class='left'><div class='time'> ◎ "+currentTime+" :</div>";
+		writeElement();
+		strHTML+="</div><br/>";
+	}
+	//alert(strHTML);
+	document.getElementById("userConcern").innerHTML=strHTML;
+	function writeElement(){
+		strHTML+="<div class='time_content'>";
+		for (var j=0;j<currentObjects.length ; j++){
+			var objID=currentObjects[j];
+			var brief=objID.charAt(0);
+			var I=arrIndexBrief[brief];
+			var element=arrElementTag[I];
+			var xPath=element+"[@id='"+currentObjects[j]+"']/name";
+			try
+			{
+				var objectName=xmlDocElement[I].documentElement.selectSingleNode(xPath).childNodes[0].nodeValue;
+			}
+			catch (e)
+			{
+				var objectName="null";
+			}
+			
+			var img=arrElementImg[I];
+			strHTML+="<div class='element'>"+addLinkButton(img+" "+objectName,"editInfo(\""+objID+"\",\""+objID+"\")")+"</div>";
+			var str="“"+currentContent[j]+"...“";
+
+			strHTML+="<div class='content'>"+addLinkButton(str,"showComment(\""+objID+"\")")+"</div>";
+		}
+		strHTML+="<hr/></div>"
+	}
+}
+
+
+
+</script>
+</HEAD>
+
+<BODY onload="init()">
+<h3>评论搜索</h3>
+<div id="userConcern">
+</div>
+
+</BODY>
+</HTML>

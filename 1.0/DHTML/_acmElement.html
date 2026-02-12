@@ -1,0 +1,354 @@
+<!DOCTYPE HTML> 
+<HTML>
+<HEAD>
+<TITLE>爱思>>积累知识</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<script language="javascript" src="common.js"></script>
+<script language="javascript">
+var condition=[null]; //检索条件
+var term=[null];      //检索词
+
+var arrTag=[];   //属性中文名
+var arrData=[];  //属性英文名
+var arrSize=[];  //属性宽度
+var arrValue=[]; //属性值
+var element=null;
+var time;
+var currentPage=1;
+var numCondition = 3; //查询条件个数
+
+function init(){	//进入页面后
+	if (element==null){
+		element=getParaFromURL("element");
+		time=getParaFromURL("time");
+	}
+	arrData[0]=element;
+
+	//STEP 2: 动态生成检索条件输入区域
+	//step 2.1 从XML文件中读取 属性 dataType="key" 的节点
+	var xmlDocSys=getXMLFile("dt_system");
+	var xPath="datatag";
+	var nameTags=xmlDocSys.documentElement.selectNodes(xPath);
+
+	var tags=nameTags[0].selectSingleNode(element);
+	arrTag[0]=tags.getAttribute("text");
+
+	//step 2.2 获取 arrTag arrData arrSize
+	var k=1;
+	for (i=0;i<tags.childNodes.length ;i++ ){
+		if (tags.childNodes[i].getAttribute("key")=="yes"){
+			arrTag[k] =tags.childNodes[i].childNodes[0].nodeValue;
+			arrData[k]=tags.childNodes[i].tagName;
+			arrSize[k]=tags.childNodes[i].getAttribute("size");
+			k++;
+		}
+	}
+
+	//step 2.3 用arrTag 和 arrData 做检索条件输入列表
+	var strOption="";
+	for (var i=1;i<arrData.length;i++ ){
+		strOption+="<option value='"+arrData[i]+"'>"+arrTag[i]+"</option>";
+	}
+	strOption+="</select>";
+	var strHTML='<form onsubmit="search();return false;">';
+	strHTML+="<h3> "+getElementImg(arrData[0])+" "+arrTag[0]+"</h3>";
+	strHTML+="<div class='right'><br/>";
+	strHTML+="<span></span></div>";
+	strHTML+="<fieldset><legend>"+addTitle("查询：","mini")+"</legend>";
+	for (var i=0;i<numCondition;i++ ){
+		strHTML+="<select name='condition"+(i+1)+"'>"+strOption+":<input id='term"+(i+1)+"' type='text'/>";
+		if (i!=numCondition-1){
+			strHTML+=" 且 ";
+		}
+	}
+	//strHTML+=addButton("执行查询","search()");
+	strHTML+="<input style='float:right;' type='submit' value='执行查询'/></fieldset>"
+
+	document.getElementById("searchArea").innerHTML=strHTML;
+	createDataList(1);
+
+	//document.title="RC-KMS "+arrTag[0]+" 要素一览";
+}
+
+function confirmAdd(){//确认添加
+	if (addToXML(arrData)){
+		for (var i=1;i<arrData.length; i++){
+			arrValue[i]=getIdValue(arrData[i]);
+		}
+		document.all.condition1.value="name";
+		document.getElementById("term1").value=getIdValue(arrData[1]);
+		for (var i=2;i<=numCondition ;i++ ){
+			document.getElementById("term"+i).value="";
+		}
+		currentPage=1;
+		search(); //更新数据内容
+
+		//保留添加内容
+		for (var i=1;i<arrData.length; i++){
+			document.getElementById(arrData[i]).value=arrValue[i];
+		}
+	}else{
+		//检查页面中的特殊字符
+		var path= document.location.pathname;
+		if (path.lastIndexOf('\\')>=0){
+			path=path.slice(1,path.lastIndexOf('\\')); //IE 6.0 是这样的
+		}else{
+			path=path.slice(1,path.lastIndexOf('/')); //IE 7.0 是这样的
+		}
+		var fso= new ActiveXObject("Scripting.FileSystemObject");
+		f = fso.OpenTextFile(path+"/../XML/sys_temp.xml");
+		f = fso.CreateTextFile(path+"/../XML/sys_temp.xml",true,false);
+		for (var i=1;i<arrData.length; i++){
+			var str=document.getElementById(arrData[i]).value;
+			try{
+				f.WriteLine(str);
+				document.getElementById(arrData[i]).style.border="1px solid #bebebe";
+			}catch (e){
+				document.getElementById(arrData[i]).style.border="2px solid #F00";
+			}
+		}
+		f.close();
+	}
+}
+
+function delXML(id,pageNo){ //删除选中要素
+	if (delFromXML(arrData[0],id)){
+		search(); //更新数据内容
+		createDataList(pageNo);
+	}
+}
+
+function showAll(){
+	condition=[null]; 
+	term=[null];    
+	createDataList(1);
+}
+
+function search(){//点击开始检索出发
+	condition=[null]; 
+	term=[null];      
+
+	//STEP 1 获取输入的条件
+	switch (numCondition){
+		case 6: condition[5]=document.all.condition6.value;
+		case 5: condition[4]=document.all.condition5.value;
+		case 4: condition[3]=document.all.condition4.value;
+		case 3: condition[2]=document.all.condition3.value;
+		case 2: condition[1]=document.all.condition2.value;
+		case 1: condition[0]=document.all.condition1.value;
+	}
+	for (var i=0;i<numCondition ;i++ ){
+		term[i]=document.getElementById("term"+(i+1)).value;
+	}
+
+	//STEP 2 根据输入条件生成列表
+	createDataList(1);
+}
+
+function createDataList(pageNo){
+	currentPage=pageNo;
+	var strHTMLHead="";
+	var strHTML="";
+	var arrList=new Array();
+
+	var xmlDoc=getXMLFile("dt_"+arrData[0]);
+
+	if (time){ //按时间搜索
+		var xPath=arrData[0]+"[contains(@id,'"+time+"')]";
+		arr= xmlDoc.documentElement.selectNodes(xPath);
+		//alert(arr[0].xml);
+		for (var i=0;i<arr.length ;i++ ){
+			arrList[i]=arr[i];
+		}
+		//alert(arrList[i].xml);
+	}else if ((term[0]!="")&&(term[0]!=null)||(term[1]!="")&&(term[1]!=null)){
+		var xPath=arrData[0]+"/";
+		for (var i=0;i<numCondition ;i++ ){ //2009-12-18 方便以后多条件的扩展
+			if ((term[i]!=null)&&(term[i]!="")){
+				if (xPath!=arrData[0]+"/"){
+					xPath+="/../";
+				}
+				if (term[i].indexOf('"')>-1){
+					xPath+=condition[i]+"[contains(text(),'"+term[i]+"')]";
+				}else{
+					xPath+=condition[i]+"[contains(text(),\""+term[i]+"\")]";
+				}	
+			}
+		}
+		//alert(xPath);//2013/4/27
+		arr= xmlDoc.documentElement.selectNodes(xPath);
+		for (i=0;i<arr.length ;i++ ){
+			arrList[i]=arr[i].parentNode;
+		}
+	}else{ //如果没有条件，显示全部内容
+		arr=xmlDoc.documentElement.selectNodes(arrData[0]);
+		for (i=0;i<arr.length ;i++ ){
+			arrList[i]=arr[i];
+		}
+	}
+
+	var last,first;
+	var itemPerPage=10;
+	var totalPage=Math.floor((arrList.length-1)/itemPerPage)+1;
+
+	first=(pageNo-1)*itemPerPage;
+	if (pageNo>1){
+		strHTMLHead+=addLinkButton("<span style='background-color:#c4e1ff'><b>← 上一页</b></span>","createDataList("+(pageNo-1)+")","显示上一页");
+	}else{
+		strHTMLHead+="<span style='color:#adadad'><b> 【 上一页 </b></span>";
+	}
+	strHTMLHead+="  <b>第"+pageNo+"页</b>   ";
+	last=pageNo*10;
+	if (last>=arrList.length){
+		last=arrList.length;
+		strHTMLHead+="<span style='color:#adadad'><b> 下一页 】</b></span>";
+	}else{
+		strHTMLHead+=addLinkButton("<span style='background-color:#c4e1ff'><b>下一页 →</b></span>","createDataList("+(pageNo+1)+")","显示下一页");
+	}
+    for (var i=1; i<=totalPage;i++ ){
+		var tempStr="";
+		if (i==pageNo){
+			tempStr="<big><b>["+i+"]</b></big>";
+		}else{
+			tempStr=addLinkButton(i,"createDataList("+(i)+")","跳转至 "+arrTag[0]+" 第"+i+"页");
+		}
+		strHTMLHead+=tempStr;
+    }
+	strHTMLHead+="  共有(<b>"+arrList.length+"</b>)条相关信息";
+
+	strHTML="<table><tr>";
+	for (var i=0;i<arrTag.length ;i++ ){
+		var thTitle=(i==0)?"创建日期":arrTag[i];
+		strHTML+="<th class='button' onmouseover='focusObj(this)' onmouseout='unfocusObj(this)' onclick='unfocusObj(this);sortBy("+i+");focusObj(this)'>"
+				 +thTitle+"</th>";
+	}
+	strHTML+="<th>操作</th></tr>";
+
+	//添加新要素
+	strHTML+="<tr><td class='new'><span class='mini_title'>新要素：</span></td>";
+	for (var i=1;i<arrData.length ;i++ ){
+		var textValue="";
+		if (arrList.length==0){ //如果系统中没有符合查询条件的要素，就将查询条件自动纳入添加新要素的属性
+			if ((condition[0]==arrData[i])&&(term[0]!=null)&&(term[0]!="")){
+				textValue=term[0];
+			}
+			if ((condition[1]==arrData[i])&&(term[1]!=null)&&(term[1]!="")){
+				textValue=term[1];
+			}
+		}
+		var type="text";
+		var size=arrSize[i]-0;
+		if (arrData[i]=="localsrc"){ //如果是本地资源类，则添加【浏览】按钮
+			type="file";
+			size+=30;
+		}
+		strHTML+="<td class='new'><input type='"+type+"' id='"+arrData[i]+"' value='"+textValue+"' style='width:"+size+"px'/></td>";
+	}
+	strHTML+="<td class='new'>"+addButton("添加","confirmAdd()")+"</td></tr>";
+	
+	var eventStr="class='button' onmouseover='focusLine(this)' onmouseout='unfocusLine(this)'";
+	for (var i=first;i<last;i++){
+		var id=arrList[i].getAttribute("id");
+		var eventStrId=eventStr+" onclick='editInfo(\""+id+"\",\""+id+"\")'";
+		strHTML+="<tr><td>"+id.substring(1,5)+"."+id.substring(5,7)+"."+id.substring(7,9)+"_"+id.substring(12,13)+"</td>";
+		
+		for (j=1;j<arrData.length ;j++ ){  //显示每个属性值的内容
+			try{
+				var str=getXMLValue(arrList[i],arrData[j]);
+				if (len(str)>200){
+					str=str.substring(0,199)+" ……";
+				}
+				var re=new RegExp("\n","g");
+				str=str.replace(re,"；");
+				strHTML+="<td "+eventStrId+">"+str+"</td>";
+			}
+			catch (e){  //如果未成功获得属性值，则显示"-"
+				strHTML+="<td"+eventStrId+">-</td>";
+			}
+		}
+		strHTML+="<td>"+addButton("删除","delXML(\""+id+"\",\""+pageNo+"\")")+"</td></tr>";
+	}
+	strHTML+="</table>";
+	document.getElementById("tableContent").innerHTML=strHTMLHead+strHTML;
+}
+
+function focusLine(obj){
+	//alert(obj.parentNode.innerHTML);
+	//对于该行每个元素都高亮
+	for (var i=0;i<obj.parentNode.childNodes.length ; i++){
+		obj.parentNode.childNodes[i].style.backgroundColor="#d2e9ff";
+		obj.parentNode.childNodes[i].style.color="#003e3e";
+	}
+	/*
+	var popTip=document.getElementById("popTip");
+	popTip.innerHTML="点击查看详情";
+	popTip.style.top =event.clientY+document.body.scrollTop;
+	popTip.style.left=event.clientX+document.body.scrollLeft+20;
+	popTip.style.visibility="visible";
+	*/
+}
+
+function unfocusLine(obj){
+	for (var i=0;i<obj.parentNode.childNodes.length ; i++){
+		obj.parentNode.childNodes[i].style.backgroundColor="#fadbd9";
+		obj.parentNode.childNodes[i].style.color="black";
+	}
+	/*
+	var popTip=document.getElementById("popTip");
+	popTip.style.visibility="hidden";
+	*/
+}
+
+function unfocusObj(obj){
+	obj.style.backgroundColor="#d93360";
+	var popTip=document.getElementById("popTip");
+	popTip.style.visibility="hidden";
+}
+
+var sortByAsc=true;
+function focusObj(obj){
+	var sortType=sortByAsc?"升序":"降序";
+	var popTip=document.getElementById("popTip");
+	popTip.innerHTML="按<b>"+obj.innerHTML+"</b>"+sortType+"排序";
+	popTip.style.top =event.clientY+document.body.scrollTop+"px";
+
+	popTip.style.left=event.clientX+document.body.scrollLeft+20+"px";
+	// alert(popTip.style.top + "," +popTip.style.left);
+	popTip.style.visibility="visible";
+	obj.style.backgroundColor="#ca8eff";
+}
+
+function sortBy(listNo){
+	var objTable=document.getElementsByTagName("table")[0].childNodes[0]; //TDBODY
+	for (var i=2;i< objTable.childNodes.length; i++){
+		for (var j=2;j<objTable.childNodes.length-i+1 ;j++ ){
+			var value1=objTable.childNodes[j].childNodes[listNo].childNodes[0].nodeValue;
+			var value2=objTable.childNodes[j+1].childNodes[listNo].childNodes[0].nodeValue;
+			if (sortByAsc){
+				if (value1>=value2){
+					objTable.insertBefore(objTable.childNodes[j+1],objTable.childNodes[j]);
+				}
+			}else{
+				if (value1<=value2){
+					objTable.insertBefore(objTable.childNodes[j+1],objTable.childNodes[j]);
+				}
+			}
+		}
+	}
+	sortByAsc=sortByAsc?false:true;
+}
+
+</script>
+</HEAD>
+
+<body onload="init()">
+<div id="searchArea">
+</div>
+<div id="tableContent" style="margin-top:5px;">
+</div>
+<div id="popTip" style="position: absolute;">
+</div>
+</body>
+</html>

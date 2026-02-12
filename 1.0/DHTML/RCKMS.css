@@ -1,0 +1,120 @@
+/*======================公共部分======================*/
+body,table    { font-size:14px }
+body          { margin:5 }
+.top          { float:top }
+.left         { float:left }
+.right        { float:right }
+form          { margin:0}
+
+/*---------------------链接样式-----------------------*/
+a img         { border-width:0px}
+a:link        { color:#9d0048;text-decoration:none }
+a:visited     { color:#003d79;text-decoration:none }
+a:hover       { color:#ffffff;background-color:#9d0048;font-weight:bold; }
+a:active      { color:#000079;background-color:#f9f900; }
+
+/*---------------------列表、标题样式-----------------------*/
+ul            { margin:0px;color:#004b97}
+li		      { margin:0px;padding:0px;}
+h1,h2,h3,h4   { background-color:#d93360;color:white;font-weight:bold; font-family:lithograph 粗体;margin:5px 0px 2px 0px ;padding:5px 2px 2px 2px;text-align:center;font-family:黑体}
+h4            { margin:1px }
+
+/*---------------------表格样式-----------------------*/
+td,th,caption { border:solid #9d0048;padding:2px;}
+td  		  { background-color:#fadbd9; border-width:0px 0px 2px 1px; padding-left:6px;font-size:13px;}
+th			  { background-color:#d93360; border-width:1px 2px 2px 1px; font-weight:bold; color:#28004d; }
+caption		  { background-color:#f1e1ff; border-width:2px 2px 0px 1px; font-weight:bold; font-size:16px;}
+td.new		  { background-color:#f6ae54}
+.button       { cursor:hand }
+
+/*---------------------色彩背景-----------------------*/
+.yellow,.y    { background-color:#f9f900}
+.green        { background-color:#b7ff4a}
+.lightblue    { background-color:#c4e1ff}
+.grey         { color:           grey   }
+
+/*---------------------强调样式-----------------------*/
+.text_new     { float:left;			   text-align:left;}
+.text_add     { float:left;width:120px;text-align:left;}
+.text         { float:left;width:120px;text-align:left;cursor:hand}
+.text_refer   { float:left;width:120px;text-align:left;background-color:#c4e1ff;cursor:hand}
+.text_show    { clear:left;width:120px;float:left;text-align:right;margin-top:5px;}
+	.show     { float:left;margin-top:5px;}
+
+span .tip     { color:#8e8e8e;font-size:smaller}
+
+.propname     { color:#01814a}
+.keyword      { color:#ce0000}
+
+.large_title  { background-color:#ffffff;font-size:20px;margin-bottom:10px;margin-right:10px;margin-left:10px;}
+.big_title    { background-color:#ffaadf;font-size:20px;font-weight:bold;margin-bottom:10px;}
+.title        { font-size:16px;margin-bottom:10px;}
+.mini_title   { background-color:#ffffdf;font-weight:bold;float:top;color:#bb5e00;margin-bottom:5px;}
+.micro_title  { background-color:#ffffdf;color:#bb5e00;float:top;margin-bottom:5px;}
+.time         { color:#5b5b5b;padding-top:5px;margin-right:5px;width:115px}
+.time_content { }
+.element      { width:250px;background-color:#e6e6f2;padding:1px;margin:1px}
+.large_text   { font-size:20px; }
+
+/*====================各个功能页面部分======================*/
+/*---------------------首页-----------------------*/
+#menu         { background-color:#fadbd9;font-size:13px;float:left;width:160px;height:570px;border: solid 1px;}
+#menu ul,li   { margin-left:-8px;}
+#maincontent  { float:left;border: solid 1px;height:570px;width:80%;margin-left:5px}
+#version      { font-size:12px;text-align:center}
+#sysIntro     { font-size:13px;width:70%;float:left;}
+
+/*-------------------本地文件------------------*/
+.file         { width:100px;color:#642100;background-color:#ffed97;border:solid 1px #9f5000;text-align:center}
+.line         { width:100px;color:gray;text-align:center;border:solid 1px #ffffff;}
+
+/*--------------------生词本-------------------*/
+#tip          { /*float:right;*/
+				width:300px;height:100px;padding:6px;font:16px;left:400px;
+				background-color:#fff4c1;border:solid  #9f5000;border-width:1px 2px 2px 1px;
+				position:absolute;/*__bottom:auto;_margin-top:0px;_top:expression(eval(document.documentElement.scrollTop));*/}
+
+/*--------------------各要素一览------------------*/
+#popTip       { background-color:#ffffce;padding:6px;border:solid 1px #c6a300;visibility:hidden;position:absolute;left:0px;top:0px;}
+td      input { line-height:120%;font-size:14px}
+
+/*---------------------信息编辑页面-----------------------*/
+#buttonsArea input { line-height:150%;}
+#messageArea  { clear:left;float:right;padding:6px;padding-left:28px;width:auto;
+				background-image:url("../IMG/lamp.gif");background-repeat:no-repeat;
+				font-weight:bold;color:#bb5e00;text-align:center;
+				margin-bottom:5px;border:solid 1px;}
+
+#getSubling	  { width:100%;left:120px;}
+#block1       { position:absolute;left:220px;top:10px}
+#block2       { width:200px;float:left;margin-left:5px;margin-top:5px}
+/*
+#btMode,#btDelt,#btComment
+              { font-size:16px;font-family:黑体;margin-left:5px;margin-top:5px}
+*/
+
+#briefInfo .textbox {width:80%;}
+.filepath	  { width:72%;}
+
+/*.relation_word{ width:130px;}
+.relation_id  { width:98px} */
+#existTagArea center input {line-height:180%;margin:5px;font-size:14px}
+
+/*---------------------评论页面-------------------------*/
+#addArea #content { width:100%;border: solid 1px }
+.comment_title{ background-color:#5cadad }
+.comment      { margin-top:5px}
+
+
+/*---------------------分类页面-------------------------*/
+.text_class	  { border:solid #999;border-width:2px 1px 1px 1px;padding-top:2px;
+				border-left: solid #e0e0e0;border-right: solid #9d9d9d;
+				float:left;text-align:center;background-color:#c4e1ff;
+				cursor:hand}
+.text_class_l { border:solid #999;border-width:2px 1px 1px 1px;
+				float:left;width:180px;text-align:center;background-color:#c4e1ff;
+				cursor:hand}
+#vInstance    { background-color:#f0f0f0;clear:both;border:solid #999;border-width:1px 2px 2px 2px;padding:5px;}
+
+/*---------------------局部网络页面---------------------*/
+#focusRelation { z-index:-1;position:absolute;top:30;left:5;background-color:'#ffffce';border=1px;border-color:'#642100' }

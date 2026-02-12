@@ -1,0 +1,130 @@
+<!DOCTYPE HTML> 
+<HTML>
+<HEAD>
+<TITLE>爱思>>文件查找</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<script language="javascript" src="common.js"></script>
+<script language="javascript">
+
+var arrLocalFile=[];
+var arrElement=[];
+var arrElementImg=[];
+var arrBrief=[];
+var xmlDocElement=[];
+
+File=function (name){
+	this.name=name;
+	this.childFiles=[];
+	this.parentFile;
+}
+
+function init(){	//进入页面后
+	var strHTML="";
+	loadFiles();//取数据
+	for (var i=0;i<xmlDocElement.length ;i++ ){ 
+		var xPath=arrElement[i]+"/localsrc";  //OK 原始版本
+		var arrResult=xmlDocElement[i].documentElement.selectNodes(xPath);
+		for (var j=0;j<arrResult.length ;j++ ){
+			try{
+				var strResult=arrResult[j].childNodes[0].nodeValue; //有可能为空
+			}catch (e){	continue;}
+
+			var id=arrResult[j].parentNode.getAttribute("id");
+			var elmName=arrResult[j].parentNode.selectSingleNode("name").childNodes[0].nodeValue;
+			var arrTemp=[];
+			if (strResult.indexOf("\n")>-1){
+				arrTemp=strResult.split("\n");
+			}else{
+				arrTemp[0]=strResult;
+			}
+			for (var k=0;k<arrTemp.length ;k++ ){
+				if (arrTemp[k]!="-"){
+					var re=new RegExp("\\\\","g");
+					arrTemp[k]=arrTemp[k].replace(re,"/")
+					arrLocalFile[arrLocalFile.length]=arrTemp[k]+"#"+elmName+"$"+id;
+				}
+			}
+		}
+	}
+	//数据整理
+	arrLocalFile.sort();
+	
+	var strHTML="";
+	var lastFilePath=[];
+	for (var i=0;i<arrLocalFile.length ;i++ ){
+		var level=5;
+		var elmName=arrLocalFile[i].split("#")[1];
+		var si=elmName.indexOf("$");
+		elmName=elmName.substring(0,si);
+
+		var arrFilePath=arrLocalFile[i].split("#")[0].split("/");
+		//alert(arrFilePath);
+		strHTML+="<div class='path'>";
+		var id=arrLocalFile[i].split("$")[1];
+
+		var brief=id.charAt(0);
+		strHTML+="<span style='width:200px'>"
+		strHTML+=addLinkButton("<img src=\""+PATH_IMG+arrElementImg[brief]+"\"/>"+" "+elmName.substring(0,12)+"","editInfo(\""+id+"\",\""+id+"\")",elmName);
+		strHTML+="</span>";
+		for (var j=0;j<arrFilePath.length ;j++ ){
+			if ((lastFilePath[j]!=arrFilePath[j])&&(j!=arrFilePath.length-1)){
+				if (arrFilePath[j]!=".."){
+					strHTML+="<span class='file'>";
+					strHTML+=arrFilePath[j];
+					strHTML+="</span> ";
+				}
+			}else{
+				if (j==arrFilePath.length-1){
+					path=arrLocalFile[i].split("#")[0];
+					if (arrFilePath[j]==""){
+						strHTML+="<a href='"+path+"'>"+arrFilePath[j-1]+"</a>";
+					}else{
+						strHTML+="<a href='"+path+"'>"+arrFilePath[j]+"</a>";
+					}
+
+				}else{
+					if (arrFilePath[j]!=".."){
+						strHTML+="<span class='line' > └-----→  </span>";
+					}
+				}
+			}
+		}
+		lastFilePath=arrFilePath;
+		strHTML+="</div>";
+	}
+	document.getElementById("fileTree").innerHTML=strHTML;
+}
+function loadFiles(){
+	var xmlDocSys=getXMLFile("dt_system");
+	var elementClass=xmlDocSys.documentElement.selectSingleNode("datatag");
+	elementNum=elementClass.childNodes.length;
+	
+	for (var i=0;i<elementNum ; i++){
+		var element=elementClass.childNodes[i].tagName;
+		var elementImg =elementClass.childNodes[i].getAttribute("img");
+		arrElement[i]=element;
+		//读入文件变量
+		xmlDocElement[i]=getXMLFile("dt_"+element);
+		var xPath="idcode/"+element+"/brief";
+		var brief=xmlDocSys.documentElement.selectSingleNode(xPath).childNodes[0].nodeValue;
+		arrBrief[i]=brief;
+		arrElementImg[brief]=elementImg;
+	}
+}
+
+</script>
+</HEAD>
+
+<body onload="init()">
+<h3>文件搜索</h3>
+本地资源路径一览：
+<div id="recentAdd">
+
+</div>
+<div id="searchResult" style="clear:both;">
+</div>
+<div id="fileTree">
+</div>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE HTML> 
+<HTML>
+<HEAD>
+<TITLE>爱思>>类别</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<script language="javascript" src="common.js"></script>
+<script language="javascript">
+var xmlDocImg;
+var xmlDocSys;
+var xmlDocElement=[];
+
+var arrElement = [];  // 英文名 eg. researcher,literature ...
+var arrTag     = [];  // 中文名 eg. 研究者    ,文献       ...
+var arrData    = [];  // 要素个数
+var arrBrief   = [];  // 标识字母
+var arrImg     = [];  // 要素图像
+var arrTime    = [];  // 读入时间
+
+function init(){
+ //STEP 1 从system.xml中读取要素的信息
+	xmlDocImg=getXMLFile("sys_config");
+ 	xmlDocSys=getXMLFile("dt_system");
+	var nameTags=xmlDocSys.documentElement.selectNodes("datatag");
+	var briefs  =xmlDocSys.documentElement.selectNodes("idcode");
+
+	var temp;
+	for (var i=0;i<nameTags[0].childNodes.length ; i++){
+		arrElement[i]=nameTags[0].childNodes[i].tagName;
+		arrTag[i]=nameTags[0].childNodes[i].getAttribute("text");
+		var today = new Date();
+		xmlDocElement=getXMLFile("dt_"+arrElement[i]);
+		arrTime[i]= new Date() - today;
+		arrData[i]=xmlDocElement.documentElement.childNodes.length;
+		temp=briefs[0].getElementsByTagName(arrElement[i]);
+		arrBrief[i]=temp[0].getElementsByTagName("brief")[0].childNodes[0].nodeValue;
+		arrImg[i]=nameTags[0].childNodes[i].getAttribute("img");
+	}
+
+	//STEP 2 显示列表
+	//step 2.1 确定规模
+	var max=0;
+	var sum=0;
+	for (var i=0;i<arrData.length ;i++ ){
+		if (arrData[i]>max){
+			max=arrData[i];
+		}
+		sum+=arrData[i];
+	}
+	max=max/250;
+	var temp=Math.log(max)/Math.log(2);
+	temp=Math.ceil(temp);
+	var ratio=1;
+	for (var i=0;i<temp ;i++ ){
+		ratio*=2;
+	}
+	var arrGramColor=["#000093","#000093","#4b0091","#750075","#bf0060","#930000"];
+	//step 2.2 显示
+	var strHTML="";
+	strHTML+="<table><caption><h3>要素类别</h3></caption><tr><th>ID</th><th>图标</th><th>中文名</th><th>英文名</th><th>标识</th><th>操作</th><th>信息量（要素个数）</th><th>读入时间</th></tr>";
+	var totalTime=0;
+	for (i=0;i<arrElement.length ;i++ ){
+		strHTML+="<tr>";
+		strHTML+="<td>"+(i+1)+"</td>"; //序号
+		if (arrImg[i]==null){ //图像
+			strHTML+="<td><input type='button' value='添加' onclick='showPic(\""+arrElement[i]+"\")'></td>";
+		}else{
+			//alert("..\IMG\\"+arrImg[i]);
+			strHTML+="<td><img src='..\\IMG\\"+arrImg[i]+"' alt='点击更换图标' "
+			+" onclick='showPic(\""+arrElement[i]+"\",\""+arrImg[i]+"\")'"
+			+" onmouseover='this.style.backgroundColor=\"yellow\"'"
+			+" onmouseout='this.style.backgroundColor=\"#ecf5ff\"'"
+			+" style='cursor:hand' /></td>";
+		}
+		strHTML+="<td><input type='text' id='text_"+i+"' value='"+arrTag[i]+"' style='width:60px'/></td>";//中文名
+		strHTML+="<td>"+arrElement[i]+"</td>";  //英文名
+		strHTML+="<td>"+arrBrief[i]+"</td>";   //标识
+		var str="";
+		if (arrData[i]==0){
+			str="disabled";
+		}
+		strHTML+="<td><input type='button' value='清空' "+str+" onclick='clearData(\""+arrElement[i]+"\",\""+arrBrief[i]+"\")'>";
+		strHTML+="<input type='button' value='删除' onclick='delElement(\""+arrElement[i]+"\",\""+arrBrief[i]+"\")'></td>";
+		strHTML+="<td><h4 style='width:"+arrData[i]/ratio+"px;'>"+arrData[i]+"</h4></td>";
+		totalTime+=arrTime[i];
+		strHTML+="<td>"+arrTime[i]+" 毫秒</td>"
+		strHTML+="</tr>";
+	}
+	var elementNum=i;
+
+	//STEP 3 显示添加区域
+	strHTML+="<tr><td class='new' colspan='2'><span class='mini_title'>添加新类→</span></td>";
+	strHTML+="<td class='new'><input type='text' id='elmTag' style='width:60px'/></td>";
+	strHTML+="<td class='new'><input type='text' id='elmElement' style='width:100px'/></td>";
+	strHTML+="<td class='new'><select name='elmBrief'>";
+	for (var i=65;i<=90 ;i++ ){
+		var used=false;
+		var temp =   String.fromCharCode(i);
+		for (var j=0;j<arrBrief.length ; j++){
+			if (temp==arrBrief[j]){
+				used=true;
+				break;
+			}
+		}
+		if ((!used)&&(temp!='C')){
+			strHTML+="<option value='"+temp+"'>"+temp+"</option>";
+		}
+	}
+	strHTML+="</select></td>";
+	strHTML+="<td class='new'><input type='button' value='确认添加'  onclick='addNewElement()' /></td>";
+	strHTML+="<td style='text-align:right' >总信息量合计:"+sum+"条 </td>";
+	strHTML+="<td>"+totalTime+" 毫秒</td>";
+	
+	strHTML+="</tr>";
+	document.getElementById("elmList").innerHTML=strHTML;  
+	document.getElementById("imgChoice").style.visibility="hidden";
+}
+
+function confirmEdit(){ //保存中文名更改
+	var xmlDocSys=getXMLFile("dt_system");
+	var xPath="datatag";
+	var newNode=xmlDocSys.documentElement.selectSingleNode(xPath);
+
+	//STEP 1 替换中文名
+	for (var i=0;i<newNode.childNodes.length ;i++ ){
+		var newTag=getIdValue("text_"+i);
+		newNode.childNodes[i].setAttribute("text",newTag);
+	}
+
+	//STEP 2 替换节点
+	var oldNode=xmlDocSys.documentElement.selectSingleNode("datatag");
+	oldNode.parentNode.replaceChild(newNode,oldNode);
+
+	var xmlRoot=xmlDocSys.documentElement;
+	saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_system.xml');
+	init();
+}
+
+function clearElementData(element,elementBrief){ //删除某类要素的被引关联
+	//STEP 0 确定该要素编码的数据范围
+	var xmlDoc=getXMLFile("dt_"+element);
+	var xPath="";
+	try{
+		//step 0.1 获得第一个结点的ID
+	    var firstID=xmlDoc.documentElement.childNodes[0].getAttribute("id");
+		//step 0.2 获得最后一个节点的ID
+	    var l=xmlDoc.documentElement.childNodes.length;
+		//alert(l);
+		if (l==0){ //如果没有知识要素，则无需删除相应关联
+			return;
+		}
+		if (l==1){
+			s=firstID;
+		}else{
+			var lastID=xmlDoc.documentElement.childNodes[l-1].getAttribute("id");
+			//step 0.3 比较两个ID 获得共同前缀
+			var si=0;
+			var s="";  //获得ID的共同字串 s 
+			while (firstID.charAt(si)==lastID.charAt(si)){
+				s+=firstID.charAt(si);
+				si++;
+			}	
+		}
+	}
+	catch (e){
+		s=elementBrief+"2009";
+	}
+	//alert(s);
+    //STEP 1 删除其他文件中对该要素的引用关联
+	  for (var i=0;i<arrElement.length ;i++ ){
+		  if (arrElement[i]!=element){
+			  xmlDoc=getXMLFile("dt_"+arrElement[i]);
+			  var xPath="//"+arrElement[i]+"/*[@refer]";  
+			  var arrResult=xmlDoc.documentElement.selectNodes(xPath); //搜索所有包含关联信息的结点
+			  if (arrResult.length>0){
+				  for (var j=0;j<arrResult.length ;j++ ){
+					  var tempRefer=arrResult[j].getAttribute("refer");
+					  if (tempRefer.indexOf(s)>-1){ //如果关联信息中存在共同字串 s
+						  var newRefer="";
+						  var arrRefers=getRefers(tempRefer);
+						  var arrKeyWords=getKeyWords(tempRefer);
+
+						  for (var k=0;k<arrRefers.length ;k++ ){  //将不含有该
+							  if (arrRefers[k].charAt(0)!=elementBrief){
+								  if (newRefer!=""){
+									  newRefer+="#";
+								  }
+								  newRefer+=arrKeyWords[k]+"$"+arrRefers[k];
+							  }
+						  }
+						  arrResult[j].setAttribute("refer",newRefer);
+					  }
+				  }
+			  }
+			  xmlRoot=xmlDoc.documentElement;
+			  saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_'+arrElement[i]+'.xml');
+
+		  }//end if (arrElement[i]!=element)
+	  }//end for (var i=0;i<arrElement.length ;i++ )
+
+	//STEP 2 删除相关评论
+	var xmlDoc=getXMLFile("dt_comment");
+	var xmlRoot=xmlDoc.documentElement;
+	var xPath="*/object[contains(text(),'"+elementBrief+"')]/..";
+	var arrResult=xmlRoot.selectNodes(xPath);
+
+	for (var i=0;i<arrResult.length ;i++ ){
+		xmlRoot.removeChild(arrResult[i]);
+	}
+	var arrResult=xmlRoot.selectNodes(xPath);
+	saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_comment.xml');
+}
+
+function clearData(element,elementBrief){//清空某要素的数据
+    if (confirm("该功能将清空"+element+"的所有数据，但保留其属性的定义 \n\n※ 删除后不可回复 是否执行？")){
+    //STEP 1 删除关联
+    	clearElementData(element,elementBrief);
+    //STEP 2 删除本件中的数据
+	    saveToFile(XMLHEAD+"<"+element+"s></"+element+"s>",'/XML/dt_'+element+'.xml');
+	    init();
+    }
+}
+
+function delElement(element,elementBrief){ //删除要素 
+	if (confirm("确定要移除要素"+element+"及相关信息？\n(包括数据文件,属性信息,关联信息等)\n\n※ 删除后不可回复")){
+		//STEP 1 删除关联
+		clearElementData(element,elementBrief);
+
+		//STEP 2 删除system文件中的相关结点
+		xmlDoc=getXMLFile("dt_system");
+		//step 2.1 删除idcode中的结点
+		var tempNode= xmlDoc.documentElement.selectSingleNode("idcode/"+element);
+		tempNode.parentNode.removeChild(tempNode);
+		//step 2.2 删除datatag中的结点
+		tempNode= xmlDoc.documentElement.selectSingleNode("datatag/"+element);
+		tempNode.parentNode.removeChild(tempNode);
+		xmlRoot=xmlDoc.documentElement;
+		saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_system.xml');
+
+		//STEP 3 删除数据文件
+		deleteFile(element);
+
+		init();
+		document.location=document.location;
+	}
+}
+function showPic(elm,img){//显示可供选择的图片
+	document.getElementById("imgChoice").style.visibility="visible";
+	//STEP 1 从system中获取可用的图标列表
+	var arrImgFile=xmlDocImg.documentElement.selectNodes("img/filename");
+	var elmName=xmlDocSys.documentElement.selectNodes("datatag/"+elm)[0].getAttribute("text");
+
+	//STEP 2 生成小菜单及按钮
+	var strHTML="";
+	for (i=0;i<arrImgFile.length ;i++ ){
+		var imgFileName=arrImgFile[i].childNodes[0].nodeValue;
+		if (img==imgFileName){
+			strHTML="将 <b>"+elmName+"</b> 图标[<img height='15' src='../IMG/"+imgFileName+"' alt='当前使用的图像'/>]更换为:</br>"+strHTML;
+		}else{
+			strHTML+=addLinkButton("<img height='15' src='../IMG/"+imgFileName+"'/>","changePic(\""+elm+"\",\""+imgFileName+"\")","点击图标替换");
+		}
+		if (i%10==9){
+			strHTML+="<br/>";
+		}
+	}
+	document.getElementById("imgChoice").innerHTML=strHTML;
+	document.getElementById("imgChoice").style.top=event.clientY+document.body.scrollTop;
+	document.getElementById("imgChoice").style.left=event.clientX+document.body.scrollLeft+20;
+}
+function changePic(elm,img){
+    var xmlRoot=xmlDocSys.documentElement;
+    var xPath="datatag/"+elm;
+	xmlRoot.selectSingleNode(xPath).setAttribute("img",img);
+    saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_system.xml');
+    init();
+}
+
+function addNewElement(){ //添加新要素
+	var elmTag,elmElement,elmBrief;
+	//STEP 1 从页面上读取要素信息,并验证要素数据合法性
+	//step 1.0 非空
+	if (IsNull("elmTag")||IsNull("elmElement")||IsNull("elmBrief")){
+		alert("中文名、英文名以及标识都不能为空");
+		return;
+	}else{
+		elmTag=getIdValue("elmTag");
+		elmElement=getIdValue("elmElement"); 
+		elmBrief=getIdValue("elmBrief");
+	}
+	if ((elmElement=="system")||(elmElement=="comment")){
+		alert("system和comment是本系统的保留字，请换用其它英文名称");
+		return;
+	}
+	//step 1.1 检查elmTag 存在否	
+	for (i=0;i<arrTag.length ;i++ ){
+		if (arrTag[i]==elmTag){
+			alert("中文名 “"+elmTag+"” 已被使用，请换用其它名字");return;
+		}
+	}
+	//step 1.2 检查elmElement 存在否	
+	for (i=0; i<arrElement.length; i++){
+		if (arrElement[i]==elmElement){
+			alert("英文名 “"+elmElement+"” 已被使用，请换用其它名字");return;
+		}
+	}
+	//STEP 3 在system.xml中添加相应节点
+	var xmlDoc = getXMLFile("dt_system");
+	var xmlRoot=xmlDoc.documentElement;
+
+	//step 3.1 添加 idcode 节点
+	var xmlNode=xmlDoc.createElement(elmElement);
+	//获取当前时间 初始化idcode
+	var today = new Date();
+	var todayYear=today.getFullYear();
+	var todayMonth=today.getMonth()+1;
+	var todayDate=today.getDate();
+
+	var arrIdcodeTag = ["count","year"   ,"month"   ,"day"    ,"brief"];
+	var arrIdcodeValue=["0"    ,todayYear,todayMonth,todayDate,elmBrief];
+	
+	for (var i=0;i<5 ;i++ ){
+		var xmlElm=xmlDoc.createElement(arrIdcodeTag[i]);
+		var xmlElmTxt=xmlDoc.createTextNode(arrIdcodeValue[i]);
+		xmlElm.appendChild(xmlElmTxt);
+		xmlNode.appendChild(xmlElm);
+	}
+	xmlRoot.selectSingleNode("idcode").appendChild(xmlNode);
+
+	//step 3.2 添加 datatag 节点
+	xmlNode=xmlDoc.createElement(elmElement);
+	xmlNode.setAttribute("text",elmTag);
+	xmlNode.setAttribute("img","none.gif");
+
+	var arrSysTagEn=["name","img"     ,"link"    ,"localsrc"];
+	var arrSysTagCn=["名称","图像链接","网络链接","本地链接"]
+
+	for (var i=0; i<arrSysTagEn.length;i++ ){
+		xmlElm=xmlDoc.createElement(arrSysTagEn[i]);
+		xmlElm.setAttribute("dataType","key");
+		xmlElm.setAttribute("key","yes");
+		xmlElm.setAttribute("size","100");
+		xmlElmTxt=xmlDoc.createTextNode(arrSysTagCn[i]);
+		xmlElm.appendChild(xmlElmTxt);
+		xmlNode.appendChild(xmlElm);
+	}
+
+	xmlRoot.selectSingleNode("datatag").appendChild(xmlNode);
+	saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_system.xml');
+
+	//STEP 4 创建相应的dt_xxxxx.xml文件
+	xmlRoot=xmlDoc.createElement(elmElement+"s");
+	saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_'+elmElement+'.xml');
+	document.location=document.location;
+}
+function hideMenu(){
+	document.getElementById("imgChoice").style.visibility="hidden";
+}
+
+</script>
+</HEAD>
+
+<BODY onload="init()" oncontextmenu="hideMenu();return false">
+<div id="elmList"></div>
+<input type="button" value="保存中文名更改" onclick="confirmEdit()"	>
+<div id="imgChoice" 
+style="position:absolute;z-index:3;background-color='white';border:solid 1px;padding:5">
+</div>
+<br/>
+</BODY>
+</HTML>

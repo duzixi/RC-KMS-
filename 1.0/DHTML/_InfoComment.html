@@ -1,0 +1,192 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<TITLE>爱思>>近期评论</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<script language="javascript" src="common.js"></script>
+<script language="javascript">
+var id=null;
+var mode=-1; //排序模式切换： -1 倒序 ; 1 顺序
+var arrData=["comment","subject","object","time","content"];
+
+var newDataNum=0;
+var xmlDocComment;
+
+function init(){//获得URL传来的id参数值
+	if (id==null){   
+		id=getIDfromURL();
+	}
+	document.getElementById("object").value=id;
+
+	//STEP 0 显示评论对象的名字	
+	var elm=getElementName(id);
+	var xmlDoc=getXMLFile("dt_"+elm);
+	node=getNodeFromFile(xmlDoc,id);
+
+	var title=node.childNodes[0].childNodes[0].nodeValue; //要素名
+	document.title="评:"+title;
+	document.getElementById("commentTitle").innerHTML=addLinkButton(title,"editInfo(\""+id+"\",\""+id+"\")")+"  相关评论";
+
+	var strHTML="";
+	var strTime="";
+	//STEP 1  显示评论添加区域
+	strTime=getDateString();
+	document.getElementById("time").value=strTime;
+	strHTML+="<span class='title'>添加评论</span>";
+	strHTML+="<textarea  id='content' rows='6'></textarea><br/>";
+	strHTML+=addButton("发表评论","addComment()");
+	strHTML+=addLinkButton("<span class='yellow'>加亮</span>","highlight()")+addLinkButton("<b>加粗</b>","setBold()");
+	strHTML+="<hr/>";
+	document.getElementById("addArea").innerHTML=strHTML;
+	//STEP 2 显示 id 相关评论
+	showComment(mode);
+}		
+	
+function showComment(mode){ //显示相关评论
+	var strHTML="";
+	xmlDocComment=getXMLFile("dt_comment");
+	var arr= new Array();
+	var subject="";
+	var content="";
+	var commentId="";
+	xPath="comment[object='"+id+"']";
+	arr= xmlDocComment.documentElement.selectNodes(xPath);
+	strHTML+="共有"+arr.length+"条相关评论。";
+	if (arr.length!=0){
+		strHTML+=addLinkButton("顺序排列↓","mode=1;showComment(1)")+"·";
+		strHTML+=addLinkButton("倒序排列↑","mode=-1;showComment(-1)")+"<br/>";
+	}else{
+		strHTML+="<span style='color:#adadad;'> 顺序排列↓ ·</span>";
+		strHTML+="<span style='color:#adadad;'> 倒序排列↑ </span>"+"<br/>";
+	}
+	
+	k=arr.length-1;
+	while (k>=0){
+		if (mode==1){ //顺序
+			i=arr.length-k-1;
+		}else{
+			i=k;
+		}
+		commentId=arr[i].getAttribute("id");
+		content=arr[i].getElementsByTagName("content")[0].childNodes[0].nodeValue;
+		//显示XML中的信息
+		strHTML+="<div style='clear:left;float:top'><span class='time'>"+arr[i].getElementsByTagName("time")[0].childNodes[0].nodeValue;
+		
+		//显示操作按钮
+		strHTML+=addLinkButton("编辑","editComment(\""+commentId+"\")");
+		strHTML+=addLinkButton("删除","delComment(\""+commentId+"\")");
+		strHTML+="</span></br>";
+		//识别回车
+		var sReturn=content.indexOf("\n");
+		if (sReturn>-1){
+			var re=new RegExp("\n","g");
+			content=content.replace(re,"<br/>");
+		}
+		strHTML+="<span class='time_content'>"+content+"<hr/></span></div>";
+		k--;
+	}
+
+
+	document.getElementById("commentArea").innerHTML=strHTML;
+}
+
+function addComment(){ //添加评论
+	//STEP 1 判空
+	if (getIdValue("content")=="-"){
+		alert("不能发表空评论");
+		return;
+	}
+	strTime=getDateString();
+	document.getElementById("time").value=strTime;
+
+	//STEP 2 像XML文件中添加
+	addToXML(arrData);
+	showComment(mode);
+	document.getElementById("content").value="";
+}
+
+function delComment(commentId){ //删除评论
+	delFromXML("comment",commentId);
+	showComment(mode);
+}
+
+function editComment(commentId){//编辑评论
+	var strHTML="";
+	var node=getNodeFromFile(xmlDocComment,commentId);
+	strHTML+="<span class='title'>编辑评论</span>";
+	strHTML+="<span style='color:gray'> → "+node.getElementsByTagName("time")[0].childNodes[0].nodeValue+"</span>的评论内容：";
+	strHTML+="<textarea  id='content' rows='6'>"+getXMLValue(node,"content")+"</textarea><br/>";
+	strHTML+=addButton("确认更改","confirmEdit(\""+commentId+"\")");
+	strHTML+=addLinkButton("<span class='yellow'>加亮</span>","highlight()")+addLinkButton("<b>加粗</b>","setBold()");
+	strHTML+=addButton("取消编辑","init()");
+	strHTML+="<hr/>";
+	document.getElementById("addArea").innerHTML=strHTML;
+	//调整滚动条位置
+	document.body.scrollTop=0;
+}
+   
+function highlight(){
+	//STEP 1 获得textbox中的选中字符串
+	var str=getSelectedText();
+	alert(str);
+	if (str==""){
+		return;
+	}
+	//STEP 2 替换
+	document.getElementById("content").value=document.getElementById("content").value.replace(getSelectedText(),"<span class='y'>"+str+"</span>");
+
+}
+function setBold(){
+	//STEP 1 获得textbox中的选中字符串
+	var str=getSelectedText();
+	if (str==""){
+		return;
+	}
+	//STEP 2 替换
+	document.getElementById("content").value=document.getElementById("content").value.replace(getSelectedText(),"<b>"+str+"</b>");
+}
+
+function confirmEdit(commentId){//确认更改
+	var node=getNodeFromFile(xmlDocComment,commentId);
+	//STEP 1 替换content
+	setXMLValue(node,"content",getIdValue("content"));
+	//STEP 2 添加edittime
+	var nodeEditTime=node.selectSingleNode("edittime");
+	var strTime=getDateString();
+	if (nodeEditTime!=null){
+		setXMLValue(node,"edittime",strTime);
+	}else{
+		var newTagNode=xmlDocComment.createElement("edittime");
+		var newTextNode=xmlDocComment.createTextNode(strTime);
+		newTagNode.appendChild(newTextNode);
+		node.appendChild(newTagNode);
+	}
+	var oOld=getNodeFromFile(xmlDocComment,commentId);
+	oOld.parentNode.replaceChild(node,oOld);
+
+	xmlRoot=xmlDocComment.documentElement;
+	saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_comment.xml');
+	init();
+	//showComment(mode);
+}
+
+</script>
+</HEAD>
+
+<body onload="init()">
+<h3 id="commentTitle" class="commentTitle">知识搜索 >> 评论搜索</h3>
+
+<div id="addArea">
+	
+</div>
+
+<div id="commentArea">
+	
+</div>
+<input type='hidden' id='object'>
+<input type='hidden' id='time'>
+
+</body>
+</html>

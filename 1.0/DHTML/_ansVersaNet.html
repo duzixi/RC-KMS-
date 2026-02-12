@@ -1,0 +1,286 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<TITLE>爱思>>领域网络</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<style>
+	v\:* { behavior: url(#default#VML);} 
+</style>
+<script language="javascript" src="common.js"></script>
+<script language="javascript" src="commonVisual.js"></script>
+<script language="javascript">
+
+
+var arrElement=[];
+var arrElementImg=[];
+var arrElementText=[];
+var xmlDocSys;
+var xmlDocElement=[];
+
+var KE=[];    //装每一个知识要素
+var KENum=[];  //每一种知识要素的个数
+var arrElementRefer=[];
+
+var r;
+var rate=40;
+var noize=10;
+var oX=20;
+var oY=45;
+
+InfoElement= function (id,img,name){
+	this.id=id;
+	this.img=img;
+	this.name=name;
+	this.exist="exist";
+	this.x;
+	this.y;
+	this.degree=0;
+}
+
+function init(){
+	//step 0 初始化
+	xmlDocSys=getXMLFile("dt_system");
+	var xPath="datatag/*";
+	nameTags=xmlDocSys.documentElement.selectNodes(xPath);
+	
+	//step 1 获取每类要素的基本信息
+	var strHTML="";
+	for (var i=0;i<nameTags.length ;i++ ){
+		arrElement[i]=nameTags[i].tagName;
+		arrElementImg[i]=nameTags[i].getAttribute("img");
+		arrElementText[i]=nameTags[i].getAttribute("text");
+		xmlDocElement[i]=getXMLFile("dt_"+arrElement[i]);
+		//KENum[i]=xmlDocElement[i].documentElement.childNodes.length;
+		strHTML+="<a href='#' onclick='changeShow(\""+arrElement[i]+"\")' >";
+		strHTML+="<img src='../IMG/"+arrElementImg[i]+"'> "+arrElementText[i];
+		strHTML+="</a> ";
+	}
+	document.getElementById("sample").innerHTML=strHTML;	
+}
+
+function search(){
+	//step 1 通过领域关键字创建xPath，并从各个Xml文档搜取相关数据
+	var keyWord=getIdValue("keyWord");
+	var xPath="";
+	var tempArr = [];
+	for (var i=0;i<nameTags.length ;i++ ){
+		tempArr[i] =[];
+		xPath="//*[contains(text(),'"+keyWord+"')]";
+		tempArr[i] = xmlDocElement[i].documentElement.selectNodes(xPath);
+	}
+	//step 1.1 数据清洗
+	var clearedArr = [];
+	for (var i=0;i<nameTags.length ;i++ ){
+		KENum[i] = 0;
+		clearedArr[i] = [];
+		if (tempArr[i].length>0){
+			clearedArr[i][0] = tempArr[i][0];
+			KENum[i] = 1;
+			for (var j = 1;j < tempArr[i].length ;j++ ){
+				if (tempArr[i][j].parentNode == tempArr[i][j-1].parentNode){
+					continue;
+				}
+				clearedArr[i][KENum[i]] = tempArr[i][j];
+				KENum[i]++;
+			}
+		}
+	}
+
+	//step 2 计算显示半径
+	var TotalNum=0;
+	for (var i=0;i<nameTags.length ;i++ ){
+		KENum[i] = clearedArr[i].length;
+		TotalNum+= clearedArr[i].length;
+	}
+	//alert(TotalNum);
+	r= Math.round(Math.sqrt(TotalNum)*1.4);
+	rate = 900 / r;
+
+	//step 3 对于每一个元素x,y 坐标定位 并画出节点
+	var strHTML="";
+	document.getElementById("vKnowledgeMap").innerHTML=strHTML;
+
+	var q=0;
+	for (var i=0;i<nameTags.length ;i++ ){ //对于每一类元素
+		for (var j=0;j<KENum[i];j++ ){       //对于每一个元素
+			var currentNode=clearedArr[i][j].parentNode;
+			var ID=currentNode.getAttribute("id");
+			var name=currentNode.selectSingleNode("name").childNodes[0].nodeValue;
+			KE[ID]=new InfoElement(ID,arrElementImg[i],name)
+			KE[ID].x=(q %r)*rate+oX             +Math.random()*noize-noize/2;//+随机数干扰
+			KE[ID].y=Math.floor(q / r)*rate+oY  +Math.random()*noize-noize/2;
+			q++;
+			
+			strHTML+=getSimbolImg(KE[ID].x,KE[ID].y,5,
+						KE[ID].img,KE[ID].name,ID,
+						'this.style.width=\"20px\";this.style.height=\"20px\";',
+						'this.style.width=\"15px\";this.style.height=\"15px\";',
+						'relationInfo(\"'+ID+'\",\"'+ID+'\")'
+						);
+			//function getTip(tip,x,y,z,link,size);
+			strHTML+=getTip(KE[ID].name.substring(0,4),KE[ID].x-5,KE[ID].y+30,0,"",10);
+		}
+	}
+	document.getElementById("vKnowledgeMap").innerHTML+=strHTML;
+
+	var arrColors=["#007979","#6c6c6c","#01814a","#2894ff","#930093","#d26900","#01b468","#d9006c"];
+
+	//step 4 重新搜索每一个节点的refer 画出线
+	var svgX=-4;
+	var svgY=-30;
+	var svgHTML="<svg>";
+	
+	for (var i=0;i<nameTags.length ;i++ ){ //对于每一类元素
+		arrElementRefer[i]=[];
+		for (var j=0;j<KENum[i];j++ ){       //对于每一类元素的每一个元素
+			var currentNode=clearedArr[i][j].parentNode;
+			var ID=currentNode.getAttribute("id");
+			
+			var xPath="child::node()[@refer]";
+			var result=currentNode.selectNodes(xPath);
+			
+			if (result.length>0){
+				arrElementRefer[i][arrElementRefer[i].length-1]=ID;
+				var referStr="";
+				for (var k=0;k<result.length ;k++ ){
+					if (referStr!=""){
+						referStr+="#";
+					}
+					referStr+=result[k].getAttribute("refer");
+				}
+				
+				var arrIDs=getRefers(referStr);
+				
+				//画网线
+				var x1=KE[ID].x+7+svgX;
+				var y1=KE[ID].y+7+svgY;		
+	
+				if (arrIDs.length>=1){
+					//alert(arrIDs);
+					for (var k=0;k<arrIDs.length ;k++ ){
+						if (arrIDs[k]==""){
+							break;
+						}
+						KE[ID].degree=1;
+						
+						try{
+							KE[arrIDs[k]].degree++;
+							/*
+							if (KE[arrIDs[k]].exist != "exist"){
+								alert(KE[arrIDs[k]].exist);								
+							}
+							*/
+							arrElementRefer[i][arrElementRefer[i].length-1]=arrIDs[k];
+							x2=KE[arrIDs[k]].x+7+svgX;
+							y2=KE[arrIDs[k]].y+7+svgY;
+							svgHTML+=getLine(x1,y1,x2,y2,1,1,arrColors[i%8],ID+"_"+arrIDs[k],
+									'highLightLine(\"'+ID+'_'+arrIDs[k]+'\")',
+									'cancelLightLine(\"'+ID+'_'+arrIDs[k]+'\",\"'+arrColors[i%8]+'\")',
+									'editInfo(\"'+ID+'\",\"'+ID+'\")');
+						}catch (e){	}
+					}				
+				}else{
+					KE[ID].degree=1;
+					KE[arrIDs].degree++;
+					/*
+					if (KE[arrIDs].exist != "exist"){
+						alert(KE[arrIDs].exist);								
+					}
+					*/
+					arrElementRefer[i][arrElementRefer[i].length-1]=arrIDs;
+					x2=KE[arrIDs].x+7+svgX;
+					y2=KE[arrIDS].y+7+svgY;
+					svgHTML+=getLine(x1,y1,x2,y2,1,1,arrColors[i%8],ID+"_"+arrIDs,
+									'highLightLine(\"'+ID+'_'+arrIDs+'\")',
+									'cancelLightLine(\"'+ID+'_'+arrIDs+'\",\"'+arrColors[i%8]+'\")',
+									'editInfo(\"'+ID+'\",\"'+ID+'\")');
+					
+				}
+			}//end of if (result.length>0)
+		}//end of for j
+
+	}//end of for i
+	svgHTML+="</svg>";
+	document.getElementById("vKnowledgeMap").innerHTML+=svgHTML;
+}
+
+function highLightLine(id){   //线条获教
+	//alert(id);
+		
+	
+	var oLine=document.getElementById("line"+id);
+	oLine.style.stroke="yellow";
+	oLine.style.strokeWidth='2px';
+	oLine.style.zIndex='10';
+	
+	var ID=id.split("_");
+	var popTip=document.getElementById("popTip");
+	popTip.style.visibility="visible";
+	
+	if (event.clientX+document.body.scrollLeft>r*rate/2){
+		popTip.style.left=event.clientX+document.body.scrollLeft-250;
+		popTip.style.top =event.clientY+document.body.scrollTop-50;
+	}else{
+		popTip.style.left=event.clientX+document.body.scrollLeft+20;
+		popTip.style.top =event.clientY+document.body.scrollTop;
+	}
+
+	
+	var strHTML="";
+	strHTML+="<img src='"+PATH_IMG+KE[ID[0]].img+"'> "+KE[ID[0]].name;
+	strHTML+="<b>→</b>";
+	strHTML+="<img src='"+PATH_IMG+KE[ID[1]].img+"'> "+KE[ID[1]].name;
+	popTip.innerHTML=strHTML;
+	
+}
+function cancelLightLine(id,color){   
+	var oLine=document.getElementById("line"+id);
+	oLine.style.stroke=color;
+	oLine.style.strokeWidth='1px';
+	oLine.style.zIndex='1';
+	var popTip=document.getElementById("popTip");
+	popTip.style.visibility="hidden";
+}
+
+function changeShow(element){  //各类要素的关联 显示/隐藏
+	var target=document.getElementById(element);
+	if (target.style.visibility=="visible"){
+		target.style.visibility="hidden";
+	}else{
+		target.style.visibility="visible";
+	}
+}
+function changeOutShow(){ //孤立点 显示/隐藏
+	var startTime=new Date();
+	var check=document.all.outlier;
+	var nodes=document.getElementById("vKnowledgeMap").childNodes;
+
+	for (var i=0;i<nodes.length ;i++ ){
+		var str=nodes[i].getAttribute("id");
+		if (str.substring(0,3)=="line"){
+			break;
+		}
+		var ID=str.substring(6,str.length);
+		try{
+			if ((KE[ID].degree==0)&&(!check.checked)){
+				document.getElementById("visual"+ID).style.visibility="hidden";
+			}else{
+				document.getElementById("visual"+ID).style.visibility="visible";
+			}
+		}catch (e){}
+	}
+}
+
+</script>
+</HEAD>
+<BODY onload="init();">
+<form onsubmit="search();return false;">
+领域：<input type='text' id='keyWord'  size="30" value="艺术"/> 
+<input id ="btSearch" type='submit' value='搜索网络'/>
+图例：<span id="sample"></span>
+</form>
+<div id='vKnowledgeMap'></div>
+<div id='popTip' style='z-index:11'></div>
+</BODY>
+</HTML>

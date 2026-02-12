@@ -1,0 +1,218 @@
+<!DOCTYPE HTML> 
+<HTML>
+<HEAD>
+<TITLE>爱思>>文本搜索</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<script language="javascript" src="common.js"></script>
+<script language="javascript">
+var condition=[null]; //检索条件
+var term=[null];      //检索词
+var strHTMLcondition;
+var arrElementProp=new Array(); //用于存储要素属性
+var elementNum;
+var xmlDocElement=[];
+var arrIndexBrief=[];
+
+InfoElementProp=function(element,elementName,elementImg){  //要素属性类的定义
+	this.element=element;
+	this.elementName=elementName;
+	this.elementImg="<img src='../IMG/"+elementImg+"' />";
+	this.prop=new Array();
+	this.propName=new Array();
+	this.propNameIndex=new Array();
+	this.checked;
+}
+
+function init(){	//进入页面后
+
+	//STEP 1 从system文件中读取要素及属性信息
+	loadFiles();
+
+	//STEP 2 动态生成多选框界面
+	var strHTMLcondition="";
+	strHTMLcondition+="<input type='checkbox' name='selectAll'  onclick='selectAllElm()' checked='checked'/>全部 （";
+	for (var i=0;i<elementNum ;i++ ){
+		strHTMLcondition+="<input type='checkbox' name='condition' value='"+arrElementProp[i].element+"' checked='checked'/>";
+		strHTMLcondition+=arrElementProp[i].elementName+"  ";
+		arrElementProp[i].checked="checked";
+	}
+	strHTMLcondition+="<input type='checkbox' name='condition' value='comment' checked='checked'/>评论）";
+	
+	document.getElementById("searchArea").innerHTML=strHTMLcondition;
+
+	// 判断URL是否有关键字，如果有
+	var keyword = getIDfromURL();
+
+	if (keyword != "") {
+		// 将关键字添加到输入框里
+		document.getElementById("keyWord").value = keyword;
+		// 进行搜索
+		search();
+	}
+}
+function loadFiles(){
+	var xmlDocSys=getXMLFile("dt_system");
+	var elementClass=xmlDocSys.documentElement.selectSingleNode("datatag");
+	elementNum=elementClass.childNodes.length;
+	
+	for (var i=0;i<elementNum ; i++){
+		var element=elementClass.childNodes[i].tagName;
+		var elementName=elementClass.childNodes[i].getAttribute("text");
+		var elementImg =elementClass.childNodes[i].getAttribute("img");
+		arrElementProp[i]=new InfoElementProp(element,elementName,elementImg);
+		var xPath="datatag/"+element;
+		var propInfo=xmlDocSys.documentElement.selectNodes(xPath);
+
+		for (var j=0;j<propInfo[0].childNodes.length ;j++ ){
+			arrElementProp[i].prop[j]=propInfo[0].childNodes[j].tagName;
+			arrElementProp[i].propName[j]=propInfo[0].childNodes[j].childNodes[0].nodeValue;
+			arrElementProp[i].propNameIndex[propInfo[0].childNodes[j].tagName]=propInfo[0].childNodes[j].childNodes[0].nodeValue;
+		}
+		//读入文件变量
+		xmlDocElement[i]=getXMLFile("dt_"+element);
+		var xPath="idcode/"+element+"/brief";
+		var brief=xmlDocSys.documentElement.selectSingleNode(xPath).childNodes[0].nodeValue;
+		arrIndexBrief[brief]=i;
+	}
+	xmlDocElement[i]=getXMLFile("dt_comment");
+	arrElementProp[i]=new InfoElementProp("comment","评论","speak.gif");
+	arrElementProp[i].prop=["subject","object","time","content"];
+	arrElementProp[i].propName=["评论主体","评论客体","时间","内容"];
+
+    arrElementProp[i].propNameIndex["subject"]="评论主体";
+	arrElementProp[i].propNameIndex["object"]="评论客体";
+    arrElementProp[i].propNameIndex["time"]="时间";
+    arrElementProp[i].propNameIndex["content"]="内容";
+}
+
+function selectAllElm(){//全选 全不选
+	if (document.all.selectAll.checked==true){//全选 
+		for (var i=0;i< document.all.condition.length;i++ ){
+			document.all.condition[i].checked=true;
+			arrElementProp[i].checked=true;
+		}
+	}else{//全不选
+		for (var i=0;i< document.all.condition.length;i++ ){
+			document.all.condition[i].checked=false;
+			arrElementProp[i].checked=false;
+		}
+	}
+}
+
+function search(){//点击开始检索出发
+	var startTime=new Date();
+	//STEP 0 获取页面设置信息
+	var keyWord=getIdValue("keyWord");
+	
+	//先考虑全选的情况
+	//STEP 1 对于每个数据文件进行搜索,并将搜索结果拼接到字符串
+	var strHTMLresult="";
+	var arrResultElement=new Array();
+	var resultNum=0; // 搜索结果的属性综述
+
+	var tempParentId="";
+	var tempParentName="";
+	var tempTag="";
+	var tempTagName="";
+
+	for (var i=0;i< arrElementProp.length;i++ ){
+		if (document.all.condition[i].checked==false){
+			continue;
+		}
+		var xmlDoc=xmlDocElement[i];
+		//特殊字符的处理
+		var tempKeyWord=keyWord;
+		if (tempKeyWord.indexOf('"')>-1){ //假设搜索关键词中 " 和 ' 不会同时出现
+			var xPath="//*[contains(text(),'"+tempKeyWord+"')]";
+		}else{
+		    var xPath="//*[contains(text(),\""+tempKeyWord+"\")]";
+		}
+		//alert(xPath);
+		var resultTextNodes=xmlDoc.documentElement.selectNodes(xPath);
+		if (resultTextNodes.length>0){
+			resultNum+=resultTextNodes.length;
+			for (var j=0;j<resultTextNodes.length ;j++ ){
+			    if (arrElementProp[i].element=="comment"){
+					try{
+						tempParentId=resultTextNodes[j].parentNode.selectSingleNode("object").childNodes[0].nodeValue;
+					}catch (e){
+						//alert(resultTextNodes[j].xml);
+						//alert(tempParentId);	
+						continue;
+					}
+			    }else{
+					tempParentId=resultTextNodes[j].parentNode.getAttribute("id")+"";
+				}
+				if (tempParentId!=arrResultElement[arrResultElement.length-1]){
+				    arrResultElement[arrResultElement.length]=tempParentId;
+					if (arrElementProp[i].element=="comment"){ //如果是评论 需要从评论客体的文件中查找名称
+					    var brief=tempParentId.charAt(0);
+						var I=arrIndexBrief[brief]; //出错！
+						try{
+							tempParentName=xmlDocElement[I].documentElement.selectSingleNode(arrElementProp[I].element+"[@id='"+tempParentId+"']/name").childNodes[0].nodeValue;
+						}catch (e){
+							//alert(tempParentId);
+							continue;
+						}
+						
+					    strHTMLresult+="<br/><a href='#' onclick='showComment(\""+tempParentId+"\")'>";
+						tempParentName=" 评论: "+tempParentName;
+					}else{   //如果不是评论，则直接取名称
+					    tempParentName=resultTextNodes[j].parentNode.childNodes[0].childNodes[0].nodeValue;
+					    strHTMLresult+="<br/><a href='#' onclick='editInfo(\""+tempParentId+"\",\""+tempParentId+"\")'>";
+					}
+					strHTMLresult+="<span class='title'>"+arrElementProp[i].elementImg+" "+tempParentName+"</span></a><br/>";
+				}				
+				//step 0 预处理 - 数据清洗: 去掉样式信息
+                var strProp=resultTextNodes[j].childNodes[0].nodeValue;
+                re=new RegExp("<b>|</b>|<span class='yellow'>|</span>","g");
+				strProp=strProp.replace(re,"");
+
+                //step 1 获取关键词所在位置
+				var si=strProp.indexOf(keyWord);
+				var sj=si+keyWord.length;
+                
+				//step 2 比较sj与strProp.length 如果有需要就截取
+				if (sj+50<strProp.length){
+				    strProp=strProp.substring(0,sj+50)+"……";
+				}
+
+				//step 3 比较si与20
+                if (si>50){
+				    strProp="……"+strProp.substring(si-30,strProp.length);
+                }
+                var re=new RegExp(keyWord,"g");  //创建正则表达式 以便替换所有匹配字符串
+				strProp=strProp.replace(re,"<span class='keyword'>"+keyWord+"</span>");
+				tempTag=resultTextNodes[j].tagName;
+				tempTagName=arrElementProp[i].propNameIndex[tempTag];
+				if (tempTag=="name"){
+					strHTMLresult+="<b><span class='propname'>"+tempTagName+"</span>:"+strProp+"</b><br/>";
+				}else{
+					strHTMLresult+="<span class='propname'>"+tempTagName+"</span>:"+strProp+"<br/>";
+				}
+			}
+		}
+	}//for
+	var useTime=new Date() - startTime;
+	var strHTMLHead="<hr>共得到<b>"+resultNum+"</b>个搜索结果,相关要素共<b>"+arrResultElement.length+"</b>个:";
+	strHTMLHead+=" （搜索所用时间 "+useTime+" 毫秒）<hr/>";
+	document.getElementById("searchResult").innerHTML=strHTMLHead+strHTMLresult;
+}
+
+</script>
+</HEAD>
+
+<body onload="init()">
+<h3>文本搜索</h3>
+<form onsubmit="search();return false;">
+<input type='text' id='keyWord'  size="50" value=""/> 
+<input id ="btSearch" type='submit' value='开始查找'/>
+<br/>
+包含：<span id="searchArea"></span>
+</form>
+<div id="searchResult" style="clear:both;">
+</div>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE HTML> 
+<HTML>
+<HEAD>
+<TITLE>爱思>>信息查看</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<script language="javascript" src="common.js"></script>
+<script language="javascript" src="commonVisual.js"></script>
+<script language="javascript">
+
+var xmlDocSys;      //系统文件
+var xmlDocElement = [];  //知识要素数据文件
+var arrNodes = [];
+var arrElement = [];
+var arrElementImg = [];
+var arrElementText = [];
+var arrBrief = [];
+var nameTags;
+
+function init(){
+
+	// 生成过滤器
+	var arrInstanceNum=[2,5,10,20];
+	strHTML="<select id='instanceNum'>";
+	for (var i=0;i<arrInstanceNum.length ;i++ ){
+		strHTML+="<option value='"+arrInstanceNum[i]+"'>"+arrInstanceNum[i]+"</option>";;
+	}
+	strHTML+="</select>";
+	document.getElementById("selectInstanceNum").innerHTML=strHTML;
+
+	xmlDocSys=getXMLFile("dt_system"); //获取系统文件
+	var xPath="datatag/*";
+	nameTags=xmlDocSys.documentElement.selectNodes(xPath);
+	
+	for (var i=0;i<nameTags.length ;i++ ){
+		arrElement[i]=nameTags[i].tagName;
+
+		arrElementImg[i]=nameTags[i].getAttribute("img");
+		arrElementText[i]=nameTags[i].getAttribute("text");
+		xmlDocElement[i]=getXMLFile("dt_"+arrElement[i]);
+		var xPath="idcode/"+arrElement[i]+"/brief";
+		arrBrief[i]=xmlDocSys.documentElement.selectSingleNode(xPath).childNodes[0].nodeValue;
+
+	}
+
+	for (var i = 0; i < nameTags.length ;i++ ){
+		// 遍历每个文件
+		// alert(xmlDocElement[i].documentElement.childNodes.length);
+		for (var j = 0; j <xmlDocElement[i].documentElement.childNodes.length; j++){
+			var node = xmlDocElement[i].documentElement.childNodes[j];
+			var id = node.getAttribute("id");
+			var size = 0;
+			//step 1 自身与其他对象的关联
+			var referNodes = node.selectNodes("child::node()[@refer]");
+			var refer;
+
+			
+			for (var k = 0; k < referNodes.length; k++){
+			    refer = referNodes[k].getAttribute("refer");
+			    if (refer != ""){ //如果refer值为空，跳出"本"循环
+					temp = getRefers(refer); 
+					size += temp.length;
+				}
+			}
+
+			//step 2 其他对象与自身的关联
+			for (var k = 0; k < nameTags.length ;k++ ){
+				var xPath="//"+arrElement[k]+"/*[contains(@refer,'"+id+"')]"; 
+				// alert(k);
+				var arrResult=xmlDocElement[k].documentElement.selectNodes(xPath); //搜索所有包含关联信息的结点
+			    size +=arrResult.length;
+			}
+
+			
+			if (size >= 2) {
+				var name = node.childNodes[0].childNodes[0].nodeValue;
+				
+				var Node = {"id":id, "name":name, "img":arrElementImg[i], "size": size} ;
+				
+				arrNodes[arrNodes.length] = Node;
+				
+			}
+			
+		}
+	}
+}
+
+function search(){
+	var n = document.getElementById("instanceNum").value;
+	
+	var strHTML="";
+	for (var i = 0; i < arrNodes.length; i++) {
+		if (arrNodes[i].size >= n) {
+			strHTML+="<a href='#' onclick='editInfo(\""+arrNodes[i].id+"\",\""+arrNodes[i].id+"\")'>";
+			strHTML+="<span class='title'><img src='../IMG/"+arrNodes[i].img+"'/> "+arrNodes[i].name+"</span> ("+ arrNodes[i].size+")</a><br/>";
+		}
+	}
+	document.getElementById("show").innerHTML = strHTML;
+}
+
+</script>
+</HEAD>
+<body onload="init()">
+<h3>重点回顾</h3>
+重要度大于<span id="selectInstanceNum"></span> <input id="autoFocus" type="button" value="开始分析..." onclick="search()"/> 
+<div id="show">
+</div>
+</body>
+</HTML>

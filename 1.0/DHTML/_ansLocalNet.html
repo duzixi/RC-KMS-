@@ -1,0 +1,838 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<TITLE>爱思>>局部网络</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<style>
+	v\:* { behavior: url(#default#VML);} 
+</style>
+<script language="javascript" src="common.js"></script>
+<script language="javascript" src="commonVisual.js"></script>
+<script language="javascript">
+
+var id;
+var weight=480;
+var height=500;
+var top=80;
+var left=0;
+var alfa=0;
+var secondPoint=0;
+
+InfoRelation=function (level,subjectID,objectID,relationTag){ //关联类定义
+    this.level=level;
+    this.subjectID = subjectID; 
+	this.subjectName;
+	this.objectID = objectID;
+	this.objectName;
+	this.relationTag = relationTag;
+}
+
+InfoElement= function (level,elementID){ //要素类定义
+    this.level=level;
+    this.ID=elementID;
+	this.element;
+	this.img;
+	this.name="";
+	this.searched=false;
+	this.referNum=0;  //空间换时间
+	 
+	this.x=0; //决定该要素在平面上的布局
+    this.y=0;
+	
+	this.Cs=0;  //主观认知度
+	this.Co=0;  //客观认知度
+	this.Cri=0; //关联认知度-入度
+	this.Cro=0; //关联认知度-出度
+	this.V=0;   //价值量
+}
+var arrRelations=[]; //存储关联信息
+var arrElements= [];  //存储要素信息
+var arrExist=    []; // arrExist["R200910010124"]==1 表示 R200910010124 存在
+
+var xmlDocSys;                     //存储dt_system文件
+var arrXMLFile=       [];
+var IndexElementI=    [];
+var IndexBriefElement=[];
+
+var userElements=     [];
+var sysElementImg=    []; //系统要素的图像
+function init(){
+ //如果有参数，获得参数，并显示
+	var str=new String(document.location);
+	var i,j;
+	i=str.lastIndexOf("=")+1;
+    if (i>0){
+	    j=str.length;	
+		id=str.substring(i,j);
+		document.getElementById("relationID").value=id;
+          
+	}else{
+	    id=document.getElementById("relationID").value;
+	}
+	xmlDocSys=getXMLFile("dt_system");
+	var xPath="datatag/*";
+	var arrElementsXML=xmlDocSys.documentElement.selectNodes(xPath);
+	for (var i=0;i<arrElementsXML.length ;i++ ){
+		userElements[i]=arrElementsXML[i].tagName;
+	}
+
+	for (var i=0;i<userElements.length ;i++ ){	      
+		arrXMLFile[i]=getXMLFile("dt_"+userElements[i]); 
+		IndexElementI[userElements[i]]=i;
+
+		sysElementImg[userElements[i]]=getElementImgName(userElements[i]); //获得各系统的要素图像
+		var brief=xmlDocSys.documentElement.selectSingleNode("idcode/"+userElements[i]+"/brief").childNodes[0].nodeValue;
+		IndexBriefElement[brief]=userElements[i]; //要素标识 - 要素名 索引
+	}
+	if (id){
+		showRelationMap();
+	}
+
+	document.getElementById("focusRelation").innerHTML="";
+}
+
+function searchRelations(id,depth){//搜索并添加ID为subjectID的关联信息  核心算法，有待简化
+	var temp= new Array();
+    //STEP 1 从自身节点中获得关联信息 subjectID = subjectID
+	var element=getElementName(id);
+	var isOK=true;
+    var tempNode= arrXMLFile[IndexElementI[element]].documentElement.selectNodes(element+"[@id='"+id+"']");
+	try
+	{
+		var tempName=tempNode[0].selectSingleNode("name").childNodes[0].nodeValue;
+	}
+	catch (e)
+	{
+		isOK=false;
+		//alert(tempNode.xml);
+		//alert(id);
+	}
+	if (isOK){
+		var referNodes=tempNode[0].selectNodes("child::node()[@refer]");  
+
+		for (i=0;i<referNodes.length; i++){
+			var has=false;
+			refer=referNodes[i].getAttribute("refer");
+			if (refer==""){ //如果refer值为空，跳出"本"循环
+				continue;
+			}
+			referTag=referNodes[i].tagName;
+			temp    = getRefers(refer); 
+			keywords= getKeyWords(refer);
+			for (j=0;j<temp.length;j++ ){
+				if (arrExist[temp[j]]!=1){//如果不存在
+					arrExist[temp[j]]=1;
+					arrElements[arrElements.length]=new InfoElement(depth+1,temp[j]);
+					arrElements[arrElements.length-1].name=keywords[j];
+					var brief=temp[j].charAt(0);
+					var element=IndexBriefElement[brief];
+					arrElements[arrElements.length-1].element=element;
+					arrElements[arrElements.length-1].img =sysElementImg[element];
+				}
+
+				has=false;
+				//添加新关联
+				for (k=0;k<arrRelations.length; k++){
+					if ((arrRelations[k].subjectID==id)&&(arrRelations[k].objectID==temp[j])){
+						has=true;
+						break;
+					}
+				}
+				if (!has){      //2009-10-30 添加关联时，在相应的要素中也添加？ 添加到数组里
+					arrRelations[arrRelations.length]=new InfoRelation(depth+1,id,temp[j],referTag);  
+					arrRelations[arrRelations.length-1].subjectName=tempName;
+					arrRelations[arrRelations.length-1].objectName=arrElements[arrElements.length-1].name;
+				}
+			}
+		}
+		  
+		//STEP 2 从整个数据中获得关联信息 subjectID -> objectID
+		for (i=0;i<userElements.length ;i++ ){
+			var xmlDoc=arrXMLFile[i];
+			var xPath="//"+userElements[i]+"/*[contains(@refer,'"+id+"')]";  
+			var arrResult=xmlDoc.documentElement.selectNodes(xPath); //搜索所有包含关联信息的结点
+			if (arrResult.length>0){
+				for (j=0;j<arrResult.length ;j++ ){//对于每一个关联信息
+					var tempRefer =arrResult[j].getAttribute("refer");
+					var parentId  =arrResult[j].parentNode.getAttribute("id");
+					var parentName=arrResult[j].parentNode.selectSingleNode("name").childNodes[0].nodeValue;
+
+					//查看该要素是否存在
+					if (arrExist[parentId]!=1){//如果存在
+						arrExist[parentId]=1;
+						arrElements[arrElements.length]=new InfoElement(depth+1,parentId);
+						arrElements[arrElements.length-1].name=parentName;
+						arrElements[arrElements.length-1].img =sysElementImg[userElements[i]];
+						var brief=parentId.charAt(0);
+						var element=IndexBriefElement[brief];
+						arrElements[arrElements.length-1].element=element;
+					}
+					//查看该关联是否存在
+					has=false;
+					for (k=0;k<arrRelations.length; k++){
+						if ((arrRelations[k].subjectID==parentId)&&(arrRelations[k].objectID==id)){
+							has=true;
+							break;
+						}
+					}
+					if (!has){
+						referTag=arrResult[j].tagName;
+						arrRelations[arrRelations.length]=new InfoRelation(depth+1,parentId,id,referTag);
+						arrRelations[arrRelations.length-1].subjectName=parentName;
+						arrRelations[arrRelations.length-1].objectName=tempName;
+					}
+				}     
+			}
+		}
+	}
+	
+}
+
+var today;
+function showRelationMap(){ //显示关联图
+	document.getElementById("focusRelation").innerHTML="";
+	document.getElementById("relationTip").innerHTML="";
+	//STEP 0 初始化
+	var strUsedTime="";
+	var element;
+	var node;
+	var depth=0; //搜索的关联深度
+	arrRelations=[]; //重新清零
+	arrElements= [];  //重新清零
+
+	if (id==null){
+		id=getIdValue("relationID");
+	}else{
+		document.getElementById("relationID").value=id;
+	}
+	var brief=id.charAt(0);
+
+	arrElements[0]=new InfoElement(depth,id); //填加至元素列表
+	var elm=IndexBriefElement[brief];
+	var I=IndexElementI[elm];
+	arrElements[0].element=elm;
+	arrElements[0].name=arrXMLFile[I].documentElement.selectSingleNode(elm+"[@id='"+id+"']/name").childNodes[0].nodeValue;
+	arrElements[0].img=sysElementImg[arrElements[0].element];
+	arrElements[0].x=weight/2+left;
+	arrElements[0].y=height/2+top;
+	arrElements[0].searched=true;
+	arrExist[id]=1;
+
+	//STEP 1 搜索第一层关联
+	searchRelations(id,0);
+	arrElements[0].referNum=arrElements.length-1;
+
+	//STEP 2 搜索第二层关联
+	//step 2.1
+	l=arrElements.length; //对于每一个第一层关联要素 
+	  for (var q=1;q<l ; q++){
+		  if (arrElements[q].searched==false){
+			  arrElements[q].searched=true;
+			  searchRelations(arrElements[q].ID,1);
+		  }
+	  }
+	  node=getNodeFromFile(arrXMLFile[IndexElementI[arrElements[0].element]],id);
+	
+	//STEP 3 计算
+	//step 3.1 认知度 C
+	getCognitive();
+
+	//step 3.2 价值量 V
+	getValue();
+
+	//STEP 3 可视化结果
+	var svgX=-8;
+	var svgY=-100;
+	var strHTML="";
+	var svgHTML1=""; //内层网线
+	var svgHTML2=""; //外层网线
+	var strHTMLvTips="";  //名称
+	var strHTMLvCog="";   //认知度
+	//step 3.1 定义元素图标函数
+
+	//step 1.2 绘制中心点 level=0
+	var strName=arrElements[0].name;
+	strHTML+=getSimbolImg(arrElements[0].x,arrElements[0].y,0,arrElements[0].img,strName+"  (点击查看详细信息)",
+	              null, //simbolId
+				  'this.weight=\"18\";this.height=\"18\";'+'hightLightCenter()', //mouseOverEvent
+				  'this.weight=\"15\";this.height=\"15\";'+'cancelLightCenter()', //mouseOutEvent
+				  'editInfo(\"'+id+'\",\"'+id+'\")');    //clickEvent
+	//svgHTML1+=getCircle(arrElements[0].x-5,arrElements[0].y-5,24,24,"#ffe153","#ffe153","",-1,"0");
+	var si=strName.search(/:|\/|\(|（|,|：|-/);
+	if (si>=0){
+		strName=strName.substr(0,si);
+	}else{
+		strName=strName.substr(0,6);
+	}
+      
+	  strHTMLvTips+=getTip("<span style='background-color:white'>"+strName+"</span>",arrElements[0].x-10,arrElements[0].y-14,2,"",14);
+	  
+	  var Cs=arrElements[0].Cs;
+	  var Co=arrElements[0].Co;
+	  var Cr=arrElements[0].Cri+arrElements[0].Cro;
+	  var C=0.5*((1/3)*(Cs+Co+Cr)+Math.pow(Cs*Co*Cr,1/3));
+	  C=formatFloat(C, 2);
+	  strHTMLvCog+=getTip("<span style='background-color:white'>"+"("+"<b>"+C+"</b>:"+Cs+","+Co+","+Cr+")"+"</span><br/>"
+						  +"<span style='background-color:white;color:red;font-weight:bold'>"+arrElements[0].V+"</span> => "
+						  +"<span style='background-color:white;color:blue;font-weight:bold'>"+formatFloat((arrElements[0].V-C),2)+"</span>",arrElements[0].x-30,arrElements[0].y+24,2,"",14);
+      var unitAngle=360/arrElements[0].referNum;
+	  
+      var l=90;
+	  //step 1.3 绘制第一层结点
+	  for (i=1;i<arrElements.length ;i++ ){
+          if (arrElements[i].level>=2){
+		      break;
+          }
+		  arrElements[i].x=l*Math.sin((unitAngle*i+35)*(Math.PI/180))+weight/2+left;
+		  arrElements[i].y=l*Math.cos((unitAngle*i+35)*(Math.PI/180))+height/2+top;
+          strHTML+=getSimbolImg(arrElements[i].x,
+		                        arrElements[i].y,
+								0,
+								arrElements[i].img,arrElements[i].name,
+								arrElements[i].ID,
+								'highLight(\"'+arrElements[i].ID+'\")',
+                                'cancelLight(\"'+arrElements[i].ID+'\")',
+								'relationInfo(\"moreRelations\",\"'+arrElements[i].ID+'\")');
+		   var tip=arrElements[i].name.substr(0,10);
+		   var si= tip.search(/:|\/|\(|（|,|：|-/);
+		   if (si>=0){
+				tip=tip.substring(0,si);
+		   }
+		   strHTMLvTips+=getTip("<span style='background-color:white'>"+tip+"</span>",arrElements[i].x,arrElements[i].y-5,-1,"",12);
+		   
+		   var Cs=arrElements[i].Cs;
+		   var Co=arrElements[i].Co;
+		   var Cr=arrElements[i].Cri+arrElements[i].Cro;
+		   var C=0.5*((1/3)*(Cs+Co+Cr)+Math.pow(Cs*Co*Cr,1/3));
+		   C=formatFloat(C, 2);
+		   
+		   strHTMLvCog+=getTip("<span style='background-color:white'>"
+						  +"("+"<b>"+C+"</b>:"+Cs+","+Co+","+Cr+")"
+						  +"</span><br/>"
+						  +"<span style='background-color:white;color:red;font-weight:bold'>"
+						  +arrElements[i].V
+						  +"</span>=>"
+						  +"<span style='background-color:white;color:blue;font-weight:bold'>"+formatFloat((arrElements[i].V-C),2)+"</span>"
+						  ,arrElements[i].x-10,arrElements[i].y+25,2,"",12);
+
+	  }
+      var strTime="-= "+getDateString()+" =-";
+	  strHTML+=getTip(strTime,weight/2-60,height+top-20,2,"",12);
+
+      document.getElementById("vRelation").innerHTML=strHTML;
+	  
+	  strHTML="";
+	  //step 1.4 绘制第一层关联
+	  for (i=0;i<arrRelations.length ;i++ ){
+	      if (arrRelations[i].level>=2){
+		      break;
+	      }
+            var x1,x2,y1,y2;
+		  //step 1.5.1 找到始点
+		  for (j=0;j<arrElements.length ;j++ ){
+		      if (arrRelations[i].subjectID==arrElements[j].ID){
+		         x1=arrElements[j].x+svgX;
+				 y1=arrElements[j].y+svgY;
+			  }
+		  }
+		  //step 1.5.2 找到终点
+		  for (j=0;j<arrElements.length ;j++ ){
+		      if (arrRelations[i].objectID==arrElements[j].ID){
+		         x2=arrElements[j].x+svgX;
+				 y2=arrElements[j].y+svgY;
+			  }
+		  }
+		  //step 1.5.3 画出一条线
+		  lineWeight=2;
+          
+		  var unitX=(x2-x1)/4;
+		  var unitY=(y2-y1)/4;
+		  x1+=7;
+		  y1+=7;
+		  
+		  var strLine="";
+		  var LineColor=["#a3d1d1","#6fb7b7","#4f9d9d","#408080"];
+
+		  for (j=0;j<4 ;j++ ){
+		      strLine+=getLine(x1+unitX*j,y1+unitY*j,x1+unitX*(j+1),y1+unitY*(j+1),-2,lineWeight,LineColor[j],(i+""+(j+1)),
+		                   'highLightLine(\"'+i+'\")',
+						   'cancelLightLine(\"'+i+'\")',
+						   "editInfo(\""+arrRelations[i].subjectID+"\",\""+arrRelations[i].subjectID+"\")");
+		  }
+		  svgHTML1+=strLine;
+      }
+
+	  document.getElementById("vRelation1").innerHTML="<svg>"+svgHTML1+"</svg>";
+	  document.getElementById("vTips").innerHTML=strHTMLvTips;
+	  document.getElementById("vCog").innerHTML=strHTMLvCog;
+	  
+	  
+	  if (document.getElementsByName("tipVisable")[0].checked){
+	      document.getElementById("vTips").style.visibility="visible";
+	  }else{
+	      document.getElementById("vTips").style.visibility="hidden";
+	  }
+
+	  if (document.getElementsByName("cogVisable")[0].checked){
+	      document.getElementById("vCog").style.visibility="visible";
+	  }else{
+	      document.getElementById("vCog").style.visibility="hidden";
+	  }
+      secondPoint=i;
+	  drawSecond(secondPoint);
+
+   //STEP 4 显示上一个 下一个结点链接
+	  	var xmlId;
+		strHTML="<span class='right'>";
+		if (node.previousSibling!=null){ //如果有上一个节点
+			xmlId=node.previousSibling.getAttribute("id");
+			strHTML+=addLinkButton("<span style='background-color:#c4e1ff'><b>← 上一个</b></span>","showNext(\""+xmlId+"\")","显示上一个要素");
+		}else{
+			strHTML+="<span style='color:#adadad'><b> 【 上一个 </b></span>";
+		}
+		if (node.nextSibling!=null){  //如果右下一个节点
+			xmlId=node.nextSibling.getAttribute("id");
+			strHTML+=" · "+addLinkButton("<span style='background-color:#c4e1ff'><b>下一个 → </b></span>","showNext(\""+xmlId+"\")","显示下一个要素");
+		}else{
+			strHTML+=" · <span style='color:#adadad'><b> 下一个 】 </b></span>";
+		}
+		document.getElementById("getSubling").innerHTML=strHTML;
+
+    //STEP 5 显示关联要素的信息列表
+	strHTML="<span id='text"+id+"'>"+arrElements[0].name+"</span>  相关联要素：<hr/>";
+	document.getElementById("textRelation0").innerHTML=strHTML;
+	var strHTML1="";
+	var strHTML2="";
+	var str;
+	for (i=1;i<arrElements.length ;i++ ){
+		    elm=getElementName(arrElements[i].ID);
+			str="<span id='text"+arrElements[i].ID
+			        +"' onmouseover='highLight(\""+arrElements[i].ID+"\")' onmouseout='cancelLight(\""+arrElements[i].ID+"\")'>";
+			str+="<img src='../IMG/"+arrElements[i].img+"'/>  <a href='javascript:void(0)' onclick='editInfo(\""+arrElements[i].ID+"\",\""+arrElements[i].ID+"\")'>"
+			        +arrElements[i].name+"</a></span><br/>";
+			if (arrElements[i].level==1){
+			    strHTML1+=str;    
+			}else{
+			    strHTML2+=str;
+			}
+		}
+	document.getElementById("textRelation1").innerHTML="第一层关联：<br/>"+strHTML1;
+	document.getElementById("textRelation2").innerHTML="第二层关联：<br/>"+strHTML2;
+
+	document.getElementById("textRelation").style.left=weight+20;
+	document.getElementById("textRelation").style.top=50;
+	document.getElementById("text"+id).style.backgroundColor="#ffe153";
+	document.getElementById("operateArea").style.visibility="visible";
+}
+function getCognitive(){
+	var xmlDocComment=getXMLFile("dt_comment");
+
+	for (var k=0;k<arrElements.length; k++){
+		//STEP 1 计算主观认知度
+		xPath="comment[object='"+arrElements[k].ID+"']";
+		arr= xmlDocComment.documentElement.selectNodes(xPath);
+		arrElements[k].Cs=arr.length;
+
+		//STEP 2 计算客观认知度
+		xPath=arrElements[k].element+"[id='"+arrElements[k].ID+"']";
+		node=getNodeFromFile(arrXMLFile[IndexElementI[arrElements[k].element]],arrElements[k].ID);
+		try{
+			arrElements[k].Co=node.childNodes.length;
+		}catch (e){
+			arrElements[k].Co=0;
+			//alert(arrElements[k].ID);
+		}
+
+		//STEP 3 计算关联认知度
+		//step 3.1 入度
+		for (var l=0;l<arrXMLFile.length ;l++ ){
+			try{
+				var xPath="//"+arrXMLFile[l].documentElement.childNodes[0].tagName+"/*[contains(@refer,'"+arrElements[k].ID+"')]"; 
+				var arrResult=arrXMLFile[l].documentElement.selectNodes(xPath); //搜索所有包含关联信息的结点
+				arrElements[k].Cri+=arrResult.length;
+			}catch(e){}
+		}
+		
+		//step 3.2 出度
+		try{
+			var referNodes=node.selectNodes("child::node()[@refer]");
+			var refer;
+			for (var l=0;l<referNodes.length; l++){
+				refer=referNodes[l].getAttribute("refer");
+				if (refer!=""){ //如果refer值为空，跳出"本"循环
+					temp=getRefers(refer); 
+					arrElements[k].Cro+=temp.length;
+				}
+			}
+		}catch (e){
+			arrElements[k].Cro=0;
+		}
+
+	}
+}
+
+function getValue(){
+	var w1=0.9;
+	var w2=0.5;
+	for (var i=0;i<arrElements.length ; i++){
+		if (arrElements[i].level<2){
+			var V=0;
+			//STEP 1 计算自身重要度
+			V+=w1*arrElements[i].Cri+w2*arrElements[i].Cro;
+			//STEP 2 计算入度重要度
+			for (var j=0;j<arrRelations.length ;j++ ){
+				if (arrRelations[j].objectID==arrElements[i].id){
+					for (var k=0;k< arrElements.length; k++){
+						if (arrRelations[j].subjectID==arrElements[k].ID){
+							V+=w1*arrElements[k].Cri+w2*arrElements[k].Cro;
+							break;
+						}
+					}
+				}	
+			}
+			//STEP 3 计算出度重要度
+			for (var j=0;j<arrRelations.length ;j++ ){
+				if (arrRelations[j].subjectID==arrElements[i].id){
+					for (var k=0;k< arrElements.length; k++){
+						if (arrRelations[j].objectID==arrElements[k].ID){
+							V+=w1*arrElements[k].Cri+w2*arrElements[k].Cro;
+							break;
+						}
+					}
+				}	
+			}
+			arrElements[i].V=V;
+		}
+	}
+}
+
+  function drawSecond(i){
+	var svgX=-8;
+	var svgY=-250;
+      var strHTML="";
+	  //var strHTML1="";
+	  var svgHTML1="";
+	  var svgHTML2="";
+	  var strHTMLvTips="";
+	  var strHTMLvCog="";
+	  var levelLine=i;
+  	  //step 1.4 绘制第二层结点
+	  l=170;
+      unitAngle=360/(arrElements.length-arrElements[0].referNum-1);
+      for (j=0;j<arrElements.length ;j++ ){
+	      if (arrElements[j].level>=2)
+	      {
+			  arrElements[j].x=l*Math.sin((unitAngle*j+alfa)*(Math.PI/180))+weight/2+left;
+			  arrElements[j].y=l*Math.cos((unitAngle*j+alfa)*(Math.PI/180))+height/2+top;
+			  strHTML+=getSimbolImg(arrElements[j].x,
+									arrElements[j].y,
+									0,
+									arrElements[j].img,
+									arrElements[j].name,
+									arrElements[j].ID,
+									  'highLight(\"'+arrElements[j].ID+'\")',
+									'cancelLight(\"'+arrElements[j].ID+'\")',
+									'relationInfo(\"moreRelations\",\"'+arrElements[j].ID+'\")');
+			  
+			  var tip=arrElements[j].name.substr(0,10);
+			  var si= tip.search(/:|\/|\(|（|,|：|-/);
+			  if (si>=0){
+				  tip=tip.substring(0,si);
+			  }
+			  var x=(l+30)*Math.sin((unitAngle*j+alfa)*(Math.PI/180))+weight/2+left;
+			  var y=(l+30)*Math.cos((unitAngle*j+alfa)*(Math.PI/180))+height/2+top;
+			  strHTMLvTips+=getTip(tip,x-10,y+10,2,"",12);
+			  var Cs=arrElements[j].Cs;
+			  var Co=arrElements[j].Co;
+			  var Cr=arrElements[j].Cri+arrElements[j].Cro;
+			  var C=0.5*((1/3)*(Cs+Co+Cr)+Math.pow(Cs*Co*Cr,1/3));
+			  C=formatFloat(C, 2);
+
+			  strHTMLvCog+=getTip("("+"<b>"+C+"</b>:"+Cs+","+Co+","+Cr+")",arrElements[j].x-10,arrElements[j].y+15,2,"",12);
+	      }
+      }
+
+	  //step 1.5 绘制 第二层 结点之间的边
+      for (i=levelLine;i<arrRelations.length ;i++ ){
+	      var x1,x2,y1,y2;
+		  //step 1.5.1 找到始点
+		  for (j=0;j<arrElements.length ;j++ ){
+		      if (arrRelations[i].subjectID==arrElements[j].ID){
+		         x1=arrElements[j].x+svgX;
+				 y1=arrElements[j].y+svgY;
+			  }
+		  }
+		  //step 1.5.2 找到终点
+		  for (j=0;j<arrElements.length ;j++ ){
+		      if (arrRelations[i].objectID==arrElements[j].ID){
+		         x2=arrElements[j].x+svgX;
+				 y2=arrElements[j].y+svgY;
+			  }
+		  }
+		  //step 1.5.3 画出一条线
+		  var lineWeight=1.5;
+		  if (arrRelations[i].level<2){
+		      lineWeight=2;
+          }
+		  var unitX=(x2-x1)/4;
+		  var unitY=(y2-y1)/4;
+		  x1+=7;
+		  y1+=7;
+
+		  var strLine="";
+		  var LineColor=["#a3d1d1","#6fb7b7","#4f9d9d","#408080"];
+
+		  for (j=0;j<4 ;j++ ){
+		      strLine+=getLine(x1+unitX*j,y1+unitY*j,x1+unitX*(j+1),y1+unitY*(j+1),-2,lineWeight,LineColor[j],(i+""+(j+1)),
+		                   'highLightLine(\"'+i+'\")',
+						   'cancelLightLine(\"'+i+'\")',
+						   "editInfo(\""+arrRelations[i].subjectID+"\",\""+arrRelations[i].subjectID+"\")");
+		  }
+
+          if (arrRelations[i].level<2){
+		      svgHTML1+=strLine;
+          }else{
+		      svgHTML2+=strLine;
+		  }
+      }
+	  document.getElementById("vRelation2").innerHTML=strHTML+"<svg>"+svgHTML2+"</svg>";
+	  showHideRelation();
+	  document.getElementById("relationTip").innerHTML="";
+	  document.getElementById("vTips2").innerHTML=strHTMLvTips;
+	  document.getElementById("vCog2").innerHTML=strHTMLvCog;
+	  showHideTips();
+	  showHideCog();
+  }
+
+function showRelationMeaning(lineId){//鼠标在线上时触发, 显示关联的语义
+    var str="";
+	var subjectElement=getElementName(arrRelations[lineId].subjectID);
+	var objectElement=getElementName(arrRelations[lineId].objectID);
+
+	var subjectName=arrRelations[lineId].subjectName;
+	var objectName=arrRelations[lineId].objectName;
+	
+	var xPath="datatag/"+subjectElement+"/"+arrRelations[lineId].relationTag;
+	var relationName=xmlDocSys.documentElement.selectNodes(xPath);
+	str+=getElementImg(subjectElement)+subjectName;
+	str+=" - <span class='yellow'>"+relationName[0].childNodes[0].nodeValue+"</span> → "
+	str+=getElementImg(objectElement)+objectName;	
+	document.getElementById("focusRelation").innerHTML=str;
+
+	//显示在线上
+	var x =event.clientX+document.body.scrollLeft;
+	var y=event.clientY+document.body.scrollTop;
+	document.getElementById("relationTip").innerHTML=getTip("<b>"+relationName[0].childNodes[0].nodeValue+"</b>",x-20,y-12,5,"",12);
+}
+
+function hightLightCenter(){
+	var currentObj=document.getElementById("circle0");
+	currentObj.fillcolor="yellow";
+	currentObj.style.width="27px";
+	currentObj.style.height="27px";
+}
+
+function cancelLightCenter(){
+	var currentObj=document.getElementById("circle0");
+	currentObj.fillcolor="#ffe153";
+	currentObj.style.width="24";
+	currentObj.style.height="24";
+}
+
+function highLightLine(lineId){ //关联线高亮显示
+	for (var i=1;i<=4 ;i++ ){
+		document.getElementById("line"+lineId+i).style.stroke="yellow";
+	}
+	if (arrRelations[lineId].subjectID!=id){
+		highLight(arrRelations[lineId].subjectID);
+	}else{
+		hightLightCenter();
+	}
+	if (arrRelations[lineId].objectID!=id){
+		highLight(arrRelations[lineId].objectID);
+	}else{
+		hightLightCenter();
+	}  
+	showRelationMeaning(lineId);
+}
+
+function cancelLightLine(lineId){ //取消关联线的高亮显示
+	var arrLineColor=["#a3d1d1","#6fb7b7","#4f9d9d","#408080"];
+	for (var i=1;i<=4 ;i++ ){
+		document.getElementById("line"+lineId+i).style.stroke=arrLineColor[i-1];
+	}
+	if (arrRelations[lineId].subjectID!=id){
+		cancelLight(arrRelations[lineId].subjectID);
+	}else{
+		cancelLightCenter();
+	}
+	if (arrRelations[lineId].objectID!=id){
+		cancelLight(arrRelations[lineId].objectID);
+	}else{
+		cancelLightCenter();
+	}
+}
+
+function highLight(textId){    //要素的高亮显示
+	document.getElementById("text"+textId).style.backgroundColor="yellow";
+	document.getElementById("visual"+textId).style.backgroundColor="yellow";
+	document.getElementById("visual"+textId).style.border="1px solid #ff8000";
+}
+function cancelLight(textId){  //取消要素的高亮显示
+	document.getElementById("text"+textId).style.backgroundColor="white"; 
+	document.getElementById("visual"+textId).style.backgroundColor="white";
+	document.getElementById("visual"+textId).style.border="0px";
+}
+
+function showNext(xmlId){ //显示下一个
+	id=xmlId;
+	arrRelations=new Array(); //
+	arrElements=new Array();  //
+	arrExist=new Array(); // 
+	showRelationMap();
+}
+function changeId(){
+
+	if (getIdValue("relationName")=="-"){
+		id=getIdValue("relationID");
+	}else{
+		var keyWord=getIdValue("relationName");
+		var referID=new Array();
+		var elements= userElements;
+		for (i=0;i<elements.length ;i++ ){
+			var xmlDoc=arrXMLFile[i];
+			var xPath=elements[i]+"/name[contains(text(),\""+keyWord+"\")]";
+			referID=xmlDoc.documentElement.selectNodes(xPath);
+			if (referID.length!=0){
+				id=referID[0].parentNode.getAttribute("id");
+				break;
+			}
+		}
+	}
+	if (id=="-"){
+		alert("请输入关注的要素名称"); return;
+	}
+	if (!id){
+		alert("未找到相关要素"); return;
+	}
+	arrRelations=new Array(); //
+	arrElements=new Array();  //
+	arrExist=new Array(); // 
+	secondPoint=0;
+	showRelationMap();
+}
+function showHideTips(){ //显示/隐藏名称
+	if (document.getElementsByName("tipVisable")[0].checked){
+		document.getElementById("vTips").style.visibility="visible";
+		document.getElementById("vTips2").style.visibility="visible";
+	}else{
+		document.getElementById("vTips").style.visibility="hidden";
+		document.getElementById("vTips2").style.visibility="hidden";
+	}
+}
+function showHideCog(){ //显示/隐藏认知度
+	if (document.getElementsByName("cogVisable")[0].checked){
+		document.getElementById("vCog").style.visibility="visible";
+		document.getElementById("vCog2").style.visibility="visible";
+	}else{
+		document.getElementById("vCog").style.visibility="hidden";
+		document.getElementById("vCog2").style.visibility="hidden";
+	}
+}
+
+function showHideRelation(){ //显示/隐藏第二层关联
+	if (document.getElementsByName("RelationVisable")[0].checked){
+		document.getElementById("vRelation2").style.visibility="visible";
+		document.getElementById("vTips2").style.visibility="visible";
+		document.getElementById("vCog2").style.visibility="visible";
+	}else{
+		document.getElementById("vRelation2").style.visibility="hidden";
+		document.getElementById("vTips2").style.visibility="hidden";
+		document.getElementById("vCog2").style.visibility="hidden";
+	}
+}
+var turnState="";
+function turnLeft(){ //左旋开关
+	if (turnState=="left"){
+		turnState="stop";
+	}else{
+		turnState="left";
+		turningLeft();
+	}
+}
+
+function turnRight(){ //右旋开关
+	if (turnState=="right"){
+		turnState="stop"
+	}else{
+		turnState="right";
+		turningRight();
+	}
+}
+function turningLeft(){//持续向左旋转
+	if (turnState=="left"){
+		alfa=alfa+5;
+		drawSecond(secondPoint); 
+		setTimeout(turningLeft,"100");
+	}else{
+		return;
+	}
+}
+function turningRight(){ //持续向右旋转
+	if (turnState=="right"){
+		alfa=alfa-5;
+		drawSecond(secondPoint);
+		setTimeout(turningRight,"100");
+	}else{
+		return;
+	}
+}
+
+function stopTuring(){
+	turnState="stop";
+}
+
+</script>
+</HEAD>
+
+<BODY onload="init();">
+<h3>知识分析  >>  局部网络</h3>
+<input id="relationID" type="text" size="13" style="position:absolute;top:-200px;left:-200px">
+<span id="relationTip" style="position:absolute;top:0;left:20"></span>
+<span id="getSubling"></span>
+<span id="focusRelation" style="position: absolute;top:110px;left:10px"></span>
+<div id="visualOptionArea">
+<form onsubmit="changeId();return false;">
+中心点知识要素名称: <input id="relationName" type="text" size="13" value="">
+<input type="submit" value="显示局部网络" style="font-size:16px;font-family:黑体"><br/>
+</form>
+显示选项: 
+<input type='checkbox' name="RelationVisable" onclick='showHideRelation()' checked='checked'>第二层关联</input>
+<input type='checkbox' name="tipVisable"      onclick='showHideTips()'     checked='checked'>名称</input>
+<input type='checkbox' name="cogVisable"      onclick='showHideCog()'                       >认知度</input>
+<br/>
+<span id='operateArea' style='visibility:hidden'>
+对外层操作: 
+<input type="button" value="左旋" onclick="turnLeft()"> 
+<input type="button" value="停止旋转" onclick="stopTuring()">
+<input type="button" value="右旋" onclick="turnRight()">
+</span><br/>
+
+</div>
+
+<div id="vRelation"></div>
+<div id="vRelation1"></div>
+<div id="vRelation2"></div>
+<div id='vTips'></div>
+<div id='vTips2'></div>
+<div id='vCog'></div>
+<div id='vCog2'></div>
+
+<div id="textRelation" style="position:absolute;top:50px;left:600px" >
+    <div id="textRelation0" ></div>
+    <div id="textRelation1" style="width:49%;float:left;"></div>
+    <div id="textRelation2" style="width:49%;float:left;"></div>
+</div>
+</BODY>
+</HTML>

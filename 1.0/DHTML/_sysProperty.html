@@ -1,0 +1,487 @@
+<!DOCTYPE HTML> 
+<HTML>
+<HEAD>
+<TITLE>爱思>>属性</TITLE>
+<META NAME="Author" CONTENT="LotusAwhaT.">
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<script language="javascript" src="common.js"></script>
+<script language="javascript">
+var element;
+var arrElement=new Array();
+var arrTag = new Array();
+var arrRate = new Array();
+var nameTags;
+var xmlDocSys;
+var xmlDocElement=[];
+var arrIndexElement=[];
+var radioNo;
+function init(){
+	//STEP 1 从system.xml中读取要素的信息
+	xmlDocSys=getXMLFile("dt_system");
+	nameTags=xmlDocSys.documentElement.selectNodes("datatag");
+	for (var i=0;i<nameTags[0].childNodes.length ; i++){
+		arrElement[i]=nameTags[0].childNodes[i].tagName;
+		xmlDocElement[i]=getXMLFile("dt_"+arrElement[i]);
+		arrTag[i]=nameTags[0].childNodes[i].getAttribute("text");
+		arrIndexElement[arrElement[i]]=i;
+	}
+	strHTML="<br/>"+addButton("添加新属性","addProp()")+"  "+addButton("保存修改","confirmEdit()");
+	strHTML+="<hr/>";
+	strHTML+="<span class='mini_title'>批量修改属性值</span><br/>";
+	strHTML+="1)对所有标签操作："+addButton("清除空值属性","clearNullTag()")+"<br/>";
+	//strHTML+="对本地资源路径："+addButton("降一层级","changeFilePath(-1)")+addButton("升一层级","changeFilePath(1)");
+	strHTML+="2)将属性值中的<input type='text' id='oldValue' size='10' value=''/>替换为<input type='text' id='newValue' size='10' value=''>";
+	strHTML+=addButton("执行","replaceValue()");
+	strHTML+="<hr/>";
+	strHTML+="对单选标签操作：";
+	strHTML+=addButton("删除","delTag()")+addButton("上移","moveUp(1)","","buttonUp")+addButton("下移","moveUp(-1)");
+	strHTML+="<hr/>";
+	document.getElementById("buttonsArea").innerHTML=strHTML;
+
+	//STEP 3 显示默认的标签组
+	showTags(arrElement[0],0);
+	
+	if (document.all.tagData.length>1){ 
+		document.all.tagData[0].checked=true;
+	}else{
+		document.all.tagData.checked=true;
+	}
+}
+
+function addProp(){
+	document.body.scrollTop=document.body.scrollHeight;
+}
+
+function replaceValue(){ //批量替换属性值
+	var oldValue=getIdValue("oldValue");
+	var newValue=getIdValue("newValue");
+	var xPath="//locarsrc[contains(text(),'"+oldValue+"')]";
+	for (var i=0;i<arrElement.length ;i++ ){ //对于每一种要素
+		var arrResult=xmlDocElement[i].documentElement.selectNodes(xPath);
+		for (var j=0;j<arrResult.length ;j++ ){
+			var dataValue=arrResult[j].childNodes[0].nodeValue;
+			/*
+			if (oldValue=="\\"){
+				oldValue=="\\\\";
+			}
+			var re = new RegExp(oldValue,"g")  //正则表达式有误
+			*/
+			dataValue=dataValue.replace(oldValue,newValue);
+			arrResult[j].childNodes[0].nodeValue=dataValue;
+		}
+		//保存文件
+		var xmlRoot=xmlDocElement[i].documentElement;
+		saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_'+arrElement[i]+'.xml');
+	}
+	document.getElementById("messageArea").innerHTML="属性值修改成功！";
+}
+
+function changeFilePath(mode){  //变更本地资源路径
+	var xPath="*/localsrc/..";
+	for (var i=0;i<arrElement.length ;i++ ){ //对于每一种要素
+		var arrResult=xmlDocElement[i].documentElement.selectNodes(xPath);
+		for (var j=0; j<arrResult.length;j++ ){  //对于每个包含本地资源的结点
+			//STEP 1 提取原有的路径数组
+			var arrLocalsrc=[];
+			try{
+				var strLocalsrc=arrResult[j].selectSingleNode("localsrc").childNodes[0].nodeValue;
+			}
+			catch (e){			}
+			
+			if (strLocalsrc.indexOf("\n")>-1){
+				arrLocalsrc=strLocalsrc.split("\n");
+			}else{
+				arrLocalsrc[0]=strLocalsrc;
+			}
+			//STEP 2 生成新路径字符串
+			strLocalsrc="";
+			for (var k=0;k<arrLocalsrc.length ;k++ ){ //对于每一行链接
+				if (k!=0){
+					strLocalsrc+="\n";
+				}
+				if (arrLocalsrc[k].indexOf(":")<0){ //只考虑相对路径
+					if (mode==-1){ //如果为降一级
+						strLocalsrc+="../"+arrLocalsrc[k];
+					}else{ 
+						if (arrLocalsrc[k].indexOf("../")>-1){
+							strLocalsrc+=arrLocalsrc[k].replace("../","");
+						}
+					}
+				}
+			}
+			//STEP 3 替换原有的值
+			try{
+				arrResult[j].selectSingleNode("localsrc").childNodes[0].nodeValue=strLocalsrc;
+			}catch (e){	}
+		}
+		//STEP 4 保存文件
+		var xmlRoot=xmlDocElement[i].documentElement;
+		saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_'+arrElement[i]+'.xml');
+	}
+	var msg="";
+	if (mode=='-1'){
+		msg="本地资源(localsrc)的路径降级成功！";
+	}else{
+		msg="本地资源(localsrc)的路径升级成功！";
+	}
+	document.getElementById("messageArea").innerHTML=msg;
+}
+
+function clearNullTag(){//清除所有数据文件中属性值为 - 的属性标签
+	var sysElements = arrElement; 
+	for (var i=0;i<sysElements.length ;i++ ){
+		var xmlRoot=xmlDocElement[i].documentElement;
+
+		//STEP 1 删除属性值为'-'的属性节点
+		var xPath="//"+sysElements[i]+"/*[text()='-']";
+		var arrResult=xmlDocElement[i].documentElement.selectNodes(xPath); //搜索所有包含关联信息的结点
+		if (arrResult.length!=0){
+			for (var j=0;j<arrResult.length ;j++){
+				arrResult[j].parentNode.removeChild(arrResult[j]);
+			}
+		}
+        //STEP 2 删除值为''的关联(refer)属性
+        var xPath="//"+sysElements[i]+"/*[@refer='']";
+        var arrResult=xmlDocElement[i].documentElement.selectNodes(xPath);
+		if (arrResult.length!=0){
+			for (var j=0;j<arrResult.length ;j++){
+				arrResult[j].removeAttribute("refer");
+			}
+		}
+		
+		saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_'+sysElements[i]+'.xml'); 
+
+	}
+	document.getElementById("messageArea").innerHTML="空值属性清楚完毕！";
+}
+function showTags(element,I){
+    var startTime=new Date();
+	var elementName=arrTag[I];
+	//STEP 0 生成标题目录
+	var strTitle="<div style='margin-left:10px;margin-right:10px;margin-bottom:-4px;font-weight:bold;'>";
+	for (var i=0; i<arrTag.length	;i++ ){
+			var style="float:left;padding:5px;border:solid white;border-width: 1px;";
+		if (i==I){
+			style+="background-color:#a6a6d2;";
+		}else{
+			style+="background-color:#fadbd9;";
+		}
+		strTitle+="<div style='"+style+"'><a href='#' onclick='showTags(\""+arrElement[i]+"\","+i+")'> ";
+		strTitle+=getElementImg(arrElement[i])+" "+arrTag[i]+" </a></div>";
+	}
+
+	var strHTML=strTitle+"</div>";
+
+	strHTML+="<table style='clear:left;'><tr><th>ID</th><th>属性标识</th><th>属性名</th><th>宽度</th><th>关键</th><th>类型</th><th>使用数</th></tr>";
+	xmlDocSys=getXMLFile("dt_system");
+	nameTags=xmlDocSys.documentElement.selectNodes("datatag");
+
+	var tags=nameTags[0].selectNodes(element);
+	var tag,dataType,isCheck,size;
+	var rate,total;
+
+	var selNormal,selTime,selImg,selLink="";  //数据标签4种类型：1.--- 2.时间 3.图像 4.链接
+	
+	for (var i=0;i<tags[0].childNodes.length ;i++ ){
+		selNormal="";
+		selTime="";
+		selClass="";
+		tag=tags[0].childNodes[i].tagName;
+		dataType=tags[0].childNodes[i].getAttribute("key");
+		if (dataType=="yes"){
+			isCheck=" checked='checked'";}else{isCheck="";}
+		//从xml中获得标签的使用频次
+		rate=xmlDocElement[I].documentElement.selectNodes("//"+tag).length;
+		
+		size=tags[0].childNodes[i].getAttribute("size");
+		if (size==null){size=100;}
+		
+		dataType=tags[0].childNodes[i].getAttribute("dataType");
+		switch (dataType){
+			case "normal": selNormal="selected='true'";break;
+			case "time":   selTime="selected='true'";break;
+			case "class":   selClass="selected='true'";break;
+		}
+
+		//==================生成该行界面=====================
+		strHTML+="<tr>";
+		//ID
+		switch (i){
+			case 0:strHTML+="<td>1</td>";break;
+			case 1:strHTML+="<td><input type='radio' name='tagData' value='"+tag+"' onclick='showElement();changeState(1)'/>"+(i+1)+"</td>";break;
+			default:strHTML+="<td><input type='radio' name='tagData' value='"+tag+"' onclick='showElement();changeState("+i+")'/>"+(i+1)+"</td>";break;
+		}
+		//英文名
+		strHTML+="<td>"+tag+"</td>";
+		//中文名
+		strHTML+="<td><input type='text' size='12' id='txt_"+tag+"'";
+		strHTML+="value='"+tags[0].childNodes[i].childNodes[0].nodeValue+"' /></td>";
+		//大小
+		strHTML+="<td><input type='text' size='4' id='size_"+tag+"' value='"+size+"'/></td>";
+		//关键
+		switch (i){
+			case 0:strHTML+="<td>√</td>";break;
+			default:strHTML+="<td><input type='checkbox' name='key'"+isCheck+" value='"+tag+"'/></td>";
+		}
+		//分类
+		var tagged=false;
+		var arrSysTagEn=["name","img","link","localsrc"];
+		var arrSysTagCn=["标识","图像","链接","路径"];
+		for (var j=0;j<arrSysTagEn.length ;j++ ){
+			if (tag==arrSysTagEn[j]){
+				strHTML+="<td>"+arrSysTagCn[j]+"</td>";
+				tagged=true;
+				break;
+			}
+		}
+		if (!tagged){
+			strHTML+="<td><select id='sel_"+tag+"'>";
+			strHTML+="<option value='normal' "+selNormal+">---</option>";
+			strHTML+="<option value='time' "+selTime+">时间</option>";
+			strHTML+="<option value='class' "+selClass+">分类</option></select></td>";
+		}
+		strHTML+="<td style='text-align:right'>"+rate+"</td></tr>";
+	}
+	strHTML+="<tr>";
+	strHTML+="<td class='new'><span class='mini_title'>新属性</span></td>";
+	strHTML+="<td class='new'><input type='text' id='propEn' size='10'></td>";
+	strHTML+="<td class='new'><input type='text' id='propCn' size='12'></td>";
+	strHTML+="<td class='new'><input type='text' id='propSize' size='4'></td>";
+	strHTML+="<td class='new'><input type='checkbox' name='new_key'></td>";
+	strHTML+="<td class='new'><select name='new_selType'>";
+	strHTML+="<option value='normal' "+selNormal+">---</option>";
+	strHTML+="<option value='time' "+selTime+">时间</option>";
+	strHTML+="<option value='class' "+selClass+">分类</option></select></td>";
+	strHTML+="<td class='new'>"+addButton("追加","addNewProp()")+"</td>";
+	strHTML+="</tr>";
+
+	strHTML+="</table><input type='hidden' id='element' value='"+element+"'>";
+    document.getElementById("tagList").innerHTML=strHTML;
+}
+
+function changeState(n){
+	//alert(n);
+	radioNo=n;
+	if (n==1){
+		//alert("false");
+		document.getElementById("buttonUp").disabled=true;
+	}else{
+		//alert("true");
+		document.getElementById("buttonUp").disabled=false;
+	}
+}
+
+function addNewProp(){//追加新属性
+	var newPropEn=getIdValue("propEn");
+	var newPropCn=getIdValue("propCn");
+	var newPropSize=getIdValue("propSize");
+	//alert(newPropEn);
+	if (newPropEn=="-"){
+		alert("新属性英文名不能为空");
+		return;
+	}
+	if (newPropCn=="-"){
+		alert("新属性中文名不能为空");
+		return;
+	}
+	if (newPropSize=="-"){
+		newPropSize=100;
+	}
+	var propKey=document.getElementById("new_key");
+	//alert(propKey.checked);
+	var propType=getIdValue("new_selType");
+	//alert(propType);
+	var element=getIdValue("element");
+	//var tags=nameTags[0].selectNodes(element);
+
+	var xmlDocSys=getXMLFile("dt_system");
+	var xmlRoot=xmlDocSys.documentElement;
+	var propNode=xmlDocSys.createElement(newPropEn);
+	var textNode=xmlDocSys.createTextNode(newPropCn);
+	propNode.appendChild(textNode);
+	propNode.setAttribute("size",newPropSize);
+	if (propKey){
+		propNode.setAttribute("key","yes");
+	}else{
+		propNode.setAttribute("key","no");
+	}
+	propNode.setAttribute("dataType",propType);
+	var elmNode=xmlRoot.selectSingleNode("datatag/"+element);
+	//alert(elmNode.xml)
+	elmNode.appendChild(propNode);
+	
+	if (saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_system.xml')){
+	    document.getElementById("messageArea").innerHTML="成功追加属性！";
+	}
+	xmlDocSys=getXMLFile("dt_system");
+	nameTags=xmlDocSys.documentElement.selectNodes("datatag");
+	showTags(element,arrIndexElement[element]);
+	//init();
+}
+
+function confirmEdit(){//保存更改
+	//STEP 1 从页面中读取值,并将页面中的值存入节点datatag
+	var element=getIdValue("element");
+	var tags=nameTags[0].selectNodes(element); //获取对应元素的标签组节点
+	
+	var tag,tagName,tagSize,tagKey,tagType;
+	var tagKey=document.getElementsByName("key");
+	for (var i=0;i<tags[0].childNodes.length ;i++ ){ //根据每个标签名,获得页面上的值
+		tag=tags[0].childNodes[i].tagName;
+		tagName=getIdValue("txt_"+tag);
+		tagSize=getIdValue("size_"+tag);
+		tagType=getIdValue("sel_"+tag);
+		setXMLValue(tags[0],tag,tagName);
+		tags[0].childNodes[i].setAttribute("size",tagSize);
+		if ((i!=0)&&(tagKey[i-1].checked)){
+			tags[0].childNodes[i].setAttribute("key","yes");
+		}else{
+			if (i==0){
+				tags[0].childNodes[i].setAttribute("key","yes");
+			}else{
+				tags[0].childNodes[i].setAttribute("key","no");
+			}
+		}	
+
+		tags[0].childNodes[i].setAttribute("dataType",tagType);
+	}
+
+	//STEP 2 替换原有节点
+	var xmlDocSys=getXMLFile("dt_system");
+	var oldNodeSys=xmlDocSys.selectSingleNode("system/datatag/"+element); 
+	oldNodeSys.parentNode.replaceChild(tags[0],oldNodeSys);  //貌似原有节点只能从根部读取
+
+	var xmlRoot=xmlDocSys.documentElement;
+
+	if (saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_system.xml')){
+	    document.getElementById("messageArea").innerHTML="成功保存修改！";
+	}
+
+	xmlDocSys=getXMLFile("dt_system");
+	nameTags=xmlDocSys.documentElement.selectNodes("datatag");
+
+}
+
+function delTag(){ //删除标签
+	//STEP 1 获得所选中的标签
+	var element=getIdValue("element");
+	var tagDataId=getRadioValue();
+	var currentNode;
+
+	//STEP 2 询问是否确定删除
+	if (tagDataId){
+		if (confirm("确定要删除以下标签么？"+tagDataId)){
+			currentNode=nameTags[0].selectSingleNode(element+"/"+tagDataId);
+			currentNode.parentNode.removeChild(currentNode);
+
+			//STEP 3 替换原有节点
+			var xmlDocSys=getXMLFile("dt_system");
+			var oldNodeSys=xmlDocSys.selectSingleNode("system/datatag"); 
+			oldNodeSys.parentNode.replaceChild(nameTags[0],oldNodeSys);  //貌似原有节点只能从根部读取
+
+			var xmlRoot=xmlDocSys.documentElement;
+
+			saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_system.xml');
+			showTags(element,arrIndexElement[element]);
+			document.getElementById("messageArea").innerHTML="成功删除属性："+tagDataId;
+		}
+	}
+}
+
+function showElement(){//查看相关要素
+	var tagDataId=getRadioValue();
+	var element=getIdValue("element");
+	var xmlDoc=getXMLFile("dt_"+element);
+	var xPath=element+"/"+tagDataId;
+	var arrResult=xmlDoc.documentElement.selectNodes(xPath);
+
+	var listLen=10;
+	if (arrResult.length<10){
+		listLen=arrResult.length;
+	}
+	var strHTML="";
+	for (var i=0;i<listLen ;i++ ){
+		var id=arrResult[i].parentNode.getAttribute("id");
+		var name=arrResult[i].parentNode.childNodes[0].childNodes[0].nodeValue;
+		strHTML+=addLinkButton(name,"editInfo(\""+id+"\",\""+id+"\")")+"<br/>";
+	}
+	document.getElementById("elementList").innerHTML=strHTML;
+}
+
+function moveUp(mode){ // 1   下移 -1 
+	//alert("radio:"+radioNo);
+	radioNo+=-mode;
+	//alert(radioNo);
+	changeState(radioNo);
+    var element=getIdValue("element");
+    var xmlDoc=getXMLFile("dt_system");
+	var node=nameTags[0].selectSingleNode(element);
+
+	var tagDataId=getRadioValue();
+	var currentNode;
+	var previousNode;
+	var node1,node2;
+	var txt1,txt2;
+
+	if (tagDataId){
+		currentNode=node.selectSingleNode(tagDataId);
+		if (mode==1){
+			previousNode=currentNode.previousSibling;
+		}else if (mode==-1){
+			previousNode=currentNode.nextSibling;
+		}
+		if ((currentNode==null)||(previousNode==null)){
+			document.getElementById("messageArea").innerHTML="已经处于端点";
+			return;
+		}
+        //step 1 备份当前选中节点
+		txt1=xmlDoc.createTextNode(currentNode.childNodes[0].nodeValue);
+		node1=xmlDoc.createElement(currentNode.tagName);
+		node1.appendChild(txt1);
+
+		node1.setAttribute("size",currentNode.getAttribute("size"));
+		node1.setAttribute("key",currentNode.getAttribute("key"));
+		node1.setAttribute("dataType",currentNode.getAttribute("dataType"));
+
+        //step 2 备份目标节点
+		txt2=xmlDoc.createTextNode(previousNode.childNodes[0].nodeValue);
+		node2=xmlDoc.createElement(previousNode.tagName);
+		node2.appendChild(txt2);
+
+		node2.setAttribute("size",previousNode.getAttribute("size"));
+		node2.setAttribute("key",previousNode.getAttribute("key"));
+		node2.setAttribute("dataType",previousNode.getAttribute("dataType"));
+
+		node.replaceChild(node1,previousNode);
+		node.replaceChild(node2,currentNode);
+
+		var oOld=xmlDoc.selectSingleNode("system/datatag/"+element);
+		oOld.parentNode.replaceChild(node,oOld);
+
+		xmlRoot=xmlDoc.documentElement;
+
+		saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_system.xml');
+		showTags(element,arrIndexElement[element]);
+		selectRadio(tagDataId);
+	}	
+}
+
+
+</script>
+</HEAD>
+
+<BODY onload="init()">
+<h3>要素属性</h3>
+<div id="tagList" style="float:left;margin-right:25px">
+</div>
+<div style="float:left">
+    <span id="tagMenu"></span>
+	<div id="buttonsArea"></div>
+	包含该属性的要素(前十个)：
+	<div id="elementList"></div>
+</div>
+
+
+</BODY>
+</HTML>

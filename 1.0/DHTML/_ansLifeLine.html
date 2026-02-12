@@ -1,0 +1,276 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<TITLE>爱思>>历史年表</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<style>
+	v\:* { behavior: url(#default#VML);} 
+</style>
+<script language="javascript" src="common.js"></script>
+<script language="javascript" src="commonVisual.js"></script>
+<script language="javascript">
+
+var element="";
+var selectHTML="";
+var nameTags;
+
+InfoRc = function (xml,id,name,birthYear,deadYear){
+    this.xml=xml;
+    this.id=id;
+    this.name=name;
+    this.birthYear=birthYear;
+    this.deadYear=deadYear;
+}
+
+function init(){ // 初始化
+	var strHTML="<select id='element' onchange='showCondition()'>";
+	var xmlDocSys=getXMLFile("dt_system");
+	var xPath="datatag";
+	nameTags=xmlDocSys.documentElement.selectNodes(xPath);
+
+	for (i=0;i<nameTags[0].childNodes.length ; i++){
+		strHTML+="<option value='"+nameTags[0].childNodes[i].tagName+"'>";
+		strHTML+=nameTags[0].childNodes[i].getAttribute("text")+"</option>";
+	}
+	strHTML+="</select>";
+	document.getElementById("elementSelect").innerHTML=strHTML;
+	showCondition();
+	document.all.autoFocus.focus();
+}
+
+function showCondition(){//显示条件
+	element=document.all.element.value;
+	var strHTML="";
+	selectHTML="";
+	var tags=nameTags[0].selectSingleNode(element);
+
+	//STEP 2 生成条件选择列表
+	var optionHTML=""; // 时间标签
+	for (i=0; i<tags.childNodes.length;i++ ){
+		if (tags.childNodes[i].getAttribute("dataType")=="time"){
+			optionHTML+="<option value='"+tags.childNodes[i].tagName+"'>";
+			optionHTML+=tags.childNodes[i].childNodes[0].nodeValue+"</option>";
+		}
+		if (tags.childNodes[i].getAttribute("key")=="yes"){ //2009-12-31 改变条件
+			selectHTML+="<option value='"+tags.childNodes[i].tagName+"'>";
+			selectHTML+=tags.childNodes[i].childNodes[0].nodeValue+"</option>";
+		}
+	}
+	strHTML="<select id='startYear'>"+optionHTML+"</select>";
+	document.getElementById("startTime").innerHTML=strHTML;
+
+	strHTML="<select id='endYear'>"+optionHTML+"</select>";
+	document.getElementById("endTime").innerHTML=strHTML;
+
+	strHTML="<select id='condition0'>"+selectHTML+"</select>"
+			   +'<input id="txtTerm0" type="text"  size="15"/>';
+	document.getElementById("conditionSelect").innerHTML=strHTML;
+	//addCondition(0);
+}
+
+function addCondition(num){
+	var strHTML="";
+	for (var i=0;i<=num;i++ ){
+		strHTML+="<select id='condition"+i+"'>"+selectHTML+"</select>"
+			   +'<input id="txtTerm'+i+'" type="text"  size="10"/>';
+		if (i!=num){
+			strHTML+=" 且 <br/>"
+		}
+	}
+	if (num<4){
+		strHTML+=addButton(" + ","addCondition("+(num+1)+")");
+	}
+	document.getElementById("conditionSelect").innerHTML=strHTML;
+}
+
+function showHis(){ //显示历史年表
+	//alert('showHis');
+	var arrRcInfo = new Array(); //研究者信息类
+	var arrList=new Array();  //研究者 XML文件结点信息
+	var arrName=new Array();  //       姓名列表
+	var arrBirthYear=new Array(); //   出生年份
+	var arrDeadYear =new Array(); //   去世年份
+	
+	element=document.all.element.value;
+	var xPath=element+"/";
+	//STEP 1 获得数据范围
+	for (var i=0;i<5 ;i++ ){
+		try{
+			var condition=document.getElementById("condition"+i).value;
+			var term=document.getElementById("txtTerm"+i).value;
+			if (xPath!=element+"/"){
+				xPath+="/../";
+			}
+			xPath+=condition+"[contains(text(),'"+term+"')]";
+		}
+		catch (e){}
+	}
+
+	//STEP 2 根据领域调出所有的研究者姓名及生平信息，获得数组
+	var xmlDoc=getXMLFile("dt_"+element);
+	var arrView= xmlDoc.documentElement.selectNodes(xPath);
+	if (arrView.length==0){
+		alert("未找到相关信息");
+		return;
+	}
+
+	//step 2.1 提取时间信息
+	var startYear=document.all.startYear.value;
+	var endYear=document.all.endYear.value;
+
+	for (i=0;i<arrView.length ;i++ ){  
+		arrList[i]=arrView[i].parentNode;
+		id=arrList[i].getAttribute("id");
+		arrName[i]=getXMLValue(arrList[i],"name");
+		arrBirthYear[i]=getXMLValue(arrList[i],startYear);
+		arrBirthYear[i]=getYear(arrBirthYear[i]);
+		arrDeadYear[i]=getXMLValue(arrList[i],endYear);
+		arrDeadYear[i]=getYear(arrDeadYear[i]);
+		arrRcInfo[i]=new InfoRc(arrList[i],id,arrName[i],arrBirthYear[i],arrDeadYear[i]);
+
+		//step 2.2 已知出生年龄推测去世年龄（用于可视化）
+		var today = new Date();
+		var todayYear=today.getFullYear();
+
+		if ((arrRcInfo[i].deadYear=="-")&&(arrRcInfo[i].birthYear>=todayYear-100)){
+			arrRcInfo[i].deadYear=todayYear;
+		}else{
+			if ((arrRcInfo[i].deadYear=="-")&&(arrRcInfo[i].birthYear!="-")){
+				arrRcInfo[i].deadYear=arrRcInfo[i].birthYear-0+70;
+			}
+		}
+	}
+	//STEP 3 根据出生年龄排序，并找出总的时间跨度
+	var temp=new InfoRc();
+	for (i=0;i<arrRcInfo.length ;i++ ){
+		for (j=i;j<arrRcInfo.length;j++ ){
+			if (((arrRcInfo[i].birthYear-0)>=(arrRcInfo[j].birthYear-0))||(arrRcInfo[i].birthYear=="-")){
+				temp=arrRcInfo[i];
+				arrRcInfo[i]=arrRcInfo[j];
+				arrRcInfo[j]=temp;
+			}	
+		}
+	}
+
+	//STEP 4 可视化
+	var strHTML="";
+	var svgHTML="<svg>";
+	var unitHeight=getIdValue("unitHeight");
+	var unitSize=getIdValue("unitSize");  //表示100%大小，可放大缩小
+	var weigth=7*unitSize;
+	var oX=30;
+	var oY=0;
+	var tX=5;
+	var tY=85;
+	var svgX=0;
+	var svgY=0;
+
+	//step 4.1 画出生命线
+	var x1,x2,y;
+	var strName;
+	for (i=0;i<arrView.length ;i++ ){  
+		if ((arrRcInfo[i].birthYear=="-")||(arrRcInfo[i].deadYear=="-")){
+			break;
+		}
+		x1=weigth*(arrRcInfo[i].birthYear-arrRcInfo[0].birthYear)/(todayYear-arrRcInfo[0].birthYear)+oX;
+		x2=weigth*(arrRcInfo[i].deadYear-arrRcInfo[0].birthYear)/(todayYear-arrRcInfo[0].birthYear)+oX;
+		y=unitHeight*i+oY+20;
+		strName=arrRcInfo[i].name;
+		si=strName.search(/\/|\(|（/);
+		if (si>=0){
+			strName=strName.substr(0,si);
+		}
+		var strTip="<a href='javascript:void(0);//点击查看 "+strName+" 的详细信息' onclick='editInfo(\""+arrRcInfo[i].id+"\",\""+arrRcInfo[i].id+"\")'>"+strName+"</a>";
+		if (startYear!=endYear){
+			svgHTML+=getLine(x1,y+6,x2,y+6,"3","2","#006030");
+			if (arrRcInfo[i].deadYear==todayYear){
+				arrRcInfo[i].deadYear="now";
+			}
+			strHTML+=getTip(strTip+"("+arrRcInfo[i].birthYear+"~"+arrRcInfo[i].deadYear+")",x1+3+tX,y-2+tY-80,"5","",14);
+		}else{
+			strHTML+=getTip(strTip+"("+arrRcInfo[i].birthYear+")",x1+3+tX,y-2+tY-80,"5","",14);
+		}
+		
+		if (x1){
+			svgHTML+=getCircle(x1-3,y+3,3,3,"#004b97","#84c1ff","",8,i,
+			"this.fillcolor=\"yellow\"","this.fillcolor=\"#84c1ff\"",'editInfo(\"'+arrRcInfo[i].id+'\",\"'+arrRcInfo[i].id+'\")');
+		}
+		
+	}
+
+	//step 4.2 画出年代底格
+	var baseYear=Math.round(arrRcInfo[0].birthYear);
+	var x,y1,y2;
+	y1=oY;
+	y2=y+10;
+	var unit=1;
+	if ((todayYear-baseYear)<200){
+		if ((todayYear-baseYear)>=10){
+			unit=10;
+			baseYear=Math.round(arrRcInfo[0].birthYear / 10)*10;
+		}
+	}else{
+		unit=100;
+		baseYear=Math.round(arrRcInfo[0].birthYear / 100)*100;	
+	}
+	while (baseYear<=todayYear){
+		x=weigth*(baseYear-arrRcInfo[0].birthYear)/(todayYear-arrRcInfo[0].birthYear)+oX;
+		if (baseYear==0){
+			svgHTML+=getLine(x,y1+5,x,y2,"2","0.5","#ff5809");
+		}else{
+			svgHTML+=getLine(x,y1+5,x,y2,"2","0.5","#bebebe");
+			strHTML+=getTip(baseYear+"",x,y1,"2","","9");
+		}
+		baseYear=baseYear+unit;
+	}
+	x=weigth*(todayYear-arrRcInfo[0].birthYear)/(todayYear-arrRcInfo[0].birthYear)+oX;
+	svgHTML+=getLine(x,y1+6,x,y2,"2","0.5","#ffff37");
+	svgHTML+="</svg>";
+	document.getElementById("vLifeLine").innerHTML=svgHTML+strHTML;
+
+}
+function zoomIn(){
+	document.getElementById("unitSize").value=(getIdValue("unitSize")-0)+10;
+	showHis();
+}
+
+function zoomOut(){
+	document.getElementById("unitSize").value=(getIdValue("unitSize")-0)-10;
+	showHis();
+}
+
+function redHight(){
+	document.getElementById("unitHeight").value=(getIdValue("unitHeight")-0)-2;
+	showHis();
+}
+
+function addHight(){
+	document.getElementById("unitHeight").value=(getIdValue("unitHeight")-0)+2;
+	showHis();
+}
+
+</script>
+</HEAD>
+
+<BODY onload="init()">
+<h3>历史年表</h3>
+<form onsubmit="showHis();return false;">
+要素：<span id="elementSelect"></span>
+起始：<span id="startTime"></span>
+结束：<span id="endTime"></span>
+条件：<span id="conditionSelect"></span>
+<input id="autoFocus" type="submit" value="显示年表"/>
+</form>
+宽度：
+<input type="button" value="→缩窄←" onclick="zoomOut()"/>
+<input type="button" value="←加宽→" onclick="zoomIn()"/>
+<input type="hidden" value="100" id='unitSize' size="4"/>
+行间距：
+<input type="button" value="↓降低↓" onclick="redHight()"/>
+<input type="button" value="↑增高↑" onclick="addHight()"/>
+<input type="hidden" id='unitHeight' value="20" size="4"/>
+<div id="vLifeLine" style="position: absolute;top:100px">
+</div>
+</BODY>
+</HTML>

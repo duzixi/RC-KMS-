@@ -1,0 +1,260 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<TITLE>爱思>>能量分布</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<style>
+	v\:* { behavior: url(#default#VML);} 
+</style>
+<script language="javascript" src="common.js"></script>
+<script language="javascript" src="commonVisual.js"></script>
+<script language="javascript">
+var arrBriefs=new Array();
+var arrElements=new Array();
+var arrNames=new Array();
+var arrViews=new Array();
+var arrViewsByNum=new Array();
+var userElementsImg=[];
+var islocked=false;
+
+function init(){
+	//STEP 0 生成过滤器
+
+	var strHTML="";
+	var arrInstanceNum=[10,20,30,40,50];
+	strHTML="<select id='instanceNum' onchange='showView()'>";
+	for (var i=0;i<arrInstanceNum.length ;i++ ){
+		strHTML+="<option value='"+arrInstanceNum[i]+"'>"+arrInstanceNum[i]+"</option>";;
+	}
+	strHTML+="</select>";
+	document.getElementById("selectInstanceNum").innerHTML=strHTML;
+}
+
+function showView(){
+	//alert(document.getElementById("instanceNum").value);
+    arrBriefs=new Array();
+	arrElements=new Array();
+	arrNames=new Array();
+	arrViews=new Array();
+	arrViewsByNum=new Array();
+
+	var strHTML="";
+	strHTML+="<br/><br/><br/>";
+
+	//STEP 1 获得系统中要素种类信息
+	var xmlDocSys=getXMLFile("dt_system");
+	var xPath="datatag/*";
+	var arrElementsXML=xmlDocSys.documentElement.selectNodes(xPath);
+
+	for (var i=0;i<arrElementsXML.length ; i++){
+		arrElements[i]=arrElementsXML[i].tagName;
+		xPath="idcode/"+arrElements[i]+"/brief";
+		arrBriefs[i]=xmlDocSys.documentElement.selectSingleNode(xPath).childNodes[0].nodeValue;
+		userElementsImg[arrBriefs[i]]="<img src='../IMG/"+arrElementsXML[i].getAttribute("img")+"'/>";
+	}
+
+	for (var i=0;i<arrElements.length ;i++ ){
+		//STEP 2 取出所有含“领域”的要素
+		var xmlDoc=getXMLFile("dt_"+arrElements[i]);
+		var xPath="//"+arrElements[i]+"/view";
+		var arrResult=xmlDoc.documentElement.selectNodes(xPath);
+
+		//alert("arrResult.length:"+arrResult.length);  //没问题
+
+		//STEP 3 按分隔符打散后统计
+		for (var j=0;j<arrResult.length; j++){
+			var ID=arrResult[j].parentNode.getAttribute("id");
+			arrNames[ID]=arrResult[j].parentNode.childNodes[0].childNodes[0].nodeValue;
+			try{
+				var str=arrResult[j].childNodes[0].nodeValue;
+			}catch(e){ var str="";};
+			//step 3.1 预处理，消除括号内的任意字符
+			var re=new RegExp("\\(.*\\)|（.*）|\\[.*\\]","g");
+			str=str.replace(re,"");
+			//step 3.2 按分隔符分隔属性值 —— 先将所有的分割符都统一为, 
+			var re=new RegExp("，|、|\n|:|：|\\?|？|\\(|\\)|（|）|;|；|/|\\[|\\]|\\+|and|&|\\\\","g");
+			str=str.replace(re,",");
+
+			var arrTemp=new Array();
+			if (str.indexOf(",")>-1){
+				arrTemp=str.split(",");
+			}else{
+				arrTemp[0]=str;
+			}
+			
+			var time=ID.substring(1,7);
+
+			for (var k=0;k<arrTemp.length ;k++ ){
+				if ((arrTemp[k]=="-")||(arrTemp[k]=="")){
+					continue;
+				}
+				if (arrViews[arrTemp[k]]){
+					if (arrViews[arrTemp[k]][time]){//如果存在该时段
+						arrViews[arrTemp[k]][time]+=","+ID;
+					}else{
+						arrViews[arrTemp[k]][time]=ID;
+					}
+					arrViews[arrTemp[k]].count++;
+					if (time<arrViews[arrTemp[k]].time){
+						arrViews[arrTemp[k]].time=time;
+					}
+				}else{
+					arrViews[arrTemp[k]]=new Array();
+					arrViews[arrTemp[k]].name=arrTemp[k];
+					arrViews[arrTemp[k]].count=1;
+					arrViews[arrTemp[k]].time=time;
+					arrViews[arrTemp[k]][time]=ID;
+				}
+			}
+		}
+	}
+
+	//STEP 4 可视化
+	var oX=20;
+	var minYear=3000;
+	var minMon =12; 
+	var maxYear=0;
+	var count_view=0;
+	
+	//arrViews.sort(function(e1,e2) {  return e1.time.localeCompare(e2.time) });
+	//arrViews.sort(function(e1,e2) {  return e1.count>e2.count ? -1:(e1.count<e2.count ? 1:0) });
+	//arrViews.sort(function(e1,e2) {  return e1.name.localeCompare(name.time) });
+	
+	strHTML+="<div style='position:absolute;width:128px;top:103px;text-align:right;font-weight:bold;'>月份: </div>";
+
+	for (elm in arrViews ){
+		arrViewsByNum[arrViewsByNum.length]=arrViews[elm];
+	}
+	
+	//arrViewsByNum.sort(function(e1,e2) {  return e1.time.localeCompare(e2.time) });
+    arrViewsByNum.sort(function(e1,e2) {  return e1.count>e2.count ? -1:(e1.count<e2.count ? 1:0) });
+
+	for (var i=0;i<arrViewsByNum.length;i++){
+		if (arrViewsByNum[i].count>=document.getElementById("instanceNum").value-1){ //step 4.1 过滤关注较少的领域
+			count_view++;
+			strHTML+="<span style='width:120px;text-align:right;float:left'>"+arrViewsByNum[i].name+"("+arrViewsByNum[i].count+")</span>";
+			for (time in arrViewsByNum[i] ){
+				if ((time=="name")||(time=="count")||(time=="time")){
+					continue;
+				}
+				var arrIDs=arrViewsByNum[i][time].split(",");
+				//step 4.2 根据time确定横坐标
+				var year=time.substring(0,4)-0;
+				var month=time.substring(4,6)-0;		
+				if (year>maxYear){
+					maxYear=year;
+				}
+				if (year<=minYear){
+					minYear=year;
+					if (month<minMon){
+						minMon = month;
+					}
+				}
+				var x=((year-minYear)*12+month)*20+oX;
+				//step 4.3 根据arrIDs.length确定颜色
+				var color=Math.round(arrIDs.length/3);
+				if (color>11){
+					color=11;
+				}
+				strHTML+="<span style='position:absolute;text-align:center;cursor:hand;"
+					   +"left:"+x+"px;width:20px;"
+					   +"color:" + 
+					   (color < 2 ? "white" : "black")
+					   +";background-color:"+arrColors_temperature[11-color]+"'"
+					   //+" onclick=\"lock()\" "
+				       +" onmouseover=\"showDetail('"+i+"','"+time+"','"+x+"','"
+					                                 +arrViewsByNum[i].time+"','"+arrIDs.length+"',this)\""
+					   +" onmouseout='hideDetail(this)'>"
+					   +arrIDs.length+"</span>";
+			}
+			strHTML+="<br/>";
+		}	
+	}
+	document.getElementById("vResearchArea").innerHTML=strHTML;
+	
+	//step 4.4 时间标题
+	strHTML="<br/><br/>";
+	for (var i=minYear;i<=maxYear ;i++ ){
+		var x=((i-minYear)*12+6)*20+oX-10;
+		strHTML+="<span style='position:absolute;background-color:#aa99cc;"
+								+"left:"+x+"px;top:72px;"
+								+"font-weight:bold;font-size:20px;'>"+i+"年</span>";
+		if (i==minYear){
+			strHTML+="<br/>";	
+		}
+		if (i > minYear){
+			minMon = 1;
+		}
+		for (var j=minMon;j<=12 ;j++ ){
+			x=((i-minYear)*12+j)*20+oX;
+			strHTML+="<span style='position:absolute;text-align:center;"
+								+"left:"+x+"px;width:20px;background-color:#aa99cc;font-weight:bold;'>"
+								+j+"</span>";
+			var color=(j%2==0)?"#E6E6FA":"#FFFFFF";
+			var border=(j==1)?"1px 0px 1px 1px":((j!=12)?"1px 0px 1px 0px":"1px 1px 1px 0px");
+			strHTML+="<div style='position:absolute;z-index:-2;background-color:"+color+";"
+								+"border-style:solid;border-width:"+border+";"
+								+"left:"+x+"px;top:70px;width:20px;height:"+((count_view+5)*17+5)+"px'></div>";
+		}
+		//strHTML+=getLine(x+30,30,x+30,count_view*17+100,2,2,"#9999cc");
+	}
+
+	document.getElementById("vResearchTime").innerHTML=strHTML;
+	
+
+}
+
+function showDetail(i,time,x,startTime,n, obj){
+	
+	if (!islocked){
+		// alert(obj.style.border);
+		obj.style.border = '1px solid red';
+		var strHTML="";
+		strHTML+="<span style='width:400px;padding:5px;background-color:white'><b>"
+				+time.substring(0,4)+"年"+time.substring(4,6)+"月   "
+				+arrViewsByNum[i].name+"领域:</b>("+n+"个)</span><br/>";
+		var arrIDs=arrViewsByNum[i][time].split(",");
+		for (var i=0;i<arrIDs.length ;i++ ){
+			strHTML+="<span style='width:350px'>";
+			strHTML+=userElementsImg[arrIDs[i].substring(0,1)]+" <a href='#' onclick='editInfo(\""+arrIDs[i]+"\",\""+arrIDs[i]+"\")'>"
+					+arrNames[arrIDs[i]]+" </a>";
+			strHTML+="</span><br/>";
+		}
+		//strHTML+="</div>";
+		document.getElementById("vDetails").style.top=window.event.clientY +document.documentElement.scrollTop+"px";
+		// alert(document.documentElement.scrollLeft);
+		document.getElementById("vDetails").style.left=(window.event.clientX) +document.documentElement.scrollLeft+5+"px";
+		//alert("X:"+window.event.clientX+"  \nY:"+window.event.clientY);
+		document.getElementById("vDetails").innerHTML=strHTML;
+	}
+}
+function hideDetail(obj){
+	if (!islocked){
+		obj.style.border = '0px';
+		document.getElementById("vDetails").innerHTML="";
+		document.getElementById("vDetails").style.top="-100px";
+		document.getElementById("vDetails").style.left="-100px";
+	}
+}
+function lock(){
+	islocked=islocked?false:true;
+	if (islocked){
+		document.getElementById("vDetails").style.backgroundColor="#ffeedd";
+	}else{
+		document.getElementById("vDetails").style.backgroundColor="white";
+	}
+}
+</script>
+</HEAD>
+<BODY onload="init();showView();" onclick="lock()">
+<h3>知识分析 >> 能量分布</h3>
+<div>关注度小于<span id="selectInstanceNum"></span>的关注领域：</div>
+<div id='vResearchTime'>
+</div>
+<div id='vResearchArea'>
+</div>
+<div id='vDetails' style='position:absolute;background-color:"white";border:solid 2px;padding:10px;width:150px'>
+</div>
+</BODY>
+</HTML>

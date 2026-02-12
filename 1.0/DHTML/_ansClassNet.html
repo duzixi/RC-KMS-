@@ -1,0 +1,309 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<TITLE>爱思>>类别网络</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<style>
+	v\:* { behavior: url(#default#VML);} 
+</style>
+<script language="javascript" src="common.js"></script>
+<script language="javascript" src="commonVisual.js"></script>
+<script language="javascript">
+
+var islocked=false;
+
+InfoSubSystem = function (element){ //子系统信息
+	this.element=element;
+	this.elementName;
+	this.brief;
+	this.imgName;
+	this.elementNum;
+	this.refers=new Array(); // 存储同其他各子系统之间的关系数
+	this.props;
+	this.propNames;
+	this.x=0;
+	this.y=0;
+}
+
+InfoSystemRelation= function (element1,element2,arrProps){  //关联信息
+	this.subject=element1;
+	this.object=element2;
+	this.props=new Array();
+
+	for (var k=0;k<arrProps.length ;k++ ){  //初始化每个属性的要素关联个数
+		this.props[arrProps[k]]=0;
+	}
+}
+
+var arrBriefs=new Array();
+var arrElements=new Array();
+var arrSubSystem=new Array();
+var arrSystemRelation=new Array();
+
+var IndexBriefElement=new Array(); //标识-要素索引
+var IndexBriefI = new Array(); //标识-序号索引
+
+var Cr=0; 
+var Cs=0;
+var Co=0;
+
+function init(){ // 初始化
+
+	//STEP 1 获得系统中要素种类信息
+	var xmlDocSys=getXMLFile("dt_system");
+	var xPath="datatag/*";
+	var arrElementsXML=xmlDocSys.documentElement.selectNodes(xPath);
+
+	for (var i=0;i<arrElementsXML.length ; i++){
+		arrElements[i]=arrElementsXML[i].tagName;
+		xPath="idcode/"+arrElements[i]+"/brief";
+		arrBriefs[i]=xmlDocSys.documentElement.selectSingleNode(xPath).childNodes[0].nodeValue;
+	}
+
+	//STEP 2 创建类
+	for (var i=0;i<arrElements.length ;i++ ){
+		//step 2.1 创建标识-要素索引
+		IndexBriefElement[arrBriefs[i]]=arrElements[i];
+		IndexBriefI[arrBriefs[i]]=i;
+
+		//step 2.2 创建子系统类
+		arrSubSystem[i]=new InfoSubSystem(arrElements[i]);
+		var arrPropties=new Array();
+		var arrPropName=new Array();
+
+		arrSystemRelation[i]=new Array();
+
+		var propTags= arrElementsXML[i];
+		for (var j=0;j<propTags.childNodes.length ; j++){
+			arrPropties[j]=propTags.childNodes[j].tagName;
+			arrPropName[j]=propTags.childNodes[j].childNodes[0].nodeValue;
+		}
+		arrSubSystem[i].elementName=arrElementsXML[i].getAttribute("text");
+		arrSubSystem[i].imgName=arrElementsXML[i].getAttribute("img");
+		arrSubSystem[i].brief=arrBriefs[i];
+		arrSubSystem[i].props=arrPropties;
+		arrSubSystem[i].propNames=arrPropName;
+		var xmlDocElement=getXMLFile("dt_"+arrElements[i]);
+		arrSubSystem[i].elementNum=xmlDocElement.documentElement.selectNodes(arrElements[i]).length;
+		//step 2.3 创建关联类
+		for (var j=0;j<arrBriefs.length ;j++){
+			arrSubSystem[i].refers[arrBriefs[j]]=0;
+			arrSystemRelation[i][j]=new InfoSystemRelation(arrElements[i],arrElements[j],arrPropties);
+		}
+	}
+	
+	//STEP 3 搜索并统计每一个子系统i同其他子系统j之间的关联
+	for (i=0;i<arrElements.length ;i++ ){
+		var xmlDoc=getXMLFile("dt_"+arrElements[i]);
+		var xPath="//"+arrElements[i]+"/*";
+		var arrResult=xmlDoc.documentElement.selectNodes(xPath);
+		Co+=arrResult.length;
+		var xPath="//"+arrElements[i]+"/*[@refer]";
+		var arrResult=xmlDoc.documentElement.selectNodes(xPath); //搜索所有包含关联信息的结点
+
+		if (arrResult.length>0){
+			for (j=0;j<arrResult.length ;j++ ){//对于每一个关联信息
+				var tempRefer=arrResult[j].getAttribute("refer");
+				if (tempRefer!=""){
+					var tempProp=arrResult[j].tagName;
+					//STEP 3.1 将关联字串分解为关联
+					var arrRefers=getRefers(tempRefer);
+					for (var k=0;k<arrRefers.length ;k++ ){
+						var tempBrief=arrRefers[k].charAt(0);
+						//STEP 3.2 统计该要素关联其他要素的个数
+						arrSubSystem[i].refers[tempBrief]+=1;
+						//STEP 3.3 统计该要素的各个属性关联其他要素的个数
+						var tempElement=IndexBriefElement[tempBrief];
+						try{
+							arrSystemRelation[i][IndexBriefI[tempBrief]].props[tempProp]+=1;
+						}catch (e){
+							//alert("i="+i+".j="+j+".k="+k+".Brief="+tempBrief+"."+IndexBriefI[tempBrief]+"."+tempProp);
+							//alert(arrSystemRelation[i][IndexBriefI[tempBrief]].props[tempProp]);
+							//return;
+						}
+					}
+				}
+			}
+		}
+	}
+	//step 3.5 主观认知度
+	var xmlDoc=getXMLFile("dt_comment");
+	var xPath="//comment";
+	var arrResult=xmlDoc.documentElement.selectNodes(xPath); //搜索评论
+	Cs=arrResult.length;
+	//alert(Cs);
+
+	
+	//STEP 4 根据要素类之间的关联情况进行可视化
+	var strHTML="";
+	var svgHTML="<svg>";
+	var strHTMLtemp="";
+	var height=550;
+	var weight=500;
+	  
+      //step 4.1 显示系统中的要素类
+	  var l= 200;
+	  var unitAngle=360/arrElements.length;
+      for (i=0;i<arrElements.length ;i++ ){
+		  Cr+=arrSubSystem[i].refers[arrBriefs[i]];
+          arrSubSystem[i].x=l*Math.sin((unitAngle*i+180)*(Math.PI/180))+weight/2;
+	      arrSubSystem[i].y=l*Math.cos((unitAngle*i+180)*(Math.PI/180))+height/2;
+		  strHTML+=getSimbolImg(arrSubSystem[i].x,arrSubSystem[i].y,0,arrSubSystem[i].imgName,arrSubSystem[i].elementName,i,'focusSubSystem("'+i+'")','unfocusSubSystem("'+i+'")');
+		  var r=Math.sqrt(arrSubSystem[i].elementNum)*5+5;
+		  svgHTML+=getCircle(arrSubSystem[i].x,arrSubSystem[i].y,r/2,r/2,"#ffe153","#ffe153","",-1,
+		                     i,  //circleId
+		                    'focusSubSystem("'+i+'")',  //mouseOverEvent
+							'unfocusSubSystem("'+i+'")'); //mouseOutEvent
+		  strHTML+=getTip("<b>"+arrSubSystem[i].elementName+"</b>",arrSubSystem[i].x-10,arrSubSystem[i].y-16,2,"",20);
+		  strHTML+=getTip("<b>("+arrSubSystem[i].elementNum+")</b>",arrSubSystem[i].x-10,arrSubSystem[i].y+20,2,"",14);
+	  }
+      var x1,y1,x2,y2;
+	  
+      //step 4.2 显示要素类之间的调用关系 —— 无向图
+      for (i=0;i<arrElements.length ;i++ ){
+	      for (j=i+1;j<arrBriefs.length ;j++ ){
+			  var totalRelationNum=arrSubSystem[i].refers[arrBriefs[j]]-0+arrSubSystem[j].refers[arrBriefs[i]]-0;
+			  Cr+=totalRelationNum;
+			  if (totalRelationNum!=0){
+			      if (i!=j){ //如果不知子系统内部关联
+			          x1=arrSubSystem[i].x;
+					  y1=arrSubSystem[i].y;
+					  x2=arrSubSystem[j].x;
+					  y2=arrSubSystem[j].y;
+                      var lineWeight=totalRelationNum/10;
+                      svgHTML+=getLine(x1+7,y1+7,x2+7,y2+7,0,lineWeight,"#4f9d9d",
+					                   (i+"-"+j),'focusRelationLine('+i+','+j+')','unfocusRelationLine('+i+','+j+')');
+					  var deltaX=(x2-x1)*0.6;
+					  var deltaY=(y2-y1)*0.6+3;
+					  strHTML+=getTip(totalRelationNum,(x1+deltaX),(y1+deltaY),2,"",13);
+				  }
+	          }
+		  }
+      }
+	  svgHTML+="</svg>";
+	  //alert(svgHTML);
+      document.getElementById("vSystemRelation").innerHTML=svgHTML;
+      document.getElementById("vSystemRelation").innerHTML+=strHTML;
+	  strHTML="知识关联："+Cr+"  主观认知："+Cs+"  客观属性："+Co;
+	  document.getElementById("info").innerHTML=strHTML;
+
+} 
+
+function focusRelationLine(i,j){ //要素i和要素j之间的关联线获焦
+	if (islocked){
+		return;
+	}
+	var strHTML="";
+	
+	//STEP 1 生成要素i 引用 要素j 的情况：
+	strHTML+=getElementImg(arrSubSystem[i].element)+" <b>"+arrSubSystem[i].elementName+"</b> "+" - "+arrSubSystem[i].refers[arrBriefs[j]]+" -> <b>"
+	+arrSubSystem[j].elementName+"</b> "+getElementImg(arrSubSystem[j].element)+"<br/><br/>";
+	strHTML+="<span class='mini_title'>关联属性分布：</span><br/>";
+	for (var circleI=0;circleI<arrSubSystem[i].props.length ; circleI++){
+		var tempProp=arrSubSystem[i].props[circleI];
+		var tempPropName=arrSubSystem[i].propNames[circleI];
+		var tempRelationNum=arrSystemRelation[i][j].props[tempProp];
+
+		if (tempRelationNum>0){
+		strHTML+="<span"
+		+" onclick='searchRelation(\""+arrSubSystem[i].element+"\",\""+tempProp+"\",\""+arrSubSystem[j].element+"\")'>"
+	    +"<span class='propname' style='clear:left;float:left;width:70px'>"+tempPropName+":</span>"
+		+"<h4 onmouseover='changeColor(this)' onmouseout='changeColor(this)'  "
+		+" style='float:left;width:"+(tempRelationNum-0+20)+"px;text-align:left'>"+tempRelationNum+"</h4>"
+		+"</span><br/>";
+		}
+	}
+	strHTML+="<hr style='clear:left'/>";
+	//alert(strHTML);
+	//STEP 2 生成要素j 引用 要素i 的情况
+	strHTML+=getElementImg(arrSubSystem[j].element)+" <b>"+arrSubSystem[j].elementName+"</b> "+" - "+arrSubSystem[j].refers[arrBriefs[i]]+" -> <b>"
+	 +arrSubSystem[i].elementName+"</b> "+getElementImg(arrSubSystem[i].element)+"<br/><br/>";
+	 strHTML+="<span class='mini_title'>关联属性分布：</span><br/>";
+	//alert(strHTML);
+	for (var circleI=0;circleI<arrSubSystem[j].props.length ; circleI++){
+		var tempProp=arrSubSystem[j].props[circleI];
+		var tempPropName=arrSubSystem[j].propNames[circleI];
+		var tempRelationNum=arrSystemRelation[j][i].props[tempProp];
+
+		if (tempRelationNum>0){
+		  strHTML+="<span "
+		  +"onclick='searchRelation(\""+arrSubSystem[j].element+"\",\""+tempProp+"\",\""+arrSubSystem[i].element+"\")'>"
+		  +"<span class='propname' style='clear:left;float:left;width:70px'>"+tempPropName+":</span>"
+		  +"<h4 onmouseover='changeColor(this)' onmouseout='changeColor(this) '"
+		  +" style='float:left;width:"+(tempRelationNum-0+20)+"px;text-align:left'>"+tempRelationNum+"</h4>"
+		  +"</span>";
+		}   
+	}
+	document.getElementById("temp").innerHTML=strHTML;
+}
+  
+function unfocusRelationLine(i,j){ //要素i和要素j之间的关联线失焦
+	document.getElementById("line"+i+"-"+j).strokecolor="#4f9d9d";
+}
+
+function focusSubSystem(i){
+	//alert('focusSubSystem:'+i);
+	if (islocked){
+		return;
+	}
+	this.fill="yellow";
+	var strHTML="";
+	strHTML+=getElementImg(arrSubSystem[i].element)+" <b>"+arrSubSystem[i].elementName+"</b> 子系统<br/><br/>";
+	strHTML+="<span class='propname' style='width:70px;float:left'>要素个数:</span>"
+	       +"<h4 style='float:left;width:"+arrSubSystem[i].elementNum / 2+"px;'>"+arrSubSystem[i].elementNum+"</h4>";
+	strHTML+="<span class='propname' style='width:70px;clear:left;float:left;'>内关联数:</span>"
+		   +"<h4 style='float:left;width:"+arrSubSystem[i].refers[arrBriefs[i]]+"px;'>"
+		   +arrSubSystem[i].refers[arrBriefs[i]]+"</h4>"+"<hr style = 'clear:left'/>";
+	strHTML+="<span class='mini_title' style = 'clear:left;'>关联属性分布：</span><br/>";
+	for (var circleI=0;circleI<arrSubSystem[i].props.length ; circleI++){
+		var tempProp=arrSubSystem[i].props[circleI];
+		var tempPropName=arrSubSystem[i].propNames[circleI];
+		var tempRelationNum=arrSystemRelation[i][i].props[tempProp];
+
+		if (tempRelationNum>0){
+		strHTML+="<span "
+		+" onclick='searchRelation(\""+arrSubSystem[i].element+"\",\""+tempProp+"\",\""+arrSubSystem[i].element+"\")'>"
+		+"<span class='propname' style='clear:left;float:left;width:70px'>"+tempPropName+":</span>"
+		+"<h4 onmouseover ='changeColor(this)' onmouseout = 'changeColor(this)' "
+	    +" style='float:left;width:"+(tempRelationNum-0+20)+"px;text-align:left'>"+tempRelationNum+"</h4>"
+		+"</br></span>";
+		}   
+	}
+	document.getElementById("temp").innerHTML=strHTML;
+}
+
+function changeColor(o){
+	var color = o.style.backgroundColor;
+	if (color == "yellow"){
+		o.style.backgroundColor = "#336666";
+	}else{
+		o.style.backgroundColor = "yellow";
+	}
+}
+
+function unfocusSubSystem(i){
+	document.getElementById("circle"+i).fillcolor="#ffe153";
+}
+
+function changeLock(){
+	if (islocked){
+		islocked=false;
+		document.getElementById("temp").style.backgroundColor="#ffffff";
+	}else{
+		islocked=true;
+		document.getElementById("temp").style.backgroundColor="#fffcec";
+	}
+}
+</script>
+</HEAD>
+<BODY onload="init()" onclick="changeLock()">
+<h3>知识分析 >> 类别网络</h3>
+<b>宏观知识网络模型：<span id='info'></span></b>
+<div id='vSystemRelation'>
+</div>
+<div id='temp' style='position:absolute;top:100px;left:530px;border:medium solid 2px yellow;padding:10px'>
+详细说明
+</div>
+</BODY>
+</HTML>

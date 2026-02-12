@@ -1,0 +1,364 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<TITLE>爱思>>增量分布</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<style>
+	v\:* { behavior: url(#default#VML);} 
+</style>
+<script language="javascript" src="common.js"></script>
+<script language="javascript" src="commonVisual.js"></script>
+<script language="javascript">
+
+var arrBrief=[];
+var arrElement=[];
+var arrElementImg=[];
+var arrElementText=[];
+var xmlDocElement=[]; 
+var xmlDocComment;
+var arrCount=[];
+
+function init(){ // 初始化
+	//alert(getRadioValue());
+	var item=getRadioValue();
+	var strHTML="";
+	var xmlDocSys=getXMLFile("dt_system");
+	var xPath="datatag/*";
+	nameTags=xmlDocSys.documentElement.selectNodes(xPath);
+	
+	var startMonth="";
+	var minMonth="";
+	var maxMonth="";
+	for (var i=0;i<nameTags.length ;i++ ){
+		arrElement[i]=nameTags[i].tagName;
+		arrCount[i]=[];
+		arrElementImg[i]=nameTags[i].getAttribute("img");
+		arrElementText[i]=nameTags[i].getAttribute("text");
+		xmlDocElement[i]=getXMLFile("dt_"+arrElement[i]);
+		var xPath="idcode/"+arrElement[i]+"/brief";
+		arrBrief[i]=xmlDocSys.documentElement.selectSingleNode(xPath).childNodes[0].nodeValue;
+	}
+	
+	for (var i=0;i<nameTags.length ;i++ ){
+		//求最小月
+		var startId=xmlDocElement[i].documentElement.childNodes[0].getAttribute("id");
+		var startMonth=startId.substring(1,7);
+		if ((startMonth<minMonth)||(minMonth=="")){
+			minMonth=startMonth;
+		}
+		//求最大月
+		var startId=xmlDocElement[i].documentElement.childNodes[xmlDocElement[i].documentElement.childNodes.length-1].getAttribute("id");
+		var endMonth=startId.substring(1,7);
+		if ((endMonth>maxMonth)||(maxMonth=="")){
+			maxMonth=endMonth;
+		}
+	}
+	//alert(maxMonth);
+	//return;
+	//alert(minMonth);
+	//return;
+	//alert("!");
+	switch (item){
+		case "E":	//按知识要素个数统计
+			for (var i=0;i<nameTags.length ;i++ ){ //对于每一个类知识要素
+				var flag=0;
+				do{
+					if (xmlDocElement[i].documentElement.childNodes.length==0){
+						break;
+					}
+					var startId=xmlDocElement[i].documentElement.childNodes[flag].getAttribute("id");	
+					var startMonth=startId.substring(1,7);
+					if (((flag==0)&&(i==0))||(startMonth<minMonth)){
+						minMonth=startMonth;
+					}
+					if (startMonth>maxMonth){
+						maxMonth=startMonth;
+					}
+					var xPath="*[contains(@id,'"+startMonth+"')]";
+					var arrResult=xmlDocElement[i].documentElement.selectNodes(xPath);
+					arrCount[i][startMonth]=arrResult.length;
+					flag+=arrResult.length;
+				}while (flag<xmlDocElement[i].documentElement.childNodes.length);
+			}
+			break;
+		case "Cs": //按主观认知度统计
+			xmlDocComment=getXMLFile("dt_comment");
+			var flag=0;
+			do{
+				if (xmlDocComment.documentElement.childNodes.length==0){
+					break;
+				}
+				var startId=xmlDocComment.documentElement.childNodes[flag].getAttribute("id");
+				var startMonth=startId.substring(1,7);
+				if (startMonth>maxMonth){
+					maxMonth=startMonth;
+				}
+				var xPath="*[contains(@id,'"+startMonth+"')]";
+				var arrResult=xmlDocComment.documentElement.selectNodes(xPath);
+				flag+=arrResult.length;
+				for (var i=0;i<nameTags.length ;i++ ){
+					var xPath="comment[contains(@id,'"+startMonth+"')]/object[contains(text(),'"+arrBrief[i]+"')]";
+					var arrResult=xmlDocComment.documentElement.selectNodes(xPath);
+
+					arrCount[i][startMonth]=arrResult.length;
+				}
+			}while(flag<xmlDocComment.documentElement.childNodes.length);
+			break;
+		case "Co"://按客观认知度统计
+			for (var i=0;i<nameTags.length ;i++ ){ //对于每一个类知识要素
+				var flag=0;
+				do{
+					if (xmlDocElement[i].documentElement.childNodes.length==0){
+						break;
+					}
+					var startId=xmlDocElement[i].documentElement.childNodes[flag].getAttribute("id");	
+					var startMonth=startId.substring(1,7);
+					if (((flag==0)&&(i==0))||(startMonth<minMonth)){
+						minMonth=startMonth;
+					}
+					if (startMonth>maxMonth){
+						maxMonth=startMonth;
+					}
+					var xPath="*[contains(@id,'"+startMonth+"')]";
+					var arrResult=xmlDocElement[i].documentElement.selectNodes(xPath);
+					flag+=arrResult.length;
+					var xPath="*[contains(@id,'"+startMonth+"')]/*";
+					var arrResult=xmlDocElement[i].documentElement.selectNodes(xPath);
+					arrCount[i][startMonth]=arrResult.length;
+				}while (flag<xmlDocElement[i].documentElement.childNodes.length);
+			}
+			break;
+		case "Cr": //按关联认知度统计
+			for (var i=0;i<nameTags.length ;i++ ){ //对于每一个类知识要素
+				var flag=0;
+				do{
+					if (xmlDocElement[i].documentElement.childNodes.length==0){
+						break;
+					}
+					var startId=xmlDocElement[i].documentElement.childNodes[flag].getAttribute("id");	
+					var startMonth=startId.substring(1,7);
+					if (((flag==0)&&(i==0))||(startMonth<minMonth)){
+						minMonth=startMonth;
+					}
+					if (startMonth>maxMonth){
+						maxMonth=startMonth;
+					}
+					var xPath="*[contains(@id,'"+startMonth+"')]";
+					var arrResult=xmlDocElement[i].documentElement.selectNodes(xPath);
+					flag+=arrResult.length;
+					var xPath="*[contains(@id,'"+startMonth+"')]/*[@refer]";
+					var arrResult=xmlDocElement[i].documentElement.selectNodes(xPath);
+					//计算到底有多少个关联
+					var count=0;
+					for (var j=0;j<arrResult.length ;j++ ){
+						//alert(arrResult[j].xml)
+						var refer=arrResult[j].getAttribute("refer");
+						var arrRefer=getRefers(refer);
+						count+=arrRefer.length;
+						//return;
+					}
+					arrCount[i][startMonth]=count;
+				}while (flag<xmlDocElement[i].documentElement.childNodes.length);
+			}
+			break;
+	}
+	//alert("!!");
+	var yearMin=minMonth.substring(0,4)-0;
+	var yearMax=maxMonth.substring(0,4)-0;
+	var mounthMin=minMonth.substring(4,6)-0;
+	var mounthMax=maxMonth.substring(4,6)-0;
+	//alert(yearMin+","+mounthMin);
+	//alert(yearMax+","+mounthMax);
+	//可视化 —— 线图
+	var arrColors=["#007979","#cdcd9a","#01814a","#2894ff","#930093","#ffd306","#01b468","#d9006c","#7d7dff"]
+	
+	var Height=480;
+	var Weight=40;
+	var oX=150-(mounthMin+1)*Weight;
+	var rate=2;
+	if (item=="Co"){
+		rate=0.4;
+	}
+
+	//对于每个要素类别
+	var svgHTML="<svg>";
+	for (var k=0;k<arrElement.length ; k++){ 
+		strHTML+="<div id='"+arrElement[k]+"' style='visibility:visible'>";
+		var lastX;
+		var lastY;
+	
+		for (var i=yearMin; i<=yearMax;i++ ){
+			//alert(yearMin);
+			for (var j=1;j<=12 ;j++ ){
+				if ((i==yearMin)&&(j<mounthMin)){
+					lastX=((i-yearMin)*12+j)*Weight+oX;
+					lastY=Height;
+					continue;
+				}		
+				if ((i==yearMax)&&(j>mounthMax)){
+					break;
+				}
+				var num;
+				if (j<10){
+					num=arrCount[k][i+"0"+j];
+				}else{
+					num=arrCount[k][i+""+j];
+				}
+				if (!num){
+					num=0;
+				}
+				//1 确定X
+				var x=((i-yearMin)*12+j)*Weight+oX;
+				//2 确定Y
+				var y=Height-num*rate;
+				if ((lastX)||((k==0)&&(j==1))){
+					if ((j!=1)||(i!=yearMin)){
+						//strHTML+=getLine(lastX,lastY,x,y,3,2,arrColors[k]);
+						svgHTML+=getLine(lastX,lastY,x,y,3,2,arrColors[k]);
+					}
+					if (num!=0){
+						strHTML+=getSimbolImg(x,y+45,5,arrElementImg[k],num,k+"_"+i+"_"+j,"","",
+						                      "showList(\""+arrElement[k]+"\",\""+i+"\",\""+j+"\")");
+
+					}
+					strHTML+=getTip(j+"月",x-7,Height+65);
+				}
+				lastX=x;
+				lastY=y;	
+			}
+		}
+		strHTML+="</div>"
+	} //for k
+	svgHTML+="</svg>";
+	
+	//总体值的分布情况
+	var lastX;
+	var lastY;
+	var numMax=0;
+	for (var i=yearMin; i<=yearMax;i++ ){
+		var x=((i-yearMin)*12)*Weight+oX;
+		strHTML+=getTip("<b>"+i+"年</b>",x+25,Height-130);
+		strHTML+=getLine(x+Weight/2,50,x+Weight/2,Height,0,1,"#f75000");
+		for (var j=1;j<=12 ;j++ ){
+			if ((i==yearMin)&&(j<mounthMin)){
+				continue;
+			}	
+			if ((i==yearMax)&&(j>mounthMax)){
+				break;
+			}
+			var x=((i-yearMin)*12+j)*Weight+oX;
+			//strHTML+=getTip(j+"月",x,Height+45);
+			var num=0;
+			if (j<10){
+				for (var k=0;k<arrElement.length ; k++ ){
+					if (arrCount[k][i+"0"+j]){
+						num+=arrCount[k][i+"0"+j];
+					}
+				}
+			}else{
+				for (var k=0;k<arrElement.length ; k++ ){
+					if (arrCount[k][i+""+j]){
+						num+=arrCount[k][i+""+j];
+					}
+				}
+			}
+			if (num>numMax){
+				numMax=num;
+			}
+			//1 确定X
+			var x=((i-yearMin)*12+j)*Weight+oX;
+			//2 确定Y
+			var y=Height-num*rate;
+			if (lastX){
+				if ((j!=mounthMin)||(i!=yearMin)){
+					strHTML+=getLine(lastX,lastY,x,y,3,1,"#9f0050");
+				}
+			}
+			lastX=x;
+			lastY=y;
+		}
+	}
+	
+	document.getElementById("vIncrease").innerHTML=svgHTML;
+	document.getElementById("vIncrease").innerHTML+=strHTML;
+
+	//底格
+	svgHTML="";
+	for (var i=0;i<numMax ;i+=50 ){
+		//1 确定X
+		var x1=oX+Weight+(mounthMin-1)*Weight;
+		var x2=oX+((yearMax-yearMin+1)*12-12+mounthMax)*Weight;
+		var y=Height-i*rate;
+		svgHTML+=getLine(x1,y,x2,y,0,1,"#bebebe");
+	}
+	document.getElementById("base").innerHTML=svgHTML;
+	
+	//可视化 —— 图例
+	strHTML="";
+	for (var i=0;i<arrElement.length ;i++ ){
+		strHTML+="<img src='../IMG/"+arrElementImg[i]+"'> "+arrElementText[i];
+		strHTML+="<input id='checkbox_"+arrElement[i]+"' type='checkbox' onclick='changeShow(\""+arrElement[i]+"\")' checked='checked'/>";
+		strHTML+="<br/>";
+	}
+	strHTML+="<br/>全部<input id='checkbox_all' type='checkbox' checked='checked' onclick='showAll()'/>";
+	document.getElementById("sample").innerHTML=strHTML;
+}
+
+function showList(element,year,mounth){
+	//alert(year+"!"+mounth);
+	var strTime=(mounth<10)?(year+"0"+mounth):(year+""+mounth);
+	var oNewWin=window.open("_acmElement.html?element="+element+"&time="+strTime,"List"+year+mounth,"location=yes,resizable=yes,scrollbars=yes,status=yes,toolbar=yes,menubar=yes");
+	oNewWin.focus();
+}
+
+function changeShow(elm){
+	var target=document.getElementById(elm);
+	if (target.style.visibility=="visible"){
+		target.style.visibility="hidden";
+		//document.getElementById("checkbox_"+elm).checked="";
+	}else{
+		target.style.visibility="visible";
+		//document.getElementById("checkbox_"+elm).checked="checked";
+	}
+}
+
+function showOnly(elm){
+	for (var i=0;i<arrElement.length ;i++ ){
+		if (elm!=arrElement[i]){
+			document.getElementById(arrElement[i]).style.visibility="hidden";
+		}
+	}
+}
+
+function showAll(){
+	//alert(document.getElementById("checkbox_all").checked=="checked");
+	var isChecked=document.getElementById("checkbox_all").checked;
+	//alert(isChecked);
+	for (var i=0;i<arrElement.length ;i++ ){
+		document.getElementById(arrElement[i]).style.visibility=isChecked?"visible":"hidden";
+		document.getElementById("checkbox_"+arrElement[i]).checked=isChecked?true:false;
+		//alert(document.getElementById(arrElement[i]).style.visibility);
+		//break;
+	}
+}
+
+</script>
+</HEAD>
+
+<BODY onload="init()" >
+<h3>知识分析  >> 增量分布</h3>
+统计项目：
+<input type='radio' name='tagData' value='E'  onclick='init()' checked='true'/>知识要素个数
+<input type='radio' name='tagData' value='Cs' onclick='init()'/>主观认知度
+<input type='radio' name='tagData' value='Co' onclick='init()'/>客观认知度
+<input type='radio' name='tagData' value='Cr' onclick='init()'/>关联认知度
+<div id="sample" style="position:absolute;top:30;left:10">
+</div>
+<div id="vIncrease">
+</div>
+<div id="base" style="z-index:-5">
+</div>
+
+</BODY>
+</HTML>

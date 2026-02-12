@@ -1,0 +1,135 @@
+<!DOCTYPE HTML> 
+<HTML>
+<HEAD>
+<TITLE>爱思>>生词列表</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<script language="javascript" src="common.js"></script>
+<script language="javascript">
+
+var arrLocalFile=[];
+var arrElement=[];
+
+var xmlDocElement=[];
+
+function init(){	//进入页面后
+	loadFiles();//取数据
+	var strResult="";
+	for (var i=0;i<xmlDocElement.length ;i++ ){ 
+		var xPath=arrElement[i]+"/newWords";  
+		var arrResult=xmlDocElement[i].documentElement.selectNodes(xPath);
+		for (var j=0;j<arrResult.length ;j++ ){
+			try{
+				var arrWords=arrResult[j].childNodes[0].nodeValue.split("\n");
+				for (var k=0;k<arrWords.length ; k++){
+				    if (arrWords[k]!=null){ //去掉多余行 
+						strResult+=arrResult[j].parentNode.getAttribute("id")+"$$"+arrWords[k]+"\n";
+				    }
+				}
+			}catch (e){	continue;}
+		}
+	}
+	//数据整理
+	arrLocalFile=strResult.split("\n");
+	
+	for (var i=0;i<arrLocalFile.length ;i++ ){
+		var si=arrLocalFile[i].indexOf("$$");
+		var id=arrLocalFile[i].substring(0,si);
+		arrLocalFile[i]=arrLocalFile[i].substring(si+2,arrLocalFile[i].length)+"$$"+id;
+	}
+	//数据排序
+	//Q 忽略大小写的排序如何写？
+	//A 可参考知识分类中的应用。在sort()参数中添加用语判断的函数。
+	arrLocalFile.sort(function(e1,e2) {  return e1.toLowerCase()<e2.toLowerCase() ? -1:(e1.toLowerCase()>e2.toLowerCase() ? 1:0)});
+
+	//数据显示
+	var lastChar="0";
+	var strHTML="";
+	var strHEAD="";
+	var count=0;
+	var num=0;
+	for (var i=0; i<arrLocalFile.length;i++ ){//对于每一个排列好的生词
+		count++;
+		var si=arrLocalFile[i].indexOf("$$");
+		var id=arrLocalFile[i].substring(si+2,arrLocalFile[i].length);//取出ID
+		if (arrLocalFile[i].substring(0,si)==""){
+			continue;
+		}
+		var firstChar=arrLocalFile[i].substring(0,1);
+		
+        if (firstChar.toUpperCase()!=lastChar.toUpperCase()){//如果发生变化
+			if (lastChar.toUpperCase()<= "Z" && firstChar.toUpperCase() >"Z"){
+				strHEAD += "<br/>";
+			}
+		    num++;
+            //先做好上一步的收尾工作
+			if (i>2){
+			    if (lastChar!="0"){
+					strHTML+="该组单词共有"+count+"个";
+			    }
+				count=0;
+			
+				//再弄下一个的题头
+				strHEAD+="<a href='#"+firstChar.toUpperCase()+"'>"+firstChar.toUpperCase()+"</a> ";
+				strHTML+="<hr/><span id='"+firstChar.toUpperCase()+"' class='big_title'> < "+firstChar.toUpperCase()+" ></span>";	
+				//返回HOME键
+				strHTML+="<a href='#home'>"+"  <img src=\"../IMG/go_up.gif\"/>返回顶部</a><br/>";
+				lastChar=firstChar;
+			}
+        }
+
+		strHTML+=addLinkButton(arrLocalFile[i].substring(0,si),"editInfo(\""+id+"\",\""+id+"\")",id);	//显示单词部
+		strHTML+="<br/>";
+	}
+	document.getElementById("alphabet").innerHTML=strHEAD;
+	document.getElementById("newWords").innerHTML=strHTML;
+
+	//积累概况
+	strHTML="当前生词本中共有单词 "+arrLocalFile.length+" 个。";
+	strHTML+="共分为"+(num-1)+"组。点下生词，就知道出自哪里";
+	document.getElementById("info").innerHTML=strHTML;
+
+	//此刻一记
+	/*
+	var strHTML="<span style='float:left'>"+addLinkButton("刷新","init()")+"</span>";
+	strHTML+="此刻一记：<br/><br/><b>";
+	var ri=Math.floor(arrLocalFile.length*Math.random());
+	var si=arrLocalFile[ri].indexOf("$$");
+	strHTML+=arrLocalFile[ri].substring(0,si)+"</b>";
+	var id=arrLocalFile[ri].substring(si+2,arrLocalFile[ri].length);
+	strHTML+="<br/><br/>"+addLinkButton("查看出处","editInfo(\""+id+"\",\""+id+"\")",id);
+	document.getElementById("tip").innerHTML=strHTML;
+    */
+}
+function loadFiles(){
+	var xmlDocSys=getXMLFile("dt_system");
+	var elementClass=xmlDocSys.documentElement.selectSingleNode("datatag");
+	elementNum=elementClass.childNodes.length;
+	
+	for (var i=0;i<elementNum ; i++){
+		var element=elementClass.childNodes[i].tagName;
+		arrElement[i]=element;
+		//读入文件变量
+		xmlDocElement[i]=getXMLFile("dt_"+element);
+
+	}
+}
+function changePos(){
+	//alert("move!");
+	//document.getElementById("tip").style.top=document.body.scrollTop+30;
+}
+
+</script>
+</HEAD>
+
+<body onload="init()" onscroll="changePos()">
+<h3 id="home">生词搜索</h3>
+<div id="info" >
+</div>
+<div id="alphabet" class="large_title">
+</div>
+<div id="newWords">
+</div>
+
+</body>
+</html>

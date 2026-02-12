@@ -1,0 +1,198 @@
+<!DOCTYPE HTML> 
+<HTML>
+<HEAD>
+<TITLE>爱思>>图片浏览</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<script language="javascript" src="common.js"></script>
+<script language="javascript">
+
+var arrLocalFile=[];
+var arrElement=[];
+var arrElementImg=[];
+var arrBrief=[];
+var xmlDocElement=[];
+
+var currentPage;
+
+function init(){	//进入页面后
+	var strHTML="";
+	loadFiles();//取数据
+	for (var i=0;i<xmlDocElement.length ;i++ ){ 
+		var xPath=arrElement[i]+"/img";  //OK 原始版本
+		var arrResult=xmlDocElement[i].documentElement.selectNodes(xPath);
+		for (var j=0;j<arrResult.length ;j++ ){
+			try{
+				var strResult=arrResult[j].childNodes[0].nodeValue; //有可能为空
+			}catch (e){	continue;}
+
+			var id=arrResult[j].parentNode.getAttribute("id");
+			var elmName=arrResult[j].parentNode.selectSingleNode("name").childNodes[0].nodeValue;
+			var arrTemp=[];
+			if (strResult.indexOf("\n")>-1){
+				arrTemp=strResult.split("\n");
+			}else{
+				arrTemp[0]=strResult;
+			}
+			for (var k=0;k<arrTemp.length ;k++ ){
+				if (arrTemp[k]!="-"){
+					var re=new RegExp("\\\\","g");
+					arrTemp[k]=arrTemp[k].replace(re,"/")
+					arrLocalFile[arrLocalFile.length]=arrTemp[k]+"#"+elmName+"$"+id;
+				}
+			}
+		}
+	}
+	showPage(1);
+}
+
+function search(){
+	arrLocalFile = [];
+	var name = getIdValue("keyWord");
+	for (var i=0;i<xmlDocElement.length ;i++ ){ 
+		var xPath=arrElement[i]+"/name[contains(text(),'"+name+"')]";  //OK 原始版本
+		var arrResult=xmlDocElement[i].documentElement.selectNodes(xPath);
+		//alert(arrResult[0].parentNode.xml)
+		//var xPath="//*[contains(text(),'"+tempKeyWord+"')]";
+		for (var j=0;j<arrResult.length ;j++ ){
+			try{
+				var strResult=arrResult[j].parentNode.selectSingleNode("img").childNodes[0].nodeValue;
+				//alert(strResult);
+				//var strResult=arrResult[j].childNodes[0].nodeValue; //有可能为空
+			}catch (e){	continue;}
+			var id=arrResult[j].parentNode.getAttribute("id");
+			var elmName=arrResult[j].parentNode.selectSingleNode("name").childNodes[0].nodeValue;
+			var arrTemp=[];
+			if (strResult.indexOf("\n")>-1){
+				arrTemp=strResult.split("\n");
+			}else{
+				arrTemp[0]=strResult;
+			}
+			for (var k=0;k<arrTemp.length ;k++ ){
+				if (arrTemp[k]!="-"){
+					var re=new RegExp("\\\\","g");
+					arrTemp[k]=arrTemp[k].replace(re,"/")
+					arrLocalFile[arrLocalFile.length]=arrTemp[k]+"#"+elmName+"$"+id;
+				}
+			}			
+
+		}//end for j
+	}//end for i
+
+	//alert(arrLocalFile);
+	document.getElementById("pageSelect").innerHTML="";
+	document.getElementById("imgView").innerHTML="";
+	showPage(1);
+}
+
+function showPage(pageNo){
+	currentPage=pageNo;
+	var strHTMLHead="";
+	var strHTML="";
+	var last,first;
+	var itemPerPage=20;
+	var totalPage=Math.floor((arrLocalFile.length-1)/itemPerPage)+1;
+
+	first=(pageNo-1)*itemPerPage;
+	if (pageNo>1){
+		strHTMLHead+=addLinkButton("<span style='background-color:#c4e1ff'><b>← 上一页</b></span>","showPage("+(pageNo-1)+")","显示上一页");
+	}else{
+		strHTMLHead+="<span style='color:#adadad'><b> 【 上一页 </b></span>";
+	}
+	strHTMLHead+="  <b>第"+pageNo+"页</b>   ";
+	last=pageNo*itemPerPage;
+	if (last>=arrLocalFile.length){
+		last=arrLocalFile.length;
+		strHTMLHead+="<span style='color:#adadad'><b> 下一页 】</b></span>";
+	}else{
+		strHTMLHead+=addLinkButton("<span style='background-color:#c4e1ff'><b>下一页 →</b></span>","showPage("+(pageNo+1)+")","显示下一页");
+	}
+    for (var i=1; i<=totalPage;i++ ){
+		var tempStr="";
+		if (i==pageNo){
+			tempStr="<big><b>["+i+"]</b></big>";
+		}else{
+			tempStr=addLinkButton(i,"showPage("+(i)+")","跳转至  第"+i+"页");
+		}
+		strHTMLHead+=tempStr;
+    }
+	document.getElementById("pageSelect").innerHTML=strHTMLHead;
+
+	for (var i=first;i<last ;i++ ){
+		var level=5;
+		var elmName=arrLocalFile[i].split("#")[1];
+		var si=elmName.indexOf("$");
+		elmName=elmName.substring(0,si);
+
+		var arrFilePath=arrLocalFile[i].split("#")[0].split("/");
+		
+		var id=arrLocalFile[i].split("$")[1];
+
+		var image = new Image();
+
+		image.src = arrLocalFile[i];
+		image.id = id;
+		image.name = elmName;
+		image.onload = function(){
+			// alert(this.src +":"+this.width+","+this.height);
+			var h = 150;
+			if (this.width > this.height) {
+				// alert(elmName);
+				h = this.height / this.width * 150;
+				//alert(h);
+			} 
+			strHTML="<div class='path'>";
+			var brief=this.id.charAt(0);
+			strHTML+="<span style='width:180px;height:180px;float:left'>"
+
+			// alert(sizeStyle);
+			strHTML+=addLinkButton("<img src=\""+PATH_IMG+arrElementImg[brief]+"\"/> "
+							 +this.name.substring(0,12)+"<br/>"+"<img id=\""+this.id+"\" src=\""+this.src+"\" height=\""+h+"px\" />","editInfo(\""+this.id+"\",\""+this.id+"\")",this.name);
+			strHTML+="</span>";
+			strHTML+="</div>";
+			document.getElementById("imgView").innerHTML+=strHTML;
+		}
+	}
+	document.getElementById("imgView").innerHTML=strHTML;
+}
+
+
+
+function loadFiles(){
+	var xmlDocSys=getXMLFile("dt_system");
+	var elementClass=xmlDocSys.documentElement.selectSingleNode("datatag");
+	elementNum=elementClass.childNodes.length;
+	
+	for (var i=0;i<elementNum ; i++){
+		var element=elementClass.childNodes[i].tagName;
+		var elementImg =elementClass.childNodes[i].getAttribute("img");
+		arrElement[i]=element;
+		//读入文件变量
+		xmlDocElement[i]=getXMLFile("dt_"+element);
+		var xPath="idcode/"+element+"/brief";
+		var brief=xmlDocSys.documentElement.selectSingleNode(xPath).childNodes[0].nodeValue;
+		arrBrief[i]=brief;
+		arrElementImg[brief]=elementImg;
+	}
+}
+
+</script>
+</HEAD>
+
+<body onload="init()">
+<h3>图片搜索</h3>
+<form onsubmit="search();return false;">
+<input type='text' id='keyWord'  size="50" value="杜"/> 
+<input id ="btSearch" type='submit' value='开始查找'/>
+<br/>
+</form>
+<div id="pageSelect">
+</div>
+<div id="recentAdd">
+</div>
+<div id="searchResult" style="clear:both;">
+</div>
+<div id="imgView">
+</div>
+</body>
+</html>

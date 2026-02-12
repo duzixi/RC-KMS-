@@ -1,0 +1,106 @@
+<!DOCTYPE HTML> 
+<HTML>
+<HEAD>
+<TITLE>爱思>>数据导入</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<script language="javascript" src="common.js"></script>
+<script language="javascript">
+var element="";
+var xmlDocSys=getXMLFile("dt_system");
+//STEP 1 从system.xml中读取要素的信息
+var nameTags=xmlDocSys.documentElement.selectNodes("datatag");
+
+function init(){
+	var strHTML="<select name='element' onchange='showPropSelect()'>";
+	//STEP 2 生成要素选择列表
+	for (i=0;i<nameTags[0].childNodes.length ; i++){
+		strHTML+="<option value='"+nameTags[0].childNodes[i].tagName+"'>";
+		strHTML+=nameTags[0].childNodes[i].getAttribute("text")+"</option>";
+	}
+	strHTML+="</select>";
+	document.getElementById("elementSelect").innerHTML=strHTML;
+
+	//STEP 3 生成属性选择
+	showPropSelect();
+}
+function showPropSelect(){
+	element=document.all.element.value;
+	var strHTML="";
+	//STEP 1 从system中读取关键标签
+	var tags=nameTags[0].selectSingleNode(element);
+
+	for (i=0;i<tags.childNodes.length ;i++ ){
+		dataType=tags.childNodes[i].getAttribute("key");
+		if (dataType=="yes"){
+		var isCheck=" checked='checked'";}else{isCheck="";}
+		var tag=tags.childNodes[i].tagName;
+		strHTML+="<input type='checkbox' name='prop'"+isCheck+" value='"+tag+"'/>";
+		strHTML+=tags.childNodes[i].childNodes[0].nodeValue+"  ";
+	}
+
+	document.getElementById("propSelect").innerHTML=strHTML;
+}
+  function importXls(){//从指定.xls文件中导入指定属性集合的数据
+      var path;
+	  path=document.getElementById("fileName").value;
+
+      //STEP 0 根据页面选项，生成属性列表
+	  var arrProp=document.getElementsByName("prop");
+	  var arrPropSelect=new Array();
+
+	  for (i=0;i<arrProp.length ;i++ ){
+	      if (arrProp[i].checked){
+	          arrPropSelect[arrPropSelect.length]=arrProp[i].value;
+		  }
+	  }
+	  //获取XML文件
+	  var xmlDoc = getXMLFile("dt_"+element);
+	  var xmlRoot=xmlDoc.documentElement;
+
+	  //STEP 1 读入Excel表
+      var oXL = new ActiveXObject("Excel.Application");
+      var oWB = oXL.Workbooks.Open(path);
+      for (circleI = 1; circleI <= oWB.Sheets.Count; circleI ++){
+
+		 var oSheet = oWB.Sheets(circleI);
+
+		 for (j=1;j<=oSheet.UsedRange.Rows.Count ;j++ ){
+		     //STEP 2 生成一个xml要素结点
+			 var xml="";
+			 var id=getId(element);
+			 var xmlNode=xmlDoc.createElement(element);
+
+	         xmlNode.setAttribute("id",id);
+             for (k=0;k<arrPropSelect.length ;k++ ){
+			     var value=oSheet.Cells(j,k+1).Value;
+				 var xmlElm=xmlDoc.createElement(arrPropSelect[k]);
+		         var xmlElmTxt=xmlDoc.createTextNode(value);
+				 xmlElm.appendChild(xmlElmTxt);
+		         xmlNode.appendChild(xmlElm);
+             }
+			 xmlRoot.appendChild(xmlNode);
+		 }
+      }
+
+	  //STEP 3 添加至相应的xml文件
+      saveToFile(XMLHEAD+xmlRoot.xml,'/XML/dt_'+element+'.xml');
+
+	  //STEP 4 关闭相应文件
+	  oWB.Close();
+	  oWB = null;
+      oXL = null;
+      alert("导入成功！");
+  }  
+
+</script>
+</HEAD>
+
+<BODY onload="init()">
+<h3>数据导入</h3>
+Excel文件：<input type="file" id="fileName" size="30"/>
+<input type="button" value="开始导入" onclick="importXls()" /><br/><hr/>
+导入要素：<span id="elementSelect"></span><br/>
+属性选择：<br/><span id="propSelect"></span>
+</BODY>
+</HTML>

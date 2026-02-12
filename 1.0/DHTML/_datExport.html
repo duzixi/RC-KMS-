@@ -1,0 +1,205 @@
+<!DOCTYPE HTML> 
+<HTML>
+<HEAD>
+<TITLE>爱思>>数据导出</TITLE>
+<meta http-equiv="Content-Type" content="text/html; charset=unicode" />
+
+<link type = "text/css" rel="stylesheet" href="RCKMS.css" />
+<script language="javascript" src="common.js"></script>
+<script language="javascript">
+var xmlDocSys;
+
+function init(){//初始化 —— 文件到处路径  
+	xmlDocSys=getXMLFile("dt_system");
+	var path= document.location.pathname;
+	if (path.lastIndexOf('\\')>=0){
+		path=path.slice(1,path.lastIndexOf('\\')); //IE 6.0 是这样的
+	}else{
+		path=path.slice(1,path.lastIndexOf('/')); //IE 7.0 是这样的
+	}
+	document.getElementById("exportPath").value=path;
+}
+
+function exportXls(){//导出要素信息
+	
+	var path=document.getElementById("exportPath").value;
+	//STEP 0 准备工作
+	var ExcelSheet;  //存储dt_system
+	var ExcelSheets=new Array();  //存储要素数据
+
+	ExcelApp=new ActiveXObject("Excel.Application");
+	ExcelSheet=new ActiveXObject("Excel.Sheet");
+	ExcelSheet.Application.Visible=false;
+  
+	//STEP 1 将dt_system.xml文件中的数据读出来赋值给Excel对象
+	//step 1.1 dt_system.xml的基本信息
+	ExcelSheet.ActiveSheet.Cells(1,1).value="要素:";
+	ExcelSheet.ActiveSheet.Cells(1,2).value="评论";
+	ExcelSheet.ActiveSheet.Cells(2,1).value="datatag";
+	ExcelSheet.ActiveSheet.Cells(2,2).value="comment";
+
+	var temp=xmlDocSys.documentElement.selectNodes("idcode/comment");
+	for (i=0;i<temp[0].childNodes.length ;i++ ){
+		ExcelSheet.ActiveSheet.Cells(3+i,1).value=temp[0].childNodes[i].tagName;
+		ExcelSheet.ActiveSheet.Cells(3+i,2).value=temp[0].childNodes[i].childNodes[0].nodeValue;
+	}
+	var today = new Date();
+	today=""+today.getFullYear()+format((today.getMonth()+1),2)+format(today.getDate(),2)+"_"+format(today.getHours(),2);
+  
+	//step 1.2 数据标签ID生成信息
+
+	nameTags=xmlDocSys.documentElement.selectNodes("datatag");
+	var tagName,tagText;
+	for (i=0;i<nameTags[0].childNodes.length; i++){
+		ExcelSheets[i]=new ActiveXObject("Excel.Sheet");
+		ExcelSheets[i].Application.Visible=true;
+
+		tagText=nameTags[0].childNodes[i].getAttribute("text");
+		tagName=nameTags[0].childNodes[i].tagName;
+		ExcelSheet.ActiveSheet.Cells(1,i+3).value=tagText;//要素中文名 eg.研究者
+		ExcelSheet.ActiveSheet.Cells(2,i+3).value=tagName;//要素英文名 eg.researcher
+		ExcelSheet.ActiveSheet.Cells(6*(i+1)+3,1)=tagText;
+		ExcelSheet.ActiveSheet.Cells(6*(i+1)+3,2)="标签：";
+		ExcelSheet.ActiveSheet.Cells(6*(i+1)+4,1)=tagName;
+		ExcelSheet.ActiveSheet.Cells(6*(i+1)+5,1)="dataType";
+		ExcelSheet.ActiveSheet.Cells(6*(i+1)+6,1)="size";
+		ExcelSheet.ActiveSheet.Cells(6*(i+1)+7,1)="key";
+
+		ExcelSheets[i].ActiveSheet.Cells(1,1)="标签：";
+		ExcelSheets[i].ActiveSheet.Cells(2,1)="ID";
+
+		temp=xmlDocSys.documentElement.selectNodes("idcode/"+tagName);
+		for (j=0;j<temp[0].childNodes.length ;j++ ){
+			ExcelSheet.ActiveSheet.Cells(j+3,i+3).value=temp[0].childNodes[j].childNodes[0].nodeValue;
+		}
+		//step 1.3 各要素的 数据标签信息
+		temp=xmlDocSys.documentElement.selectNodes("datatag/"+tagName);
+		for (j=0;j<temp[0].childNodes.length ;j++ ){
+			ExcelSheet.ActiveSheet.Cells(6*(i+1)+3,3+j)=temp[0].childNodes[j].childNodes[0].nodeValue;
+			ExcelSheet.ActiveSheet.Cells(6*(i+1)+4,3+j)=temp[0].childNodes[j].tagName;
+			ExcelSheet.ActiveSheet.Cells(6*(i+1)+5,3+j)=temp[0].childNodes[j].getAttribute("dataType");
+			ExcelSheet.ActiveSheet.Cells(6*(i+1)+6,3+j)=temp[0].childNodes[j].getAttribute("size");
+			ExcelSheet.ActiveSheet.Cells(6*(i+1)+7,3+j)=temp[0].childNodes[j].getAttribute("key");
+			ExcelSheets[i].ActiveSheet.Cells(1,j+2)=temp[0].childNodes[j].childNodes[0].nodeValue;
+			ExcelSheets[i].ActiveSheet.Cells(2,j+2)=temp[0].childNodes[j].tagName;
+		}
+
+		//STEP 2 将其他数据文件中的内容
+		var xmlDoc=getXMLFile("dt_"+tagName);
+		var elementInfo=xmlDoc.documentElement.selectNodes(tagName);
+		for (var k=0;k<elementInfo.length ;k++){
+			ExcelSheets[i].ActiveSheet.Cells(k+3,1)=elementInfo[k].getAttribute("id");
+			for (j=0;j<temp[0].childNodes.length ;j++ ){
+				try{
+				ExcelSheets[i].ActiveSheet.Cells(k+3,2+j)=elementInfo[k].selectSingleNode(temp[0].childNodes[j].tagName).childNodes[0].nodeValue;
+				}catch (e){
+
+				}
+			}
+		}
+		ExcelSheets[i].SaveAs(path+"\\"+today+" dt_"+tagName+".xls");
+	}
+	ExcelSheet.SaveAs(path+"\\"+today+" dt_system.xls");
+	ExcelSheet.Application.Quit();  //关闭打开的Excel文件  
+	window.open(path,"export");
+}
+function exportXlsXYZ(){//导出认知维度
+	var time0=new Date();
+	var strHTML="";
+
+	var path=document.getElementById("exportPath").value;
+	var ExcelApp=new ActiveXObject("Excel.Application");
+	var ExcelSheet=new ActiveXObject("Excel.Sheet");
+	ExcelSheet.Application.Visible=true;
+
+	var arrTitle=["ID","x(关联维)","y(客观维)","z(主观维)"];
+	for (var i=0; i<4; i++){
+		ExcelSheet.ActiveSheet.Cells(1,i+1).value=arrTitle[i];
+	}
+
+	var xmlDocComment=getXMLFile("dt_comment"); //存储评论文件
+	var nameTags=xmlDocSys.documentElement.selectNodes("datatag");
+	var line=1;
+	var xmlDocElement=new Array();
+	var arrElementClass=new Array();
+	
+	var numElementClass=nameTags[0].childNodes.length;
+
+	for (var i=0; i<numElementClass; i++){
+		arrElementClass[i]=nameTags[0].childNodes[i].tagName;
+		xmlDocElement[i]=getXMLFile("dt_"+arrElementClass[i]);
+	}
+	
+	var time1=new Date();
+	strHTML+="变量准备时间："+(time1-time0);
+
+	for (var i=0; i<numElementClass; i++){
+
+		var arrElement=xmlDocElement[i].getElementsByTagName(arrElementClass[i]);
+		for (var j=0; j<arrElement.length; j++){
+			var id=arrElement[j].getAttribute("id");
+			//STEP 1 客观维
+			var y=arrElement[j].childNodes.length; 
+			//STEP 2 主观维
+			var xPath="comment[object='"+id+"']";
+			arr= xmlDocComment.documentElement.selectNodes(xPath);
+			var z=arr.length;
+			//STEP 3 关联维
+			var x=0;
+			//step 3.1 自身->其他
+			var referNodes=arrElement[j].selectNodes("child::node()[@refer]");
+			var refer;
+			for (var k=0;k<referNodes.length; k++){
+				refer=referNodes[k].getAttribute("refer");
+				if (refer!=""){ //如果refer值为空，跳出"本"循环
+					temp=getRefers(refer); 
+					x+=temp.length;
+				}
+			}
+
+			//step 3.2 其他->自身
+			for (var k=0;k<numElementClass ;k++ ){
+				var xPath="//"+arrElementClass[k]+"/*[contains(@refer,'"+id+"')]"; 
+				var arrResult=xmlDocElement[k].documentElement.selectNodes(xPath); //搜索所有包含关联信息的结点
+				x+=arrResult.length;
+			}
+
+			line++;
+			ExcelSheet.ActiveSheet.Cells(line,1).value=id;
+			ExcelSheet.ActiveSheet.Cells(line,2).value=x;
+			ExcelSheet.ActiveSheet.Cells(line,3).value=y;
+			ExcelSheet.ActiveSheet.Cells(line,4).value=z;
+
+		}
+
+	}
+
+	var today = new Date();
+	strHTML+="每个要素的三维度计算："+(today-time1);
+	today=""+today.getFullYear()+format((today.getMonth()+1),2)+format(today.getDate(),2)+"_"+format(today.getHours(),2);
+	ExcelSheet.SaveAs(path+"\\"+today+" cognition.xls");
+
+	ExcelSheet.Application.Quit();   
+	window.open(path,"export");
+
+	document.getElementById("timeTest").innerHTML=strHTML;
+}
+
+</script>
+</HEAD>
+
+<BODY onload='init()'>
+<h3> 数据导出</h3>
+
+
+文件导出路径：<input id='exportPath' type='text' size='30'/>
+<br/><br/>
+<b>导出为Excel表格文件</b>（※需装有Microsoft Office Excel）
+<br/><br/>
+<input type="button" value="导出要素信息" onclick="exportXls()" />
+<br/>
+<input type="button" value="导出认知维度" onclick="exportXlsXYZ()" />
+<div id='timeTest'></div>
+
+</BODY>
+</HTML>
