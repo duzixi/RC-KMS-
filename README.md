@@ -16,6 +16,5 @@
  模型：人类智慧凝练为模型，无论虚拟或现实。
  问题：问答的问题(question)，要解决的问题(problem)，都是问题。
 
-
-—— 欢迎来到RC-KMS@duzixi.com(Ver.2.0 2020.3.21)，这里是我17年的知识积累与沉淀:
+—— 欢迎来到爱思2.0，这里是我17年的知识积累与沉淀:
  https://www.duzixi.com/RC-KMS/index.html
