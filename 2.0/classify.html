@@ -1,0 +1,253 @@
+<html>
+<head>
+<title>RC-KMS_多维分类</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+<script src="js/Web.js"> </script>
+<script src="js/XML.js"> </script>
+<script src="js/RC-KMS.js"> </script>
+
+<script src="js/echarts.js"></script>
+<script src="js/aui.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/rc.css" />
+<style type="text/css">
+#echart {
+	width: 100%;
+	height: 200px;
+	background-color: #f7f0f0;
+}
+#searchResult {
+	padding: 30px;
+}
+
+.name-node {
+	width: 400px;
+	float:left;
+}
+
+</style>
+
+<script>
+var myChart;
+var currentClass; // 当前选中大类
+
+function visual() {
+	// STEP 1: 载入基础数据
+	for (var i = 0; i < elmNames.length; i++) {
+		var nodeName = elmNames[i];
+		// STEP 2: 生成下拉菜单
+		var domLi = getLiNode(nodeName, elmInfos[nodeName].chName,"Class" );
+		document.getElementById("listClass").appendChild(domLi);
+	}
+	// STEP 3: 更新状态
+	var domTrigger = document.getElementById("btClass");
+	domTrigger.innerHTML = '请选择<span class="caret"></span>';
+
+}
+
+// 选中下拉菜单中的类别
+function select(node) {
+	// STEP 0: 选中态样式初始化
+	var emphasisStyle = {
+	    itemStyle: {
+	        barBorderWidth: 1,
+	        shadowBlur: 10,
+	        shadowOffsetX: 0,
+	        shadowOffsetY: 0,
+	        shadowColor: 'rgba(0,0,0,0.5)'
+	    }
+	};
+
+	// STEP 1: 改变trigger文字
+	var domTrigger = document.getElementById("bt" + node.type);
+	domTrigger.innerHTML = node.innerHTML +'<span class="caret"></span>';
+
+	currentClass = node.id; // 要素类型
+
+	var series = []; // 可视化数据
+
+	// STEP 1: 获取所有的小类
+	var dicTags = elmInfos[currentClass].AllTags(10);
+	var propNum = dicTags.keys();
+
+	// STEP 2: 遍历所有维度 
+	var index = 0;
+	var propNames = new Array (); // 维度属性中文名数组
+
+	for(var prop in dicTags){
+		// STEP 3: 当前维度下的标签字典
+		var tagDic = dicTags[prop]; 
+		propNames[index] = (propDictionary[currentClass + "_" + prop]);
+		// STEP 4: 根据小类标签生成可视化用数据
+		for (var tag in tagDic) {
+			var tagInfoId = prop + "_" + tag;
+			var tagInfo = {}; // 添加到series 里的
+			tagInfo.id = tagInfoId;
+			tagInfo.type = "bar";
+			tagInfo.name = tag;
+			tagInfo.stack = "one";
+			tagInfo.emphasis = emphasisStyle;
+			tagInfo.value = tagDic[tag];
+			tagInfo.data = new Array(propNum);
+			tagInfo.data[index] = tagDic[tag];
+			tagInfo.label = {
+				show: true,
+				formatter: tag,
+				position: 'insideLeft'
+			};
+			series.push(tagInfo);
+		}
+		index++;
+	}
+
+	// 对series 进行排序
+	series.sort(function(t0, t1){
+		return t1.value - t0.value;
+	});
+
+	console.log(series);
+
+	// STEP 3: 配置可视化
+	myChart.clear();
+
+	var option = {
+	    brush: {
+	        toolbox: ['rect', 'polygon', 'lineX', 'lineY', 'keep', 'clear'],
+	        xAxisIndex: 0
+	    },
+	    tooltip: {},
+	    xAxis: {
+	        inverse: false,
+	        name: '个数',
+	        splitArea: {show: false}
+	    },
+	    yAxis: {
+	        data: propNames,
+	        inverse: true,
+	        name: '维度',
+	        axisLine: {onZero: true},
+	        splitLine: {show: true},
+	        splitArea: {show: true}
+	    },
+	    series: series
+	};
+
+	myChart.setOption(option);
+}
+
+// 返回要素Dom节点
+function getElementNode (node) {
+	var divA = document.createElement("a");
+	divA.setAttribute("href", "#");
+	var elmId = node.getAttribute("id");
+	divA.setAttribute("onclick", "showDetail('"+ elmId + "')");
+
+	var domDiv = document.createElement("div");
+	domDiv.setAttribute("class", "name-node");
+	// 图标标签
+	var domImg = document.createElement("img");
+	domImg.setAttribute("src", "img/" + elmInfos[currentClass].img);
+	domDiv.appendChild(domImg);
+
+	// 属性标签
+	var domLabel = document.createElement("label");
+	domLabel.setAttribute("class","control-label");
+	domLabel.innerHTML = node.getElementsByTagName("name")[0].innerHTML;
+	domDiv.appendChild(domLabel);
+
+	divA.appendChild(domDiv);
+
+	return divA;
+}
+
+// 根据维度搜索
+function search(seriesId, num){
+	// STEP 1: 明确搜索条件
+	var arr = seriesId.split("_");
+	var propName = arr[0]; // view
+	var tagName = arr[1]; // 哲学
+	var propNameCh = propDictionary[currentClass+ "_" + propName];
+
+	var domCase = document.getElementById("searchCase");
+	domCase.innerHTML = propNameCh + '中包含"' + tagName + '"的' + elmInfos[currentClass].chName + ":(" + num + ")";
+
+	// STEP 2: 按搜索条件搜索
+	var xPath = "//"+propName+"[contains(text(),'" + tagName + "')]/..";
+	var nodes = elmXmls[currentClass].selectNodesByXPath(xPath);
+
+	var domResult = document.getElementById("searchResult");
+	clearDomChildNodes(domResult);
+
+	for (var j = 0; j < nodes.length; j++ ){
+		if (nodes[j] == null) {
+			continue;
+		}
+		var domDiv = getElementNode(nodes[j]);
+		domResult.appendChild(domDiv);
+	}	
+}
+
+</script>
+</head>
+
+<body onload="loadData()">
+
+<div>
+    <a href="http://www.duzixi.com/RC-KMS">
+        <img id="logo" src="img/logo.svg"/>
+        <span class ="title"> RC-KMS</span><span class="subtitle">@duzixi.com</span>
+    </a>
+
+</div>
+
+<div id="myRadiogroup" class="yui3-widget btn-group btn-group-content">
+	<button class="btn-default btn" onclick="turn('connection.html')">关联</button>
+	<button class="btn-default btn" onclick="turn('search.html')">搜索</button>
+	<button class="btn-default btn" onclick="turn('history.html')">排序</button>
+	<button class="btn-default btn" style="color: #9e7a7a; background-color: white">分类</button>
+	<button class="btn-default btn" onclick="turn('heat.html')">关注度</button>
+	
+</div>
+
+<div class="navbar-collapse">
+	<span id="menuClass" class="dropdown nav navbar-nav">大类：
+	  <button id="btClass" class="btn btn-default dropdown-toggle" type="button">
+	  	载入中...<span class="caret"></span></button>
+	  <ul id="listClass" class="dropdown-menu"></ul>
+	</span>
+</div>
+
+<script type="text/javascript">
+YUI().use('aui-dropdown',
+  function(Y) {
+    YUIMenuClass = new Y.Dropdown(
+      {
+        boundingBox: '#menuClass',
+        trigger: '#btClass'
+      }
+    ).render();
+  }
+);
+</script>
+
+<div id="echart">(Loading...)</div>
+
+<script type="text/javascript">
+	var domEChart = document.getElementById("echart");	
+	myChart = echarts.init(domEChart);
+
+	// 添加点击事件
+    myChart.on('click', function (params) {
+    	console.log(params);
+    	// params.seriesId:  view_哲学
+    	search(params.seriesId, params.value);
+	});
+</script>
+
+<div id="searchCase"></div>
+<div id="searchResult"></div>
+
+<div style="clear:left">(Data Ver.</span><span id='lastedit'></span><span>)</div>
+</body>
+</html>

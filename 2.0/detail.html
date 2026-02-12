@@ -1,0 +1,187 @@
+<html>
+<head>
+<title>RC-KMS_要素详情</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+<script src="js/Web.js"> </script>
+<script src="js/XML.js"> </script>
+<script src="js/RC-KMS.js"> </script>
+
+<script src="js/aui.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/rc.css" />
+
+<style type="text/css">
+.controls {
+	margin-left: 30px;	
+}
+
+.control-label {
+	background-color: #f7f0f0;
+}
+
+.element-class {
+	font-size: larger;
+	font-weight: bold;
+	margin: 5px;
+	// float:left;
+}
+</style>
+
+
+
+<script>
+
+function visual() {
+	var domClass = document.getElementById("elmClass");
+	// STEP 1: 获取ID
+	var elementId = getParamOfURL("id")
+	console.log(elementId);
+
+	// STEP 2: 获取缩写，根据缩写确定类型
+	var brief = elementId.substring(0, 1);
+
+	// STEP 3: 根据缩写搜索知识要素类型
+	var currentClass = null;
+
+	for (var key in elmInfos) {
+		if (brief == elmInfos[key].brief) {
+			currentClass = elmInfos[key].enName;
+			break;
+		}
+	}
+
+	if (currentClass == null) {
+		console.log("Error: 未找到知识要素类");
+		return;
+	}
+
+	// 图标标签
+	var domImg = document.createElement("img");
+	domImg.setAttribute("src", "img/" + elmInfos[currentClass].img);
+	domImg.setAttribute("class","element-class");
+
+	domClass.appendChild(domImg);
+	
+	var xmlNode = elmXmls[currentClass].getSingleNodeById(elementId);
+
+		// STEP 5: 生成时间节点
+	clearDomChildNodes(edittime);
+	// var domTime = document.getElementById("edittime");
+	// STEP 5.1: 创建时间 
+	var domCreateTime = document.createElement("div");
+	domCreateTime.innerHTML = "创建时间:" + 
+		elementId.substring(1,5) + "年" + 
+		elementId.substring(5,7) + "月" +
+		elementId.substring(7,9) + "日";
+	edittime.appendChild(domCreateTime);
+
+	// STEP 5.2: 更新时间
+	var domUpdateTime = document.createElement("div");
+	domUpdateTime.innerHTML = "更新时间:" + xmlNode.getAttribute("lastedit");
+	edittime.appendChild(domUpdateTime);
+	
+	// STEP 4: 要素属性节点生成页面内容
+	clearDomChildNodes(document.getElementById("myForm"));
+
+	for (var i = 0; i < xmlNode.childNodes.length; i++) {
+		var node = xmlNode.childNodes[i];
+
+		// STEP 4.0:
+		var domDiv = document.createElement("div");
+
+		// STEP 4.1: 属性标签
+		var domLabel = document.createElement("label");
+		domLabel.setAttribute("class","control-label");
+		var propName = node.nodeName;
+		// propDictionary
+		domLabel.innerHTML = propDictionary[currentClass + "_" + propName] + " (" + propName + ")" + ":";
+		domDiv.appendChild(domLabel);
+
+		// STEP 4.2: 内容标签
+		var domSpan = document.createElement("div");
+		domSpan.setAttribute("class", "controls");
+		var strProp = elmXmls[key].getNodeTxtValue(node);
+		if (strProp != undefined) {
+			if (node.tagName == "img") { // 如果是图片，异步加载图片
+				var urls = strProp.split("\n"); // 直接获取多个链接
+				for (var j = 0; j < urls.length; j++) {
+					var img = new Image();
+					img.src = urls[j];
+					(function(p_img){
+						p_img.onload = function() { 
+						var elmImages = document.getElementById("elmImages");
+						var imgNode = document.createElement("img");
+						imgNode.src = p_img.src;
+						imgNode.style.width = p_img.width;
+						imgNode.style.height = p_img.height;
+						elmImages.appendChild(imgNode);
+					}
+					})(img);
+				}
+			} else if (node.tagName == "name") {
+				document.title = strProp;
+			}
+			var str = strProp.ToHTML(node);
+			domSpan.innerHTML = str; 
+			domDiv.appendChild(domSpan);
+			document.getElementById("myForm").appendChild(domDiv);
+		} else {
+			console.log("Error:" + node + "返回字符串为空");
+		}
+	}
+
+	document.getElementById("myForm").appendChild(domDiv);
+
+}
+
+function check() {
+	var elementId = getParamOfURL("id");
+	if (elementId) {
+		showConnection(elementId);
+	}
+}
+
+</script>
+</head>
+
+<body onload="loadData()">
+
+<div>
+    <a href="http://www.duzixi.com/RC-KMS">
+        <img id="logo" src="img/logo.svg"/>
+        <span class ="title"> RC-KMS</span><span class="subtitle">@duzixi.com</span>
+    </a>
+</div>
+
+<div id="myRadiogroup" class="yui3-widget btn-group btn-group-content">
+	<button class="btn-default btn" onclick="check()">关联</button>
+	<button class="btn-default btn" onclick="turn('search.html')">搜索</button>
+	<button class="btn-default btn" onclick="turn('history.html')">排序</button>
+	<button class="btn-default btn" onclick="turn('classify.html')">分类</button>
+	<button class="btn-default btn" onclick="turn('heat.html')">关注</button>
+</div>
+
+<div id="elmImages"></div>
+<div id="elmClass"></div>
+<form id="myForm">
+	（Loading...）
+</form>
+<script type="text/javascript">
+YUI().use(
+  'aui-form-validator',
+  function(Y) {
+    new Y.FormValidator(
+      {
+        boundingBox: '#myForm'
+      }
+    );
+  }
+);
+</script>
+<hr>
+<div id ="edittime"></div>
+<div>(Data Ver.</span><span id='lastedit'></span><span>)</div>
+
+</body>
+</html>

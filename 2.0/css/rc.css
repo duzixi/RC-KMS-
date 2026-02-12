@@ -1,0 +1,53 @@
+body {
+	background-color: white;
+	color: #9e7a7a; /* 梅鼠 158 122 122 */
+	padding: 10px;
+}
+
+strong {
+	color:red;
+}
+
+header {
+	background-color: #eabaa4;
+	padding: 5px;
+}
+
+.title {
+	margin: : 5px;
+	font-size: 24px;
+	text-decoration:underline;
+	color:#9e7a7a;
+}
+
+.subtitle {
+	font-size: 16px;
+	color:#9e7a7a;
+}
+
+#logo {
+	width: 50px;
+	height:50px;
+	margin: -15px -5px 0px -10px;
+}
+
+#lastedit {
+	font-size: 14px;
+}
+
+.navbar-nav li a {
+	padding: 8px;
+}
+.navbar-nav {
+	margin-left: 10px;
+}
+
+.navbar {
+	min-height:40px;
+	background-color: #9e7a7a;  /* 砥粉 215 185 142 */
+}
+
+#myRadiogroup button {
+	color: white; 
+	background-color: #9e7a7a;
+}

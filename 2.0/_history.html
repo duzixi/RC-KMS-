@@ -1,0 +1,261 @@
+<html>
+<head>
+<title>RC-KMS_历史排序</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+<script src="js/Web.js"> </script>
+<script src="js/XML.js"> </script>
+<script src="js/RC-KMS.js"> </script>
+
+<script src="js/echarts.js"></script>
+<script src="js/aui.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/rc.css" />
+<style type="text/css">
+#echart {
+	width: 100%;
+	background-color: #f7f0f0;
+}
+
+</style>
+
+
+<script>
+var currentClass = null;
+var currentProp = null;
+var currentTag = null;
+var YUIMenuClass = null;
+var YUIMenuProp = null;
+var YUIMenuTag = null;
+
+
+function visual() {
+	// STEP 1: 载入基础数据
+	for (var i = 0; i < elmNames.length; i++) {
+		var nodeName = elmNames[i];
+		// STEP 2: 生成下拉菜单
+		var domLi = getLiNode(nodeName, elmInfos[nodeName].chName,"Class" );
+		document.getElementById("listClass").appendChild(domLi);
+	}
+	// STEP 3: 更新状态
+	var domTrigger = document.getElementById("btClass");
+	domTrigger.innerHTML = '请选择<span class="caret"></span>';
+
+	// STEP 5: 点击跳转到详情页面
+}
+
+// 选中菜单响应
+function select(node) {
+	// STEP 1: 改变trigger
+	var domTrigger = document.getElementById("bt" + node.type);
+	domTrigger.innerHTML = node.innerHTML +'<span class="caret"></span>';
+
+	// STEP 2: 更新下一级菜单选项
+	switch(node.type) {
+		case "Class":
+		{	// CASE 1: 选中大类
+			currentClass = node.id;
+			YUIMenuClass.close();
+			updatePropMenu();  // 更新维度菜单
+    		clearDomChildNodes(document.getElementById("listTag")); // 小类选择无效化
+    		var domTrigger = document.getElementById("btTag");
+			domTrigger.innerHTML = '-<span class="caret"></span>';
+		}
+		break;
+		case "Prop" :
+		{   // CASE 2: 选中维度
+			currentProp = node.id;
+			YUIMenuProp.close();
+
+			// 载入当前类，当前维度下的小类
+			for (var key in elmInfos[currentClass].propYear) {
+				var tags = elmInfos[currentClass].TimeTags(currentProp,key, 3);
+				// console.log(tags);
+				var sTags=Object.keys(tags).sort(function(a,b){return tags[b]-tags[a]});
+				var dicTags = new Array();
+				for (var i = 0; i < sTags.length; i++) {
+					dicTags[sTags[i]] = tags[sTags[i]];
+				}
+				updateTagMenu(dicTags);
+				break;
+			}
+
+		}
+		break;
+		case "Tag":
+		{   // CASE 3: 选中小类
+			currentTag = node.id;
+
+			var data = new Array();
+
+			// 根据选项获取信息
+			for (var key in elmInfos[currentClass].propYear) {
+				var xPath = "//"+currentProp+"[contains(text(),'" + currentTag + "')]/..";
+				xPath += "/" + key;
+				var nodes = elmXmls[currentClass].selectNodesByXPath(xPath);
+				for (var i = 0; i < nodes.length; i++) {
+					var strYear = elmXmls[currentClass].getNodeTxtValue(nodes[i]);
+					var obj = new Array();
+					obj[obj.length] = strYear.getYear() - 0;
+					obj[obj.length] = i;
+					var emlId = nodes[i].parentNode.getAttribute("id");
+					xPath = "*[@id ='"+emlId+"']/name";
+					var nameNode = elmXmls[currentClass].selectSingleNodeByXPath(xPath);
+					obj[obj.length] = elmXmls[currentClass].getNodeTxtValue(nameNode) + "(" + obj[0] + ")";
+					obj[obj.length] = emlId;
+					data[data.length] = obj;
+				}
+
+				break; // 只考虑一个时间
+			}
+
+			// 可视化
+			var domEChart = document.getElementById("echart");
+			var myChart = echarts.init(domEChart);
+
+			var option = {
+			    xAxis: {
+			    	position: 'top',
+			    	axisLine: { show: false },
+		            axisTick: { show: false },
+		            axisLabel: { 
+		            	formatter: function (param) {   return param + "年";  },
+		            },
+		            scale: true
+			    },
+			    yAxis: {
+			    	axisLine: { show: false },
+		            axisTick: { show: false },
+		            axisLabel: { show: false },
+		            scale: false
+			    },
+			    series: [{
+			        symbolSize: 10,
+			        label: {
+		                show: true,
+		                formatter: function (param) {   return param.data[2];  },
+		                position: 'left'
+		            },
+			        data: data,
+			        type: 'scatter'
+			    }]
+			};
+
+			myChart.setOption(option);
+
+			// 动态调整高度
+			var autoHeight= data.length * 21 + 150;
+			myChart.getDom().style.height = autoHeight + "px";
+			myChart.getDom().childNodes[0].style.height = autoHeight + "px";
+            myChart.getDom().childNodes[0].childNodes[0].setAttribute("height",autoHeight);
+            myChart.getDom().childNodes[0].childNodes[0].style.height = autoHeight + "px";
+            myChart.resize(); 
+
+			// 添加点击事件
+		    myChart.on('click', function (params) {
+		    	console.log(params.data);
+		    	showDetail(params.data[3]);
+			});
+
+			YUIMenuTag.close();
+		}
+		break;
+	}
+}
+
+// 根据大类更新维度菜单
+function updatePropMenu()
+{
+	var domListProp = document.getElementById("listProp");
+    clearDomChildNodes(domListProp);
+	for (var key in elmInfos[currentClass].propClass) {
+		var domLi = getLiNode(key, elmInfos[currentClass].propClass[key],"Prop" );
+		domListProp.appendChild(domLi);
+	}
+	var domTrigger = document.getElementById("btProp");
+	domTrigger.innerHTML = '请选择<span class="caret"></span>';
+}
+
+// 根据大类和维度更新菜单
+function updateTagMenu(tags)
+{
+	var domListTag = document.getElementById("listTag");
+    clearDomChildNodes(domListTag);
+    for (var key in tags) {
+		var domLi = getLiNode(key, key + "(" + tags[key] + ")", "Tag" );
+		domListTag.appendChild(domLi);
+	}
+	var domTrigger = document.getElementById("btTag");
+	domTrigger.innerHTML = '请选择<span class="caret"></span>';
+}
+
+</script>
+</head>
+
+<body onload="loadData()">
+
+<div>
+    <a href="http://www.duzixi.com/RC-KMS">
+        <img id="logo" src="img/logo.svg"/>
+        <span class ="title"> RC-KMS</span><span class="subtitle">@duzixi.com</span>
+    </a>
+</div>
+
+<div id="myRadiogroup" class="yui3-widget btn-group btn-group-content">
+	<button class="btn-default btn" onclick="turn('connection.html')">关联</button>
+	<button class="btn-default btn" onclick="turn('search.html')">搜索</button>
+	<button class="btn-default btn" style="color: #9e7a7a; background-color: white">排序</button>
+	<button class="btn-default btn" onclick="turn('classify.html')">分类</button>
+	<button class="btn-default btn" onclick="turn('heat.html')">关注</button>
+	
+</div>
+
+<div class="navbar-collapse">
+	<span id="menuClass" class="dropdown nav navbar-nav">大类：
+	  <button id="btClass" class="btn btn-default dropdown-toggle" type="button">
+	  	载入中...<span class="caret"></span></button>
+	  <ul id="listClass" class="dropdown-menu"></ul>
+	</span>
+	<span id="menuProp" class="dropdown nav navbar-nav">维度：
+	  <button id="btProp" class="btn btn-default dropdown-toggle" type="button">
+	    - <span class="caret"></span></button>
+	  <ul id="listProp" class="dropdown-menu"></ul>
+	</span>
+	<span id="menuTag" class="dropdown nav navbar-nav">小类：
+	  <button id="btTag" class="btn btn-default dropdown-toggle" type="button">
+	    - <span class="caret"></span></button>
+	  <ul id="listTag" class="dropdown-menu"></ul>
+	</span>
+</div>
+
+<script type="text/javascript">
+YUI().use('aui-dropdown',
+  function(Y) {
+    YUIMenuClass = new Y.Dropdown(
+      {
+        boundingBox: '#menuClass',
+        trigger: '#btClass'
+      }
+    ).render();
+    YUIMenuProp = new Y.Dropdown(
+      {
+        boundingBox: '#menuProp',
+        trigger: '#btProp'
+      }
+    ).render();
+    YUIMenuTag =  new Y.Dropdown(
+      {
+        boundingBox: '#menuTag',
+        trigger: '#btTag'
+      }
+    ).render();
+  }
+);
+</script>
+
+<div id="echart"></div>
+
+<div>(Data Ver.</span><span id='lastedit'></span><span>)</div>
+
+</body>
+</html>

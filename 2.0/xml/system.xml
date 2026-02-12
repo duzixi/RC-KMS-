@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' ?><system>
+	<config>
+		<pagemax>10</pagemax>
+	</config>
+	<idcode>
+		<comment>
+			<count>1</count><year>2021</year><month>12</month><day>31</day><brief>C</brief>
+		</comment>
+		<researcher>
+			<count>1</count><year>2021</year><month>10</month><day>17</day><brief>R</brief>
+		</researcher>
+		<literature>
+			<count>2</count><year>2021</year><month>12</month><day>5</day><brief>L</brief>
+		</literature>
+		<organization>
+			<count>3</count><year>2021</year><month>10</month><day>27</day><brief>O</brief>
+		</organization>
+		<meeting>
+			<count>3</count><year>2021</year><month>10</month><day>27</day><brief>M</brief>
+		</meeting>
+		<model>
+			<count>1</count><year>2021</year><month>12</month><day>31</day><brief>D</brief>
+		</model>
+		<problem><count>6</count><year>2021</year><month>8</month><day>6</day><brief>P</brief></problem>
+	</idcode>
+	<datatag>
+		<researcher text="人物" img="people.png" color="#77969A">
+			<name key="yes" size="-" dataType="-">姓名</name>
+			<link size="-" key="no" dataType="-">网络链接</link>
+			<img size="-" key="no" dataType="-">图像链接</img><view size="-" key="yes" dataType="class">关注领域</view><birthday size="-" key="no" dataType="time">出生时间</birthday><nationality size="-" key="yes" dataType="class">国籍</nationality><deadday size="-" key="no" dataType="time">去世时间</deadday><background size="-" key="no" dataType="normal">家庭背景</background><education size="-" key="no" dataType="normal">学习经历</education><teacher size="-" key="no" dataType="normal">师从</teacher><nation size="-" key="no" dataType="class">民族</nation><org size="-" key="no" dataType="normal">工作经历</org><note size="-" key="no" dataType="normal">备注</note><writing size="-" key="no" dataType="normal">成果成就</writing>
+			<standpoint size="-" key="no" dataType="normal">观点</standpoint>
+			<students size="-" key="no" dataType="normal">学生</students>
+			<friends size="-" key="no" dataType="normal">同学朋友</friends>
+			<infofrom size="-" key="no" dataType="normal">信息来源</infofrom>
+			<oppose size="-" key="no" dataType="normal">反对</oppose>
+			<opus size="-" key="no" dataType="normal">代表作</opus></researcher>
+		<organization text="组织" img="org.png" color="#904840">
+			<name key="yes" size="-" dataType="-">组织名</name>
+			<link size="-" key="no" dataType="-">网络链接</link><img size="-" key="no" dataType="-">图像链接</img><view size="-" key="yes" dataType="class">关注领域</view><type size="-" key="yes" dataType="class">类型</type><introduce size="-" key="no" dataType="normal">简介</introduce><year size="-" key="no" dataType="time">成立于</year><place size="-" key="no" dataType="normal">所在地</place><founder size="-" key="no" dataType="normal">创始人</founder><leader size="-" key="no" dataType="normal">领导者</leader><member size="-" key="no" dataType="normal">参与者</member><belongto size="-" key="no" dataType="normal">从属于</belongto><department size="-" key="no" dataType="normal">组织构成</department><note size="-" key="no" dataType="normal">备注</note><partner size="-" key="no" dataType="normal">客户</partner>
+			<product size="-" key="no" dataType="normal">产品服务</product>
+			<standpoint size="-" key="no" dataType="normal">立场观点</standpoint>
+			<job size="-" key="no" dataType="normal">招聘职位</job>
+			<history size="-" key="no" dataType="normal">历史</history>
+			<nation dataType="class" size="-" key="no">所属国</nation>
+			<infofrom size="-" key="no" dataType="normal">信息来源</infofrom>
+			<newwords size="-" key="no" dataType="normal">生词</newwords>
+			<reference size="-" key="no" dataType="normal">相关文献</reference>
+			<hezuohuoban size="-" key="no" dataType="normal">合作伙伴</hezuohuoban></organization>
+		<literature text="文献" img="book.png" color="#B19693">
+			<name key="yes" size="-" dataType="-">篇名</name>
+			<link size="-" key="no" dataType="-">网络链接</link>
+			<img size="-" key="no" dataType="-">图像链接</img><view size="-" key="yes" dataType="class">领域</view><year size="-" key="no" dataType="time">发行时间</year><authors size="-" key="yes" dataType="normal">作者</authors><type size="-" key="yes" dataType="class">类型</type><abstractCN size="-" key="no" dataType="normal">摘要</abstractCN><points size="-" key="no" dataType="normal">论点观点</points><keywords size="-" key="no" dataType="class">关键词</keywords><publisher size="-" key="no" dataType="class">出版社</publisher><cited size="-" key="no" dataType="normal">出处</cited><outline size="-" key="no" dataType="normal">目录</outline><reference size="-" key="no" dataType="normal">参考文献</reference><infofrom size="-" key="no" dataType="normal">信息来源</infofrom><note size="-" key="no" dataType="normal">备注</note><org size="-" key="no" dataType="normal">主办</org>
+			<translators size="-" key="no" dataType="normal">译者</translators>
+			<mention size="-" key="no" dataType="normal">提及</mention>
+			<method size="-" key="no" dataType="normal">研究方法</method>
+			<tool size="-" key="no" dataType="normal">研究工具</tool>
+			<object size="-" key="no" dataType="normal">研究对象</object>
+			<entropy size="-" key="no" dataType="normal">信息量</entropy>
+			<journal size="-" key="no" dataType="normal">期刊</journal>
+			<content size="-" key="no" dataType="normal">研究内容</content></literature>
+		<model text="模型" img="model.png" color="#6E75A4">
+			<name key="yes" size="-" dataType="-">名称</name>
+			<link size="-" key="no" dataType="-">网络链接</link>
+			<img size="-" key="no" dataType="-">图像链接</img><view size="-" key="yes" dataType="class">领域</view><introduce size="-" key="no" dataType="normal">简介</introduce><type size="-" key="yes" dataType="class">类型</type><note size="-" key="no" dataType="normal">备注</note><year size="-" key="yes" dataType="time">提出于</year><presenter size="-" key="no" dataType="normal">提出者</presenter><reference size="-" key="no" dataType="normal">相关文献</reference>
+			<mathmodel size="-" key="no" dataType="normal">数学公式</mathmodel>
+			<instance size="-" key="no" dataType="normal">举例</instance>
+			<nation size="-" key="no" dataType="normal">国籍</nation>
+			<infofrom size="-" key="no" dataType="normal">信息来源</infofrom>
+			<technology size="-" key="no" dataType="normal">相关技术</technology>
+			<contain size="-" key="no" dataType="normal">包含</contain>
+			<use size="-" key="no" dataType="normal">用途作用</use>
+			<size size="-" key="no" dataType="normal">大小</size>
+			<feature size="-" key="no" dataType="normal">特点</feature>
+			<lastEdit size="-" key="no" dataType="normal">更新于</lastEdit>
+			<object size="-" key="no" dataType="normal">知识管理对象</object>
+			<project size="-" key="no" dataType="normal">相关项目</project>
+			<problem size="-" key="no" dataType="normal">相关问题</problem>
+			<oppose size="-" key="no" dataType="normal">批判反对</oppose>
+			<points size="-" key="no" dataType="normal">主要观点</points>
+			<hardware size="-" key="no" dataType="normal">硬件需求</hardware>
+			<price size="-" key="no" dataType="normal">价位</price></model>
+		<meeting text="事件" img="event.png" color="#AF5F3C">
+			<name key="yes" size="-" dataType="-">事件名</name>
+			<link size="-" key="no" dataType="-">网络链接</link>
+			<img size="-" key="no" dataType="-">图像链接</img><view size="-" key="yes" dataType="class">领域</view><year size="-" key="yes" dataType="time">开始时间</year><endtime size="-" key="yes" dataType="time">结束时间</endtime><type size="-" key="yes" dataType="class">类型</type><place size="-" key="no" dataType="normal">地点</place><topics size="-" key="no" dataType="normal">主题内容</topics><intro size="-" key="no" dataType="normal">简介</intro><orgnizer size="-" key="no" dataType="normal">主办</orgnizer><history size="-" key="no" dataType="normal">历程</history>
+			<speakers size="-" key="no" dataType="normal">主讲人</speakers>
+			<reference size="-" key="no" dataType="normal">相关文献</reference>
+			<note size="-" key="no" dataType="normal">备注</note>
+			<infofrom size="-" key="no" dataType="normal">信息来源</infofrom>
+			<participant size="-" key="no" dataType="normal">参与者</participant>
+			<technique size="-" key="no" dataType="normal">相关技术</technique><leader size="-" key="no" dataType="normal">领导者</leader></meeting>
+		<problem text="问题" img="question.png" color="#72636E">
+			<name key="yes" size="-" dataType="-">问题名称</name>
+			<link size="-" key="no" dataType="-">网络链接</link>
+			<img size="-" key="no" dataType="-">图像链接</img><view size="-" key="yes" dataType="class">相关领域</view><background size="-" key="yes" dataType="normal">问题背景</background><type size="-" key="yes" dataType="class">类型</type><analysis size="-" key="no" dataType="normal">问题分析</analysis><subproblem size="-" key="no" dataType="normal">子问题</subproblem><solution size="-" key="no" dataType="normal">问题解答</solution><conclusion size="-" key="no" dataType="normal">结论</conclusion><reference size="-" key="no" dataType="normal">相关文献</reference><note size="-" key="no" dataType="normal">备注</note><year size="-" key="no" dataType="time">提出于</year><presenter size="-" key="no" dataType="normal">提出者</presenter><answer size="-" key="no" dataType="normal">解答者</answer><model size="100" key="no" dataType="-">问题模型</model></problem>
+	</datatag>
+	<lastedit>2021年12月31日  23时2分22秒</lastedit></system>

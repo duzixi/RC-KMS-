@@ -1,0 +1,366 @@
+<html>
+<head>
+<title>RC-KMS_学习热度</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+<script src="js/Web.js"> </script>
+<script src="js/XML.js"> </script>
+<script src="js/RC-KMS.js"> </script>
+
+<script src="js/echarts.js"></script>
+<script src="js/aui.js"></script>
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/rc.css" />
+<style type="text/css">
+#echart {
+	width: 100%;
+	background-color: #f7f0f0;
+}
+
+#searchResult {
+	padding: 30px;
+}
+
+.name-node {
+	width: 400px;
+	float:left;
+}
+
+</style>
+
+
+<script>
+var YUIMenuYear;
+var currentYear = null; // 当前年
+
+function visual() {
+
+	// STEP 1： 获取年份范围
+	var minYear = GetMinYear();
+	var maxYear = (new Date()).getFullYear();
+
+	// STEP 2：根据数据年份生成选择菜单
+	for (var i = minYear; i <= maxYear; i++) {
+		var domLi = getLiNode(i, i + "年","Year" );
+		listYear.appendChild(domLi);
+	}
+	btYear.innerHTML = '请选择<span class="caret"></span>';
+
+}
+
+// 选中下拉菜单中的类别
+function select(node) {
+	YUIMenuYear.close();
+
+	var domResult = document.getElementById("searchResult");
+	clearDomChildNodes(domResult);
+
+	currentYear = node.id; // 目标年份
+
+	// STEP 2: 获取目标年份所有的 领域 ，并计数
+
+	// STEP 2.1: 分月统计
+	var dicAll = {};
+	
+	for (var elmClass in elmInfos) {
+		var dicView = elmInfos[elmClass].AllViews(currentYear);
+		// 归并到dicAll字典中
+		for (var key in dicView) {
+			if (dicAll.hasOwnProperty(key)) {
+				dicAll[key] += dicView[key];
+			} else {
+				dicAll[key] = dicView[key];
+			}
+		}
+	}
+
+	if (Object.keys(dicAll).length == 0) {
+		console.log("当前年份尚无数据");
+		alert("当前年份尚无数据");
+		return;
+	}
+
+	// STEP 1: 改变trigger文字
+	
+	btYear.innerHTML = node.innerHTML +'<span class="caret"></span>';
+	
+
+	// STEP 2.2: 统计整个年度的
+	var dicTotal = {};
+	var maxNum = 0; // 单月最大值
+	for (var key in dicAll) {
+		// 把月份拆分，只保留关注领域
+		var view = key.split('_')[1];
+		if (dicTotal.hasOwnProperty(view)) {
+			dicTotal[view] += dicAll[key];
+		} else {
+			dicTotal[view] = dicAll[key];
+		}
+		if (dicAll[key] > maxNum) {
+			maxNum = dicAll[key];
+		}
+	}	
+
+	
+
+	// 获取筛选阈值
+	var num = Object.keys(dicTotal).length;
+	if (num >= 10) {
+		// 字典转数组
+		var arrDicTotal = Object.keys(dicTotal).map( it=> {
+			return { [it]: dicTotal[it]}
+		});
+
+		// 对数组排序
+		arrDicTotal.sort((a,b) => {
+    		return Object.values(b)[0] - Object.values(a)[0];
+		})
+
+		num = Object.values(arrDicTotal[9])[0];
+	}
+
+	// 保留排行前十
+	dicTotal = FilterByNum(dicTotal, num); 
+
+	// STEP 3: 生成eChart
+
+
+	// STEP 3.1: 准备数据
+	var xAxisData = []; // 月份
+	var yAxisData = []; // 领域
+	var data = [];
+
+	for (var focus in dicTotal)  {
+		yAxisData.push( focus + "(" + dicTotal[focus] + ")");
+	}
+
+	for (var i = 1; i <= 12; i++) {
+		xAxisData.push( i + "月");
+
+		var index = 0;
+		for (var focus in dicTotal) {	
+			var key = ((100 + i) + "_" + focus).substring(1);
+			var value = "-";
+			if (dicAll.hasOwnProperty(key)) {
+				value = dicAll[key];
+			}
+			var item = [i - 1, index++, value];
+			data.push(item);
+		}
+	}
+
+	// STEP 3.2: 配置eChart
+
+	const gridSize = 35;
+	
+	echart.style.height = yAxisData.length * gridSize + 100;
+
+	var myChart = echarts.init(document.getElementById('echart'));
+
+	var hStep = 30;
+	var mapColors = [];
+    for (var i = 0; i < 10; i++) {
+        mapColors.push(echarts.color.modifyHSL('#5A94DF', hStep * (9 - i)));
+    }
+
+	var option = {
+	    tooltip: {
+	        position: 'top'
+	    },
+	    animation: false,
+	    grid: {
+	    	width: 12 * gridSize,
+	        height: Object.keys(dicTotal).length * gridSize,
+	        top: 50,
+	        left: 'center'
+	    },
+	    xAxis: {
+	        type: 'category',
+	        data: xAxisData,
+	        splitArea: {
+	            show: true
+	        }
+	    },
+	    yAxis: {
+	        type: 'category',
+	        data: yAxisData,
+	        splitArea: {
+	            show: true
+	        }
+	    },
+	    visualMap: {
+	        min: 0,
+	        max: maxNum,
+	        calculable: true,
+	        left: 'right',
+	        top: 'top',
+	        orient: 'horizontal',
+	        inRange: {
+	        	color: mapColors
+            	// color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+        	}
+	    },
+	    series: [{
+	        name: '领域关注度',
+	        type: 'heatmap',
+	        data: data,
+	        label: {
+	            show: true
+	        },
+	        emphasis: {
+	            itemStyle: {
+	                shadowBlur: 10,
+	                shadowColor: 'rgba(0, 0, 0, 0.5)'
+	            }
+	        }
+	    }]
+	};
+
+	// STEP 3.3: 设置
+	
+	myChart.setOption(option);
+
+	// STEP 3.4: 添加点击响应
+		// 添加点击事件
+    myChart.on('click', function (params) {
+    	// console.log(params.data);
+    	if (yAxisData[params.data[1]] == undefined) {
+    		return;
+    	}
+    	search(currentYear, params.data[0] + 1, yAxisData[params.data[1]].split('(')[0]);
+	});
+
+}
+
+// 根据年月与领域查找知识要素
+function search(year, month, view){
+	// console.log("search IN:" + year * 100 + month + ":" + view)
+
+	// STEP 2: 按搜索条件搜索
+	// "//" + this.enName +
+	var xPath = "//*[contains(@id,'"+ ((year * 100) + (month - 0)) + "')]"; // id属性满足时间条件
+	xPath += "/view[contains(text(), '"+view+"')]";
+	xPath += "/.."
+	console.log(xPath);
+
+	var domResult = document.getElementById("searchResult");
+	clearDomChildNodes(domResult);
+
+	for (var elmClass in elmInfos) {
+		var xmlNodes = elmXmls[elmClass].selectNodesByXPath(xPath);
+
+		for (var j = 0; j < xmlNodes.length; j++ ){
+			if (xmlNodes[j] == null) {
+				continue;
+			}
+			var domDiv = getElementNode(xmlNodes[j]);
+			domResult.appendChild(domDiv);
+		}	
+	}
+}
+
+// 返回要素Dom节点
+function getElementNode (node) {
+	var divA = document.createElement("a");
+	divA.setAttribute("href", "#");
+	var elmId = node.getAttribute("id");
+	divA.setAttribute("onclick", "showDetail('"+ elmId + "')");
+
+	var domDiv = document.createElement("div");
+	domDiv.setAttribute("class", "name-node");
+
+	var brief = elmId.substring(0, 1);
+
+	// 图标标签
+	var domImg = document.createElement("img");
+	domImg.setAttribute("src", "img/" + elmInfos[dicBriefName[brief]].img);
+	domDiv.appendChild(domImg);
+
+	// 属性标签
+	var domLabel = document.createElement("label");
+	domLabel.setAttribute("class","control-label");
+	domLabel.innerHTML = node.getElementsByTagName("name")[0].innerHTML;
+	domDiv.appendChild(domLabel);
+
+	divA.appendChild(domDiv);
+
+	return divA;
+}
+
+// 上一年
+function prev() {
+	if (currentYear != null) {
+		var node = document.getElementById((currentYear - 1) + "");
+		if (node != null) {
+			select(node);
+		}
+		
+	}
+}
+
+// 下一年
+function next() {
+	if (currentYear != null) {
+		var node = document.getElementById((currentYear - 0 + 1) + "");
+		if (node != null) {
+			select(node);
+		} 
+		
+	}
+}
+
+</script>
+</head>
+
+<body onload = "loadData()">
+
+<div>
+    <a href="http://www.duzixi.com/RC-KMS">
+        <img id="logo" src="img/logo.svg"/>
+        <span class ="title"> RC-KMS</span><span class="subtitle">@duzixi.com</span>
+    </a>
+</div>
+
+<div id="myRadiogroup" class="yui3-widget btn-group btn-group-content">
+	<button class="btn-default btn" onclick="turn('connection.html')">关联</button>
+	<button class="btn-default btn" onclick="turn('search.html')">搜索</button>
+	<button class="btn-default btn" onclick="turn('history.html')">排序</button>
+	<button class="btn-default btn" onclick="turn('classify.html')">分类</button>
+	<button class="btn-default btn" style="color: #9e7a7a; background-color: white">关注度</button>
+	
+</div>
+
+<div class="navbar-collapse">
+	<span id="menuYear" class="dropdown nav navbar-nav">年份：
+		<a class="arrow" href="#" onclick="prev()"><img src="img/arrow_left_24.png"/></a>
+	  	<button id="btYear" class="btn btn-default dropdown-toggle" type="button">
+	  		载入中...<span class="caret"></span></button>
+	  		<ul id="listYear" class="dropdown-menu"></ul>
+	  	<a class="arrow" href="#" onclick="next()"><img src="img/arrow_right_24.png"/></a>
+	</span>
+</div>
+
+<script type="text/javascript">
+YUI().use('aui-dropdown',
+  function(Y) {
+    YUIMenuYear = new Y.Dropdown(
+      {
+        boundingBox: '#menuYear',
+        trigger: '#btYear'
+      }
+    ).render();
+  }
+);
+</script>
+
+
+<div id="echart" style="width: 100%;height:60%;background-color: #f7f0f0;"></div>
+
+<div id="searchCase"></div>
+<div id="searchResult"></div>
+
+<hr/>
+<div>(Data Ver.</span><span id='lastedit'></span><span>)</div>
+
+</body>
+</html>

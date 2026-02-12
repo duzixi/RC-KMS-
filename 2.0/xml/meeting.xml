@@ -1,0 +1,1780 @@
+<?xml version='1.0' encoding='UTF-8' ?><meetings>
+	<meeting id="M200907100001"><name>863项目：长春一汽知识管理之理论研究</name><year>2009.9.11</year><orgnizer>大连理工大学管理学院系统工程研究所知识管理团队</orgnizer><view>知识管理</view><type>讨论会</type></meeting><meeting id="M200907120001"><name>联合国人类环境会议</name><year>1972</year><orgnizer refer="联合国$O200907120001">联合国</orgnizer><place>瑞士斯德哥尔摩</place><note>使环境问题成为热门话题</note><view>环境,社会</view><type>国际会议</type></meeting><meeting id="M200908070001"><name>VisWeek</name><year>Sunday, October 11 - Friday, October 16, 2009</year><orgnizer refer="IEEE$O200910130001">IEEE</orgnizer><link>http://vis.computer.org/VisWeek2009/</link><view>可视化,信息可视化</view><intro>IEEE VisWeek 2009 is the premier forum for visualization advances in science and engineering for academia, government, and industry. This event brings together researchers and practitioners with a shared interest in techniques, tools, and technology. Visualization has become an integral part in a wide array of application areas, and papers are solicited both for original visualization research and for the application of visualization towards the understanding of domain-specific data. </intro><img>http://vis.computer.org/VisWeek2009/img/slide/vast4.jpg</img><type>国际会议</type></meeting><meeting id="M200908220001"><name>IJCAI,International Joint Conference on Artificial Intelligence / 国际人工智能联合会</name><year>1969 </year><view>人工智能,Agent,机器学习,知识工程,自然语言处理,机器人学,知识系统,Web</view><img>http://www.ijcai.org/images/graybanner1.gif
+http://www.ijcai.org/images/graybanner2.gif</img><intro>IJCAI (International Joint Conference on Artificial Intelligence) is the premier international gathering of AI researchers and practitioners. Held biennially in odd-numbered years since 1969, IJCAI is sponsored jointly by International Joint Conferences on Artificial Intelligence (IJCAI) , and the national AI societie(s) of the host nation(s). </intro><note>(第5届)1977年  费根鲍姆(Edward Feigenbaum)</note><type>国际会议</type></meeting><meeting id="M200910040001"><name>KMRE / 需求工程国际研讨会</name><year>1993年起</year><view>需求工程</view><type>国际会议系列</type></meeting><meeting id="M200910040002"><name>ICRE / 需求工程国际会议</name><year>1994年起</year><view>需求工程</view><type>国际会议系列</type></meeting><meeting id="M200910130001"><name>ISKSS, International Symposium on Knowledge and Systems Sciences</name><year>2003,</year><type>国际会议</type><view>知识科学,系统科学</view></meeting><meeting id="M200910130002"><name>International Symposium on Knowledge Management for Strategic Creation of Technology</name><year>March 8-10, 2004</year><orgnizer refer="JAIST$O200908030001">JAIST</orgnizer><type>国际会议,研讨会</type><view>技术创新</view></meeting><meeting id="M200910130004"><name>ICSSSE,International Conference on Systems Science and Systems Engineering</name><year>November 25-28, 2003</year><place>Hong Kong, China</place><type>国际会议</type><view>系统科学,系统工程</view></meeting><meeting id="M200910130005"><name>KMAP,Asia-Pacific International Conference on Knowledge Management</name><year>December 11-13, 2006</year><place>Hong Kong, China</place><type>国际会议</type><view>知识管理</view></meeting><meeting id="M200910220001"><name>ISWC, International Semantic Web Conference</name><orgnizer refer="上海交通大学$O200910260002#IBM$O200910010002">上海交通大学,IBM Research</orgnizer><link>http://iswc2010.semanticweb.org/</link><type>国际会议</type><view>语义网</view></meeting><meeting id="M200910220002" lastedit="2021年8月12日  11时37分23秒"><name refer="">KSEM 2009</name><year>2009-11-25 08:00</year><endtime refer="">2009-11-27 12:00</endtime><place>Vienna, Austria</place><view>知识科学,知识工程,知识管理</view><intro>As its predecessor conferences, KSEM’2009 aims to be an interdisciplinary event, providing a meeting ground for researchers in the broad areas of knowledge science, knowledge engineering, and knowledge management. KSEM’2009 purposes to be a forum for people to share their views, to exchange ideas, to develop new insights and to report state of the art research results. </intro><topics>★ &lt;b&gt;Knowledge Science&lt;/b&gt; 
+    Knowledge representation and reasoning 
+    Logics of knowledge; formal analysis of knowledge; reasoning about knowledge 
+    Knowledge complexity and knoweldge metrics 
+    Commonsense knowledge; non-monotonic reasoning 
+    Uncertainty in knowledge (randomness, fuzziness, roughness, vagueness etc.) 
+    Reasoning about knowledge in the presence of inconsistency, incompleteness, context-dependency, etc. 
+    Cognitive foundations of knowledge 
+    Knowledge in complex systems (e.g. economical and quantum systems) 
+    Game-theoretical aspects of knowledge; knowledge in multi-agent systems 
+    Formal ontology
+
+★ &lt;b&gt;Knowledge Engineering&lt;/b&gt;
+    Knowledge and information extraction from databases and Web 
+    Knowledge discovery from very large databases 
+    Knowledge integration 
+    Knowledge-based software engineering 
+    Knowledge-based systems in life sciences 
+    Conceptual modelling in knowledge-based systems 
+    Semantic database systems 
+    Semantic Web 
+    Content engineering 
+    Ontological engineering 
+    Implementation issues in KBS
+
+★ &lt;b&gt;Knowledge Management&lt;/b&gt;
+    Knowledge creation and acquisition 
+    Knowledge verification and validation 
+    Knowledge dissemination 
+    Knowledge management systems 
+    Organizational ontology 
+    Data mining and knowledge discovery 
+    Organizational memory 
+    Organizational learning 
+    Knowledge management strategies and practices 
+    Knowledge management applications</topics><participant>主席: 
+
+Honorary Chair:  Ruqian Lu , Chinese Academy of Sciences, China
+Chair: Chengqi Zhang, University of Technology, Sydney, Australia
+
+
+
+成员: 
+
+David Bell Queen’s University Belfast, UK 
+Zhi Jin Peking University China 
+Jérome Lang University Paul Sabatier France 
+ Yoshiteru Nakamori  JAIST Japan 
+Jorg Siekmann DFKI Germany 
+Eric Tsui The Hong Kong Polytechnic University Hong Kong 
+ Zongtuo Wang  Dalian Science and Technology University China 
+Kwok Kee Wei City University of Hong Kong Hong Kong 
+Mingsheng Ying Tsinghua University China 
+ Cungen Cao  Chinese Academy of Sciences China</participant><type>国际会议</type></meeting><meeting id="M200910220003" lastedit="2021年8月12日  11时37分28秒"><name refer="">KSEM, Knowledge Science, Engineering and Management</name><link>http://www.ksem.info/</link><intro>This is a synthetic research field involving theory, technique, tools, methodology and systems of research on knowledge and knowledge processing. In 2004, the China’s Natural Science Foundation initiated a major research program called Basic Theory and Core Techniques of non-canonical Knowledge. It was motivated by this program that we have proposed and initiated the international conference series on KSEM. </intro><history>KSEM 2006 @ Guilin, China
+KSEM 2007 @ Melbourne, Australia</history><type>国际会议系列</type><view>知识科学，知识工程，知识管理</view><img>http://www.ksem.info/logo.jpg</img><topics>* &lt;b&gt;Knowledge science 知识科学&lt;/b&gt;
+Knowledge representation and reasoning 知识表示与推理
+Logics of knowledge                    知识逻辑
+Formal analysis of knowledge           知识的形式分析
+Knowledge complexity and knowledge metrics 知识复杂性与知识度量学
+Reasoning about knowledge in the presence of inconsistency, incompleteness, context-dependency 
+不一致不完整文本依赖的知识推理
+Commonsense knowledge and uncertainty in knowledge 常识知识与知识的不确定性
+Cognitive foundations of knowledge     知识的认知基础
+Knowledge in complex systems and multi-agent systems  复杂系统和多Agent系统中的知识
+Formal ontology                        形式本体
+
+* &lt;b&gt;Knowledge engineering 知识工程&lt;/b&gt;     
+Knowledge extraction                    知识提取
+Knowledge integration                   知识集成
+Knowledge fusion                        知识融合
+Knowledge-based software engineering    基于知识的软件工程
+Knowledge-based systems in life sciences           基于知识的生命科学系统
+Conceptual modelling in knowledge-based systems    基于知识的系统中的概念建模
+Semantic database systems and semantic Web         语义数据系统与语义网
+Content engineering and ontological engineering    情景工程与本体工程
+Implementation issues in KBS                       知识系统的实施问题
+Knowledge-based systems in earthquake science      知识系统在地震科学中的应用
+
+* &lt;b&gt;Knowledge management 知识管理&lt;/b&gt;
+Knowledge creation and acquisition         知识创造与知识获取
+Knowledge verification and validation      知识确证与知识生效
+Knowledge dissemination                    知识传播
+Knowledge management systems               知识管理系统
+Organizational ontology                    组织本体
+Data mining and knowledge discovery        数据挖掘与知识发现
+Organizational memory                      组织记忆
+Organizational learning                    组织学习
+Knowledge management strategies and practices 知识管理战略与实践
+Knowledge management applications             知识管理应用</topics></meeting><meeting id="M200910220004" lastedit="2012年11月15日  20时41分38秒"><name>KGCM 2009</name><year>July 10th - 13th, 2009 </year><place>Orlando, Florida, USA</place><link>http://www.iiis2009.org/wmsci/website/default.asp?vc=18</link><note>in the context of  The 13th World Multi-Conference on Systemics, Cybernetics and Informatics: WMSCI 2009  </note><topics>Applications of Systemic and/or Cybernetic Concepts and Methodologies in Different Kinds of Knowledge Communication 
+
+Engineering Education: Differences with Scientific Education 
+
+Scientific/Engineering Communication to the Public and to the Decision Makers 
+
+Strategies for the Communication of Scientific or Engineering Knowledge 
+
+Science Journalism. Engineering Journalism 
+
+Knowledge and Technological Transfer 
+
+Knowledge Communication in Conferences as a Generator of Technological Innovations and Business Opportunities 
+
+Objectives and Means of Knowledge Communication 
+
+Impact of Informatics Knowledge Communication Means and Models 
+
+Scientific Research Communication 
+
+Communication of Engineering Research and Development 
+
+Interdisciplinary Communication 
+
+Conceptual and Organizational Perspectives of Knowledge Communication 
+
+Scientific Education and Education Science: Differences with Engineering Education 
+
+Knowledge Communication Technologies </topics><intro>Information and communications Technologies are increasingly supporting the effectiveness and the efficiency on Knowledge generations, communication and management, as well as the relationships among them. Consequently, a main purpose of KGCM 2009 is to bring together researchers, professionals, academics, consultants and practitioners related to any of these three areas, to relationships among them as well as those who are related to the conception, design or implementations of systems, tools and technologies oriented to support knowledge generation, communications and/or management. </intro><img>http://www.iiis2009.org/wmsci/images/Logo-KGCM-2009bl.gif</img><type>国际会议</type></meeting><meeting id="M200910220008" lastedit="2017年3月18日  20时46分25秒"><name>WCICA 2010</name><year>Jul 7, 2010 - Jul 9, 2010</year><place>Jinan, China</place><view>智能控制,自动化,复杂系统,机器人</view><orgnizer refer="IEEE$O200910130001#中国自然科学基金委$O200910220001#山东大学$O200910220002">由IEEE机器人与自动化学会，IEEE控制系统学会北京分会，中国自然科学基金委，中国自动化学会，中国人工智能学会，山东大学，香港中文大学，及IEEE RACS 香港分会共同主办</orgnizer><link>http://www.wcica.info/</link><intro>The 8th World Congress on Intelligent Control and Automation(WCICA 2010)will take place from July 6 to 9,2010 in Jinan,China. Original papers in intelligent control and automation, written in either English or Chinese, are solidted for submission to the WCICA 2010 conference. We are pleased to have invited the following plenary speakers to give plenary lectures at the WCICA2010 conference.</intro><topics>A Intelligent Control and Automation 智能控制及自动化
+  A1 Intelligent Control Theory and Applications
+  A2 Computational Intelligence and Applications
+  A3 Intelligent Automation and Manufacturing
+  A4 Artificial Intelligence and Knowledge Engineering
+  A5 Network Intelligence and Network Control
+B Control Theory and Control Engineering 控制理论及控制工程
+  B1 Systems and Control Theory and Applications
+  B2 Systems Engineering and Engineering Optimization
+  B3 Advanced Control Algorithms and Applications
+  B4 Modeling, Identification, and Fault Diagnosis
+  B5 Industrial Automation and On-line Monitoring
+C Complex Systems and Intelligent Robots 复杂系统与智能机器人
+  C1 Complex Systems, Logistics, and Supply Chain
+  C2 Robotics, Service and Medical Robotics
+  C3 Integrated and Complex Automation Systems
+  C4 Intelligent Management and Decision Making
+  C5 Electronic Commerce and Office Automation
+D Others
+  D1 Measurement Method and Intelligent Instrumentation
+  D2 Sensors, Sensor Networks, Sensing and Signal Processing
+  D3 Pattern Recognition, Image Processing, and Machine Vision
+  D4 Biomedical Engineering and Biosystems Automation
+  D5 NANO, MEMS, NEMS, and Mechatronics Systems</topics><participant>主席: 
+
+General Chair
+ MENG Q.-H. Max, HK, China 
+General Co-Chairs
+ CHU Jian, China
+ DE SILVA Clarence, Canada
+ FUKUDA Toshio, Japan
+ LIU Yunhui, HK, China
+ SICILIANO Bruno, Italy
+ XU Yangsheng, HK, China
+ ZHENG Yuanfang, USA
+Program Chair
+ HUANG Jie, HK, China
+ Program Co-Chair
+ GU J. Jason, Canada
+ Regional Program Chairs
+ CHEN Ben M., Singapore
+ CHEN Tongwen, Canada
+ FU Minyue, Australia
+ KOSUGE Kazuhiro, Japan
+ KWON Dong Soo, Korea
+ QIN Sizhao Joe, USA
+ WANG Hong, UK
+ ZHANG Huanshui, China
+Organized Session Chairs
+ ASAMA Hajime, Japan
+ CHEN Guanrong, HK, China
+ FU Lichen, Taiwan, China
+ GE Shuzhi Sam, Singapore
+ JIANG Zhongping*, USA
+ PARK Jong Hyeon, Korea
+ WANG Jun, HK, China
+ ZHANG Hong, Canada
+ ZHANG Jianwei, Germany
+ ZHOU Mengchu, USA
+Poster Session Chairs
+ LIU X. Peter, Canada
+ WANG Yuzhen*, China
+ Tutorial/Workshop Chairs
+ CHEN Yangquan, USA
+ FENG Gang, HK, China
+ LIN Zongli*, USA
+ Panel Discussion Chairs
+ LUH Peter, USA
+ GUAN Xiaohong, China
+ XIE Lihua*, Singapore
+Award Committee Chairs
+ CHENG Daizhan*, China
+ LI Zushu, China
+ XI Ning, USA
+Publicity Committee Chairs
+ GUAN Xinping, China
+ HAMEL William R., USA
+ HU Huosheng, UK
+ LAM James, HK, China
+ LEE Jang Myung, Korea
+ LIAO Wei-Hsin, HK, China
+ LIU Derong, USA
+ SUGANO Shigeki, Japan
+ YANG X. Simon*, Canada
+ ZHENG Fangtian, Taiwan, China
+ ZHENG Weixing, Australia
+ ZHONG Qingchang, UK</participant></meeting><meeting id="M200910220010"><name>IEEE ICAL 2009</name><year>2009.8.5~6</year><orgnizer refer="IEEE$O200910130001#Shandong University$O200910220002">IEEE Robotics and Automation Society
+Shandong University</orgnizer><place>中国沈阳</place><speakers refer="Zhongtuo Wang$R200907160022">David D. Yao        Columbia Univ. USA
+Kazuhiro Kosuge     Tohoku Univ. Japan
+Zhongtuo Wang       Dalian U. of Tech  China
+Warren Powell       Princeton Univ.    USA
+Yoshimi Takeuchi    Osaka Univ.        Japan
+Mengchu Zhou        NJIT               USA</speakers><link>Shandong University</link><img>http://www.ee.cuhk.edu.hk/~qhmeng/ical/ical09title1.gif</img><topics>“Advanced Automation and Logistics in the Information Age”</topics></meeting><meeting id="M200910220012"><name>CiSE 2009</name><year>December 11~13, 2009</year><orgnizer refer="IEEE$O200910130001#Wuhan University$O200910080007">This conference is sponsored by IEEE, James Madison University and Wuhan University.</orgnizer><place>Wuhan, China</place><link>http://www.ciseng.org</link><topics>Computerized Algorithm 
+Artificial Intelligence 
+Operating Systems 
+Natural Networks and Applications 
+Computer Graphics 
+Databases 
+Computer security 
+Distributed and Parallel Computing 
+Scientific Computing 
+Software Engineering </topics></meeting><meeting id="M200910220013"><name>EBM 2010 工程和商业管理国际学术会议</name><year>2010年3月24日~26日</year><orgnizer refer="武汉大学$O200910080007#科研出版社$O200910220003#科研出版社$O200910220003">由四川大学，美国James Madison大学，武汉大学和美国科研出版社合作主办</orgnizer><place>中国成都</place><link>http://www.scirp.org/conf/ebm/</link><topics>工程管理  物流管理  服务科学  知识管理  信息管理  地理信息  环境保护  过程管理  质量控制  投资分析  企业管理  信息安全  技术创新  能源管理  人力资源  电子商务  市场营销  决策系统  需求分析  城市管理  金融分析  项目管理  电子政务  风险管理  系统分析  数字城市  交通管理  数据挖掘 </topics></meeting><meeting id="M200910220014"><name>EMS 2009</name><year>September 20~22, 2009</year><place>Beijing, China</place><link>http://www.scirp.org/conf/ems2009/</link><topics>Engineering Management 
+ Innovation and Entrepreneurship 
+ Supply Chain Management 
+ Human Resource Management 
+ Project and Quality Management 
+ Environment and Energy Management 
+  
+Service Management 
+ Service Sciences 
+ Service Economy and Policy 
+ National Infrastructure Management 
+ E-Commerce and E-Government 
+  
+Financial Management 
+ Financial Innovation 
+  Financial Engineering 
+ Investment and Financing 
+  Risk Management 
+  
+Knowledge Management 
+ Knowledge Management 
+ Semantic Web and Data Mining 
+ Decision Support System 
+
+For the Special Session: 
+ 
+City Operation and Development 
+ Digital City 
+ City Geographic System Information 
+ Information System 
+ Early warning and Emergency Management 
+ City Complex Systems 
+ Urban Environmental Management 
+ Agent-Based Simulation 
+ Time Series Analysis 
+ Social Computing 
+ Data Mining 
+ Computational Geophysics 
+ 
+Media Interactivity and Network Convergence( MINC2009 ) 
+ 
+Media Interactivity and HCI 
+ Interactivity Multimedia Systems 
+ Data and Information Visualization 
+ Knowledge-based Media Systems 
+ Knowledge Engineering and Management 
+ Community Computing and Media Interactivity 
+ Usability Analysis and Evaluation 
+ User-centered Design 
+ Graphic User Interface and Interaction Design 
+ Adaptive and Personalized Interface 
+ Virtual/Mixed/Enhanced Reality and Application 
+  
+Converged Network and Service Technologies 
+ Next-generation Network and Application  
+ Network Convergence and Services  
+ Media Electronics and Application  
+ Network-on-the-Chip and Internet-of-Things  
+ Pervasive Information Systems  
+ Personalization and Preference Computing  
+ Business and Operation Supporting Systems  
+ Decision Support Systems  
+ Business Intelligence and Strategy Intelligence  
+ Social Network Service Technologies  
+ Information Security and Network Security  
+ Digital Rights Management  
+  
+New Media Technologies and Web 2.0 
+ Streaming Media Technologies  
+ Mobile Multimedia Technologies  
+ Advanced Coding Technologies  
+ Web 2.0 and Web3.0 
+ IPTV and Web TV Technologies  
+ Digital Radio and Digital Television  
+ Video Portals and Podcasting  
+ Blog, Wiki and Mass Collaboration Systems  
+ Electronic Publishing  
+ Digital Library and Application  
+ Massive Storage and Data Management  
+ Metadata Processing and Management  
+ Content-based Information Retrieval  </topics></meeting><meeting id="M200910220015"><name>ICEE 2010, International Conference on Electrical Engineering</name><year>February 24-26, 2010</year><place>Penang, Malaysia</place><intro>The International Conference on Electrical Engineering aims to bring together academic scientists, leading engineers, industry researchers and scholar students to exchange and share their experiences and research results about all aspects of Electrical Engineering, and discuss the practical challenges encountered and the solutions adopted. </intro><link>http://www.waset.org/conferences/2010/penang/icee/</link><topics>Fundamentals, Materials &amp; Education
+Electrical Materials and Process
+Semiconductor Technology
+High Voltage Engineering and Insulation Technology
+Electronic Materials
+Education and Training for Electrical Engineers
+
+Power Systems &amp; Energy
+Power System Planning and Scheduling
+Power System Protection, Operation and Control
+Transmission &amp; Distribution Systems and Apparatus
+Power System Stability
+Power Generation and Sustainable Environment
+Power Market and Power System Economics
+Power System Modeling, Simulation and Analysis
+HVDC and FACTS
+Electromagnetic Transients Programs (EMTP)
+Wind, Solar and Renewable Energy
+
+Electronics, Information &amp; Control Systems
+Communication Systems
+Intelligent Systems and Approach
+Information Technology Application
+Control Theory and Application
+Knowledge Management
+
+Electrical Machines, Power Electronics &amp; Industry Applications
+Electrical Machines
+Electric Drivers and Application
+Electrical Traction Systems and Control
+Electromagnetic and Applied Superconductivity
+Industrial Process Control and Automation
+Inverter and Converter Technology
+
+Sensor &amp; Micro-machines
+Diagnosis and Sensing Systems
+Micro Machines
+MEMS-Micro Sensors and Structures
+MEMS-Related Technology
+Other Related Areas </topics><view>电子工程</view></meeting><meeting id="M200910220016"><name>ICEE 2010,  International Conference on E-Business and E-Government</name><year>May 7th to 9th, 2010</year><place>中国广州</place><link>http://www.icee-meeting.org/</link><topics>E-Business and E-Commerce
+Network and Service Management  Grid Computing for e-Business 
+Service-oriented Architectures B2B, B2C and C2C Architectures 
+E-Business Collaboration Web and Mobile Business Systems and Services 
+Collaborative Business Systems Supply-chain Management 
+CRM and Business Solutions Workflow Management Systems 
+Human resources strategy in e-commerce enterprise 
+E-Government System and architecture of e-Government The e-Voting issue and e-Democracy 
+Measuring e-Government/Economics  Policies of e-government  
+Legal, agency, trust and governance issues in e-Government 
+Applications, Case study and Challenges of e-Government 
+Engineering Management, Service Management &amp; Knowledge Management Innovation and Entrepreneurship Supply Chain Management 
+Human Resource Management Project and Quality Management  
+Environment and Energy Management  Service Sciences 
+Service Economy and Policy National Infrastructure Management 
+Knowledge Management Semantic Web and Data Mining 
+Decision Support System   
+Key Enabling Technologies Supporting E-Business/Government Digital Image/Video Coding  Interactive design on digital media 
+Smart home/home networking VPN Technology and Services 
+Information hiding and watermarking  
+Cognitive radio and sensor-based applications 
+AAA, application-oriented network management 
+Content distribution in wireless home environment 
+Peer-to-peer computing and mobile computing 
+Multimedia delivery over wired/wireless networks 
+Security and Privacy in wired/wireless networks 
+Personal/Local/ Metropolitan/ Wide area networking </topics><type>国际会议</type></meeting><meeting id="M200910220017"><name>CSSE 2009 / The 2nd International Conference on Computer Science and Software Engineering</name><year>December 13-15, 2009</year><orgnizer refer="Computer Society$O200910220004#Wuhan University $O200910080007">is sponsored by IEEE Computer Society, Wuhan University and University of Wisconsin La Crosse. </orgnizer><place>Shenzhen, China</place><link>http://www.scirp.org/conf/csse2009/home.aspx</link><topics>Computer Science  
+ Artificial Intelligence 
+ Computer Graphics  
+ Computer Application  
+ Distributed and Parallel Computing  
+ Database Technology  
+ Embedded Programming  
+ Grid Computing  
+ Information Security  
+ Scientific Computing  
+ Human Computer Interface  
+  
+Software Engineering  
+ Data Mining  
+ Project Management 
+ Requirement Analysis  
+ Software Standards and Design  
+ Programming Methodology  
+ Software Testing and Quality Control  
+ Web-based Services  
+ Software Maintenance  
+ Simulation and Modeling  </topics></meeting><meeting id="M200910310001" lastedit="2012年11月15日  21时10分37秒"><name>INFOVIS Series,IEEE Symposium on Information Visualization / InfoVis</name><link>http://portal.acm.org/toc.cfm?id=SERIES11094&amp;type=series&amp;coll=GUIDE&amp;dl=GUIDE&amp;CFID=60534408&amp;CFTOKEN=55741624</link><history>INFOVIS '05  Proceedings of the Proceedings of the 2005 IEEE Symposium on Information Visualization 
+INFOVIS '04  Proceedings of the IEEE Symposium on Information Visualization 
+INFOVIS '02  Proceedings of the IEEE Symposium on Information Visualization (InfoVis'02) 
+INFOVIS '01  Proceedings of the IEEE Symposium on Information Visualization 2001 (INFOVIS'01) 
+INFOVIS '00  Proceedings of the IEEE Symposium on Information Vizualization 2000 
+INFOVIS '99  Proceedings of the 1999 IEEE Symposium on Information Visualization   
+INFOVIS '98  Proceedings of the 1998 IEEE Symposium on Information Visualization 
+INFOVIS '97  Proceedings of the 1997 IEEE Symposium on Information Visualization (InfoVis '97) 
+INFOVIS '96  Proceedings of the 1996 IEEE Symposium on Information Visualization (INFOVIS '96) 
+INFOVIS '95  Proceedings of the 1995 IEEE Symposium on Information Visualization </history><type>国际会议系列</type></meeting><meeting id="M200911010001" lastedit="2017年3月18日  17时21分18秒"><name>KSS'2009 / The 10th International Symposium on Knowledge and Systems Sciences</name><year>December 3-4, 2009</year><orgnizer refer="ISKSS$O200909210001#Institute of Systems Science,$O200911110012#Japan Advanced Institute of Science and Technology$O200908030001#Dalian University of Technology$O200907020003#Systems Engineering Society of China$O200910150001">ISKSS,International Society for Knowledge and Systems Sciences 
+协办：
+National Natural Sciences foundation of China 
+Institute of Systems Science, Chinese Academy of Sciences 
+Academy of Mathematics and Systems Sciences, Chinese Academy of Sciences 
+Japan Advanced Institute of Science and Technology 
+KM Research Centre of the Hong Kong Polytechnic University 
+Dalian University of Technology 
+Shanghai Academy of Systems Science 
+Systems Engineering Society of China </orgnizer><place>The University of Hong Kong,Hong Kong, China</place><link>http://meta-synthesis.iss.ac.cn/kss2009/</link><topics>Knowledge Synthesis and Creation for Crisis Management
+Creation of agent-based social systems sciences 
+Cross-cultural learning on systems thinking and knowledge management 
+Complex system modeling and complexity 
+Decision support systems 
+Knowledge creation: creativity support, awareness support, etc. 
+Knowledge discovery: data mining, text mining, other statistical methods, etc. 
+Knowledge systems engineering 
+Meta-synthesis and advanced modeling 
+Social network analysis and knowledge management 
+Systems methodology for knowledge integration and creation 
+Web Intelligence Tools </topics><reference>KSS'2009 会议论文集
+会议接受文献：
+SUSTAINABLE DEVELOPMENT KNOWLEDGE SHARING BY WEB 2.0: RESISTANCE AND DRIVERS TO CHANGE 
+Rita Yi Man Li, Do Henry Ah Pak   
+
+SYSTEMIC THINKING IN KNOWLEDGE MANAGEMENT 
+Yoshiteru Nakamori
+
+SENSORY EVALUATION MODELING AND DESIGN SUPPORT USING ROUGH-SETS THEORY
+HONGLI JU, YOSHITERU NAKAMORI
+
+Functional Dynamics in System of Innovation: a General Model of SI Metaphorized from Traditional Chinese Medicine
+Xi Sun, Xin Tian, Xingmai Deng
+
+Ranking Association Rules by TOPSIS Method with Combination Weights
+Zhen ZHANG, Chonghui GUO
+
+NETWORK STRUCTURE, STRUCTURAL EQUIVALENCE AND GROUP PERFORMANCE: A SIMULATION RESEARCH ON KNOWLEDGE PROCESS 
+hua zhang, Youmin Xi
+
+CONTINGENCY BETWEEN KNOWLEDGE CHARACTERISTICS AND KNOWLEDGE TRANSFER MECHANISM: AN INTEGRATIVE FRAMEWORK
+Ziye Li, Youmin Xi
+
+ANALYSIS OF DISCIPLINE-CROSSING BASED ON CONTENTS OF BASIC RESEARCH PROJECTS
+jing zhang, YANZHONG DANG, ZHAOGUO XUAN
+
+TOTAL VALUE MANAGEMENT IN ENTERPRISES OF VALUE CREATING MODEL 
+naijing wang, JING LU
+
+A Pattern Recognition Technique for the Recognition of Objects with Closed 2D Contour
+Luciano Nieddu, Giuseppe Manfredi
+
+COMPLEXITY ANALYSIS AND EARLY-WARNING PATTERN DESIGN FOR NATIONAL ENERGY SECURITY FROM THE PERSPECTIVE OF COMPLEX ADAPTIVE SYSTEM
+Fang shuqiong
+
+UNDERSTANDING META-SYNTHESIS APPROACH FOR COMPLEX PROBLEM SOLVING IN TERMS OF PROBLEM STRUCTURING AND KNOWLEDGE CREATION 
+Xijin Tang
+
+EXPLORING THE KNOWLEDGE CREATING COMMUNITIES: AN ANALYSIS OF THE LINUX KERNEL DEVELOPER COMMUNITY 
+Haoxiang Xia, Shuangling Luo Luo, Taketoshi Yoshida
+
+KNOWLEDGE SYNTHESIS
+Jifa Gu
+
+VPRS-based text mining for risk knowledge discovery of petroleum investment
+Gang Xie, SHOUYANG WANG, WUYI YUE
+
+STUDY ON THE METHODS OF IDENTIFICATION AND JUDGEMENT FOR OPINION LEADERS IN PUBLIC OPINION  
+Yijun Liu, Xijin Tang, Jifa Gu
+
+Constructing a Multi-phase Neural Combinatorial Predictor for Time Series Forecasting  
+Lean Yu, Shouyang Wang, Keung Kin Lai
+
+A Clustering Methodology for Industry Categorization Based on Time Series Angle Variation
+zhang dabin, Xie Haibin, Wang Shouyang
+  
+MODELING EARLY WARNING SYSTEM TO PREDICT TERRORIST THREATS: PRILIMINARY RESULTS
+Nasrullah Memon, Abdul Rasool Qureshi, Uffe Kock Wiil
+
+KNOWLEDGE PROCESSES IN OFFSHORE OUTSOURCING IN XI’AN, CHINA
+Rong Du, Shizhong Ai, Pamela Abbott, Yingqin Zheng
+
+AN EVALUATION INDEX SYSTEM OF KNOWLEDGE-INTENSIVE CORE PROCESSES BASED ON WULI-SHILI-RENLI METHODOLOGY
+Lingling Zhang  </reference><type>国际会议</type><participant>主席：
+Nakamori, Yoshiteru (Japan Advanced Institute of Science and Technology, Japan) 
+Wang, Shouyang (Institute of Systems Science, Chinese Academy of Sciences, China) 
+
+顾问：
+Advisory Committee：
+Gu, Jifa (Institute of Systems Science, Chinese Academy of Sciences, China) 
+Jackson, Michael (University of Hull, UK) 
+Liu, Yuanzhang (Chinese Academy of Engineering, China) 
+Lu, Ruqian (Chinese Academy of Sciences, China) 
+Wang, Zhongtuo (Chinese Academy of Engineering, China) 
+Wierzbicki, Andrzej (National Institute of telecommunications, Poland) 
+主讲人：
+Kyoichi KIJIMA - "Service Innovation in Systems Sciences Perspective"
+    Graduate School of Decision Science and Technology, Tokyo Institute of Technology, Japan
+
+Youmin XI - "How to Change a Chart to a Cow: Exploration on the Management of Knowledge Organization"
+    Xi'an Jiaotong-Liverpool University, China
+    University of Liverpool,UK
+    Xi'an Jiaotong University,China 
+成员：
+International Program Committee
+Bai, Guohua (Blekinge Institute of Technology, Sweden) 
+Brugha, Cathal M. (University College Dublin, Ireland) 
+Chen, Jian (Tsinghua University, China) 
+Dang, Yanzhong (Dalian University of Technology, China) 
+Di, Zengru (Beijing Normal University, China) 
+Du, Rong (Xidian University, China) 
+Ho, Tu Bao (Japan Advanced Institute of Science and Technology, Japan) 
+Lai, Kin Keung (City University of Hong Kong, China) 
+Lee, W. B. (Hong Kong Polytechnic University, Hong Kong) 
+Makowski, Marek (International Institute for Applied System Analysis, Austria) 
+Ma, Tieju (East China University of Science and Technology, China) 
+Meyer, Bertolt (University of Zurich, Switzerland) 
+Midgley, Gerald (Institute of Environmental Science and Research, New Zealand) 
+Ohsawa, Yukio (University of Tokyo, Japan) 
+Shi,Yong (Research Center on Fictionous Economy and Data Sciences, Chinese Academy of Sciences, China &amp; University of Nebraska-Omaha, USA) 
+Tang, Xijin (Academy of Mathematics and Systems Science, Chinese Academy of Sciences, China) 
+Tsui, Eric (Hong Kong Polytechnic University, Hong Kong) 
+Wallner, Fritz (University of Vienna, Austria) 
+Wang, Haibo (Texas A&amp;M International University, USA) 
+Wang, Xianjia(Wuhan University, China) 
+Wei, Yiming (Beijing University of Technology, China) 
+Wu, Jiangning (Dalian University of Technology, China) 
+Yang, Jianmei (South China University of Technology, China) 
+Yoshida, Taketoshi (Japan Advanced Institute of Science and Technology, Japan) 
+Yu, Lean (Academy of Mathematics and Systems Science, Chinese Academy of Sciences, China) 
+Yue, Wuyi (Konan University, Japan) 
+Zhang, Minjie (University of Wollongong, Australia) 
+Zhang, Ning (University of Shanghai for Science and Technology, China) 
+Zhang, Pengzhu (Shanghai Jiaotong University, China) 
+Zhong, Ning (Maebashi Institute of Technology, Japan) 
+Zhu, Zhichang (University of Hull, UK)
+</participant></meeting><meeting id="M200911020001"><name>Knowledge Creation Models</name><year>2009.3</year><place>大连理工大学管理学院 215</place><speakers refer="中森义辉$R200909200003">中森义辉</speakers><topics refer="三叶草模型$D200911020001">OPEC Spiral; 
+Academic Knowledge Creation;
+Ba;
+三叶草模型;</topics><reference>Gasson S (2004) The management of distributed organizational knowledge. In Sprague RJ(ed) Proceedings of the 37 Hawaii International Conference on Systems Sciences (HICSS 37).IEEE Computer Society Press, Los Alamitos, Ca</reference><type>讲座</type></meeting><meeting id="M200911020002" lastedit="2020年2月26日  16时14分46秒"><name>Knowledge Justification Theories</name><year>2009.3</year><speakers refer="中森义辉$R200909200003">中森义辉</speakers><place>大连理工大学管理学院 215</place><reference refer="The Structure of Scientific Revolutions$L200907120033#Objective knowledge$L200911020002">1972 Foucault  "episteme"
+1962 Kuhn, "Paradigmatism" -&gt;The Structure of Scientific Revolutions
+1972 Popper, "Falsificationism"-&gt;The logic of scientific discovery(1934)
+                              -&gt;Objective knowledge(1972)</reference><type>讲座</type><topics refer="海森堡$R200907170006#i-System$D200911020004">海森堡(p.5),i-System(p.14)</topics></meeting><meeting id="M200911020004" lastedit="2017年3月18日  20时26分42秒"><name>运筹学</name><year>2008.9.16</year><place>大连理工大学研教楼</place><speakers refer="郭崇慧$R200907230001">郭崇慧</speakers><history>第01章 导论
+第02章 运筹学建模过程
+第03章 线性规划引论
+第04章 单纯形法</history><type>课程</type><endtime>2008.12.2</endtime><topics refer="麻省理工学院$O200907240009#钱学森$R200907120025">9.16: 麻省理工学院,钱学森,许国志,华罗庚,陈省身,顾基发,INFORMS,Herbert Simon
+9.23: Matlab
+10.21: 网络科学(Network Science) 2007 物理学报上有2篇综述,复杂网络模型
+11.25: Herbert Simon</topics></meeting><meeting id="M200911020005"><name>软件工程</name><year>2008.9.17</year><speakers>李文立</speakers><type>课程</type><endtime>2008.11.2</endtime></meeting><meeting id="M200911020006" lastedit="2012年3月4日  22时22分3秒"><name>系统数学/模糊数学</name><year>2008.11.5</year><endtime>2008.12.10</endtime><speakers>那日萨</speakers><type>课程</type></meeting><meeting id="M200911020007"><name>信息系统工程</name><year>2008.9.18</year><speakers>邓贵仕</speakers><type>课程</type></meeting><meeting id="M200911020008"><name>系统建模理论与方法</name><year>2008.9.19</year><speakers refer="党延忠$R200907230002">党延忠</speakers><type>课程</type><endtime>2008.11.21</endtime></meeting><meeting id="M200911020009" lastedit="2017年3月18日  20时28分31秒"><name>专业英语/Business English</name><year>2009.2.23</year><speakers refer="吴江宁$R200909110001">吴江宁</speakers><type>课程</type><endtime>2009.4.13</endtime><topics refer="彼得 德鲁克$R200909160004">彼得 德鲁克</topics></meeting><meeting id="M200911020010" lastedit="2017年3月18日  20时29分41秒"><name>数据挖掘 / Data Mining</name><year>2009.2.23</year><speakers refer="吴江宁$R200909110001">吴江宁</speakers><type>课程</type><history>1.数据挖掘 Data Mining
+2.关联分析 Association analysis
+3.聚类分析 Clustering analysis
+3.3 分类方法
+3.4 层次方法 Hierachical Methods
+3.5 蚁群方法 Aunt-based Methods
+3.6 密度方法
+3.7 格子方法
+4.分类分析 Classification
+5.文本挖掘 Text mining
+6.Web挖掘  Web mining</history><view>数据挖掘,知识发现,商务智能,聚类,文本挖掘,Web挖掘,人工智能,统计学,数据库,机器学习,模式识别</view><reference refer="数据挖掘——概念与技术$L201001060001">数据挖掘——概念与技术</reference><endtime>2009.4.13</endtime><topics refer="KartOO$O200911090001#VSM$D200910150001">时间序列分析,Multi-agent,KartOO,VSM</topics></meeting><meeting id="M200911020011" lastedit="2012年3月4日  12时56分7秒"><name>软计算</name><year>2009.2.24</year><speakers refer="荣莉莉$R200911020002">荣莉莉</speakers><orgnizer>大连理工大学管理学院</orgnizer><type>课程</type><note>课件已打印</note><endtime>2009.4.4</endtime></meeting><meeting id="M200911020012" lastedit="2012年3月4日  12时56分23秒"><name>知识系统工程</name><year>2009.2.25~4.15</year><speakers refer="郭崇慧$R200907230001">郭崇慧</speakers><reference refer="知识系统工程[M]$L200910110003">知识系统工程[M]</reference><orgnizer>大连理工大学管理学院</orgnizer><type>课程</type></meeting><meeting id="M200911020013" lastedit="2012年3月4日  12时56分39秒"><name>国际学术交流英语</name><year>2009.3.5~2009.4.16</year><speakers>常玉民</speakers><orgnizer>大连理工大学外国语学院</orgnizer><type>课程</type></meeting><meeting id="M200911020014" lastedit="2012年3月4日  12时58分34秒"><name>自然辩证法</name><year>2009.3.5~</year><speakers>胡光</speakers><type>课程</type><reference refer="自然辩证法$L200907130043">自然辩证法 刘永振(主编),丁堃(副主编)</reference></meeting><meeting id="M200911020015" lastedit="2012年3月4日  12时59分1秒"><name>英语听说 / Oral English</name><speakers>曹硕</speakers><orgnizer>大连理工大学外国语学院</orgnizer><year>2009.3.12~</year><type>课程</type></meeting><meeting id="M200911020016" lastedit="2021年8月19日  11时34分27秒"><name refer="">知识工程与决策支持系统</name><type refer="">课程</type><year>2009.4.7</year><endtime refer="">2009.6.23</endtime><speakers refer="胡祥陪$R200909090001">胡祥陪</speakers><orgnizer>大连理工大学管理学院</orgnizer><topics refer="Prolog$D200908210001">Prolog</topics></meeting><meeting id="M200911020017" lastedit="2012年3月4日  12时52分26秒"><name>系统开发实践</name><year>2009.4.28~6.9</year><speakers refer="宣照国$R200909200004">宣照国</speakers><orgnizer>大连理工大学管理学院</orgnizer><type>课程</type></meeting><meeting id="M200911020018" lastedit="2012年3月4日  12时52分34秒"><name>复杂网络引论</name><year>2009.4.29~6.10</year><speakers refer="宣照国$R200909200004">宣照国</speakers><orgnizer>大连理工大学管理学院</orgnizer><topics refer="复杂网络 模型$D200911090001">复杂网络</topics><reference refer="复杂网络理论及其应用$L200912180005">复杂网络理论及其应用</reference><type>课程</type></meeting><meeting id="M200911070001"><name>9.081 Human Memory and Learning</name><year>Fall 2002</year><orgnizer refer="麻省理工大学$O200907240009">麻省理工大学 Brain and Cognitive Sciences 大脑与认知科学</orgnizer><speakers>Prof. Anthony Wagner</speakers><intro>查阅人类记忆与学习的认知和神经组织方面的文献。包括对工作记忆和执行控制、情节和语义记忆、以及记忆的内隐形式等加以思考。强调将认知理论与新近来自功能神经成像的认识加以整合。</intro><history>1    人类记忆的构成
+·课程导论 ·记忆和神经成像总览
+  Eichenbaum &amp; Cohen. Chaps. 1-2 
+
+2    短时记忆/工作记忆
+·言语工作记忆 
+·视觉-空间工作记忆 
+  Eichenbaum &amp; Cohen. Chap. 14.   Chein &amp; Fiez. 2001. 
+ Prabhakaran, Narayanan, Zhao, &amp; Gabrieli. 2000. 
+
+3    执行/认知控制
+·执行控制和注意 
+  Miller &amp; Cohen. 2001. 
+  MacDonald, Cohen, Stenger, &amp; Carter. 2000; Rowe, Toni, Josephs, Frackowiak, &amp; Passingham. 2000. 
+
+4    语义记忆
+·语义记忆的组织 
+  Badre &amp; Wagner. 2002. Martin &amp; Chao. 2001. Caramazza. 2000. Haxby et al., 2001. 
+  Thompson-Schill, Aguirre, D'Esposito, &amp; Farah. 1999a. 
+
+5    情节记忆：编码Ⅰ
+·编码，前额皮层和颞中叶 
+  Eichenbaum &amp; Cohen. Chaps. 5-6
+   Davachi, Mitchell, &amp; Wagner. submitted. 
+Kirchhoff, Wagner, Maril, &amp; Stern. 2000. 
+       
+6    情节记忆：编码Ⅱ
+·记忆同化：复兴的争论 
+  Eichenbaum &amp; Cohen. Chaps. 9-10   Haist, Bowden Gore, &amp; Mao. 2001. Ryan et al., 2001. 
+ 
+7    情节记忆
+·提取过程-回忆与熟悉性 
+  Yonelinas. 2002.  Curran. 2000. 
+Dobbins, Rice, Wagner, &amp; Schacter. in press. 
+Wheeler, Petersen, &amp; Buckner. 2000. 
+ 
+8    非叙述性记忆：启动
+·启动的形式 
+  Eichenbaum &amp; Cohen. Chap. 11. Wagner &amp; Koutstaal. 2002. 
+   Poldrack et al., 2001. 
+Vaina, Belliveau, des Roziers, &amp; Zeffiro. 1998. 
+ 
+9    年龄和记忆（预期的研究计划）
+·年龄，认知控制和记忆 
+   Cabeza. 2002. Grady &amp; Craik. 2000. 
+   Logan, Sanders, Snyder, Morris, &amp; Buckner. 2002. 
+Milham et al., 2002. </history><reference>课文
+H. Eichenbaum, and N.J. Cohen. From Conditioning to Conscious Recollection. New York: Oxford University Press, 2001. (《从条件反射到有意识回忆》)
+
+Badre, D., &amp; Wagner, A. D. "Semantic retrieval, mnemonic control, and prefrontal cortex." In Behavioral and Cognitive Neuroscience Reviews. 2002, 1, 204-216. 
+Cabeza, R. "Hemispheric asymmetry reduction in older adults: The HAROLD model." In Psychology and Aging. 2002, 17, 85-100.
+
+Caramazza, A. "Minding the facts: a comment on Thompson-Schill et al.'s 'A neural basis for category and modality specificity of semantic knowledge' ". In Neuropsychologia. 38(7), 944-949.
+
+Chein, J. M., &amp; Fiez, J. A. "Dissociation of verbal working memory system components using a delayed serial recall task." In Cerebral Cortex. 2001, 11, 1003-1014.
+
+Curran, T. "Brain potentials of recollection and familiarity." In Memory &amp; Cognition. 2000, 28, 923- 938.
+
+Davachi, L., Mitchell, J., &amp; Wagner, A. D. "Multiple routes to memory: Distinct medial temporal lobe processes build item and source memories." Proc Natl Acad Sci U S A. 2003 Feb 18;100(4):2157-62. Epub 2003 Feb 10.
+
+Dobbins, I. G., Rice, H. J., Wagner, A. D., &amp; Schacter, D. L. (in press). "Memory orientation and success: Separable neurocognitive components underlying episodic recognition."  Neuropsychologia. 2003;41(3):318-33.
+
+Grady, C. L., &amp; Craik, F. I. "Changes in memory processing with age." In Current Opinion in Neurobiology. 2000, 10, 224-231.
+
+Gupta, P., &amp; Cohen, N. J. "Theoretical and computational analysis of skill learning, repetition priming, and procedural memory." In Psychological Review. 2002, 109, 401-448.
+
+Haist, F., Bowden Gore, J., &amp; Mao, H. "Consolidation of human memory over decades revealed by functional magnetic resonance imaging." In Nature Neuroscience. 2001, 4, 1139-1145.
+
+Haxby, J. V., Gobbini, M. I., Furey, M. L., Ishai, A., Schouten, J. L., &amp; Pietrini, P. "Distributed and overlapping representations of faces and objects in ventral temporal cortex." In Science. 2001, 2425-2430.
+
+Henson, R., Shallice, T., &amp; Dolan, R. "Neuroimaging evidence for dissociable forms of repetition priming." In Science. 2000, 287, 1269-1272.
+
+Kirchhoff, B. A., Wagner, A. D., Maril, A., &amp; Stern, C. E. "Prefrontal-temporal circuitry for novelty encoding and subsequent memory." In Journal of Neuroscience. 2000, 20, 6173-6180.
+
+Logan, J. M., Sanders, A. L., Snyder, A. Z., Morris, J. C., &amp; Buckner, R. L. "Underrecruitment and nonselective recruitment: Dissociable neural mechanisms associated with aging." In Neuron. 2002, 33, 827-840.
+
+MacDonald, A. W., 3rd, Cohen, J. D., Stenger, V. A., &amp; Carter, C. S. "Dissociating the role of the dorsolateral prefrontal and anterior cingulate cortex in cognitive control." In Science. 2000, 288(5472), 1835-1838.
+
+Martin, A., &amp; Chao, L. L. "Semantic memory and the brain: Structure and processes." In Current Opinion in Neurobiology. 2001, 11, 194-201.
+
+Milham, M. P., Erickson, K. I., Banich, M. T., Kramer, A. F., Webb, A., Wszalek, T., &amp; Cohen, N. J. "Attentional control in the aging brain: Insights from an fMRI study of the Stroop task." In Brain &amp; Cognition. 2002, 49, 277-296.
+
+Miller, E. K., &amp; Cohen, J. D. "An integrative theory of prefrontal cortex function." In Annual Review of Neuroscience. 2001, 24, 167-202.
+
+Poldrack, R. A., Clark, J., Pare-Blagoev, E. J., Shohamy, D., Creso Moyano, J., Myers, C., &amp; Gluck, M. A. "Interactive memory systems in the human brain." In Nature. 2001, 414, 546-550.
+
+Prabhakaran, V., Narayanan, K., Zhao, Z., &amp; Gabrieli, J. D. "Integration of diverse information in working memory within the frontal lobe." In Nat Neurosci. 2000, 3(1), 85-90.
+
+Rowe, J. B., Toni, I., Josephs, O., Frackowiak, R. S. J., &amp; Passingham, R. E. "The prefrontal cortex: Response selection or maintenance within working memory?" In Science. 2000, 288, 1656-1660.
+
+Ryan, L., Nadel, L., Keil, K., Putnam, K., Schnyer, D., Trouard, T., &amp; Moscovitch, M. "The hippocampal complex and retrieval of recent and very remote autobiographical memories: Evidence from functional magnetic resonance imaging in neurologically intact people." In Hippocampus. 2001, 11, 707- 714.
+
+Thompson-Schill, S. L., Aguirre, G. K., D'Esposito, M., &amp; Farah, M. J. "A neural basis for category and modality specificity of semantic knowledge." In Neuropsychologia. 1999a, 37, 671-676.
+
+Thompson-Schill, S. L., D'Esposito, M., &amp; Kan, I. P. "Effects of repetition and competition on activity in left prefrontal cortex during word generation." In Neuron. 1999b, 23, 513-522.
+
+Vaina, L. M., Belliveau, J. W., des Roziers, E. B., &amp; Zeffiro, T. A. "Neural systems underlying learning and representation of global motion." In Proceedings of the National Academy of Sciences. 1998, U.S.A., 95, 12657-12662.
+
+Wagner, A. D., &amp; Koutstaal, W. "Priming." Edited by V. S. Ramachandran. In Encyclopedia of the Human Brain. Vol. 4. San Diego: Academic Press, 2002, 27-46).
+
+Wheeler, M. E., Petersen, S. E., &amp; Buckner, R. L. "Memory's echo: Vivid remembering reactivates sensory-specific cortex." In Proceedings of the National Academy of Science. 2000, USA, 97, 11125-11129.
+
+Yonelinas, A. P. "The nature of recollection and familiarity: A review of 30 years of research." In Journal of Memory and Language. 2002, 46, 441-517.</reference><link>http://ocw.mit.edu/OcwWeb/Brain-and-Cognitive-Sciences/9-081Human-Memory-and-LearningFall2002/CourseHome/index.htm</link></meeting><meeting id="M200911070002" lastedit="2017年4月10日  13时49分11秒"><name>9.520 A Networks for Learning: Regression and Classification / 学习的网络：分类与回归</name><orgnizer>麻省理工大学 Brain and Cognitive Sciences 大脑与认知科学</orgnizer><year>Spring 2001</year><speakers refer="郭崇慧$R200907230001">Prof. Tomaso Poggio  Dr. Alessandro Verri  郭崇慧(译)</speakers><intro>课程特点
+本课程将讨论出现在计算机视觉、计算机图形学、数据库搜索以及时间序列分析和预测等领域中的几种学习技术的应用。针对稀疏数据集，探讨有指导学习中的回归和分类网络。详尽的 参考读物列表 为未来从事学习网络领域的研究人员奠定了基础。讲义 提供了本课程中的每个主题的综述。 
+
+课程简介
+本课程在统计学习理论框架下，集中讨论有指导学习问题。首先，回顾一下传统的统计技术，例如应用于稀疏数据多元函数逼近的 RKHS 中的正则化理论。然后，详细讨论 VC 理论，并将其用于验证正则化网络和支持向量机等分类和回归技术。本课程理论内容的最后一部分包括 boosting、特征选择和多类分类等主题。本课程将讨论出现在计算机视觉、计算机图形学、数据库搜索以及时间序列分析和预测等领域中的几种学习技术的应用，简要讨论学习理论的内涵，即大脑如何从经验中学习，集中于目标识别的神经生物学原理。我们计划着重强调应用和动手实践，同时也强调本课程中涉及到的技术正有着越来越多的实际应用。</intro><history refer="支持向量机$D201704100005">1    课程概览  
+2    透视学习问题  
+3    正则化的解  
+4    再生核 Hilbert 空间  
+5    传统的逼近方法  
+6    非参数化技术和正则化理论  
+7    岭逼近技术  
+8    正则化网络及相关内容  
+9    应用于金融学  
+10    统计学习理论导论  
+11    经验风险最小化原则的一致性  
+12    VC 维和 VC 界  
+13    回归和结构风险最小化的VC理论  
+14    用于分类的支持向量机  
+15    项目讨论  
+16    用于回归的支持向量机  
+17    当前研究热点 I: 核方法  
+18    应用于计算机视觉和计算机图形学  
+19    神经科学 I  
+20    神经科学 II  
+21    当前研究热点 II: 误差逼近和逼近论  
+22    当前研究热点 III: 支持向量机的理论与实现  
+23    当前研究热点 IV: 基于支持向量机的特征选择及生物信息学应用  
+24    当前研究热点 V: Bagging 和 Boosting  
+25    选讲: 小波和框架  
+26    项目陈述 </history><reference>透视学习问题 
+
+Bertero, M., T. Poggio, and V. Torre. "Ill-posed Problems in Early Vision." Proc. of the IEEE 76 (1988): 869-889.
+虽然局限于初期视觉，但该文包含了关于病态问题和正则化方法的易读的介绍性内容。 
+Girosi, F., M. Jones, and T. Poggio. "Regularization Theory and Neural Network Architectures." Neural Computation 7 (1995): 219-269.
+关于学习理论和正则化理论相互关系的一个详尽介绍。在本讲和接下来的讲座中，我们会经常提到这篇文章。
+Vapnik, V. The Nature of Statistical Learning Theory. Springer, 1995.
+第一章是关于统计学习理论的易读的、直接的介绍。
+
+进一步参考读物：
+Vapnik, V. Statistical Learning Theory. Wiley, 1998.
+如果你想深入了解统计学习理论的基础，要浏览该书的第一章。
+
+正则化的解 
+Girosi, F., M. Jones, and T. Poggio. "Regularization Theory and Neural Network Architectures." Neural Computation 7 (1995): 219-269.
+关于学习理论和正则化理论相互关系的一个详尽介绍。在本讲和接下来的讲座中，我们会经常提到这篇文章。 
+Kolmogorov, N., and S.V. Fomine. Elements of the Theory of Functions and Functional Analysis. Dover, 1975.
+经典文献. 为了跟上课程进度，应阅读第二章中的 5.1 节、6.4 节和6.5 节，第四章中的 13.1、13.2、13.3、13.5、13.6 和 15.1 节，特别要认真阅读涉及到函数空间的部分。
+Strang, G. Calculus. Wellesley-Cambridge Press, 1991.
+第13章含有关于 Lagrange 乘子技术非常好的说明。
+
+进一步参考读物：
+Bertero, M. "Regularization Methods for Linear Inverse Problems" In Inverse Problems. Edited by G. Talenti. Lecture Notes in Mathematics. Vol. 1225. 1986, pp. 52-112.
+这是一篇很好的综述。
+Tikhonov, A. N., and V. Y. Arsenin. Solutions of Ill-posed Problems. W. H. Winston, 1977.
+关于正则化理论的第一本书。
+
+再生核 Hilbert 空间 
+Kolmogorov, N. and S. V. Fomine. Elements of the Theory of Functions and Functional Analysis. Dover, 1975.
+经典文献. 为了跟上课程进度，应阅读第二章中的 5.1 节、6.4 节和 6.5 节，第四章中的 13.1、13.2、13.3、13.5、13.6 和 15.1 节，特别要认真阅读涉及到函数空间的部分。 
+Strang, G. Introduction to Linear Algebra. Wellesley-Cambridge Press, 1993.
+第六章含有本课程中用到的矩阵代数内容(及更多内容!)。
+
+进一步参考读物：
+Aronszajn, N. "Theory of Reproducing Kernels." Trans. Amer. Math. Soc. 686 (1950): 337-404.
+RKHS（内容较难）。
+Girosi, F. "An Equivalence Between Sparse Approximation and Support Vector Machines." Neural Computation 10 (1998): 1455-1480.
+在附录A中你会发现关于 RKHS 的一个简单介绍。
+Wahba, G. Spline Models for Observational Data. SIAM, 1990.
+第一章包含 RKHS 的入门介绍。
+
+传统逼近方法
+Girosi, F., M. Jones, and T. Poggio. "Regularization Theory and Neural Network Architectures." Neural Computation 7 (1995): 219-269.
+关于学习理论和正则化理论相互关系的一个详尽介绍。在本讲和接下来的讲座中，我们会经常提到这篇文章。 
+Strang, G. Calculus. Wellesley-Cambridge Press, 1991.
+第13章含有关于 Lagrange 乘子技术非常好的说明。
+
+非参数化技术和正则化理论 
+Girosi, F., M. Jones, and T. Poggio. "Regularization Theory and Neural Network Architectures." Neural Computation 7 (1995): 219-269.
+该文的部分内容也会对这次讲座有所帮助。 
+
+进一步参考读物：
+Vapnik, V. N. Estimation of Dependences Based on Empirical Data. Springer, 1982.
+第九章包含了在正则化理论框架下关于 Parzen 窗的讨论。
+
+岭逼近技术 
+Bishop, C. M. Neural Networks for Pattern Recognition. Clarendon, 1995.
+第三章和第四章详细的讨论了单层和多层感知器。 
+Girosi, F., M. Jones, and T. Poggio. "Regularization Theory and Neural Network Architectures." Neural Computation 7 (1995): 219-269.
+包含了关于不同逼近技术之间相互联系的信息来源。
+ 
+进一步参考读物：
+Hertz, J., A. Krogh, and R. G. Palmer. Introduction to the Theory of Neural Computation. Addison Wesley, 1991.
+这是一本好书，该书主要从物理学家的观点来看神经网络。
+
+正则化网络及相关内容
+Girosi, F., M. Jones, and T. Poggio. "Regularization Theory and Neural Network Architectures." Neural Computation 7 (1995): 219-269.
+这是最后一次提及这篇文章，一定要精读该文。
+
+进一步参考读物：
+Hertz, J., A. Krogh, and R. G. Palmer. Introduction to the Theory of Neural Computation. Addison Wesley, 1991.
+这是一本好书，该书主要从物理学家的观点来看神经网络。
+
+统计学习理论导论 
+Vapnik, V. The Nature of Statistical Learning Theory. Springer, 1995.
+Chapter 1 is a readable first-hand introduction to the subject. 
+
+进一步参考读物：
+Vapnik, V. Statistical Learning Theory. Wiley, 1998.
+第一章是关于统计学习理论的易读的、直接的介绍。
+
+经验风险最小化原则的一致性 
+Vapnik, V. Statistical Learning Theory. Wiley, 1998.
+第三章包含了这次讲座的所有内容(甚至更多)。第二章的部分内容会提供给你在理论背后的一些深刻观点，但如果你要弄清楚描述结论和证明结论之间的差异，则最好浏览一下第14章及其他章节。 
+
+VC 维和 VC 界 
+Vapnik, V. Statistical Learning Theory. Wiley, 1998.
+第四章包含了这次讲座的所有内容(甚至更多) 
+
+回归和结构风险最小化的 VC 理论 
+
+Alon, N., et al. "Scale Sensitive Dimensions, Uniform Convergence, and Learnability." Symposium on Foundation of Computer Science (1993).
+该文给出了对于实值函数与分布无关的一致收敛性的充分必要条件。 
+Evgeniou, T., M. Pontil, and T. Poggio. "Regularization Networks and Support Vector Machines." Advances in Computational Mathematics 13 (2000): 1-50.
+该文中包含了这次讲座的大部分内容。
+Vapnik, V. Statistical Learning Theory. Wiley, 1998.
+第五章和第六章包含了本讲中讨论的大部分结果，但并不是全部。
+
+用于分类的支持向量机 
+Strang, G. Calculus. Wellesley-Cambridge Press, 1991.
+第13章含有关于 Lagrange 乘子技术非常好的说明。 
+Vapnik, V. Statistical Learning Theory. Wiley, 1998.
+本讲将包含第十章中的部分内容，为了深入了解 SVMs 及其他技术，也需要阅读一下第八章。
+
+用于回归的支持向量机 
+Evgeniou, T., M. Pontil, and T. Poggio. "Regularization Networks and Support Vector Machines." Advances in Computational Mathematics 13 (2000): 1-50.
+该文中包含了正则化网络和支持向量机的 Bayesian 解释。 
+Girosi, F. "An Equivalence between Sparse Approximation and Support Vector Machines." Neural Computation 10 (1998): 1455-1480.
+该文研究了 SVM 和 BPD 之间的关系。
+Vapnik, V. Statistical Learning Theory. Wiley, 1998.
+本讲将包含第11章和第13章中的部分内容。
+
+进一步参考读物：
+Chen, S., D. Donoho, and M. Saunders. "Atomic Decomposition by Basis Pursuit." Tech Rep 479. Dept. of Statistics. Stanford University. 1995.
+Daubechies, I. "Time Frequency Localization Operators: a Geometric Phase Space Approach." IEEE Trans. on Information Theory 34 (1988): 605-612.
+Mallat, S., and S. Zhang. "Matching Pursuits with Time-Frequency Dictionaries." IEEE. Trans. on Signal Proc. 41 (1993): 3397-3415.
+Pontil, M., S. Mukherjee, and F. Girosi. "On the Noise Model of Support Vector Machine Regression." CBCL Paper #168, AI Memo #1651, Massachusetts Institute of Technology, Cambridge, MA (1998).
+
+当前研究热点I: 核方法 
+Cristianini, N., and J. Shawe-Taylor. Support Vector Machines and Other Kernel-based Learning Methods. Cambridge, 2000.
+该书第三章详细介绍了核方法。 
+Vapnik, V. Statistical Learning Theory. Wiley, 1998.
+在第10章，第11章和第12章中含有核方法及其思想的内容。
+
+进一步参考读物：
+Berg, C., J. P. R. Christensen, and P. Ressel. "Harmonic Analysis on Semigroups." Springer Verlag.
+该书的题目令人恐惧，但第三章的内容易于阅读，并且包含了关于正定函数的清晰介绍。
+Jaakkola, T., and D. Haussler. "Exploiting Generative Models in Discriminative Classifiers." NIPS (1998).
+Niyogi, P., T. Poggio, and F. Girosi. "Incorporating Prior Information in Machine Learning by Creating Virtual Examples." IEEE Proceedings on Intelligent Signal Processing 86 (1998): 2196-2209.
+
+神经科学II 
+Logothetis, N. K., J. Pauls, and T. Poggio. "Viewered-Centered Object Recognition in Monkeys ." AI Memo 1472, CBCL Paper 95 (1994). 
+Logothetis, N. K., T. Vetter, A. Hulbert, and T. Poggio. "View-Based Models of 3D Object Recognition and Class-Specific Invariances." AI Memo 1473, CBCL Paper 94 (1994).
+Riesenhuber, M., and T. Poggio. "Hierarchical Models of Object Recognition in Cortex." Nature Neuroscience 2 (1999): 1019-1025.
+
+当前研究热点II: 误差逼近和逼近论 
+Lorentz, G. G. "Approximation of Functions." Chelsea Pub co, 1986.
+内容不很容易，但格式紧凑，叙述严谨(特别是第一章，第五章和第8-10章)。 
+Niyogi, P., and F. Girosi. "On the Relationship between Generalization Error, Hypothesis Complexity, and Sample Complexity for Radial Basis Functions." Neural Computation 8 (1996): 819-842.
+包含了对各种类型误差的讨论。
+
+当前研究热点III: 支持向量机的理论与实现 
+Bazaraa, Sherali, and Shetty. Nonlinear Programming, Theory and Techniques. John Wiley &amp; Sons, 1993.
+关于优化理论的教科书。 
+SVM 的解是唯一的吗?
+Burges, and Crisp. Uniqueness of the SVM Solution NIPS 12 (1999).
+
+SVMs 的分解方法:
+Osuna, Edgar. Support Vector Machines: Training And Applications. Ph.D. Thesis (1998).
+
+一次优化两个变量:
+Platt, John C. "Sequential Minimal Optimization: A Fast Algorithm For Training Support Vector Machines." Microsoft Research MST-TR-98-14 (1998).
+
+分解方法的分析:
+Chang, Chih-Chung, Chih-Wei Hsu, and Chih-Jen Lin. "The Analysis of Decomposition Methods For Support Vector Machines." Proceedings of IJCAI99, SVM workshop (1999).
+
+Keerthi, S. S., and E. G. Gilbert. Convergence of a Generalized SMO Algorithm For SVM Classifier Design Control Division. Dept. of Mechanical and Production Engineering, National University of Singapore CD-00-01 (2000).
+
+Keerthi, S. S., S. K. Shevade, C. Bhattacharyya, and K. R. K. Murthy. Improvements to Platt's SMO Algorithm for SVM Classifier Design Control Division. Dept. of Mechanical and Production Engineering, National University of Singapore CD-99-14 (1999).
+
+稀疏性控制:
+Osuna, Freund, and Girosi. "Reducing Run-time Complexity in SVMs." Proceedings of the 14th Int'l Conference on Pattern Recognition.
+
+当前研究热点V: Bagging和Boosting 
+Breiman, L. "Bagging Predictors." Machine Learning 26 (1996): 123-140. 
+Schapire, R. E., Y. Freund, P. Bartlett, and W. S. Lee. "Boosting the Margin: A New Explanation for the Effectiveness of Voting Methods." The Annals of Statistics 26 (1998): 1651-1686.
+
+选讲: 小波和框架 
+Stollnitz, E. J., T. D. DeRose, and D. H. Salesin. "Wavelets for Computer Graphics: A Primer Department of Computer Science and Engineering." University of Washington Tech Rep 94-09-11 (1994).
+关于小波的一个易读的介绍. 
+Daubechies, I. "Ten Lectures on Wavelets." CBMS-NSF Regional Conferences Series in Applied Mathematics, SIAM, Philadelphia PA (1992).
+虽然有些内容涉及到高级课题，但也包含了一些基本的理论结果。</reference><link>http://www.core.org.cn/OcwWeb/Brain-and-Cognitive-Sciences/9-520-ANetworks-for-Learning--Regression-and-ClassificationSpring2001/CourseHome/index.htm</link></meeting><meeting id="M200911150001" lastedit="2012年3月4日  12时52分52秒"><name>微积分</name><year>2004.10~2004.12</year><place>八角楼 305</place><speakers>孙丽华</speakers><type>课程</type></meeting><meeting id="M200911150002" lastedit="2012年3月4日  12时53分11秒"><name>线性代数</name><year>2004.10~2004.12</year><place>综合楼 360</place><speakers>廉庆荣</speakers><reference refer="线性代数与解析几何$L200911150003">线性代数与解析几何</reference><type>课程</type></meeting><meeting id="M200911190001"><name>The Opportunity and Challenges of Diversity：A Role for Social Capital</name><year>2003.11.23-25</year><place>Montreal</place><speakers refer="Robert Putnam$R200911150002">Robert Putnam</speakers></meeting><meeting id="M200911200001" lastedit="2017年3月18日  17时23分46秒"><name>ISIKM'2010 / 第一届信息与知识管理国际研讨会</name><year>September 5-7, 2010</year><place>Dalian, China</place><topics refer="Complex Networks$D200911090001#Agent$D200911200003">- Business Intelligence
+- Complex Networks
+- Clustering and Data Analysis
+- Customer Relationship Management
+- Decision Support Systems
+- E-Business
+- E-Education System
+- E-Government System
+- Electronic Government
+- Expert Systems
+- Human Information Processing
+- Human Interface
+- Information Economics
+- Information Resource Management
+- Information Security
+- Information Service Systems
+- Information Support Systems
+- Information Systems Design
+- Intelligent Agents
+- Intelligent Transportation Systems
+- IT Project Management
+- IT Service Management
+- Kansei Engineering
+- Knowledge-Based Systems
+- Knowledge Discovery and Data Mining
+- Knowledge Management
+- Knowledge Networks
+- Learning Systems
+- Logistics Information
+- Logistics Distribution Management
+- Management Information System
+- Management Sciences
+- Multimedia and Applications
+- Optimization and Decision Making
+- Organizational Management
+- Risk Analysis and Management
+- Semantic Web
+- Web Services
+- Others</topics><orgnizer refer="Dalian University$O200907020003#Dalian University of Technology$O200907020003">organized by ICIC International,
+Dalian University and Dalian University of Technology, sponsored by Dalian Maritime
+University (China), Yanshan University (China), QinHuangDao Yanda Intelligent
+Informatics Inc. (China), Dalian Science Communication Institute (China), Tokai University
+(Japan), SOFT Kyushu Chapter (Japan) and Qiming Information Tech. Co. Ltd. (China).</orgnizer><history>Important Dates
+Submission Mar 20 – April 10, 2010
+Notification of acceptance May 20 – June 10, 2010
+Final manuscript submission June 20 – July 10, 2010
+Registration (Registration Fee: JPY56,000/RMB3,800) June 20 – July 10, 2010</history><participant>顾问：
+Advisory Committee
+Ramesh K. Agarwal (USA), El-Kebir Boukas (Canada),Chin-Chen Chang (Taiwan), Tzung-Pei Hong (Taiwan),Tsuyoshi Ideguchi (Japan), Masaharu Mizumoto(Japan), Pieter Nagel (Australia), Hirofumi Sasaki(Japan), Peng Shi (UK), Yuqing Sun (China), Wenbo Wang (China), Zhongtuo Wang (China), Shanlin Yang(China), Kaiqi Zou (China)
+主席：
+·General Chairs
+Chengsheng Pan, Dalian University, China
+Takeshi Yamakawa, Kyushu Institute of Tech., Japan
+Deli Yang, Dalian University of Technology, China
+
+·Organizing Committee Chairs
+Yan Shi, Tokai University, Japan
+Yunfu Huo, Dalian University, China
+
+·Program Committee Chairs
+Xiangpei Hu, Dalian University of Tech., China
+Junzo Watada, Waseda University, Japan
+成员：
+Organizing Committee Members
+Emiko Amano (Japan), Dan Bai (China), Shuxue Ding(Japan), Ummuhan Basaran Filik (Turkey), Kuniaki
+Fujimoto (Japan), Toshihiko Gima (Japan), Xiaojie Gong (China), Rika Ito (Japan), Nanshun Jin (China),
+Dongsoo Kim (Korea), Xu Li (China), Zhengkui Lin (China), Wei Liu (China), Ruedee Masuchun (Thailand),
+Masanori Takahashi (Japan), Xuping Wang (China)
+
+Program Committee Members
+José Mário Araújo (Brazil), Hector Benitez-Perez(Mexico), Fuji Chen (China), Yan Chen (China), Nam Wook Cho (Korea), Ozer Ciftcioglu (Netherlands),Yanzhong Dang (China), Guishi Deng (China), Vasile Dragan (Romania), Yuqiang Feng (China), Tansu Filik (Turkey), Chao-Hsing Hsu (Taiwan), Gerardo Iovane (Italy), Vyacheslav Kalashnikov (Mexico), Hyoungseop Kim (Japan), Manbae Kim (Korea), Dong Li (China),Minqiang Li (China), Tong Li (China), Feng-Tse Lin(Taiwan), Lily Lin (Taiwan), Zhihua Lin (China), Lu Liu(China), Yezheng Liu (China), Yaobin Lu (China), Tshilidzi Marwala (South Africa), Subhas Misra (India), Takuo Nakashima (Japan), Nikos Nikolaidis (Greece), Takanori Osaki (Japan), Pittaya Pannil (Thailand), Asako Ohno(Japan), Jiafu Tang (China), Akihide Utani (Japan),Hiroshi Wakuya (Japan), Yang Xiang (China), Chunhui Xu (Japan), Kanliang Wang (China), Qian Wang (China),Xiangbin Zhang (China), Bing Zheng (China)
+
+Publicity Chairs
+Wenli Li, Dalian Univ. of Tech., China
+Chao-Hsing Hsu, Chienkuo Tech. Univ, Taiwan
+Dongsoo Kim, Soongsil Univ., Korea
+
+Publication Chairs
+Takashi Samatsu, Tokai Univ., Japan
+Huey-Ming Lee, Chinese Culture Univ., Taiwan
+
+Finance Chair
+Lihua Pan, Yanda Intelligent Informatics Inc., China</participant></meeting><meeting id="M200912200001" creator="lotusawhat" lastedit="2017年3月18日  17时26分8秒"><name>MASS The 4th International Conference on Management and Service Science</name><year>August 24-26, 2010
+The deadline of full paper submission is Feb.1, 2010
+Notification of acceptance will be given by Apr.15,2010</year><place>Wuhan, China</place><speakers>Michael Badawy  
+Virginia Tech University, USA  </speakers><link>http://www.massconf.org/2010/</link><orgnizer refer="Wuhan University$O200910080007#Scientific Research$O200910220003#James Madison University$O200912200001">Sponsors：
+Sichuan University 
+Wuhan University 
+James Madison University 
+Scientific Research Publishing   </orgnizer><topics>Topics:   
+ Business Supporting Systems  
+ Business Intelligence and Strategy  
+ Data Mining and E-Commerce  
+ Data and Knowledge Visualization  
+ Decision Support System and Models  
+ Diffusion of E-Commerce  
+ E-Commerce and E-Government  
+ Environment Protection  
+ Energy Program Management  
+ Financial Management  
+ Human Resource Management 
+ Innovation and Entrepreneurship  
+ Investment and Financing  
+ Knowledge Management  
+ Mobile Commerce and Business Models  
+ Project and Quality Management 
+ Risk Management  
+ Service Economy and Policy  
+ Service Management  
+ Service Sciences  
+ Supply Chain Management  
+ Web-based Services  </topics><view>管理学,知识管理,数据挖掘,商务智能,财务管理,可视化</view><note>联系方式：mass@scirp.org</note><participant>顾问：
+Prof. Rongping Mu  
+Institute of Policy and Management (IPM), Chinese Academy of Sciences (CAS),  China  
+ 
+Prof. Robert D. Reid  
+James Madison University,  USA  
+ 
+Prof. Joseph Salvo  
+General Electric Global Research Center,  USA  
+ 
+Prof. Zhongtuo Wang  
+Dalian University of Technology,  China
+主席：
+General Chair：
+Prof. James M. Shaeffer  
+Associate Vice Provost for Outreach &amp; Engagement, James Madison University,  USA 
+TPC Chair    Prof. Alexandra Psarrou  
+Chair, AI and Interactive Multimedia Department, Harrow CS School, University of Westminster,  UK  
+成员：
+Prof. Gary Bundell  
+University of Western Australia,  Australia  
+ 
+Prof. M. Alain Bernard  
+Universités à l'Ecole Centrale de Nantes,  France  
+ 
+Prof. Sanxing Cao  
+Communication University of China,  China  
+ 
+Prof. Rui Chen  
+Institute of Policy and Management (IPM), Chinese Academy of Sciences (CAS),  China  
+ 
+Prof. Yu-Leuk CHOI  
+University of Hong Kong,  China  
+ 
+Prof. S. Y. He  
+California State University San Marcos,  USA  
+ 
+Prof. Yahui Hou  
+Communication University of China,  China  
+ 
+Prof. Patrick Leoni  
+Euromed School of Management FRANCE and the University of Southern Denmark,  Denmark  
+ 
+Prof. S. C. Ling  
+City University of HongKong,  China  
+ 
+Prof. Rui Lu  
+Communication University of China,  China  
+ 
+Prof. Richard G. Mathieu  
+James Madison University,  USA  
+ 
+Prof. Samuel Mendlinger  
+Boston University,  USA  
+ 
+Prof. Yoshiteru Nakamori  
+Japan Advanced Institute of Science and Technology,  Japan  
+ 
+Prof. A. Tahsiri  
+KNT University of Technology,  Iran  
+ 
+Prof. Gang Song  
+Mobile Government Laboratory,  China  
+ 
+Prof. Ping Wang  
+James Madison Universiy,  USA  
+ 
+Prof. K. L. Wang  
+Xi'an Jiaotong University,  China  
+ 
+Prof. Lun Wu  
+Peking University,  China  
+ 
+Prof. Bin Wu  
+National Library of China,  China  
+ 
+Prof. Xusong Xu  
+Wuhan University,  China  
+ 
+Prof. Qin Zhang  
+Communication University of China,  China  
+ 
+Prof. Li-Rong Zheng  
+Chair Professor, iPack VINN Excellence Center, Media Electronics, Royal Institute of Technology (KTH),  Sweden  </participant></meeting><meeting id="M200912230001" creator="lotusawhat"><name>Graph Drawing 系列会议</name></meeting><meeting id="M201001010001" creator="lotusawhat" lastedit="2012年11月15日  20时46分48秒"><name>KDD,Knowledge Discovery and Data Mining 系列会议</name><infofrom>杨光飞师兄推荐</infofrom><img>http://www.sigkdd.org/images/title.jpg</img><view>知识发现,数据挖掘</view><orgnizer refer="SIGKDD$O201001010002">SIGKDD</orgnizer><history>KDD-2010
+KDD-09
+KDD-08
+KDD-07
+KDD-06
+...</history><type>国际会议系列</type></meeting><meeting id="M201001010002" creator="lotusawhat" lastedit="2013年10月16日  14时15分40秒"><name>KDD'09</name><year>June 28 - July 01, 2009</year><place>Paris, France</place><speakers>Ravi Kumar Stanley Wasserman</speakers><link>http://portal.acm.org/toc.cfm?id=1557019</link><img>http://portalparts.acm.org/1560000/1557019/cover/cover_full.jpg</img><history refer="Network science: an introduction to recent statistical approaches$L201001010002#Efficient influence maximization in social networks$L201001010004#Connections between the lines: augmenting social networks with text$L201001040001">Keynote talks
+·Mining web logs: applications and challenges 
+Ravi Kumar (Pages 3-4) 
+·Network science: an introduction to recent statistical approaches 
+Stanley Wasserman (Pages 9-10 )
+
+Research track papers
+·Connections between the lines: augmenting social networks with text
+Jonathan Chang, Jordan Boyd-Graber, David M. Blei
+·Efficient influence maximization in social networks
+Wei Chen, Yajun Wang, Siyu Yang 
+·Finding a team of experts in social networks 
+Theodoros Lappas, Kun Liu, Evimaria Terzi </history></meeting><meeting id="M201001080001" creator="lotusawhat" lastedit="2017年4月26日  16时14分9秒"><name>AAAI Conference / AAAI会议系列</name><view>人工智能</view><intro>人工智能领域的重要会议</intro><infofrom refer="西瓜书$L201704240001">西瓜书</infofrom></meeting><meeting id="M201001080002" creator="lotusawhat"><name>WWW系列会议 / 国际万维网大会</name><year>1994</year><link>http://news.csdn.net/n/20080425/115478.html</link><infofrom>2009年12月31日杨光飞师兄讨论会上推荐</infofrom></meeting><meeting id="M201001080003" creator="lotusawhat"><name>WWW2009 / the 18th International World Wide Web Conference</name><year>2009.4</year><place>西班牙首都
+to be held in Madrid, the charming and cosmopolitan Spain′s capital.</place><link>http://www2009.org/index.html</link><img>http://www2009.org/images/pradera_www2009.jpg
+http://www2009.org/images/logo_textual.gif</img><view>Browsers and User Interfaces, Data Mining, Industrial Practice and Experience, Internet Monetization, Mobility, Performance and Scalability, Rich Media, Search, Security and Privacy, Semantic / Data Web, Social Networks and Web 2.0, Web Engineering, XML and Web Data.</view></meeting><meeting id="M201001080004" creator="lotusawhat" lastedit="2017年3月18日  20时47分19秒"><name>AIIDE 2009 / The Fourth Artificial Intelligence for Interactive Digital Entertainment Conference</name><year>October 14–16, 2009</year><place>Stanford University, Stanford, California. </place><infofrom>AAAI组织网站</infofrom><participant>主席: 
+Conference Chair
+Chris Darken
+(Naval Postgraduate School)
+
+Program Chair
+G. Michael Youngblood
+(University of North Carolina, Charlotte)
+
+成员: 
+Organizing Committee
+Vadim Bulitko (University of Alberta)
+Kevin Dill (Boston University)
+Richard Evans (Maxis)
+Brian Schwab (Sony Entertainment America)
+Robert Zubek (Zynga)</participant></meeting><meeting id="M201001080006" creator="lotusawhat" lastedit="2017年3月18日  20时48分39秒"><name>IJCAI-09 / Twenty-first International Joint Conference
+on Artificial Intelligence </name><year>2009.6</year><place>Pasadena, home of the Jet Propulsion Laboratory and the California Institute of Technology, is situated northeast of greater Los Angeles, an area that is at the heart of the US space and entertainment industries.</place><link>http://ijcai-09.org/
+http://ijcai.org/papers09/contents.php</link><topics>Agent-based and Multiagent Systems
+Constraints, Satisfiability, and Search
+Knowledge Representation, Reasoning, and Logic
+Machine Learning  机器学习
+Multidisciplinary Topics and Applications
+Natural-Language Processing 自然语言处理
+Planning and Scheduling
+Robotics and Vision
+Uncertainty in AI
+ Markov Network Based Ontology Matching / 1884 （推荐给了哈里力，自己也要读读的吧？）
+ Sivan Albagli, Rachel Ben-Eliyahu-Zohary, Solomon E. Shimony
+Web and Knowledge-based Information Systems</topics><participant>主讲人：
+Invited Talks
+Intelligent Tutoring Systems: New Challenges and Directions / 2 Cristina Conati
+
+Machine Learning in Ecosystem Informatics and Sustainability / 8 Thomas G. Dietterich
+
+How Experience of the Body Shapes Language about Space / 14 Luc Steels, Michael Spranger
+
+Activity Recognition: Linking Low-level Sensors to High-level Intelligence / 20
+Qiang Yang
+
+主席：
+Conference Chair
+Hiroaki Kitano,
+Sony Computer Science Laboratories, Inc. &amp;
+The Systems Biology Institute, Japan
+
+Program Chair
+Craig Boutilier,
+University of Toronto, Canada
+
+Local Arrangements Chair
+Richard Doyle,
+Jet Propulsion Laboratory</participant></meeting><meeting id="M201001150001" creator="lotusawhat"><name>数据挖掘讨论会</name><year>[周一]2010.01.12~</year><place>管院215</place><history>总第&lt;8&gt;次，2010年第&lt;2&gt;次：2010年01月18日（周一）18:00 - 22:00
+主讲人：(1)杜子兮 (2)孙钧
+总第&lt;7&gt;次，2010年第&lt;1&gt;次：2010年01月12日（周一）18:00 - 22:00
+主讲人：(1)杨光飞 (2)朱倩</history><intro>这个讨论会的目的是学习数据挖掘相关理论和方法、了解前沿进展、并为改进个人研究提供一个平台。</intro><orgnizer refer="杨光飞$R200912110003">主持人：杨光飞</orgnizer></meeting><meeting id="M201001230001" creator="lotusawhat" lastedit="2013年10月16日  14时17分33秒"><name>Graph Drawing 2004 /12th International Symposium,GD 2004</name><year>2004 September/October</year><place>New York,NY,USA</place></meeting><meeting id="M201001230002" creator="lotusawhat" lastedit="2013年10月16日  14时17分47秒"><name>Graph Drawing 2005 /13th International Symposium,GD 2005</name><year>2005 September</year><place>Limerick,Ireland</place></meeting><meeting id="M201001270002" creator="lotusawhat" lastedit="2013年10月16日  14时17分2秒"><name>ICNC-FSKD 2010 / 第六届自然计算和第七届模糊系统与知识发现国际学术会议</name><year>Deadlines Paper Submission： 15 January 2010 10 February 2010
+Decision Notification：15 March 2010  10 March 2010
+Final Versions / Author Registration：15 April 2010 10 April 2010</year><place>中国 山东 烟台大学</place><link>http://icnc-fskd2010.ytu.edu.cn/</link><img>http://icnc-fskd2010.ytu.edu.cn/images/ic2010.gif</img><intro>The 6th International Conference on Natural Computation (ICNC'10) and the 7th International Conference on Fuzzy Systems and Knowledge Discovery (FSKD'10) will be jointly held from 10-12 August 2010, in Yantai, China. Yantai was listed as one of the world's most inhabitable places by the United Nations and was recognized as the "most charming city of China" by China Central Television. Undulating hills rise above the area's many rivers and are framed by beaches and neighboring islands. During summer, the breeze wafts from the sea, and the hills become ornamented with a sea of wildflowers. Famous tourist attractions include the Tashan Mountain, Kongdong Island, and Penglai Pavilion Scenic Area. Seafood and fruits are plentiful in Yantai.
+
+ICNC-FSKD is a premier international forum for scientists and researchers to present the state of the art of data mining and intelligent methods inspired from nature, particularly biological, linguistic, and physical systems, with applications to signal processing, design, and more. This is an exciting and emerging interdisciplinary area in which a wide range of theory and methodologies are being investigated and developed to tackle complex and challenging problems. Previously, the joint conferences in 2005 through 2009 each attracted over 3000 submissions from around the world. ICNC'10-FSKD'10 is technically co-sponsored by the IEEE Circuits and Systems Society.
+Selected best papers will appear in SCI-indexed journal(s). All papers in conference proceedings will be indexed by both EI Compendex and ISTP, as well as the IEEE Xplore (ICNC’10 in IEEE Conferences; FSKD’10 in IEEE Conferences. 
+ICNC'10 IEEE Catalog Number: CFP10CNC-PRT, ISBN: 978-1-4244-5960-5;
+FSKD'10 IEEE Catalog Number: CFP10FSK-PRT, ISBN: 978-1-4244-5932-2). </intro><topics>ICNC'10 Topics 
+
+Neural Computation - Learning algorithms, Neural network architectures, Stability and convergence analysis, Feed forward &amp; recurrent networks, Neurodynamics &amp; spiking neuron systems, Statistical neural network models, Cellular neural networks, Support vector machines, Principal and independent component analysis, Self-organizing maps. 
+Cognitive Science - Neurobiological systems, Perception, Emotion, Cognition, Selective attention, Vision and auditory models. 
+Evolutionary Computation - Evolutionary algorithms, Ant colony optimization, Particle swarm optimization, Classifier systems, Multi-objective evolutionary algorithms, Artificial life, Evolutionary intelligent agents, Artificial Immune systems, Evolutionary data mining.
+Other Types in Natural computation - Quantum computing, Molecular &amp; DNA computing, Bayesian network, Membrane computing.
+ 
+FSKD'10 Topics
+ 
+Fuzzy Theory and Foundations - Fuzzy theory and models, Stability of fuzzy systems, Mathematical foundations of fuzzy systems.
+Fuzzy Methods and Algorithms - Fuzzy data analysis, Fuzzy image, speech and signal processing, vision and multimedia, Fuzzy control and robotics, Fuzzy hardware and architectures, Soft Computing, Fuzzy systems and the internet, Fuzzy optimization and modeling, Fuzzy decision and support.
+Knowledge Discovery Foundations- Association rules, Classification, Clustering, Privacy preserving data mining, Statistical methods, Parallel/ Distributed data mining, KDD Process and human interaction, Knowledge management, Knowledge visualization, Reliability and robustness Issues.
+Knowledge Discovery in Specific Domains - High dimensional data, Temporal data, Biomedical domains, Data streaming, Scientific databases, Semi-structured/unstructured data, Multimedia, Text, Web and the Internet, Graphic model discovery, Software warehouse and software mining.
+ 
+Applications and Hybrid Systems
+ 
+Computational intelligence, Bioinformatics, Neuroinformatics, Computer security, Web Intelligence, Web-based support systems, Fuzzy neural systems, Evolutionary neural systems, Evolutionary fuzzy systems, Evolutionary neuro-fuzzy systems, Financial engineering. </topics><view>模糊系统,知识发现,自然计算</view></meeting><meeting id="M201002020001" creator="lotusawhat"><name>NLDB,International Conference on Applications of Natural Language to Information Systems</name><infofrom refer="基于规则与统计的本体概念自动获取方法研究$L201002020002">基于规则与统计的本体概念自动获取方法研究  参考文献</infofrom></meeting><meeting id="M201002150001" lastedit="2017年3月18日  17时27分21秒"><name>新概念德语——语音入门与基础会话</name><speakers>何宁</speakers><view>德语</view><type>课程</type><year>2010年2月6日~</year><note>这个是自学的</note><participant refer="姜焓$R201104140001">顾问：
+姜焓</participant></meeting><meeting id="M201002180001" lastedit="2012年3月8日  20时19分33秒"><name>东京电玩展 / Tokyo Game Show</name><year>2008年10月</year><view>游戏开发,娱乐</view><link>http://tgs.cesa.or.jp/english/</link><img>http://expo.nikkeibp.co.jp/tgs/2012/exhibition/exhibit/img/outline/ttl_outline_img.jpg</img></meeting><meeting id="M201002200001"><name>第二届中国云计算大会</name><year>2010年5月21日</year><endtime>2010年5月22日</endtime><place>中国 北京</place><view>云计算,IT</view><speakers refer="马云$R201002200004#埃森哲$O200909290002">李德毅院士 云计算与云计算安全
+张尧学院士
+倪光南院士
+张亚勤 微软全球资深副总裁、微软中国研发集团主席
+黄晓庆 中国移动研究院院长
+侯春雨 中国电信集团技术部主任
+童晓渝 中国联通研究院院长
+姚宏宇 友友新创技术有限公司总裁
+马云 阿里巴巴CEO
+Willy Chiu博士 IBM全球副总裁、云计算业务最高主管
+杰克·贝佐斯(Jeff Bezos) 亚马逊CEO
+Douglas Cutting Hadoop 创始人
+Nicholas G. Carr《It不再重要》作者
+黄凯教授 美国南加州大学电子工程与计算机科学系
+Allan Alter 埃森哲高性能研究员：全球10个国家的cio云计算调查
+埃森哲CIO 云计算在accenture的应用实践
+Raikumar Buyya教授 澳大利亚Melborne大学
+李德毅院士/张尧学院士/倪光南院士 等云计算院士圆桌论坛</speakers><infofrom>CSDN网站,程序员杂志附赠的台历上</infofrom><link>http://www.ciecloud.org/2010</link><orgnizer refer="工业和信息化部$O201003080001">指导单位：工业和信息化部、教育部、中国科协
+主办单位：中国电子学会
+协办单位：中国计算机学会 、国际信息处理联合会IFIP中国委员会 
+承办：中国电子学会云计算专家委员会 
+协办：CSDN.NET、电子工业出版社</orgnizer><history>分会场介绍
+
+&lt;b&gt;分会场一：云计算平台与应用实践&lt;/b&gt;
+下一代云计算平台应用实例
+一体化的云计算基础设施
+WEB 2.0与云计算
+云计算下平台设计新趋势
+30分钟实现云平台应用
+云平台剖析
+云平台性能测试
+互联网服务及云计算
+
+&lt;b&gt;分会场二：云存储与虚拟化&lt;/b&gt;
+选择虚拟化厂商的8个关键要素
+虚拟化环境下的应用集成
+生产数据库中资源的虚拟化
+虚拟化性能与容量管理
+云计算高速数据分析中心
+基于云的存储
+揭密云存储的两大架构
+
+&lt;b&gt;分会场三：云计算时代的安全解决方案&lt;/b&gt;
+云安全发展现状及趋势
+云时代的企业安全解决方案
+云计算的安全
+云安全在信息安全中的应用与展望
+云安全与3G
+如何保证云数据安全
+
+&lt;b&gt;分会场四：云计算行业应用与创新&lt;/b&gt;
+基于云平台的大型数据中心实践
+云计算在电信行业的应用
+企业云计算的挑战
+云时代的选择：私有云、公共云还是混合云？
+混合计算：下一代云计算
+基于云的海量数据挖掘
+云建筑：新型数据中心
+
+&lt;b&gt;分会场五：云计算核心技术架构&lt;/b&gt;
+架构在分布式计算上的下一代企业解决方案
+云端计算技术分析
+高可用的云架构
+融合式基础架构的云端运算环境
+大规模网络应用的云架构实践
+云端运算基础一Hadoop, MapReduce, HDFS
+云FS：构建100T的内部存储云
+新型非关系型数据库揭秘
+Eucalyptus：开源云计算架构
+
+&lt;b&gt;分会场六：投资与创业&lt;/b&gt;
+云计算商业未来论坛
+云模式的创业项目点评
+政府2.0
+创业成功故事——我与云计算
+如何利用云服务创办自己的第一家公司</history><img>http://zi.csdn.net/56095yun.gif</img></meeting><meeting id="M201003130001"><name>ACM/ICPC,美国计算机协会国际大学生程序设计大赛</name><type>比赛</type><view>IT</view><orgnizer refer="ACM$O201001010001#IBM$O200910010002">ACM
+赞助：IBM</orgnizer></meeting><meeting id="M201003170001"><name>翻译理论与实践——东软信息学院日语翻译课</name><type>课程</type><year>2010年3月22日~ 
+周一 1、2 节 AM 08:00~08:45 08:55~09:40
+周一 3、4 节 AM 10:10~10:55 11:05~11:50
+周二 1、2 节 AM 08:00~08:45 08:55~09:40
+周三 3、4 节 AM 10:10~10:55 11:05~11:50</year><place refer="东软信息学院$O201003160001">东软信息学院
+周一 1、2 节 F211 2班
+周一 3、4 节 F207 9班
+周二 1、2 节 F426 8班
+周三 3、4 节 F416 3班</place><view>日语,翻译,教育</view><note>3月22日上午 早点去，带上身份证和学生证的复印件和原件。在1楼借钥匙。</note></meeting><meeting id="M201003200001" lastedit="2017年3月18日  20时50分32秒"><name>KSEM 2010 / 4th International Conference on Knowledge Science, Engineering &amp; Management</name><type>国际会议</type><year>1 September 2010</year><endtime>3 September 2010</endtime><view>知识科学，知识工程，知识管理</view><link>http://www.ulster.ac.uk/ksem2010</link><place>Belfast, Northern Ireland, UK</place><intro>KSEM is an international conference for research on knowledge science, engineering and management, which attracts high quality, state-of-the-art research papers from all over the world. The conference will bring together researchers, practitioners, developers, and academic and industry leaders who are active and interested in KSEM-related research areas and their practices. The conference is specifically focused on becoming a premier forum for prototype and deployed knowledge engineering and knowledge-based systems. The conference offers an exceptional opportunity for presenting original work, the latest scientific and technological advances on knowledge-related systems, and discussing and debating practical problems and concerns of the research community. </intro><history>Important Dates
+30 March 2010  Paper Submission  
+15 May 2010  Author Notification  
+30 May 2010  Camera-ready  
+30 May 2010  Early registration  </history><orgnizer>University of ULSTER
+赞助商：
+Artificial Intelligence Journal
+Computer Science Research Institute, University of Ulster</orgnizer><note>Email: ksem2010@ulster.ac.uk</note><participant>主席：
+Honorary Chair
+Ruqian Lu：Chinese Academy of Sciences, China
+Chair
+Chengqi Zhang：University of Technology, Sydney, Australia
+主讲人：
+Anthony Cohn, University of Leeds , UK
+Ian Horrocks, Oxford University, UK
+Thierry Denoeux, Université de Technologie de Compiègne, France 
+成员：
+STEERING COMMITTEE MEMBERS
+David Bell：Queen’s University Belfast, UK
+Cungen Cao：Chinese Academy of Sciences, China
+Dimitris Karagiannis：University of Vienna, Austria
+Zhi Jin：Peking University, China
+Jérome Lang：University Paul Sabatier, France
+Yoshiteru Nakamori：JAIST, Japan
+Jorg Siekmann：DFKI, Germany
+Eric Tsui：The Hong Kong Polytechnic University, Hong Kong
+Zongtuo Wang：Dalian Science and Technology University, China
+Kwok Kee Wei：City University of Hong Kong, Hong Kong
+Mingsheng Ying：Tsinghua University, China
+Zili Zhang：Southwest University, China
+</participant></meeting><meeting id="M201005010001"><name>嘻哈狂潮3</name><type>比赛</type><view>舞蹈</view><link>http://v.youku.com/v_show/id_XMTY4MDYwMDE2.html#HIPHOP海选
+http://v.youku.com/v_show/id_XMTY4MzI5ODI4.html#常吉16进8 
+http://v.youku.com/v_show/id_XMTY4MDYwMjgw.html#常吉16进8 One More
+http://v.youku.com/v_show/id_XMTY4MzgzNDIw.html#popin最强组合
+http://v.youku.com/v_show/id_XMTcwMDI4NDE2.html#16进8乐乐
+http://v.youku.com/v_show/id_XMTczNDkxOTg4.html#叶子武凯Poppin16进8
+http://v.youku.com/v_show/id_XODY5OTY0Njg=.html#hiphop组海选
+http://v.youku.com/v_show/id_XODY5OTcyMDg=.html#hiphop组8强
+http://v.youku.com/v_show/id_XODY5OTc2MTY=.html#hiphop组半决赛</link><year>2010年4月26日</year><endtime>2010年4月26日</endtime></meeting><meeting id="M201007280001" lastedit="2012年3月6日  20时33分45秒"><name>什么是知识科学</name><type>讲座</type><year>2010.3.23</year><view>知识科学</view><speakers refer="中森义辉$R200909200003">中森义辉</speakers><note>我做的翻译</note><place>大连理工大学管理学院 215</place><link>http://www.jaist.ac.jp/ks/index.html
+http://www.intsci.ac.cn/research/knowledgescience.html#史忠植.知识科学.</link></meeting><meeting id="M201009070001" lastedit="2020年2月9日  11时15分45秒"><name refer="">面向产品生命周期的知识协调管理若干理论与方法研究</name><type>讨论会</type><year>2010年9月14日 AM 8:30</year><endtime>2010年9月14日</endtime><view>知识协调</view><note>要做翻译</note><topics>面向产品生命周期的知识协调管理</topics><place>管理学院215</place><orgnizer>大连理工大学管理学院系统工程研究所知识团队</orgnizer><infofrom>党老师</infofrom><intro>党老师给中森老师介绍项目的研究内容。</intro><participant refer="党延忠$R200907230002#中森义辉$R200909200003#荣莉莉$R200911020002#吴江宁$R200909110001#郭崇慧$R200907230001#潘东华$R200912080002#夏昊翔$R200910140002#王明征$R200912060001#宣照国$R200909200004">主讲人：党延忠
+顾问：中森义辉
+成员：荣莉莉、吴江宁、郭崇慧、潘东华、夏昊翔、王明征、宣照国、潘安成、李丽双</participant></meeting><meeting id="M201009180002"><name>ICMS2010</name><type>国际会议</type><year>2010年9月30（投稿截止）</year><view>管理科学</view><infofrom>杨光飞</infofrom></meeting><meeting id="M201010100002" lastedit="2019年3月13日  16时16分29秒"><name>大连金山互动娱乐科技有限公司招聘会</name><type>招聘会</type><year>2010-10-21（周四）晚18:00</year><endtime>2010-10-21（周四）晚21:00</endtime><place>西山华为厅</place><intro>金山软件2011校园招聘 大连理工大学
+
+专场宣讲会 （含笔试）
+
+时间：10月21日（周四）晚18:00-21:00
+
+地点：西山华为厅
+
+
+说明：
+
+请各位同学在宣讲会前登陆http://campus.kingsoft.com投递简历，以保证各项通知能够及时、准确的传达给大家。部分单位不参加本校举行宣讲会，同学们也可以投递简历，如果简历内容符合岗位需求，我们将第一时间与您联系，并安排笔试、面试事宜。请关注金山软件的同学们踊跃参加我们的宣讲会！
+
+——————————————————————————————————————————————————————
+
+具体公司简介及岗位介绍如下：
+
+公司简介
+
+金山软件是中国最知名的软件企业之一，中国领先的应用软件和互联网服务提供商。
+
+二十多年来，金山软件秉承独立、进取、爱国、诚信、负责任的民族精神，依靠自身深厚的技术优势、先进的服务理念和真诚的行为方式，在办公软件、互联网安全、数字娱乐等领域确立了行业领先的地位。借力于互联网的广博与速度，致力于用户需求的不断改进和创新，金山软件以创新的产品和全方位的服务，与时俱进地满足社会大众不断增长和变换的需求，为社会进步作出了卓著贡献。
+
+2007年10月9日，金山软件在香港主板成功上市（股份编号：03888.HK）。目前，金山软件研发和运营中心遍布珠海、北京、成都、大连、深圳等地，并在日本成立了合资公司。金山软件旗下有WPS Office、金山词霸、金山毒霸、剑侠情缘、封神榜等众多知名产品。同时，拥有国内知名的大型英语学习社区爱词霸网（www.iciba.com）以及在线游戏交流社区逍遥网（www.xoyo.com）。
+
+20多年来，金山软件先后荣获“大学生眼中的最佳雇主”、“2010计算机软件行业十佳雇主”“2009中国IT行业十佳雇主”、“中国最受尊敬的50家企业”等多项荣誉称号，被誉为“程序员的天堂”。在这里，金山软件将为你提供与撰写过几百万代码的优秀团队共同成长的机会。
+
+做世界一流的软件公司，是所有金山人永远不变的梦想！
+
+大连金山游戏（KSG）简介
+
+大连金山作为国内首家入驻东北的网游厂商，主要经营网游产品研发与技术运营两大核心业务。
+
+大连金山研发团队规模已超过二百人，形成以FPS、RPG为主的两大产品线体系布局。公司组织架构建设完成策划、程序、美术、测试、质量在内的五大专业职能部门，实行双线项目组并行管理机制，汇聚国内外网游精干力量。
+
+凭借自身技术实力与战略发展规划，大连金山自主研发完成中国唯一一款可与国外产品抗衡的FPS网游产品《反恐行动》，目前《反恐行动》的运营足迹已经遍布中国大陆、北美、澳洲、港澳台、泰国、马来西亚、印尼、菲律宾、柬埔寨等10余个国家与地区，在集成国际顶尖技术的同时融合电子竞技理念，打开了世界FPS网游市场中属于中国的一席之地！目前，大连金山第二款FPS作品《反恐行动Ⅱ》亦全面投入研发，全力打造FPS网游研发第一品牌！
+
+大连金山在秉承金山十年RPG网游研发历史的同时，集合了国内一线网游运营经验，积极拓展RPG网游的研发领域，目前，首款MMORPG游戏呼之欲出，值得期待！2011年开始，大连金山将逐步实现RPG产品规模化量产，打造一个中国MMORPG网游研发梦工厂！
+
+未来，大连金山还将建设国际化网游运营平台，在丰富产品线的同时关注网游可持续发展，为全面进军国际市场奠定基础！
+
+
+
+招聘岗位介绍：
+
+大连金山游戏（KSG）岗位
+
+技术开发类岗位
+
+圣道项目组
+
+岗位名称： 服务端开发工程师
+
+试题类型： C++
+
+需求人数： 10人
+
+工作职责：
+
+1.负责网络游戏服务器端功能的设计与实现；
+
+2.负责服务器测试工具及运营工具的设计与实现；
+
+3.负责代码及单元测试及BUG跟踪调试，保证开发质量；
+
+4.负责相关开发文档的撰写及维护。
+
+任职资格：
+
+1.大学本科或以上学历；
+
+2.精通C++，精通TCP/IP协议，Socket网络编程相关知识；
+
+3.精通Linux环境下，系统配置、程序开发及调试；
+
+4.熟悉网络信息安全，密码学相关知识，热爱游戏事业，热衷于网络相关技术。
+
+
+岗位名称： 客户端开发工程师
+
+试题类型： C++
+
+需求人数： 10人
+
+工作职责：
+
+1.负责3D网络游戏客户端功能的设计与实现；
+
+2.负责3D网络游戏编辑器的功能设计与实现；
+
+3.负责代码及单元测试及BUG跟踪调试，保证开发质量；
+
+4.负责相关开发文档的撰写及维护。
+
+任职资格：
+
+1.大学本科或以上学历；
+
+2.精通DirectX或OpenGL，有相关作品或参与过相关项目，精通C++；
+
+3.有良好的3D数学基础，精通3D游戏引擎的结构与功能；
+
+4.热爱游戏事业，热衷于3D技术。
+
+
+策划类岗位
+
+圣道项目组
+
+岗位名称： 执行策划
+
+试题类型： 游戏策划
+
+需求人数： 8人
+
+工作职责：
+
+1.游戏底层模块功能设计：根据游戏类型的定位，设计底层模块功能，并编写策划文档，确保玩家的基本行为可以在游戏中顺利执行；
+
+2.整合模型、特效美术资源：根据美术资源需求，将美术资源整合到系统中，确保资源完整，在游戏中显示正常；
+
+3.填写调整配置表格：根据程序实现的功能，对相应的配置项进行填写和调整，确保功能所需的配置项完整正确；
+
+4.安排程序、美术研发日程：根据程序和美术部门工作特点及人力，制定底层模块功能的研发日程，确保研发工作任务安排满足时间节点要求。
+
+任职资格：
+
+1.大学本科及以上学历，专业不限；
+
+2.熟悉大型网络游戏策划相关工作；
+
+3.具有一定的程序功底；
+
+4.了解游戏的基本功能模块构成；
+
+5.对以用户为中心的设计理念有深入的理解；
+
+6.善于沟通交流。
+
+
+营销类岗位
+
+商务部
+
+岗位名称： 商务专员
+
+试题类型： 营销
+
+需求人数： 1人
+
+工作职责：
+
+1.市场分析：针对全球市场环境，对海外游戏市场进行定位分析、提供有效决策数据；
+
+2.销售合作：公司产品的海外销售及同异业合作，整合可用资源，寻求合作伙伴，拓展公司业务；
+
+3.合作洽谈：参与合作洽谈，拟订合作合同条款；
+
+4.外部协调：客户维系及商务协作，合作伙伴监控及分账情况管控；
+
+5.招商执行：商务招商活动如招待会、展会等的执行工作。
+
+任职资格：
+
+1.大学本科或以上学历，专业不限；
+
+2.英语听说读写流利，兼有其他语种为佳；
+
+3.具有市场运营.策划推广、渠道建设、人员组织等实践经验；
+
+4.具有游戏行业从业经历者或海外经历；
+
+5.有良好的市场分析和总结能力，具备敏锐的市场眼光；
+
+6.具有很强的业务拓展能力和人际交往能力。
+
+
+美术设计类岗位
+
+（笔试题类型：1.逍遥网岗位，设计类；2.其他岗位，美术类。现场收简历及电子作品）
+
+应聘说明：
+
+1. 应聘美术类岗位，请在投递简历同时附上以下资料：
+
+A. 个人简历
+
+B. 以往个人作品及能证明个人能力的资料。
+
+2. 宣讲会现场请携带纸质简历及美术作品，作品建议使用U盘携带。
+
+美术平台
+
+岗位名称： 2D原画设计师
+
+试题类型：美术
+
+需求人数： 10人
+
+工作职责：
+
+负责游戏项目中角色原画的制作，游戏项目中场景原画的制作，游戏项目中宣传图档的制作。
+
+任职资格：
+
+1.美术相关专业毕业；
+
+2.扎实的专业美术基础，有较强的手绘能力和设计能力；
+
+3.掌握Photoshop、Painter软件及相关工具；
+
+4.对造型和色彩有较深的认识；
+
+5.热爱游戏，沟通理解能力强。
+
+个人简历及作品请发至：buxianguo@kingsoft.com。
+
+
+岗位名称： 3D场景设计师
+
+试题类型：美术
+
+需求人数： 6人
+
+工作职责：
+
+根据原画制作建筑或场景部件的模型和贴图。
+
+任职资格：
+
+1.美术相关专业毕业；
+
+2.良好的专业基础，手绘能力强；
+
+3.对建筑结构，自然景物有较深的了解度；
+
+4.掌握3dmax、Photoshop及相关工具；
+
+5.热爱游戏，沟通理解能力强；
+
+6.能根据项目进度，快速学习工作相关新知识；
+
+7.有游戏制作经验者优先；
+
+8.具有地图编辑器使用经验者优先。
+
+个人简历及作品请发至：buxianguo@kingsoft.com。
+
+
+岗位名称： 3D角色设计师
+
+试题类型： 美术
+
+需求人数： 6人
+
+工作职责：
+
+游戏中所有人物、动物、怪物等的模型、贴图的制作。
+
+任职资格：
+
+1.美术相关专业毕业；
+
+2.具备良好的专业基础，手绘能力强；
+
+3.对人物形体有较深的了解；
+
+4.掌握3dmax、Photoshop及相关工具；
+
+5.热爱游戏，沟通理解能力强；
+
+6.具有游戏制作经验者优先。
+
+个人简历及作品请发至：buxianguo@kingsoft.com。
+
+
+岗位名称： 动作设计师
+
+试题类型：美术
+
+需求人数： 6人
+
+工作职责：
+
+根据角色性格和技能描述，设计制作相关动作。
+
+任职资格：
+
+1.艺术或者动画类相关专业毕业；
+
+2.对动画原理有系统的认识并能胜任各类角色动画的制作；
+
+3.精通人物、动物的骨骼和蒙皮设置，能熟练应用Character studio；
+
+4.一年以上3D动画制作经验；
+
+5.热爱游戏，沟通理解能力强；
+
+6.具有游戏制作经验者优先。
+
+个人简历及作品请发至：buxianguo@kingsoft.com。
+
+
+岗位名称： 特效设计师
+
+试题类型：美术
+
+需求人数： 4人
+
+工作职责：
+
+负责游戏的场景特效、技能特效、界面特效等制作工作。
+
+任职资格：
+
+1.专科及以上学历，美术相关专业毕业；
+
+2.擅长设计制作游戏中的各种特效，对色彩的感觉好，学习能力出众；
+
+3.精通各类平面软件，熟悉三维软件；
+
+4.具有游戏项目制作经验者优先。
+
+个人简历及作品请发至：buxianguo@kingsoft.com。
+
+
+
+刘斯达 人力行政部
+
+大连金山互动娱乐科技有限公司，鲸彩工作室
+地址：大连市高新技术产业园区火炬路10号 晟辉大厦2号楼15-16层（邮编 116023)
+电话：0411-88123366 转 7022
+
+传真：0411-88123300
+
+msn：liustar86@hotmail.com </intro><note>请各位同学在宣讲会前登陆http://campus.kingsoft.com投递简历</note></meeting><meeting id="M201012150001"><name>Funkin Stylez</name><type>比赛</type><view>舞蹈</view><link>http://www.56.com/u85/v_NTY5MjI4NzQ.html#Funkin Stylez world team batlle Final
+http://www.56.com/u41/v_NTY4MDUxNzQ.html#“Funkin Stylez2010”柏林 裁判solo---Christian Mio 
+http://www.56.com/u34/v_NTY4ODYzOTE.html#Salah vs Gator @ Funkin Stylez 2010 决赛</link></meeting><meeting id="M201103310001" lastedit="2012年11月15日  20时50分43秒"><name>iPhone 开发教程（网络视频公开课）</name><type>课程</type><year>2011年3月31日</year><view>移动开发</view><link>http://v.163.com/special/opencourse/iphonekaifa.html#翻译好的课程视频
+http://cs193p.stanford.edu#Course_web_site
+http://developer.apple.com
+http://devforums.apple.com
+http://cs193p.com</link><speakers>Alan Cannistraro</speakers><orgnizer refer="斯坦福大学$O200909080001">斯坦福大学</orgnizer><history>Lecture 1: Logistics, iOS Overview and MVC
+Lecture 2: Xcode and Interface Builder
+Lecture 3: Objective-C
+Lecture 4: Foundation and Memory Management
+Lecture 5: Protocols and Views
+Lecture 6: Application &amp; View Controller Lifecycle, Navigation Controller
+Lecture 7: More Controllers of Controllers, iPad, Universal Applications
+Lecture 8: Gesture Recognizers
+Lecture 9: Image View, Web View, Scroll View
+Lecture 10: Table View
+Lecture 11: Persistence
+Lecture 12: Core Data and Table Views
+Lecture 13: Blocks and Multithreading
+Lecture 14: Core Location and Map Kit
+Lecture 15: Editable Text, Modal View Controllers, View Animation
+Lecture 16: Core Motion, Segmented Control, Alerts
+Lecture 17: Media</history><topics refer="iOS$D201103310001">iOS,Cocoa Touch</topics></meeting><meeting id="M201104080001" lastedit="2019年3月13日  16时15分27秒"><name>预答辩 答辩 毕业</name><type>答辩</type><year>2011年5月22日8:30</year><endtime>2011年5月22日12:00</endtime><view>知识管理、知识科学</view><reference refer="个人知识管理系统研究$L201006280001">个人知识管理系统研究</reference><history>本周四（5月12号）晚上10点前将论文发到XXXXXXXXX@qq.com。标题统一用“学号-姓名-专业”的格式
+5月16日（周一）下班前，将纸质论文送到评阅人：郭崇慧、宣照国 手中
+
+4）5月22日前，参加本次答辩的硕士研究生登陆“研究生教育信息管理系统”提交研究生学位论文电子版参加学位论文抽查；被抽中外审的研究生请于5月26日前打印两本匿名方式论文交至于水处，再统一交到研究生院学位办进行论文外审。5月22日前未提交论文或者未参加论文抽查的研究生不予安排此次学位论文答辩。
+5）5月27日—6月22日，研究生院将对抽中的硕士学位论文送同行专家评审。
+6）6月22日—6月27日，评审通过的硕士论文可直接参加各硕士点所在研究所组织的集中答辩。
+
+7月13日　报退，发毕业证、学位证、报到证，办理户口关系 
+7月14日　托运行李 
+7月15日　毕业生离校</history><place>管理学院215会议室</place></meeting><meeting id="M201203040001" lastedit="2012年3月4日  22时31分52秒"><name>第十一届国际综合集成与复杂系统研讨会
+MCS2011：The 11th International Workshop on Meta-Synthesis and Complex Systems </name><type>国际会议,研讨会</type><year>2011 September 7</year><endtime>2011 September 9</endtime><view>综合集成,复杂系统</view><link>http://meta-synthesis.iss.ac.cn/mcs2011/</link><history>Invited Plenary Talk: Study of System Intuition by Noetic Science 
+by WANG Zhongtuo (Dalian University of Technology, China)</history></meeting><meeting id="M201209190002" lastedit="2012年10月8日  21时24分53秒"><name>BASE 舞蹈课</name><intro>1年：能够保证确实成长的充实的一年
+基础构建阶段：排除迄今为止的偏颇知识和固执想法，从零开始打基础。
+技术吸收阶段：掌握了技术的身体就像干枯的海绵，会不断的吸收技术。
+自我发展阶段：向各种各样的可能性挑战，探究自身中沉睡的潜在能力。
+自我确立阶段：积累了各种各样的经验之后，去创立不为外物所左右的不随波逐流的不动摇的自我。
+
+1天：通过每日的课程安排不间断的进步
+第一节：拉伸、分离（isolation）、肌肉（？力量）训练
+第二节：实战训练（？实际练习、实用技术）A 基础
+第三节：实战训练B 应用（？提高）uplead？
+第四节：实战训练C 展现、创造讲义
+在BASE，通过分别进行拉伸、肌肉训练等热身和舞蹈联系，将1堂课设定为60分钟。这是集中力能够持续的一个极限时间。是为调动身体使之充分运动，并更好的参与课程而设置的。
+
+第一节：拉伸、分离、力量训练
+- 对dancer而言最为中的是不会受伤的身体，支撑技术的（肌肉）力量和韧性。无论技术如何上升，如果没有使之充分展现的力量和最大限度表现魅力的韧性的话，就不能成为在舞台上长时间活跃的专业dancer。
+- 在BASE，整个一年都会进行拉伸、分离、力量训练这样的热身（运动前准备）。通过每天持续练习，dancer会获得最为重要的身体基础。
+充分的进行拉伸、分离、力量训练也是对成为专业dancer所必须的“身体维护”的重视。
+- 另外，作为每日最先进行的事，也具备唤醒沉睡着的身体的功效，并非是单纯追求激烈度（？猛烈度、强度）的训练。
+- BASE的课程不是以一节课为单位的，而是以一天为单位的，可以在其他课程中省去每次的拉伸等内容，专攻实际技术部分。
+- 在学习技术之前，首先要准备吸收技术的身体。在BASE的一天就这样开始了。在拉伸、分离的过程中讲师与学生之间不经意的对话也是一天中重要的开始。
+
+第二节：实战训练A 基础
+- 其次重要的是“基础”。无论是怎样高等级的dancer都是从基础开始的。也正是以世界为舞台战斗的他们，每日的练习都不会懈怠。
+- 舞蹈具有无限的基础动作。从这些无限的基础动作中选择最低限度的动作耐心的积累一年，这种积累才是迅速进步的近道。
+- 乍一看不像是舞蹈的朴素（？质朴）的动作，也会随着正确、长期、浓厚的积累发展成为出色的技术。BASE的讲师会很好的帮助您进行每日的积累。
+- 此外，在一天的课程中，至少有一门“HIPHOP”的课程，这是为了让大家在一年的时间里每天同不变的伙伴们持续学习同一领域的舞蹈，从而创建不动摇的平台。
+- 逐次的在课程中调整自己的心情（？状态），不会回到出发点。然后以提高了理解度的平台为轴心，从其他舞种领域学习身体的使用方法、乐感（？音乐性）和综合技术。
+
+第三节：实战训练B 应用
+- 将基础进行组合应用，就会表现成为舞蹈。在这里将通过学习基础的舞蹈套路（routine）来学习形成舞蹈的过程。
+- 在这里学习的舞蹈套路是BASE讲师们所设计（？编导）的顶级的舞蹈套路，学习优秀的舞蹈套路也会提升自身的感觉（？品味）。也就是创造自身舞蹈的品味。
+- 正是这些活跃在世界规模的大舞台上，在自主公演等刷新迄今为止的舞蹈场面（？dance scene），而完成了完美演出的讲师阵容，才能够创造出引领舞蹈场面的最先段的舞蹈套路。
+- 与其他的教育机构不同，不是每课结束后就完成了片段（？间断）性的课程，而是以一日单位，一周单位，一年单位持续进行的课程。能够接受阶段性的系统的训练。
+- 更值一提的是，能从WRECKING CREW ORCHESTRA这个一流的讲师阵容学习基本、应用以及创造最先端作品品味的只有这里。只有一流的dancer才能培育出一流的dancer。
+
+第四节：实战训练C 表现（？展现、产出、output）
+- 在这里，将以实战训练A、B为基础，拓展为battle、solo、line dance等形式。在掌握基础和套路的基础上的表演会锻炼自我的想象力。
+- 街舞的习得会每天持续成长，以惊人的速度进步。在BASE，时刻为最前线的活动准备着，推行与实战更加接近的授课内容。
+solo以及各种形式组合而成的battle，将同伙伴制作的表演作品向同班同学进行展示。这是从学习舞蹈的“学生”向展现舞蹈的“dancer”的转变瞬间。表演后会获得讲师的建议，通过讨论交换彼此的意见和感想。
+- 通过意识音乐和场面，运用各自的感性来创作自身的舞蹈。这样以来，并非教授同一课程就会培育出同样的dancer，而是传达如何将同样的课程升华为自己的东西。
+- 为了能够让学生自身进行“跳舞”+“创造”这样的创造性活动，我们将“展示”+“被视（？看）”变成日常。这对于dancer来说，是对提升“产出”能力的莫大的帮助。
+- 然后，通过跳舞，去实现用自然语言所无法实现的“会话”。现在，可以将目标方向或者心中所描绘的蓝图同伙伴、讲师深切的相互沟通理解。这将是一段宝贵的时间。在BASE不需要害羞或不安。每日每日的经验定会将你变得强力（？强大、强壮、坚强）。
+
+第四节：实战训练C 创造
+- 专业dancer的工作时常接触到各种各样的创造者（creater）。音乐、照明、印象、大型道具等等。在这里将从dancer的视角学习如何创作作品。
+- “音乐”。没有它就没有舞蹈本身。选择最适合舞蹈的音乐的灵敏感觉，将自己的表演最大限度发挥的音源编辑方法等，将学到有关音乐的无限知识。
+- 演出家会在几乎所有的现场把握照明的位置、数量和亮度，因而对于dancer而言理解照明的使用方法会成为表现作品的重大武器。能够指定符合自己动作的照明，制作确切的照明计划也是好的专业dancer的一个要素。
+- 然后，可以称之为dancer的战斗服的——服装。学习如何在买来的衣服上添加装饰，以及如何从基础材料制作想象中的服装这些技术。
+- 通过向与舞蹈有关的各种各样的创造者学习丰富的知识，可以帮助丰富各样的表现力，激发出色的想法。只会跳舞就可以了...这样的时代已经结束了。今后的dancer要更加崭新的、灵活的丰富自身的想象力。</intro><type>课程</type><view>舞蹈</view><orgnizer refer="BASE$O201210070001">BASE</orgnizer></meeting><meeting id="M201209270001" lastedit="2012年9月27日  22时36分37秒"><name>iron mic东北赛区大连站</name><year>2012.11.4 下午3d点</year><type>比赛</type><view>音乐</view><infofrom>新浪微博</infofrom><orgnizer refer="SnR$O201209130002">SnR</orgnizer></meeting><meeting id="M201310310002" lastedit="2018年6月6日  13时37分53秒"><name>蓝鸥iOS培训（大连第四期&amp;第五期）</name><view>iOS,移动，IT</view><year>2013年9月23日</year><endtime>2014年1月23日</endtime><type>课程</type><place>软件园16号楼 蓝鸥科技公司内部</place><orgnizer refer="蓝鸥科技$O201309240001">蓝鸥科技</orgnizer><speakers refer="李静波$R201310080001">李静波老师</speakers><history>纯C(~10.22)
+OC(10.23~)
+UI</history><link>http://iosshare.cn/?p=740
+http://www.iconpng.com
+http://blog.devtang.com
+http://www.lanrenios.com/tutorials/video/2013/0128/848.html
+http://github.com
+https://code.google.com/intl/zh-CN/
+http://stackoverflow.com</link></meeting><meeting id="M201311010001" lastedit="2017年3月18日  20时55分18秒"><name>Movement Lifestyle美国大师课</name><view>舞蹈</view><year>2013年10月1日晚6点</year><endtime>2013年10月1日晚9点半</endtime><type>课程</type><infofrom>郑嵩，林子</infofrom><place>西安路罗斯福 舞分贝俱乐部</place><speakers>shaun</speakers><link>http://www.vhiphop.com/shaun-evaristo-right-here/
+http://www.vhiphop.com/movement-lifestyle-thetour-commercial/</link><history>Shaun Evaristo 编舞 Right Here</history><participant refer="林子$R201201260001">林子</participant></meeting><meeting id="M201511080001"><name>中世纪</name><view>历史</view><year>476</year><endtime>1453</endtime><type>历史时期</type></meeting><meeting id="M201511080002"><name>神圣罗马帝国</name><view>历史</view><year>962</year><endtime>1806</endtime><type>历史时期</type></meeting><meeting id="M201511080003"><name>十字军东征</name><view>历史</view><year>1096</year><endtime>1291</endtime><type>历史时期</type></meeting><meeting id="M201511080004"><name>黑死病</name><view>历史</view><year>1347</year><endtime>1351</endtime><type>历史时期</type></meeting><meeting id="M201511130001"><name>搭配家11月15日路演</name><view>商业</view><year>2015年11月15日</year><type>招商会</type></meeting><meeting id="M201606060001" lastedit="2020年3月21日  23时4分39秒"><name refer="">春秋</name><view>历史</view><type>历史时期</type><year>前722年</year><endtime>前481年</endtime></meeting><meeting id="M201607180001"><name>建博会</name><view>建筑、家具</view><year>2016.7.18</year><type>展会</type></meeting><meeting id="M201607220001" lastedit="2017年3月18日  20时56分3秒"><name>搭配家智慧工匠C2M对接会议</name><view>家具定制，C2M</view><year>2016年7月23日 AM9:30</year><type>讨论会</type><orgnizer refer="搭配家$D201606060002#智慧工匠$O201607220001">搭配家,智慧工匠</orgnizer><speakers refer="王振宇$R201602090001">王振宇</speakers></meeting><meeting id="M201609020001"><name>上海建博会</name><view>建筑，家居</view><year>2016年9月6日</year><endtime>2016年9月10日</endtime><type>展会</type></meeting><meeting id="M201612180001" lastedit="2016年12月23日  14时54分9秒"><name>GDC,Game Developers Conference / 游戏开发者大会</name><view>游戏开发</view><year>2009年引入中国</year><type>系列会议</type><img>http://g.hiphotos.baidu.com/baike/w%3D268%3Bg%3D0/sign=0c8063eed13f8794d3ff4f28ea2069c9/023b5bb5c9ea15cea816605fb3003af33b87b2e8.jpg</img><intro>GDC是一年一度的游戏开发者最大的聚会，每年将有数万名游戏开发者参加大会。大会奖项有年度最佳游戏奖、年度最佳原创音乐奖、年度最佳角色设计奖、年度最佳游戏设计奖、年度最佳游戏设计奖、年度最佳游戏设计奖、年度最佳剧本创作奖等奖项。</intro></meeting><meeting id="M201704050001" lastedit="2017年4月5日  14时40分55秒"><name>Google I/O 大会</name><view>IT,互联网</view><type>发布会</type><infofrom>第一行代码</infofrom><orgnizer refer="Google$O200909220003">Google</orgnizer><history>2008年9月 发布Android 1.0
+2011年2月 发布Android 3.0
+2011年10月 发布Android 4.0
+2014年 发布Android 5.0
+2015年 发布Android 6.0
+2016年 发布Android 7.0</history></meeting><meeting id="M201704060001"><name>中国无人机系统及任务设备展览会</name><view>无人机</view><year>2017年6月4日</year><endtime>2017年6月5日</endtime><type>展览会</type></meeting><meeting id="M201704100001" lastedit="2017年4月10日  13时37分45秒"><name>爱思产品化</name><view>产品经理</view><year>2017年4月</year><endtime>2018年12月</endtime><type>人物</type><history>1.为爱思募集更多的真实用户
+2.搜集和分析用户反馈
+3.对用户反馈进行分析
+4.根据分析的结果改进爱思</history></meeting><meeting id="M201704100002"><name>Nexar挑战赛</name><view>机器学习</view><type>比赛</type></meeting><meeting id="M201704100003"><name>首届年度TensorFlow开发者峰会</name><view>机器学习</view></meeting><meeting id="M201704100004"><name>Kaggle</name><view>机器学习</view><type>竞赛</type></meeting><meeting id="M201704100005"><name>WOT2016大数据技术峰会</name><view>大数据</view><year>2016</year><type>会议</type></meeting><meeting id="M201704110001" lastedit="2021年8月12日  9时32分34秒"><name refer="">CVPR</name><view>计算机视觉、模式识别</view><type>顶级会议系列</type><history>CVPR 2014
+CVPR 2015
+CVPR 2016
+CVPR 2017
+CVPR 2018</history><infofrom>微信群——点云交流群</infofrom></meeting><meeting id="M201704140001" lastedit="2017年4月14日  17时32分4秒"><name>SIG2D</name><view>漫画，深度学习</view><infofrom>知乎 贾杨清</infofrom><link>http://sig2d.org</link></meeting><meeting id="M201704150001" lastedit="2017年5月11日  11时13分13秒"><name>“谷歌大脑”(Google Brain)</name><view>机器学习</view><type>项目</type><infofrom>谷歌转型：把2.5万工程师变成机器学习专家是怎样的体验？</infofrom><orgnizer refer="吴恩达$R201704100002">吴恩达，Jeff Dean</orgnizer><intro>用1.6万个CPU核的并行计算平台</intro></meeting><meeting id="M201704150002" lastedit="2017年4月26日  9时29分58秒"><name>ICML (International Conference on Machine Learning)/国际机器学习会议</name><view>机器学习</view><type>会议</type><infofrom refer="西瓜书$L201704240001">西瓜书</infofrom><intro>机器学习领域最重要的国际学术会议。</intro></meeting><meeting id="M201704150003" lastedit="2017年4月26日  11时1分14秒"><name>NIPS (Neural Information Processing Systems) /国际神经信息处理系统会议</name><view>机器学习</view><type>会议</type><infofrom refer="西瓜书$L201704240001">西瓜书</infofrom></meeting><meeting id="M201704150004"><name>SIGIR (Special Interest Group on Information Retrieval)</name><view>机器学习</view><type>会议</type></meeting><meeting id="M201704190001" lastedit="2017年4月19日  17时57分10秒"><name>首届 TensorFlow 开发者大会</name><view>深度学习，机器学习</view><year>2017年</year><type>会议</type><link>https://events.withgoogle.com/tensorflow-dev-summit/watch-the-videos/#content</link></meeting><meeting id="M201704200001" lastedit="2017年4月20日  22时32分9秒"><name>使用阿里云印刷文字识别-英文识别</name><view>图像识别</view><year>2017年4月20日</year><endtime>2017年4月20日</endtime><type>完成</type><link>https://market.aliyun.com/products/57124001/cmapi010405.html#sku=yuncode440500000</link></meeting><meeting id="M201704260001"><name>COLT / 国际学习理论会议</name><view>机器学习</view><type>会议</type></meeting><meeting id="M201704260002"><name>ECML / 欧洲机器学习会议</name><view>机器学习</view><type>会议</type></meeting><meeting id="M201704260003"><name>ACML / 亚洲机器学习会议</name><view>机器学习</view><type>会议</type></meeting><meeting id="M201704260004"><name>ICDM</name><view>数据挖掘</view><type>会议</type></meeting><meeting id="M201705030001" lastedit="2021年8月12日  9时33分57秒"><name refer="">ImageNet / ILSVRC</name><type refer="">比赛</type><view>图像识别</view><infofrom>七月在线</infofrom><intro>ImageNet is an image database organized according to the WordNet hierarchy (currently only the nouns), in which each node of the hierarchy is depicted by hundreds and thousands of images. Currently we have an average of over five hundred images per node. We hope ImageNet will become a useful resource for researchers, educators, students and all of you who share our passion for pictures. </intro></meeting><meeting id="M201705260001"><name>达特茅斯学院研讨会</name><view>人工智能</view><type>研讨会</type></meeting><meeting id="M201706160001"><name>ICDAR / 国际文档分析和识别大会</name><view>图像识别</view><type>比赛</type></meeting><meeting id="M201706280001" lastedit="2018年10月18日  16时11分32秒"><name>股市预测算法LSTM调研</name><view>机器学习</view><year>2017年6月27日</year><endtime>2017年6月28日</endtime><link>https://mp.weixin.qq.com/s/a86-QLnHkYd6ns6ht2uKsQ##
+https://www.leiphone.com/news/201705/evKcjkuetKTofIAU.html
+https://community.bigquant.com/t/LSTM-Networks应用于股票市场之Sequential-Model/320
+https://community.bigquant.com/t/LSTM-Networks应用于股票市场之Functional-Model/321</link></meeting><meeting id="M201707100001" lastedit="2020年2月4日  23时51分8秒"><name refer="">图像处理算法：将纯绿色背景变透明</name><type>技术攻关</type><link>http://www.shaderific.com/glsl-functions/</link></meeting><meeting id="M201707110001" lastedit="2017年7月11日  15时43分55秒"><name>云栖大会</name><view>人工智能</view><type>发布会</type><orgnizer>阿里巴巴</orgnizer><infofrom>【玩转数据系列十】利用阿里云机器学习在深度学习框架下实现智能图片分类
+https://yq.aliyun.com/articles/72841</infofrom></meeting><meeting id="M201801030001" lastedit="2021年10月27日  12时6分59秒"><name refer="">汉诺威工业博览会2013</name><view>工业，制造业</view><year>2013年</year><type>博览会</type><place>德国</place><infofrom>百度百科——工业4.0</infofrom><topics>发布“工业4.0实施建议”</topics></meeting><meeting id="M201804020001"><name>SIGGRAPH</name><view>点云</view><type>国际会议</type></meeting><meeting id="M201804160001" lastedit="2018年4月16日  14时32分38秒"><name>IROS</name><view>机器人，人工智能</view><type>国际会议系列</type><infofrom>3D视觉群</infofrom></meeting><meeting id="M201804160002"><name>ICRA, IEEE International Conference on Robotics and Automation</name><view>机器人，自动化</view><type>国际会议系列</type></meeting><meeting id="M201804230001" lastedit="2018年4月23日  9时10分36秒"><name>第八届视觉与学习青年学者研讨会 VALSE 2018</name><view>机器视觉，机器学习</view><year>2018年4月19日</year><endtime>2018年4月22日</endtime><type>会议</type><history>程健（中科院自动化所）《深度学习高效计算与处理器设计》
+陈天水（中山大学）《Image Distillation for Deep Neural Networks Acceleration》
+冯佳时（新加坡国立大学）《生成式对抗神经网络》
+左旺孟（哈尔滨工业大学）《GAN的应用与拓展》
+张兆翔（中科院自动化所）《脑启发的神经网络建模与学习》
+陈霸东（西安交通大学）Neural Decoding from fMRI
+何晖光（中科院自动化所）多模态情绪识别及跨被试迁移学习
+SfM与SLAM</history><place>大连理工大学</place></meeting><meeting id="M201805140001" lastedit="2021年6月16日  12时49分21秒"><name refer="">ECCV / Eruopean Conference on Computer Vision</name><view>计算机视觉，点云</view><type>国际会议系列</type><infofrom>点云库PCL学习教程2.pdf</infofrom></meeting><meeting id="M201806210001" lastedit="2018年6月21日  11时44分28秒"><name>CVPR 2018</name><view>计算机视觉、模式识别</view><year>2018.6.18</year><endtime>2018.6.22</endtime><type>国际顶级会议</type><infofrom>微信群——点云交流群</infofrom><reference>Unsupervised Person Image Synthesis in Arbitrary Poses
+Person Transfer GAN to Bridge Domain Gap for Person Re-Identification
+Disentangled Person Image Generation
+Practical Block-wise Neural Network Architecture Generation
+Deep Layer Aggregation
+Learning Face Age Progression: A Pyramid Architecture of GANs
+Convolutional Neural Networks with Alternately Updated Clique
+Unsupervised Discovery of Object Landmarks as Structural Representations
+An Analysis of Scale Invariance in Object Detection – SNIP
+Wasserstein Introspective Neural Networks
+Im2Flow: Motion Hallucination from Static Images for Action Recognition
+What have we learned from deep representations for action recognition?
+Squeeze-and-Excitation Networks
+</reference><img>http://cvpr2018.thecvf.com/images/cvpr18logo_3.jpg</img><history>Conference
+Tutorials
+Workshops
+Expo
+Jitendra Mailik：研究SLAM需要结合几何和语义
+Ross Girshick：视频问答系统需要更好的数据集
+Honglak Lee：视频预测和无监督学习
+自动驾驶座谈会：挑战，机遇，安全
+什么是自动驾驶最大的挑战？
+如果你是一名CV的博士生想要做自动驾驶的研究，你应该做什么？
+未来将如何衡量不同自动驾驶车辆安全性？
+</history><link>http://cvpr2018.thecvf.com/program/main_conference
+http://www.tuan18.org/thread-2119-1-2.html</link><place>SALT LAKE CITY 美国犹他州盐湖城</place></meeting><meeting id="M201806220001" lastedit="2021年6月16日  12时46分29秒"><name refer="">ICCV</name><type>国际顶级会议系列</type><infofrom>汤晓鸥</infofrom><view>计算机视觉、模式识别</view><intro>四大顶会</intro></meeting><meeting id="M201810180001" lastedit="2018年10月18日  16时55分8秒"><name>利用深度学习的股票分析预测调研</name><view>金融，深度学习</view><year>2018.10.18</year><type>任务</type><history>确认股票信息数据源
+辨别可获得的信息维度
+思考输入数据可能得到的加工信息
+思考所获信息可以为哪些决策提供依据和帮助
+思考如何实现</history></meeting><meeting id="M202002050001" lastedit="2020年11月1日  22时58分49秒"><name refer="">夏朝</name><type>朝代</type><year>前2070年</year><endtime>前1600年</endtime><view>历史</view><link>https://baike.baidu.com/item/%E5%A4%8F%E6%9C%9D/22101?fr=aladdin</link><leader>夏禹
+姒启，姒太康，姒少康，姒桀等</leader><place>夏朝的行政区，世传为“九州”：
+1. 冀州，夹右碣石入于河，三面距河，是各州贡道必经之处。（今山西、河北省境、辽宁西部。）
+
+2. 兖州，浮于济、漯，达于河。（今山东西部、河北东南角。）
+
+3. 青州，浮于汶，达于济。（今泰山以东之山东半岛。）
+
+4. 徐州，浮于淮、泗，达于河。（今淮河以北之江苏、安徽以及山东南部。）
+
+5. 扬州，沿于江、海，达于淮、泗。（今淮河以南之江苏、安徽以及浙江、江西北部。）
+
+6. 荆州，浮于江、沱、潜、汉，逾于洛，至于南河。（今湖北、衡山以北之湖南以及江西西北端。）
+
+7. 豫州，浮于洛，达于河。（今河南省境、湖北北部、陕西东南、山东西南部。）
+
+8. 梁州，浮于潜，逾于沔，入于渭，乱于河。（今四川以及陕西、甘肃南端。）
+
+9. 雍州，浮于积石，至于龙门西河，会于渭、汭。（今陕西、甘肃、宁夏、青海。）</place></meeting><meeting id="M202002050002" lastedit="2020年2月8日  21时50分29秒"><name refer="">商朝</name><type>朝代</type><year>前1600年</year><endtime>前1046年</endtime><view>历史</view></meeting><meeting id="M202002050003" lastedit="2020年2月8日  21时50分22秒"><name refer="">西周</name><type>朝代</type><year>前1046年</year><endtime>前771年</endtime><view>历史</view></meeting><meeting id="M202002050004" lastedit="2020年2月5日  22时10分12秒"><name refer="">东周</name><type>朝代</type><year>前770年</year><endtime>前256年</endtime><view>历史</view></meeting><meeting id="M202002050005" lastedit="2020年2月5日  22时10分31秒"><name refer="">秦朝</name><type>朝代</type><year>前221年</year><endtime>前207年</endtime><view>历史</view></meeting><meeting id="M202002050006" lastedit="2020年2月5日  22时11分5秒"><name refer="">西楚</name><type>朝代</type><year>前206年</year><endtime>前202年</endtime><view>历史</view></meeting><meeting id="M202002050007" lastedit="2020年2月5日  22时11分37秒"><name refer="">西汉</name><type>朝代</type><year>前202年</year><endtime>8年</endtime><view>历史</view></meeting><meeting id="M202002050010" lastedit="2020年2月5日  22时24分4秒"><name refer="">东汉</name><type>朝代</type><year>25年</year><endtime>220年</endtime><view>历史</view></meeting><meeting id="M202002050011" lastedit="2020年2月5日  22时24分53秒"><name refer="">三国</name><type>朝代</type><year>220年</year><endtime>280年</endtime><view>历史</view></meeting><meeting id="M202002050015" lastedit="2020年2月5日  22时28分51秒"><name refer="">西晋</name><type>朝代</type><year>266年</year><endtime>316年</endtime><view>历史</view></meeting><meeting id="M202002050016" lastedit="2020年2月5日  22时29分10秒"><name refer="">东晋</name><type>朝代</type><year>317年</year><endtime>420年</endtime><view>历史</view></meeting><meeting id="M202002050017" lastedit="2020年2月5日  22时29分37秒"><name refer="">十六国</name><type>朝代</type><year>304年</year><endtime>439年</endtime><view>历史</view></meeting><meeting id="M202002050018" lastedit="2020年2月5日  22时30分9秒"><name refer="">南朝</name><type>朝代</type><year>420年</year><endtime>589年</endtime><view>历史</view></meeting><meeting id="M202002050023" lastedit="2020年2月5日  22时31分5秒"><name refer="">北朝</name><type>朝代</type><year>386年</year><endtime>581年</endtime><view>历史</view></meeting><meeting id="M202002050024" lastedit="2020年2月5日  22时31分35秒"><name refer="">隋朝</name><type>朝代</type><year>581年</year><endtime>618年</endtime><view>历史</view></meeting><meeting id="M202002050025" lastedit="2020年2月5日  22时32分7秒"><name refer="">唐朝</name><type>朝代</type><year>618年</year><endtime>907年</endtime><view>历史</view></meeting><meeting id="M202002050027" lastedit="2020年2月5日  22时38分31秒"><name refer="">五代</name><type>朝代</type><year>907年</year><endtime>960年</endtime><view>历史</view></meeting><meeting id="M202002050028" lastedit="2020年2月5日  22时39分1秒"><name refer="">十国</name><type>朝代</type><year>891年</year><endtime>979年</endtime><view>历史</view></meeting><meeting id="M202002050029" lastedit="2020年2月5日  22时39分37秒"><name refer="">北宋</name><type>朝代</type><year>960年</year><endtime>1127年</endtime><view>历史</view></meeting><meeting id="M202002050030" lastedit="2020年2月5日  22时39分54秒"><name refer="">南宋</name><type>朝代</type><year>1127年</year><endtime>1279年</endtime><view>历史</view></meeting><meeting id="M202002050034" lastedit="2020年2月5日  22时46分36秒"><name refer="">元朝</name><type>朝代</type><year>1271年</year><endtime>1368年</endtime><view>历史</view></meeting><meeting id="M202002050035" lastedit="2020年2月5日  22时46分57秒"><name refer="">明朝</name><type>朝代</type><year>1368年</year><endtime>1644年</endtime><view>历史</view></meeting><meeting id="M202002050036" lastedit="2020年2月5日  22时47分19秒"><name refer="">清朝</name><type>朝代</type><year>1644年</year><endtime>1912年</endtime><view>历史</view></meeting><meeting id="M202002080001" lastedit="2020年3月21日  23时4分53秒"><name refer="">战国</name><type>历史时期</type><view>历史</view><year>前475年</year><endtime>前221年</endtime></meeting><meeting id="M202002230001" lastedit="2020年2月23日  15时50分11秒"><name refer="">一战</name><view>历史</view><type>战争</type><year>1914年7月28日</year><endtime>1918年11月11日</endtime><link>https://baike.baidu.com/item/%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%B8%96%E7%95%8C%E5%A4%A7%E6%88%98/68516?fromtitle=%E4%B8%80%E6%88%98&amp;fromid=499178&amp;fr=aladdin</link></meeting><meeting id="M202002230002" lastedit="2020年2月23日  15时53分31秒"><name refer="">二战</name><view>历史</view><type>战争</type><year>1939年9月1日</year><endtime>1945年9月2日</endtime></meeting><meeting id="M202002230003" lastedit="2020年2月23日  21时38分44秒"><name refer="">文艺复兴
+Renaissance</name><view>历史</view><type>文化运动</type><year>14世纪(1300)</year><endtime>16世纪(1500)</endtime><intro>资产阶级反封建的新文化运动</intro><place>从意大利扩展到欧洲</place></meeting><meeting id="M202003210001" lastedit="2020年3月21日  23时13分29秒"><name refer="">五帝时代</name><view>历史</view><type>历史时期</type><year>约公元前3000年</year><endtime>前2070年</endtime></meeting><meeting id="M202005110001"><name>复变函数</name><view>数学</view><type>课程</type></meeting><meeting id="M202102090001" lastedit="2021年2月9日  12时44分29秒"><name refer="">关于信息与反馈的讨论会</name><view>生物、数学、社会学、工程学</view><type>会议</type><orgnizer>普林斯顿大学</orgnizer><year>1943年底</year><speakers>发起人：冯·诺依曼</speakers></meeting><meeting id="M202102090002" lastedit="2021年2月9日  13时11分35秒"><name refer="">IFAC第一届世界代表大会</name><view>自动化，控制</view><type>会议</type><year>1960年9月</year><place>莫斯科</place><speakers>维纳</speakers></meeting><meeting id="M202106160001"><name>PAMI</name><view>计算机视觉、模式识别</view><type>会议</type></meeting><meeting id="M202106210001" lastedit="2021年6月21日  15时12分11秒"><name refer="">人工智能第一阶段</name><view>人工智能</view><type>技术领域</type><year>1956年</year><endtime>1976年</endtime><topics>推理系统</topics></meeting><meeting id="M202106210002" lastedit="2021年6月21日  15时13分33秒"><name refer="">人工智能第二阶段</name><view>人工智能</view><type>技术领域</type><year>1977年</year><endtime>2006年</endtime><topics>专家系统</topics><history>后期人工智能技术的最大发展瓶颈：海量知识的获取</history></meeting><meeting id="M202106210003" lastedit="2021年6月21日  15时14分17秒"><name refer="">人工智能第三阶段</name><view>人工智能</view><type>技术领域</type><year>2007年</year><topics>深度学习</topics></meeting><meeting id="M202108210001"><name>金本位制崩溃</name><view>金融</view><type>金融危机</type></meeting><meeting id="M202108210002"><name>华尔街危机和经济大萧条</name><view>金融</view><type>金融危机</type></meeting><meeting id="M202108210003"><name>美元违约和全球膨胀</name><view>金融</view><year>1971</year><endtime>1979</endtime><type>金融危机</type></meeting><meeting id="M202108210004"><name>拉美债务危机</name><view>金融</view><year>1980</year><endtime>1989</endtime><type>金融危机</type></meeting><meeting id="M202108210005"><name>全球股市危机</name><view>金融</view><year>1987</year><endtime>1987</endtime><type>金融危机</type></meeting><meeting id="M202108210006"><name>日本金融危机</name><view>金融</view><year>1991</year><endtime>2003</endtime><type>金融危机</type></meeting><meeting id="M202108210007"><name>欧洲汇率机制危机</name><view>金融</view><year>1992</year><endtime>1993</endtime><type>金融危机</type></meeting><meeting id="M202108210008"><name>墨西哥金融危机</name><view>金融</view><year>1994</year><endtime>1995</endtime><type>金融危机</type></meeting><meeting id="M202108210009"><name>亚洲金融危机</name><view>金融</view><year>1997</year><endtime>1999</endtime><type>金融危机</type></meeting><meeting id="M202108210010"><name>俄罗斯金融危机</name><view>金融</view><year>1998</year><endtime>1998</endtime><type>金融危机</type></meeting><meeting id="M202108210011"><name>巴西金融危机</name><view>金融</view><year>1999</year><endtime>1999</endtime><type>金融危机</type></meeting><meeting id="M202108210012"><name>阿根廷危机</name><view>金融</view><year>2001</year><endtime>2001</endtime><type>金融危机</type></meeting><meeting id="M202108210013"><name>越南危机</name><view>金融</view><year>2007</year><endtime>2007</endtime><type>金融危机</type></meeting><meeting id="M202108210014"><name>美国次贷危机</name><view>金融</view><year>2007</year><endtime>-</endtime><type>金融危机</type></meeting><meeting id="M202108210015"><name>欧洲主权债务危机危机</name><view>金融</view><year>2009</year><endtime>-</endtime><type>金融危机</type></meeting><meeting id="M202110170001" lastedit="2021年10月17日  14时41分59秒"><name refer="">第二届全国基础设施智慧建造与运维学术论坛</name><view>物联网、人工智能、传感器、机器人、智慧城市、智能化装备、BIM、CIM、区块链、工程管理、数字孪生、新基建</view><year>2021年10月15日</year><endtime>2021年10月17日</endtime><type>学术会议</type><orgnizer refer="">指导单位：中国科学技术协会科学技术创新部
+承办单位：东南大学智慧制造与运维国家地方联合工程研究中心
+华为技术有限公司
+广联达科技股份有限公司
+主办单位：中国土木工程学会、中国电子学会、中国铁道学会、中国仪器仪表学会、中国公路学会、中国测绘学会、中国建筑学会、中国电机工程学会、中国城市规划学会、中国人工智能学会、中国电子学会、东南大学
+协办单位：东南大学土木工程学院、东南大学溧阳基础设施安全与智慧技术创新中心、东南大学-中核华兴智慧建造联合研发中心、东南大学-中亿丰融合基础设施联合研发中心、东南大学-东阳市建筑科技联合研发中心、江苏东印智慧工程技术研究院</orgnizer><link>https://civil.seu.edu.cn/2021/0725/c1185a379161/pagem.htm
+https://www.seuicc.com/screen-forum-details.html</link></meeting><meeting id="M202110170002" lastedit="2021年10月17日  14时50分14秒"><name refer="">第十五届中国智慧城市大会</name><view>人工智能</view><year>2021年11月9日</year><endtime>2021年11月10日</endtime><type>展会</type><link>http://www.smartcitychina.net/pc/</link><orgnizer>主办：
+中国服务贸易协会
+中国遥感委员会
+中国开发区协会
+中国测绘学会智慧城市工作委员会
+承办：
+中国测绘学会智慧城市工作委员会
+</orgnizer><place>北京国际会议中心</place></meeting><meeting id="M202110270001" lastedit="2021年10月27日  12时7分10秒"><name refer="">汉诺威工业博览会2011</name><view>工业智能</view><year>2011年</year><endtime>-</endtime><type>博览会</type><topics>提出工业4.0概念</topics></meeting><meeting id="M202110270002" lastedit="2021年10月27日  12时2分4秒"><name refer="">先进制造业伙伴计划AMP</name><view>智能制造</view><year>-</year><endtime>-</endtime><type>国家政策</type><intro>通过互联网技术和机器人技术，大量代替人的劳动，通过新的制造手段重新建立制造业优势。</intro><leader>美国政府</leader></meeting><meeting id="M202110270003"><name>中国制造2025</name><view>工业智能化</view><year>-</year><endtime>-</endtime><type>国家政策</type></meeting></meetings>

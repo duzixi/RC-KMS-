@@ -1,0 +1,965 @@
+<?xml version='1.0' encoding='UTF-8' ?><organizations>
+	<organization id="O200907020003" lastedit="2017年3月15日  20时40分22秒"><name>大连理工大学 / 大连工学院 / Dalian University of Technology</name><year>1949年4月</year><link>http://www.dlut.edu.cn
+http://portal.dlut.edu.cn</link><img>http://www.dlut.edu.cn/images/logo.gif</img><type>高校</type><view>数学,物理,力学,机械,化学,船舶,管理科学与工程,水利,结构工程,环境</view></organization><organization id="O200907120001" lastedit="2013年4月27日  22时43分12秒"><name>联合国 / United Nations</name><year>1945年10月24日</year><link>http://www.un.org/</link><img>http://t1.gstatic.cn/images?q=tbn:iQS9szWXBagFiM:</img><type>国际组织</type><view>政治，经济，医学</view></organization><organization id="O200907160001"><name>OECD,Organisation for Economic Co-operation and Development / 经合组织/经济合作与发展组织</name><year>1961</year><view>经济</view><introduce>Our mission：
+OECD brings together the governments of countries committed to democracy and the market economy from around the world to:     
+·Support sustainable economic growth
+·Boost employment
+·Raise living standards
+·Maintain financial stability
+·Assist other countries' economic development
+·Contribute to growth in world trade
+The Organisation provides a setting where governments compare policy experiences, seek answers to common problems, identify good practice and coordinate domestic and international policies.</introduce><type>国际组织</type><img>http://www.oecd.org/dataoecd/img/new/common/logo_en.gif</img><link>http://www.oecd.org/</link><belongto refer="联合国$O200907120001">联合国(?)[L200910110003 p.7]</belongto></organization><organization id="O200907160002" lastedit="2013年4月27日  22时44分16秒"><name>联合国科学技术促进委员会</name><belongto refer="联合国$O200907120001">联合国</belongto><type>国际组织</type><view>科学</view></organization><organization id="O200907160003"><name>世界银行 / The World Bank</name><year>1946年6月25日</year><link>http://www.worldbank.org/</link><view>金融,知识管理</view><type>国际组织</type><img>http://imgsrc.baidu.com/baike/abpic/item/32bb9c8bee64fccffd1f10b3.jpg</img><introduce>世界银行（the World Bank）是世界银行集团的俗称，“世界银行”这个名称一直是用于指国际复兴开发银行(IBRD)和国际开发协会(IDA)。这些机构联合向发展中国家提供低息贷款、无息信贷和赠款。 它是一个国际组织，其一开始的使命是帮助在第二次世界大战中被破坏的国家的重建。今天它的任务是资助国家克服穷困，各机构在减轻贫困和提高生活水平的使命中发挥独特的作用。
+
+技术上来说世界银行是联合国的一部分，但它的管理结构与联合国相差很大：每个世界银行集团的机构的拥有权在于其成员国政府，这些成员国的表决权按其所占股份的比例不同。</introduce></organization><organization id="O200907160004" lastedit="2017年3月15日  20时44分0秒"><name>世界贸易组织(WTO,World Trade Organization)</name><year>January 1, 1995</year><link>http://en.wikipedia.org/wiki/WTO</link><view>经济,金融</view><img>http://www.russia-online.cn/Upload/FCKEditor/1(203).jpg</img><introduce>The World Trade Organization (WTO) is an international organization designed by its founders to supervise and liberalize international trade. The organization officially commenced on January 1, 1995 under the Marrakesh Agreement, replacing the General Agreements on Tariffs and Trade (GATT), which commenced in 1947. </introduce><type>国际组织</type></organization><organization id="O200907240001" lastedit="2017年3月15日  20时45分21秒"><name>Springer / 施普林格出版社</name><year>10 May 1842 </year><type>出版社</type><link>http://springer.com</link><introduce>http://www.springer-sbm.com/index.php?id=164&amp;L=0
+Knowledge, information and quality – these are the three things that shape Springer Science+Business Media’s business activities. We develop, manage and disseminate knowledge – through books, journals and the Internet. We work with the world’s best academics and authors in long-standing loyal partnerships based on mutual trust and we are always open to new input. </introduce><place>德国柏林</place><img>http://pic.qiantucdn.com/58pic/14/02/36/63558PICvXV_1024.png</img></organization><organization id="O200907240004" lastedit="2016年7月25日  15时49分42秒"><name>机械工业出版社</name><year>1952年</year><type>出版社</type><link>http://www.cmpbook.com/</link><img>http://www.cmpbook.com/data/skins/chinese/imagesw/logo.jpg</img><introduce>机械工业出版社是全国优秀出版社，自1952年成立以来，坚持为科技、为教育服务，以向行业、向学校提供优质、权威的精神产品为宗旨，以“服务社会和人民群众需求，传播社会主义先进文化”为己任，产业结构不断完善，已由传统的图书出版向着图书、期刊、电子出版物、音像制品、电子商务一体化延伸，现已发展为多领域、多学科的大型综合性出版社，涉及机械、电工电子、汽车、计算机、经济管理、建筑、ELT、科普以及教材、教辅等领域...... </introduce><hezuohuoban refer="Prentice Hall$O200910100001#Addison-Wesley$O201607250001#McGraw-Hill$O201607250002#Morgan Kaufmann$O201607250003">Prentice Hall, Addison-Wesley, McGraw-Hill, Morgan Kaufmann</hezuohuoban><member refer="史忠植$R200907110001">专家指导委员会：
+史忠植</member></organization><organization id="O200907240008" lastedit="2017年3月16日  10时22分46秒"><name>Elsevier / ELSEVIER</name><type>出版社</type><year>1880</year><introduce>As the world’s leading publisher of science and health information, Elsevier serves more than 30 million scientists, students, and health and information professionals worldwide. 
+
+We are proud to play an essential role in the global science and health communities and to contribute to the advancement of these critical fields. By delivering world-class information and innovative tools to researchers, students, educators and practitioners worldwide, we help them increase their productivity and effectiveness. We continuously make substantial investments that serve the needs of the global science and health communities.</introduce><history>Elsevier, the modern publishing company, was founded in 1880 and has evolved from a small Dutch publishing house devoted to classical scholarship into an international multimedia publishing company with over 20,000 and products for science and healthcare communities worldwide. Elsevier takes its name from the original House of Elzevir family publishing house founded in 1580.</history><img>http://img.mp.itc.cn/upload/20161001/8b222211f0544f62bc58c2403c2d50b1_th.gif</img><link>http://www.elsevier.com/wps/find/homepage.cws_home</link><nation>荷兰</nation></organization><organization id="O200907240009" lastedit="2012年3月6日  20时9分45秒"><name>麻省理工大学 /麻省理工学院 / MIT,Massachusetts Institute of Technology</name><year>1861年</year><type>高校</type><img>http://imgsrc.baidu.com/baike/abpic/item/a583631ec412a6c41bd5761e.jpg
+http://web.mit.edu/img/MIT_logo.gif</img><link>http://web.mit.edu/
+http://baike.baidu.com/view/251300.htm</link><introduce>The mission of MIT is to advance knowledge and educate students in science, technology, and other areas of scholarship that will best serve the nation and the world in the 21st century.
+http://news.hit.edu.cn/articles/2006/11-10/11162237.htm
+
+麻省理工学院（Massachusetts Institute of Technology，MIT）是美国一所综合性私立大学。</introduce><place>位于麻萨诸塞州的波士顿，查尔斯河（Charles River）将其与波士顿的后湾区（Back Bay）隔开。</place><view>自然科学、工程科学、管理学、经济学、哲学、政治、语言学</view></organization><organization id="O200907240010"><name>John Wiley &amp; Sons</name><year>1807</year><founder>Charles Wiley</founder><type>企业,出版社</type><introduce>Wiley's Scientific, Technical, Medical, and Scholarly (STMS) business, also known as Wiley-Blackwell, serves the world's research and scholarly communities, and is the largest publisher for professional and scholarly societies. Wiley-Blackwell's programs encompass journals, books, major reference works, databases, and laboratory manuals, offered in print and electronically. Through Wiley InterScience, we provide online access to a broad range of STMS content through licensing agreements. </introduce><history>http://as.wiley.com/WileyCDA/Section/id-301697.html
+In 1807, Charles Wiley, then 25 years old, opened a small printing shop at 6 Reade Street in lower Manhattan, New York City. During the next four years, he worked with other printers, primarily Isaac Riley, printing and publishing law books. In 1812, "C. Wiley, Printer" appeared for the first time on the title pages of several legal works. </history><img>http://media.wiley.com/spa_assets/site/wiley2/cvo/images/wiley-logo.gif</img><link>http://as.wiley.com/WileyCDA/Section/index.html</link></organization><organization id="O200908030001" lastedit="2012年3月6日  19时43分25秒"><name>JAIST,Japan Advanced Institute of Science and Technology/北陸先端科学技術大学院大学 / ほくりくせんたんかがくぎじゅつだいがくいんだいがく</name><year>1990.10.1</year><type>高校</type><introduce>先端科学技術分野における国際的水準の研究を行い、それを背景として、大学院教育を実施するため、学部を置くことなく、独自のキャンパスと教育研究組織を持つ，我が国で最初の国立大学院大学として平成２年１０月に創設され、平成１６年４月から国立大学法人北陸先端科学技術大学院大学に移行しました。</introduce><link>http://ja.wikipedia.org/wiki/%E5%8C%97%E9%99%B8%E5%85%88%E7%AB%AF%E7%A7%91%E5%AD%A6%E6%8A%80%E8%A1%93%E5%A4%A7%E5%AD%A6%E9%99%A2%E5%A4%A7%E5%AD%A6
+http://www.jaist.ac.jp/index-j2.shtml</link><img>http://www.jaist.ac.jp/img/logo1.gif</img><view>知识科学，系统工程</view></organization><organization id="O200908040001" lastedit="2012年3月6日  19时50分46秒"><name>哥伦比亚大学 / Columbia University /コロンビア大学</name><year>1754年根据英国国王乔治二世颁布的《国王宪章》而成立</year><place>美国纽约市曼哈顿</place><type>高校</type><link>http://www.columbia.edu/
+http://baike.baidu.com/view/27253.htm</link><img>http://www.columbia.edu/cu/images/cu_logo.gif</img><introduce>From its beginnings in a schoolhouse in lower Manhattan, Columbia University has grown to encompass two principal campuses: the historic, neoclassical campus in the Morningside Heights neighborhood and the modern Medical Center further uptown, in Washington Heights. Today, Columbia is one of the top academic and research institutions in the world, conducting pathbreaking research in medicine, science, the arts, and the humanities. It includes three undergraduate schools, thirteen graduate and professional schools, and a school of continuing education. </introduce><history>http://www.columbia.edu/about_columbia/history.html
+Columbia University was founded in 1754 as King's College by royal charter of King George II of England. It is the oldest institution of higher learning in the state of New York and the fifth oldest in the United States.</history><department>由三个本科生院和十三个研究生院构成</department><member>包括奥巴马总统在内的三位美国总统是该校的毕业生。</member><view>医学、法学、商学、新闻学</view></organization><organization id="O200908040002"><name>中科院 / 中国科学院</name><year>1949年11月1日</year><type>高校,研究院</type><link>http://www.cas.cn/</link><img>http://www.cas.cn/jzzky/jbjs/200910/W020091013560625269829.jpg</img><introduce>1949年11月1日，伴随共和国的诞生，中国科学院成立了。
+经过50多年的努力，中国科学院已发展成为国家在科学技术方面的最高学术机构和全国自然科学与高新技术的综合研究与发展中心。50多年来，中国科学院取得了诸如”两弹一星”等一系列重大科研成果，为我国的科技事业、国民经济和社会发展及国防建设做出了重要贡献。同时，累计招收研究生45000余名，培养了一大批优秀科技创新人才。</introduce><place>中国北京</place><leader>院长：白春礼
+建院以来，先后由郭沫若（1949~1978）、方毅（1979~1981）、卢嘉锡（1981~1987）、周光召（1987~1997）、路甬祥（1997~2011）和白春礼（2011至今）担任中国科学院院长，他们为中国科学院的建立与发展做出了卓越贡献。</leader><view>生命科学,生物,资源环境科学,数学,物理学,化学,医学,地学,信息技术科学</view><founder>首届院长：郭沫若</founder><belongto>中国</belongto><nation>中国</nation><history>1949年11月1日，伴随共和国的诞生，中国科学院成立了。</history><partner>目前我院与100多个国际组织有合作关系。其中包括国际山地综合开发中心（ICIMOD）、第三世界级科学院（TWAS）、国际理论物理中心（ICTP）、联合国开发计划署（UNDP）、联合国教科文组织（UNESCO）、联合国大学（UNU）、国际原子能机构（IAEA）等国际组织。请输入查询关键字并选择查询一句项目，浏览您想了解的国际组织情况。
+</partner><note>地址：北京市海淀区北四环西路9号银谷大厦702 邮编：100190
+电话：010-62800115/16/17/18 传真：010-62800120 E-mail:casholdings@rose.cashq.ac.cn
+</note></organization><organization id="O200908170001"><name>智能科学实验室</name><belongto refer="中科院$O200908040002">中科院</belongto><link>http://www.intsci.ac.cn/intro/index.html</link><img>http://www.intsci.ac.cn/intro/images/intscihead.jpg</img><view>主体与语义计算,机器学习,数据挖掘,认知计算,图像处理,智能科学,人工智能</view><type>研究所</type></organization><organization id="O200908220001" lastedit="2013年4月27日  23时0分52秒"><name>中国人民大学</name><year>1950</year><type>高校</type><img>http://images.ruc.edu.cn/templates/101577/old/indexend_001.jpg</img><link>http://www.ruc.edu.cn/</link><introduce>中国人民大学（Renmin University of China）是一所以人文社会科学为主的综合性研究型全国重点大学，直属于教育部，由教育部与北京市共建。学校的前身是1937年诞生于抗日战争烽火中的陕北公学，以及后来的华北联合大学和华北大学。1949年12月16日，中央人民政府政务院第十一次政务会议根据中共中央政治局的建议，通过了《关于成立中国人民大学的决定》。1950年10月3日，以华北大学为基础合并组建的中国人民大学隆重举行开学典礼，成为新中国创办的第一所新型正规大学。著名教育家吴玉章、成仿吾、袁宝华、黄达、李文海先后担任校长。现任校长为纪宝成教授，党委书记为程天权教授。 </introduce><view>法律，管理，政治，经济</view></organization><organization id="O200909080001" lastedit="2017年3月15日  20时56分29秒"><name>斯坦福大学 / Stanford University</name><year>1876</year><type>高校</type><link>http://www.stanford.edu/</link><img>http://www.rdbuy.cn/images/upload/Image/b063e0b7-958b-47c1-8a07-1077ef6db7aa%5B1%5D.jpg</img><introduce>The Birth of the University
+In 1876, former California Governor Leland Stanford purchased 650 acres of Rancho San Francisquito for a country home and began the development of his famous Palo Alto Stock Farm. He later bought adjoining properties totaling more than 8,000 acres. The little town that was beginning to emerge near the land took the name Palo Alto (tall tree) after a giant California redwood on the bank of San Francisquito Creek. The tree itself is still there and would later become the university's symbol and centerpiece of its official seal.       </introduce></organization><organization id="O200909110001" lastedit="2017年3月15日  20时56分49秒"><name>APQC / 美国生产力和质量委员会 / 美国知识管理学会</name><year>1977</year><link>http://www.apqc.org</link><introduce>Opening its doors in 1977, APQC (previously known as the American Productivity Center and the American Productivity &amp; Quality Center) was backed by a powerhouse board of directors, including leaders from Fortune 1000 companies, union heads, and former senior government officials.</introduce><standpoint>将知识管理定义为:以增强竞争力为目标的识别、获取和利用知识的战略过程。
+
+企业进行知识管理的10条原则：
+(1)企业的价值取向是知识管理实践的导向
+(2)最佳实践的分享是最普遍的和最有效的知识管理策略
+(3)知识管理必须被设计在公司的基础结构中
+(4)知识管理的专用自己很少，用于专门的知识管理项目的资金往往存在于IT部分和其他业务部门
+(5)拥有适当的企业文化很重要
+(6)成功的知识管理实践需要“推动”和“拉动”策略并举，也就是通过中央知识库把知识推向整个组织，同时使每位员工主动寻求知识
+(7)使每个人相信知识转移和分享将使他们工作得更有成效，并使知识分享成为每天工作得一部分
+(8)高层的支持是知识管理成功的保障
+(9)技术是催化剂和助推器，不是灵丹妙药
+(10)随着知识管理实践的成熟，需要对知识管理效果进行度量，以促进企业向新的目标迈进</standpoint><view>知识管理，生产管理，质量管理</view></organization><organization id="O200909130001" lastedit="2013年4月27日  23时5分38秒"><name>大阪大学</name><year>1869年</year><type>高校</type><introduce>Purpose  
+Osaka University Corporation supports Osaka University and conducts education and research in order to answer society's need for education and research at the university level as well as to enhance the standards and promote well-balanced development of our nation's higher education and academic research. 
+
+国立大学法人大阪大学は、大学の教育研究に対する国民の要請に応えるとともに、我が国の高等教育及び学術研究の水準の向上と均衡ある発展を図るため、大阪大学を設置して教育研究を行う。 </introduce><img>http://www.osaka-u.ac.jp/logo_en.gif</img><link>http://www.osaka-u.ac.jp</link><view>船舶，化学</view></organization><organization id="O200909160001" lastedit="2017年3月15日  20时58分16秒"><name>中知网 / 中国知识管理网</name><year>1998-05-08</year><type>网站</type><introduce>中国知识管理网定位为知识管理行业网站，目标是成为知识管理中文"第一门户"站点。
+http://www.chinakm.com/aboutUs/wexplain/index.html</introduce><link>http://www.ChinaKM.com</link><founder refer="王德禄$R200909160001">王德禄</founder><view>知识管理</view></organization><organization id="O200909160002" lastedit="2013年4月27日  23时33分20秒"><name>ASIS 美国信息学协会</name><year>1955</year><type>国际组织</type><introduce>ASIS International is the preeminent organization for security professionals. Founded in 1955, ASIS is dedicated to increasing the effectiveness and productivity of security professionals by developing educational programs and materials that address broad security interests, such as the ASIS Annual Seminar and Exhibits, as well as specific security topics.</introduce><link>http://www.asisonline.org/</link><view>信息学</view></organization><organization id="O200909170001" lastedit="2017年3月15日  20时59分1秒"><name>SAC</name><type>公司</type><introduce>SAC For Training  is one of the pioneers in the field of Training &amp; Consultancy.</introduce><view>管理,经济</view><link>http://www.sactr.net</link><partner refer="GE$O200910040001">GE</partner></organization><organization id="O200909190001" lastedit="2013年4月27日  23时33分31秒"><name>EEC (European Economic Community)欧洲经济共同体</name><year>1958</year><type>国际组织</type><introduce>EEC was an international organisation that existed between 1958 and 1993 which was created to bring about economic integration (including a single market) between Belgium, France, Germany, Italy, Luxembourg and the Netherlands.</introduce><img>http://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Flag_of_Europe.svg/800px-Flag_of_Europe.svg.png</img><link>http://en.wikipedia.org/wiki/European_Economic_Community</link><view>经济</view></organization><organization id="O200909190002" lastedit="2017年3月15日  21时0分9秒"><name>亚太经济合作组织/APEC,Asia-Pacific Economic Cooperration</name><year>1989</year><type>国际组织</type><img>http://www.renwen.com/photo/11/612/1161259_1415060316103846.jpg</img><introduce>Asia-Pacific Economic Cooperation (APEC) is a forum for 21 Pacific Rim countries (styled 'member economies') to cooperate on regional trade and investment liberalisation and facilitation. APEC's objective is to enhance economic growth and prosperity in the region and to strengthen the Asia-Pacific community. Members account for approximately 40% of the world's population, approximately 54% of world GDP and about 44% of world trade.</introduce><infofrom refer="現代情報管理要論$L201002210001">現代情報管理要論 p.7</infofrom><view>经济</view></organization><organization id="O200909190003" lastedit="2013年4月27日  23时34分14秒"><name>IMF / 国际货币基金组织</name><year>1944</year><type>国际组织</type><introduce>The International Monetary Fund (IMF) is an international organization that oversees the global financial system by following the macroeconomic policies of its member countries, in particular those with an impact on exchange rates and the balance of payments. </introduce><img>http://upload.wikimedia.org/wikipedia/en/thumb/7/7e/International_Monetary_Fund_logo.svg/365px-International_Monetary_Fund_logo.svg.png</img><link>http://www.imf.org/external/index.htm</link><note>1997年把全球化概括为：通过贸易、资金流动、技术创新、信息网络和文化交流，使各国经济在世界范围高度融合，各国经济通过不断增长的各类商品和劳务的广泛输送，通过国际资金的流动，通过技术更快更广泛的传播，形成相互依赖关系。</note><view>金融</view></organization><organization id="O200909190004" lastedit="2013年4月27日  23时34分33秒"><name>Mary Chocalate Company</name><year>1950</year><type>食品企业</type><introduce>1950年（昭和25年）、メリーチョコレートは、東京　青山の洋菓子メーカーとして生まれました。 </introduce><link>http://www.mary.co.jp</link><img>http://www.mary.co.jp/shared/img/logo.jpg</img><product>Chocalate, MARRONS GLACES, Cookie &amp; Cake, Other</product><view>食品</view></organization><organization id="O200909190005" lastedit="2017年3月15日  21时3分41秒"><name>麦肯锡 / McKinsey / マッキンゼー</name><year>1926</year><type>企业</type><introduce>McKinsey &amp; Company is a worldwide management consulting firm that focuses on solving issues of concern to senior management. McKinsey serves as an adviser to the world’s leading businesses, governments, and institutions. It is widely recognized as a leader and one of the most prestigious firms in the management consulting industry.</introduce><link>http://www.mckinsey.com/</link><img>http://images.1111.com.tw/university/nthuUpload/photo20150521100426.png</img><view>管理</view></organization><organization id="O200909200001" lastedit="2013年4月27日  23时35分6秒"><name>国际知识管理网络(IKMN)</name><year>1989</year><type>国际组织</type><view>知识管理</view></organization><organization id="O200909210001" lastedit="2013年10月17日  12时21分57秒"><name>ISKSS,International Society for the Knowledge and Systems Sciences</name><year>2003</year><type>学会</type><introduce>The ISKSS is a non-profit, technical professional association. The full name is the International Society for the Knowledge and Systems Sciences. It was formally established in the year of 2003 at the International Symposium on Knowledge and Systems Science (KSS'2003, November 29-30, 2003, Guangzhou, China). Now, our members spread over ten countries and areas.</introduce><belongto refer="International Federation for Systems Research$O200910140001">International Federation for Systems Research</belongto><img>http://www.jaist.ac.jp/iskss/logo_2.jpg</img><view>知识科学，系统科学</view></organization><organization id="O200909220001" lastedit="2017年3月15日  21时4分54秒"><name>创新工场</name><year>2009年9月</year><type>公司</type><founder refer="李开复$R200909220002">李开复</founder><view>互联网,移动互联网,IT</view><introduce>创新工场(www.innovation-works.com)由李开复博士创办于2009年9月，旨在帮助中国青年成功创业。 
+    创新工场是一个全方位的创业平台，旨在培育创新人才和新一代高科技企业。创新工场将吸引一批优秀创业者和工程师，在李开复博士的带领下，开创出最有市场价值和商业潜力的项目，进行研发和市场运营。当项目成熟到一定程度后，自然剥离母体成为独立子公司，直至最后上市或被收购。创新工场将立足信息产业最热门领域：互联网、移动互联网和云计算，并选择相关技术作为创业的起点。 
+    创新工场在未来五年将投入8亿人民币。投资牵头者为刘宇环先生创立的中经合集团，投资者还包括财富100强企业、知名创投和中美精英人士，其中有郭台铭领导的富士康科技集团、柳传志领导的联想控股有限公司、俞敏洪领导的新东方教育科技集团、YouTube创始人陈士骏等。这些已经是成功传奇的明星创业者中，很多表示愿意共同辅导青年创业者，他们的加入使创新工场如虎添翼，他们的参与将使创业精神在一批批创业者中薪火相传。 
+
+创新工场是一种新的天使投资和创新产品的整合。</introduce><img>http://p3.ucai.cn/data/uploads/job/554c6a3bbaf2b.jpg</img></organization><organization id="O200909220002"><name>微软 / Microsoft</name><year>1975年</year><type>公司</type><introduce>微软公司成立于1975年，总部位于美国的雷德蒙。微软在全球拥有5万多名员工，在60个国家和地区设有分公司。作为全球最大的软件公司，微软公司一直是新技术变革的领导者。
+http://ks.cn.yahoo.com/question/1406111607374.html</introduce><view>IT,知识管理</view><link>http://www.microsoft.com/en/us/default.aspx</link><img>http://t3.gstatic.cn/images?q=tbn:uyE_xhDq8jtnNM:</img><note>http://www.msdn.com 这里一定要去看看，多看看</note><standpoint>知识管理三方面：过程、组织能动性和技术。</standpoint><leader refer="Steve Ballmer$R201003120002">CEO: Steve Ballmer 史蒂夫·鲍尔默</leader></organization><organization id="O200909220003" lastedit="2017年8月24日  16时42分33秒"><name>Google / 谷歌</name><year>1999年</year><type>公司</type><introduce>Google 的使命是整合全球信息，使人人皆可访问并从中受益。
+“Googol”是一个数学术语，表示 1 后面带有 100 个零。它是由美国数学家爱德华·卡斯纳的侄子米尔顿·西洛塔所创造，因出现在凯斯纳和詹姆士·纽曼合著的“数学与想象力”一书中而得到普及。Google 公司对这个词作了微小改变，借以反映公司的使命，意在组织网上无边无际的信息资源。</introduce><view>IT, 互联网, 搜索, 信息管理，机器学习</view><link>http://www.google.com.hk/
+http://books.google.com/ngrams/词频统计
+http://www.techinterviews.com/google-interview-questions#面试题
+http://news.qq.com/a/20100311/002444.htm#谷歌重申不过滤搜索结果 做准备停止中国业务</link><founder refer="拉里·佩奇$R200907240003">拉里·佩奇, 赛吉·布林</founder><history>http://zhidao.baidu.com/question/9092677.html</history><img>http://www.google.cn/landing/cnexp/google-search.png</img></organization><organization id="O200909220004" lastedit="2013年4月27日  23时39分14秒"><name>苹果 / Apple</name><view>IT,娱乐，移动，平板</view><year>1977年</year><type>公司</type><introduce>美国著名老牌计算机公司，成立于1977年，是个人电脑最早的倡导者和著名生产商。它所生产的苹果系列电脑，包括iMac，PowerMac，ibook，Powerbook等产品线的众多硬件产品，一直是个人电脑市场的主流产品之一，并曾提出过很多新概念，其产品也掀起过多次流行潮，风行一时。Mactonish操作系统也是苹果公司出品的著名个人电脑操作系统，苹果电脑与Mactonish OS的配合是图形工作站的最佳选择，其产品在图形图像处理领域，一直有较大的市场份额。除个人电脑以外，该公司在半导体研发方面也有一定实力，曾经参与开发了著名的Power PC芯片。目前，苹果电脑电脑公司在全球几十个国家建立了分公司或代表机构，其产品也行销全世界。</introduce><link>http://apple.com.cn/</link><img>http://t1.gstatic.cn/images?q=tbn:72Qx2Bx079AsGM:</img></organization><organization id="O200909220005" lastedit="2017年3月15日  21时7分49秒"><name>早稻田大学 / 早稲田大学</name><year>1882年</year><type>高校</type><introduce>「学問の独立」「学問の活用」「模範国民の造就」を理念とし、教旨が定められている。前身となる東京専門学校の創立30周年を記念し、1913年（大正2）に制定された。</introduce><link>http://www.waseda.jp/top/index-j.html</link><img>http://www.xinquanedu.com/zt/school/jp/images/logo02.jpg</img></organization><organization id="O200909230001" lastedit="2017年3月15日  21时8分25秒"><name>暴雪 / Blizzard</name><year>1994</year><type>公司</type><introduce>Blizzard Entertainment is a premier developer and publisher of entertainment software. After establishing the Blizzard Entertainment label in 1994, the company quickly became one of the most popular and well-respected makers of computer games. By focusing on creating well-designed, highly enjoyable entertainment experiences, Blizzard Entertainment has maintained an unparalleled reputation for quality since its inception.</introduce><link>http://www.blizzard.com/us/</link><img>http://upload.newhua.com/2013/0620/1371693205537.jpg</img><product>魔兽世界, 暗黑破坏神, 魔兽争霸, 星际争霸 http://www.blizzard.com/us/inblizz/reviews.html</product><view>IT,娱乐,游戏设计</view><job>http://www.blizzard.com/us/jobopp/</job></organization><organization id="O200909230002"><name>Adobe</name><year>1982</year><type>公司</type><introduce>Adobe 彻底改变了世人展示创意、处理信息的方式。二十五年来，公司屡获殊容的软件和技术为人们随时随地都要进行的内容制作与交付设立了新的标准，进而对商务、娱乐和个人沟通进行了重新定义。从印刷品、视频和电影中的丰富图像到各种媒体的动态数字内容，Adobe 解决方案的影响力在业界是毋庸置疑的。任何创作、观看以及与这些信息进行交互的人，对这一点更是有切身体会。Adobe 是全球最大、最多元化的软件公司之一，以其卓越的品质享誉世界，旗下拥有众多深受广大客户信赖和认可的软件品牌。
+http://tech.sina.com.cn/s/company/Adobe_Soft/index.html</introduce><img>http://www.adobe.com/ubi/globalnav/include/adobe-lq.png</img><founder>John Warnock, Chuck Geschke</founder><view>信息技术, 软件开发, 可视化, 多媒体, 互联网</view><link>http://www.adobe.com</link></organization><organization id="O200909240001" lastedit="2017年3月15日  21时8分43秒"><name>中国.NET 技术交流社区</name><type>网站社区</type><link>http://www.cnntec.com</link><view>IT</view></organization><organization id="O200909270001" lastedit="2017年3月15日  21时11分18秒"><name>华东理工大学 / East China University of Science and Technology</name><year>1952年10月</year><type>高校</type><introduce>    华东理工大学原名华东化工学院，其办学历史可以追溯到100多年前的南洋公学和震旦学院，是1952年全国高校院系调整时由交通大学（上海）、震旦大学（上海）、大同大学（上海）、东吴大学（苏州）、江南大学（无锡）等校的化工系合并组建而成的全国第一所以化工特色闻名的高等学府。1956年被定为全国首批招收研究生的学校之一。1960年起被中共中央确定为直属教育部的全国重点高校。1993年经国家教委批准，更名为华东理工大学。1996年6月学校进入国家“211工程”重点建设行列。1997年10月，上海市参与共建共管。2000年经教育部批准建立研究生院，2008年获准建设“985创新平台”，是国家首批实施自主招生改革的22所高校之一。经过半个多世纪的改革与建设，现已发展成为特色鲜明、多学科协调发展的研究型全国重点大学。
+http://www.ecust.edu.cn/s/2/t/83/p/1/c/33/d/48/list.htm</introduce><link>http://www.ecust.edu.cn/</link><history>http://www.ecust.edu.cn/s/2/t/6/06/10/info1552.htm</history><img>http://www.jianlimoban.net/logo/201206302330531325.jpg</img></organization><organization id="O200909270002" lastedit="2017年3月15日  21时13分14秒"><name>哈佛大学 / Harvard University</name><year>1636</year><type>高校</type><introduce>Harvard College was established in 1636 by vote of the Great and General Court of Massachusetts Bay Colony, and was named for its first benefactor, John Harvard of Charlestown, a young minister who upon his death in 1638, left his library and half his estate to the new institution. </introduce><link>http://www.harvard.edu/</link><img>http://image.liuxue360.com/2015/11/17/20151117144058490.jpg</img></organization><organization id="O200909270003" lastedit="2017年3月15日  21时17分36秒"><name>World Scientific</name><year>1981</year><type>出版社,公司</type><introduce>World Scientific Publishing Company was established in 1981 with only five employees in a tiny office. Today, the company employs more than 200 staff at its headquarters in Singapore, and has offices in New Jersey, London, Hong Kong, Taipei, Chennai, Beijing and Shanghai. In less than three decades, it has established itself as one of the leading scientific publishers in the world, and the largest international scientific publisher in the Asia-Pacific region. 
+http://www.worldscientific.com/profiles/corporates.shtml</introduce><product>书籍,期刊,电子书</product><link>http://www.worldscientific.com/</link><img>http://img.weixinyidu.com/151118/2d22ddd4.jpg</img></organization><organization id="O200909280001" lastedit="2017年3月15日  21时19分8秒"><name>毕马威 / KPMG</name><year>1987</year><type>咨询公司,企业</type><view>知识管理,税务，审计</view><introduce>KPMG operates as an international network of member firms offering audit, tax and advisory services. We work closely with our clients, helping them to mitigate risks and grasp opportunities. </introduce><link>http://www.kpmg.com</link><img>http://www.hroot.com/rankings/2008/images/logo/27.jpg</img></organization><organization id="O200909280002"><name>安永公司 / Ernst &amp; Young / Ernst and Young</name><year>1906</year><type>企业</type><introduce>Ernst &amp; Young’s business strategy is founded on engagement with our people, clients and communities to help them achieve their potential. </introduce><view>知识管理</view><img>http://www.ey.com/ecimages/logo_zh_CN.gif</img><founder>Arthur Young 1863–1948 &amp; Alwin C Ernst 1881–1948</founder><link>http://www.ey.com</link><note>五大会计和咨询公司之一</note><standpoint>知识管理的架构：知识的产生；知识的表达；知识的编码；知识的应用。[L200910110003 p.25]</standpoint></organization><organization id="O200909280004"><name>施乐公司 / XEROX Corp.</name><year>1906</year><type>公司,企业</type><view>文档管理,印刷,出版,知识管理</view><introduce>Xerox Corporation (NYSE:XRX) is the world's leading document management technology and services enterprise. A $17.6 billion company, Xerox provides the document industry's broadest portfolio of offerings. Digital systems include color and black-and-white printing and publishing systems, digital presses and "book factories," multifunction devices, laser and solid ink network printers, copiers and fax machines. Xerox's services expertise is unmatched and includes helping businesses develop online document archives, analyzing how employees can most efficiently share documents and knowledge in the office, operating in-house print shops or mailrooms, and building Web-based processes for personalizing direct mail, invoices, brochures and more. Xerox also offers associated software, support and supplies such as toner, paper and ink.</introduce><link>http://www.xerox.com/</link><img>http://www.xerox.com/assets/images/xlogo.gif</img></organization><organization id="O200909280005" lastedit="2017年3月15日  21时20分40秒"><name>国际工作流管理联盟(WFMC,Workflow Management Coalition)</name><year>1993</year><type>国际组织</type><introduce>Founded in 1993, the Workflow Management Coalition (WfMC) is a global organization of adopters, developers, consultants, analysts, as well as university and research groups engaged in workflow and BPM.  The WfMC creates and contributes to process related standards, educates the market on related issues, and is the only standards organization that concentrates purely on process.  The WfMC created Wf-XML and XPDL, the leading process definition language used today in over 80 known solutions to store and exchange process models. XPDL is a process design format for storing the visual diagram and all design time attributes.product attributes.</introduce><standpoint>工作流定义：工作流是指整个或部分经营过程在计算机支持下的全自动或半自动化。</standpoint><product>Wf-XML and XPDL</product><link>http://www.wfmc.org/</link></organization><organization id="O200909280006" lastedit="2017年4月5日  15时17分56秒"><name>W3C ,World Wide Web Consortium / 万维网协会</name><year>1989</year><introduce>The World Wide Web Consortium (W3C) is an international consortium where Member organizations, a full-time staff, and the public work together to develop Web standards. W3C's mission is:To lead the World Wide Web to its full potential by developing protocols and guidelines that ensure long-term growth for the Web.
+</introduce><img>http://www.w3.org/Icons/w3c_main</img><founder refer="Tim Berners-Lee$R200909280003">Tim Berners-Lee</founder><history>http://www.w3.org/Consortium/history 
+http://www.w3.org/2005/01/timelines/timeline-2500x998.png</history></organization><organization id="O200909280007" lastedit="2021年8月19日  11时58分0秒"><name>OnTheIT</name><type>公司</type><view>知识管理,IT</view><year>1999年4月1日</year><introduce refer="">온더아이티는 통합 업무포탈 및 스마트 협업 솔루션 전문 기업으로 1999년 창립이래 빠르게 변화하는 비즈니스 환경변화에 신속하게 대응할 수 있는 New Business Model을 선도하고 있으며, 국내외에서 인정받은 기술력과 솔루션을 기반으로 글로벌 소프트웨어 기업으로 성장하고 있습니다.
+창의적인 사고를 통한 혁신으로 고객의 가치를 실현하고, 최고의 가치를 통해 고객에게 감동을 주는 회사로, 항상 고객의 믿음과 신뢰에 보답하며 함께 성장할 수 있도록 노력하겠습니다.
+항상 끊임없는 관심과 성원을 부탁드리며, 언제나 고객의 성공 비즈니스 동반자로 함께 할 것을 약속합니다.</introduce><link>http://www.ontheit.com/</link></organization><organization id="O200909290001" lastedit="2017年3月15日  21时24分12秒"><name>长城战略咨询 / 北京智识企业管理咨询有限公司</name><year>1993年8月26日</year><type>咨询公司,企业</type><founder refer="王德禄$R200909160001">王德禄</founder><introduce>长城战略同时拥有由著名学者、企业家、政府领导组成的300多名外部专家支持系统，分布在金融、石化、医药、IT、新材料、基础设施等众多不同的行业，分别在战略、营销、知识管理、公共管理等方面成就显著。</introduce><link>http://www.gei.com.cn</link><img>http://tsip.qiniudn.com/eacabf769bba2604408d41835532ad02.jpg</img></organization><organization id="O200909290002" lastedit="2017年3月13日  9时41分14秒"><name>埃森哲 / accentrue</name><year>1989</year><type>公司</type><introduce>Accenture is a global management consulting, technology services and outsourcing company. Combining unparalleled experience, comprehensive capabilities across all industries and business functions, and extensive research on the world's most successful companies, Accenture collaborates with clients to help them become high-performance businesses and governments.</introduce><img>http://upload.newhua.com/2013/0327/1364370290250.jpg</img><link>http://www.accenture.com/
+http://vip.yingjiesheng.com/2011/accenture/#申请职位
+https://microsite.accenture.com/Chinacampus/hot-positions/Pages/default.aspx#几个职位
+http://www.ca2u.net/thread-222810-1-1.html#2011校园招聘网申地址及OQ题
+http://bbs.guolairen.com/viewthread.php?tid=1053334#笔试题</link></organization><organization id="O200909290003"><name>Knowledge Powered Solutions Ltd (KPS) </name><type>公司</type><introduce>Knowledge Powered Solutions Ltd (KPS) are leaders in the development of intelligent software solutions for use in service desks, help desks, e-learning and corporate information management environments. </introduce><link>http://www.kpsol.com</link><product>http://www.kpsol.com/index.php?id=7</product></organization><organization id="O200909290004"><name>波士顿大学 / Boston University</name><year>1839</year><type>高校</type><introduce>Boston University is one of the leading private research and teaching institutions in the world today, with two primary campuses in the heart of Boston and programs around the world. 
+http://www.bu.edu/info/about/</introduce><link>http://www.bu.edu/</link><img>http://www.bu.edu/common/hp/graphics/bu-logo.gif</img></organization><organization id="O200909290005" lastedit="2016年7月20日  15时23分3秒"><name>IGI</name><year>1987</year><type>出版社</type><introduce>IGI Global (IGI) is an international publishing company specializing in high-quality research publications in the fields of computer science and information technology management.</introduce><view>管理, 医疗, Public Administration,图书学, 社会科学, 政治, 教育, 电子, 医疗</view><product>BOOKS: 
+Intelligent Information Technologies and Applications 
+Knowledge Management Strategies: A Handbook of Applied Technologies 
+BOOK SERIES: 
+JOURNALS: 
+Journal of Cases on Information Technology (JCIT) 
+Information Resources Management Journal (IRMJ) 
+Journal of Organizational and End User Computing (JOEUC) 
+Journal of Database Management (JDM) 
+Journal of Global Information Management (JGIM) 
+International Journal of Operations Research and Information Systems (IJORIS) 
+International Journal of Enterprise Information Systems (IJEIS) 
+</product><link>http://www.igi-global.com/</link></organization><organization id="O200909290008" lastedit="2017年3月16日  9时29分42秒"><name>O'Reilly / O’Reilly</name><year>1978</year><type>出版社,公司</type><introduce>O'Reilly Media spreads the knowledge of innovators through its books, online services, magazines, research, and conferences. Since 1978, O’Reilly has been a chronicler and catalyst of leading-edge development, homing in on the technology trends that really matter and galvanizing their adoption by amplifying “faint signals” from the alpha geeks who are creating the future. An active participant in the technology community, the company has a long history of advocacy, meme-making, and evangelism.</introduce><img>http://my.safaribooksonline.com/static/200909-2104-oreilly/images/oreilly.gif</img><link>http://www.oreilly.com/</link><product>Books &amp; Videos</product><founder refer="Tim O'Reilly$R200909290001">Tim O'Reilly</founder></organization><organization id="O200909300001"><name>PACKT Publishing Ltd</name><year>2004</year><type>出版社</type><introduce>Packt is a modern, unique publishing company with a focus on producing cutting-edge books for communities of developers, administrators, and newbies alike.
+http://www.packtpub.com/aboutus</introduce><img>https://www.packtpub.com/images/PacktLogoSmall.png</img><product>BOOKS:http://www.packtpub.com/books</product><link>http://www.packtpub.com/</link></organization><organization id="O200909300002" lastedit="2017年3月16日  9时33分54秒"><name>东京大学 / 東京大学</name><year>1877</year><type>高校</type><introduce>東京大学は、1877年に創設された、日本で最も長い歴史をもつ大学であり、日本を代表する大学として、近代日本国家の発展に貢献してきた。第二次世界大戦後の1949年、日本国憲法の下での教育改革に際し、それまでの歴史から学び、負の遺産を清算して平和的、民主的な国家社会の形成に寄与する新制大学として再出発を期して以来、東京大学は、社会の要請に応え、科学·技術の飛躍的な展開に寄与しながら、先進的に教育·研究の体制を構築し、改革を進めることに努めてきた。</introduce><link>http://www.u-tokyo.ac.jp/index_e.html</link><img>http://www.138top.com/UploadFiles/2012-03/admin/2012031117081052808.png</img></organization><organization id="O200909300003"><name>香港大学</name><year>1911</year><type>高校</type><introduce>The University of Hong Kong, founded in 1911, is the oldest tertiary institution in Hong Kong. It was granted a shield and a motto by the College of Arms in 1913, and throughout its history the University's visual identity has been firmly based on their display, often coupled the University's name. No other university in Hong Kong possesses a coat of arms. This is a distinction that resonates outside Hong Kong, particularly in the United Kingdom, other Commonwealth jurisdictions, and the United States. It is also a reminder of the University's antiquity, and a most dignified and effective corporate identity.</introduce><link>http://www.hku.hk</link><img>http://t1.gstatic.cn/images?q=tbn:IZ-hfot-PS43sM:</img><note>大學標誌</note></organization><organization id="O200909300004" lastedit="2017年3月13日  9时43分53秒"><name>北京大学</name><year>1898年</year><type>高校</type><introduce>北京大学创办于1898年，初名京师大学堂，是中国第一所国立综合性大学，也是当时中国最高教育行政机关。辛亥革命后，于1912年改为现名。 
+http://www.pku.edu.cn/about/bdjj.jsp</introduce><link>http://www.pku.edu.cn/</link><img>http://pic.qiantucdn.com/58pic/12/40/53/95I58PICw9Z.jpg</img></organization><organization id="O200909300005" lastedit="2016年10月21日  17时27分4秒"><name>清华大学</name><year>1911年</year><type>高校</type><introduce refer="北京大学$O200909300004">清华大学的前身是清华学堂，成立于1911年，当初是清政府建立的留美预备学校。1912 年更名为清华学校，为尝试人才的本地培养，1925 年设立大学部，同年开办研究院（国学门），1928年更名为“国立清华大学”，并于1929年秋开办研究院，各系设研究所。1937年抗日战争爆发后，南迁长沙，与北京大学、南开大学联合办学，组建国立长沙临时大学，1938年迁至昆明，改名为国立西南联合大学。1946年，清华大学迁回清华园原址复校，设有文、法、理、工、农等5 个学院，26 个系。
+http://www.tsinghua.edu.cn/qhdwzy/board_xxgk2.jsp?board=12&amp;bid2=1203&amp;pageno=1</introduce><link>http://www.tsinghua.edu.cn</link><img>http://www.tsinghua.edu.cn/publish/newthu/images/logo.png</img></organization><organization id="O200910010001"><name>Hyperwave</name><partner>IBM,微软</partner><year>1997</year><type>公司</type><introduce>Hyperwave is a leading provider of Collaborative Information Management (CIM) solutions with a fully integrated e-learning and web conferencing environment. Hyperwave solutions help companies bring greater efficiency to their decision-making processes, make decisions traceable, and communicate them faster.</introduce><view>IT,知识管理</view><nation>德国</nation><img>http://t1.gstatic.cn/images?q=tbn:dow5kNPcRuXbJM</img><link>http://www.hyperwave.com/e/</link><product refer="eKnowledge Suite$D200910010003">eKnowledge Suite</product></organization><organization id="O200910010002" lastedit="2013年4月13日  3时58分19秒"><name>IBM / International Business Machines Corporation</name><year>1911年</year><type>公司</type><introduce>For more than 70 years, IBM and its predecessor companies produced time-keeping equipment for schools and businesses. Many of these products are considered collectibles today.
+http://zh.wikipedia.org/wiki/IBM</introduce><img>http://t3.gstatic.cn/images?q=tbn:o4abxcHPNY_NAM:</img><view>系统工程,IT,知识管理</view><link>http://www.ibm.com
+https://jobs3.netmedia1.com/cp/faces/job_search</link><founder>Thomas J. Watson / 托马斯·沃森</founder><standpoint>知识，就是以文字或语言的形式保存的信息资源与人头脑中具有的经验、思维的综合。
+知识管理三要素：人员、场所、事件。
+知识管理五项功能：商业智能、电子协作、知识传递、知识发现和知识地图、专家定位。
+知识管理九大主题：团体和团队、知识战略、专家网络管理、客户知识、技术目标、知识经济、创新、灵活性和响应、社会资本(《知识管理的IT实现》p.356)</standpoint><partner refer="RIM$O201003080005">RIM</partner></organization><organization id="O200910030002" lastedit="2017年3月16日  9时35分48秒"><name>myLifeTime</name><year>February 1984 </year><type>公司</type><introduce>Lifetime Networks is a diverse, multi-media company, committed to offering the highest quality entertainment and information programming content that celebrates, entertains and supports women. Through its award-winning public affairs initiatives, the Company also advocates a wide range of issues affecting women and their families. </introduce><link>http://www.mylifetime.com</link><view>多媒体,时装,电视,电影,数码</view></organization><organization id="O200910030003" lastedit="2012年3月8日  14时10分48秒"><name>BigFish</name><year>2002</year><view>游戏设计,IT</view><type>公司</type><introduce>Big Fish Games is the global leader and innovator in the casual games industry, producing and delivering the world's best games and game experiences. With a family of game products and services designed to amuse and delight every casual gamer, Big Fish Games is Where the World Goes to Play!. </introduce><founder>Paul Thelen</founder><history>2002: Paul Thelen brings Big Fish Games to life as a game development studio. Thelen seeks to renew his childhood passion for game design. He recently left RealNetworks, where he was Group Product Manager responsible for bringing the RealArcade service to market — a launch that defined the casual game industry.</history><link>http://www.bigfishgames.com/</link><img>http://themes.bigfishgames.com/bfg_dd_en/images/en/themes/breast_cancer_awarness/logo.png</img><product>神秘视线</product></organization><organization id="O200910030004" lastedit="2017年3月16日  9时37分43秒"><name>华盛顿大学</name><year>1860</year><type>高校</type><introduce>Founded in 1861, the University of Washington is one of the oldest state-supported institutions of higher education on the West Coast and is one of the preeminent research universities in the world. 
+http://www.washington.edu/discovery/about.html</introduce><link>http://www.washington.edu/</link><img>http://szb.dlxww.com/dlwb/res/2012-03/28/C35/res08_attpic_brief.jpg</img></organization><organization id="O200910040001" lastedit="2021年10月27日  11时36分37秒"><name refer="">GE / 通用电气公司</name><year>1939</year><type>公司</type><introduce>GE is a global infrastructure, finance and media company taking on the world’s toughest challenges. From everyday light bulbs to fuel cell technology, to cleaner, more efficient jet engines, GE has continually shaped our world with groundbreaking innovations for over 130 years.</introduce><img>http://www.ge.com/ge_images/monogram.gif</img><link>http://www.ge.com/</link><view>技术创新,电气,能源,机械,知识管理</view><nation>美国</nation><history>2012年11月发布《工业互联网——打破智慧与机械的边界》报告，确定将
+“智能设备”，“智能系统”，“智能决策”作为工业互联网的关键要素。</history></organization><organization id="O200910040002" lastedit="2017年3月16日  9时38分1秒"><name>巴克曼实验室 (专业化学品公司) </name><year>1945</year><type>公司</type><introduce>巴克曼实验室是一个跨越80个国家，拥有二亿七千万美元资产的化学公司，是特殊化工产品市场的领先者。1989年，Robert Buckman作出个人承诺，要让公司参与知识竞争。三年后，随着K’Netix知识共享网络的完成，巴克曼和他的同事们开始将知识作为公司最具战略性的资产由的第四届“最受赞赏的知识型企业”调查结果公布，从被提名的102家企业（机构）中选出了最突出的20家。
+Buckman is an ISO certified manufacturer of specialty chemicals for use in the pulp and paper, water treatment, and leather industries. Headquartered in Memphis, Tennessee, USA., the company has a global presence in over 90 countries worldwide-serving customers on every continent. </introduce><link>http://www.buckman.com/</link><view>知识管理,知识共享,化学</view></organization><organization id="O200910040003" lastedit="2017年3月16日  9时39分29秒"><name>丰田公司 / TOYOTA</name><year>1937年8月28日</year><type>公司</type><introduce>在中国，丰田同样基于“通过汽车、创造富裕的社会”这一企业理念，在努力为顾客提供高质量的汽车产品和优质服务的同时，广泛开展各项社会公益活动，努力为中国社会的发展做出贡献。</introduce><img>http://c.hiphotos.baidu.com/baike/w%3D268%3Bg%3D0/sign=8075b676be096b63811959563408e079/c2fdfc039245d6885e0cc3fda4c27d1ed21b2458.jpg</img><link>http://www.toyota.com.cn/</link><nation>日本</nation><founder>丰田佐吉(1867年-)</founder><history>1867年 丰田佐吉诞生 
+1924年 丰田佐吉发明“不停止自动换梭丰田自动织机（G型）” 
+1929年 将自动织机的专利转让给英国公司 
+1930年 丰田喜一郎开始研究开发小型汽油发动机 
+1933年 在丰田自动织机制作所内设立汽车部 
+1936年 丰田AA型轿车问世 
+1937年 丰田汽车工业公司诞生（资本金1,200万日元） 
+1938年 举母工厂（现在的总公司工厂）建成投产 
+1950年 经营危机（劳资争议以及精减员工）成立丰田汽车销售公司 
+1951年 开始推行“动脑筋，提方案”制度 
+1957年 首次向美国出口丰田轿车 
+ 设立美国丰田汽车销售公司 
+1959年 元町工厂建成投产 
+1962年 签订《劳资宣言》 
+1965年 荣获Deming奖 
+1966年 COROLLA花冠车问世 开始与日野汽车工业公司进行业务合作 
+1967年 开始与大发工业公司进行业务合作 
+1972年 日本国内累计汽车产量达到1,000万辆 
+ 丰田邀请中国汽车工业代表团访日 
+1974年 成立丰田财团 
+1975年 参与住宅建设事业 
+1982年 丰田汽车工业公司与丰田汽车销售公司合并为丰田汽车公司 
+1984年 与美国通用的合资公司NUMMI在美国建成投产 
+1988年 位于美国肯塔基州的独资生产厂家TMMK建成投产 
+1990年 COROLLA花冠车累计产量达到1,500万辆 
+1992年 位于英国的独资生产厂家TMUK建成投产 
+1997年 PRIUS普锐斯（混合动力汽车）投产上市 
+1998年 位于美国印第安纳州的独资生产厂家TMMI和 
+ 西维吉尼亚州的独资生产厂家TMMWV建成投产 
+1999年 在纽约和伦敦证券市场分别上市 
+ 日本国内累计汽车产量达到1亿辆 
+2000年 四川丰田汽车有限公司建成投产(现四川一汽丰田汽车有限公司) 
+2001年 位于法国的独资生产厂家TMMF建成投产 
+2002年 F1参战 
+ 与中国第一汽车集团公司就全面合作达成协议 
+ 丰田在中国首款轿车VIOS威驰下线 
+2004年 广州丰田汽车有限公司成立 
+2005年 LEXUS雷克萨斯品牌在中国第一家经销店开业 
+ 全新CROWN皇冠轿车实现中国制造 
+ 广州丰田发动机有限公司AZ发动机整机下线出口 
+ 第一款在中国生产和销售的混合动力车PRIUS普锐斯下线 
+2006年 广州丰田汽车有限公司国产CAMRY凯美瑞轿车下线 
+ LEXUS雷克萨斯品牌三款重量级车型ES350、IS300、LS460登陆中国 </history><view>汽车制造,机械制造,知识管理</view></organization><organization id="O200910040004" lastedit="2012年3月8日  21时9分35秒"><name>金山公司 / 北京金山软件有限公司</name><year>1988</year><type>公司</type><introduce>金山软件，自1989年将我们的第一款办公软件产品WPS 1.0投放市场以来，目前已经成为中国最知名的软件企业之一，中国领先的应用软件产品和互联网服务供应商。金山软件在珠海、北京、成都、大连、深圳五地分设研发中心，2005年成立日本合资公司。公司目前主要涉及软件和网游两大核心业务，创造了WPS Office、金山词霸、金山毒霸、剑侠情缘、封神榜等众多知名产品。同时，金山旗下拥有国内最知名的大型英语学习社区爱词霸网（http://www.iciba.com）以及大型在线游戏交流社区逍遥网（http://www.xoyo.com）。 </introduce><view>IT,办公系统,游戏设计,信息安全,知识管理(?)</view><img>http://img.kingsoft.com/publish/kingsoft/images/07-gb/sy/logo_left.gif</img><link>http://www.kingsoft.com/</link></organization><organization id="O200910040005"><name>加利福尼亚大学 / カルフォルニア大学 / UC，University of California</name><year>1853年 
+http://ja.wikipedia.org/wiki/%E9%87%8E%E4%B8%AD%E9%83%81%E6%AC%A1%E9%83%8E</year><type>高校</type><introduce>The undergraduate admissions policy of the University of California is guided by the University's commitment to serve the people of California and the needs of the state within the framework of the California Master Plan for Higher Education.</introduce><link>http://www.universityofcalifornia.edu/</link><img>http://wiki.mbalib.com/w/images/thumb/f/fb/University_of_California_log.jpg/110px-University_of_California_log.jpg</img></organization><organization id="O200910040006"><name>一橋大学</name><year>1875年(建校) 1920年(大学设立)http://zh.wikipedia.org/wiki/%E4%B8%80%E6%A9%8B%E5%A4%A7%E5%AD%B8</year><type>高校</type><introduce>一橋大学の大きな特色として、まず第１に挙げられるのは、我が国で最も伝統のある社会科学の総合大学として、常に学界をリードしてきたという長い歴史と実績、並びにこの伝統を受け継ぎ、人文科学を含む広い分野で、新しい問題領域の開拓と解明を推進する豊富な教授陣に恵まれていることです。 </introduce><link>http://www.hit-u.ac.jp/</link><img>http://www.hit-u.ac.jp/common/logo.gif</img></organization><organization id="O200910050001" lastedit="2017年3月16日  9时39分56秒"><name>INFORMS/运筹学和管理学研究协会</name><year>1995</year><type>国际组织,出版社</type><introduce>The Institute for Operations Research and the Management Sciences (INFORMS) is the largest professional society in the world for professionals in the field of operations research (O.R.). It was established in 1995 with the merger of the Operations Research Society of America (ORSA) and The Institute of Management Sciences (TIMS).</introduce><link>http://www.informs.org</link><product refer="Organization Science$L200910050003">http://www.informs.org/index.php?c=31&amp;kat=-+INFORMS+Journals&amp;p=52|57|
+
+JOURNALS: 
+·Decision Analysis 
+·Information Systems Research 
+·INFORMS Journal on Computing 
+·Interfaces 
+·Management Science 
+·Manufacturing &amp; Service Operations Management 
+·Marketing Science 
+·Mathematics of OR 
+·Operations Research
+·Organization Science 
+·Transportation Science 
+·INFORMS Transactions on Education 
+·Interactive Transactions of OR/MS </product><infofrom refer="郭崇慧$R200907230001">郭崇慧老师在运筹学课程上强力推荐阅读该组织相关的文献</infofrom></organization><organization id="O200910060001"><name>Keysite / キーサイト株式会社</name><year>2000年9月</year><type>公司</type><introduce>事業内容: 以下のインテグレーション及びコンサルティングからパッケージ開発、受託開発 </introduce><link>http://www.keysite.co.jp</link></organization><organization id="O200910070001" lastedit="2012年3月8日  14时11分10秒"><name>工画堂 / KOGADO</name><year>1982年(电脑开发部成立),1960年(公司成立),1916年（创业）</year><type>公司</type><introduce>株式会社工画堂スタジオ（こうがどうスタジオ）は1916年（大正5年）創業のデザインおよびソフトウェア開発を行う日本の企業。
+
+うさぎさんちーむ、くまさんちーむ、くろねこさんちーむ、こねこさんちーむ、いるかさんちーむ、きつねさんちーむ、ぱんださんちーむのラインを持つ。 コーエーや日本ファルコムなどと並ぶ数少ない日本における一般向けパソコンゲームメーカーのひとつ。</introduce><product>代表作は『パワードール』シリーズ、『火星計画』シリーズ、『シュヴァルツシルト』シリーズなど。『火星計画』シリーズのようなリアルタイムシミュレーションゲームから、『シンフォニック=レイン』のようないわゆるギャルゲーや女性をターゲットとした『パレドゥレーヌ』まで、幅広いタイプのゲームをつくる。</product><img>http://www.kogado.com/html/index_img/soft.jpg</img><view>IT,游戏设计,平面设计</view><link>http://www.kogado.com/</link></organization><organization id="O200910070002" lastedit="2017年3月16日  9时40分23秒"><name>JCGA,Japan Computer Game Association（日本コンピュータゲーム協会）</name><year>1999年9月3日</year><type>社团协会</type><introduce>本会はコンピュータソフトウェア産業の置かれている現状に鑑み、技術交流を中心に会員各位の業績の向上を目指し、エンターテイメント産業として社会に対し現代文化の一翼を担う責務を全うすることを目的とする。</introduce><link>http://jcga.org/</link><view>IT,游戏</view></organization><organization id="O200910080001"><name>中国工程院</name><type>高校</type></organization><organization id="O200910080002"><name>中国社科院 / 中国社会科学院 / Chinese Academy of Social Sciences</name><type>高校</type><link>http://www.cass.net.cn/</link></organization><organization id="O200910080003"><name>北京工业大学</name><type>高校</type></organization><organization id="O200910080007" lastedit="2017年3月16日  10时7分5秒"><name>武汉大学</name><year>1893</year><type>高校</type><introduce>    武汉大学是国家教育部直属重点综合性大学，是国家“985工程 ”和“211工程 ”重点建设高校。 
+    武汉大学溯源于1893年清末湖广总督张之洞奏请清政府创办的自强学堂，历经传承演变，1928年定名为国立武汉大学，是近代中国第一批国立大学。1946年，学校已形成文、法、理、工、农、医 6大学院并驾齐驱的办学格局。新中国成立后，武汉大学受到党和政府的高度重视。1958年，毛泽东主席亲临武大视察。 1993年，武汉大学百年校庆之际，江泽民等党和国家领导人题词祝贺。改革开放以来，武汉大学在国内高校中率先进行教育教学改革，各项事业蓬勃发展，整体实力明显上升。1999年，世界权威期刊《 Science 》杂志将武汉大学列为 “ 中国最杰出的大学之一 ” 。2000年，武汉大学与武汉水利电力大学、武汉测绘科技大学、湖北医科大学合并组建新的武汉大学，揭开了学校改革发展的崭新一页。</introduce><img>http://pic.baike.soso.com/p/20131108/20131108100223-700263850.jpg</img><link>http://www.whu.edu.cn/index.html</link><view>知识网络</view></organization><organization id="O200910080008" lastedit="2017年3月16日  10时8分38秒"><name>纽约大学</name><type>高校</type><img>http://pic.baike.soso.com/p/20131101/20131101090749-1580309274.jpg</img></organization><organization id="O200910100001"><name>Prentice Hall</name><year>1913</year><type>出版社</type><img>http://www.prenticehall.com/images/ph_logo.gif</img><belongto refer="Pearson Education$O200910100002">Pearson Education</belongto></organization><organization id="O200910100002" lastedit="2017年3月16日  10时9分56秒"><name>Pearson Education</name><year>1724</year><type>出版社</type><introduce>Educating 100 million people worldwide, Pearson is the global leader in educational publishing, providing scientifically research-based print and digital programs to help students learn at their own pace, in their own way. </introduce><link>http://www.pearsoned.com/</link><img>http://s14.sinaimg.cn/mw690/004lDxWVgy6YOXxeorjbd&amp;690</img></organization><organization id="O200910120001" lastedit="2017年3月16日  10时12分8秒"><name>剑桥大学 / University of Cambridge /Cambridge University</name><year>1209</year><type>高校</type><link>http://www.cam.ac.uk/</link><img>http://f.hiphotos.baidu.com/zhidao/wh%3D600%2C800/sign=f3d2b390ab773912c4738d67c829aa20/bba1cd11728b4710bcc308e1c1cec3fdfc03232a.jpg</img><introduce>We are one of the world's oldest universities and leading academic centres, and a self-governed community of scholars. Cambridge comprises 31 Colleges and over 150 departments, faculties, schools and other institutions.</introduce></organization><organization id="O200910130001"><name>IEEE</name><year>1884</year><type>国际组织</type><introduce>IEEE is the world’s largest professional association advancing innovation and technological excellence for the benefit of humanity.  IEEE and its members inspire a global community to innovate for a better tomorrow through its highly cited publications, conferences, technology standards, and professional and educational activities. IEEE is the trusted “voice” for engineering, computing and technology information around the globe. </introduce><img>http://www.ieee.org/portal/cms_docs_iportals/iportals/global/images/ieee_logo_125.gif</img><link>http://www.ieee.org</link><view>技术创新,电子,人类,工程</view></organization><organization id="O200910130002" lastedit="2017年3月16日  10时14分17秒"><name>华中科技大学</name><type>高校</type><img>http://www.jianlimoban.net/logo/201206302331061378.jpg</img></organization><organization id="O200910130003" lastedit="2017年3月16日  10时15分3秒"><name>中山大学</name><type>高校</type><link>http://www.sysu.edu.cn/</link><year>1924年</year><founder>孙中山</founder><img>http://img.ph.126.net/QmQiqYk3C9t4S94oS-ms0g==/3289316577842325939.jpg</img><introduce>中山大学是由孙中山先生亲手创立，有着一百多年办学传统的综合性重点大学。今日的中山大学，由1952年院系调整后分设的中山大学和中山医科大学合并组建而成。</introduce></organization><organization id="O200910140001" lastedit="2017年3月16日  10时15分22秒"><name>IFSR,International Federation for Systems Research / 国际系统研究联合会</name><type>国际组织,学会</type><link>http://ifsr.ocg.at/world/node/12</link><year>1981</year><introduce>IFSR ... is a a non-profit, scientific and educational agency, constituted of member organizations from various countries. The overall purpose of the Federation is to advance cybernetic and systems research and systems applications and to serve the international systems community.</introduce><product>The IFSR has the following major means of publication:
+·The Journal of Systems Research and Behavioural Science 
+·The IFSR Book Series on Systems Science and Engineering 
+·The IFSR Newsletter 
+·Proceedings of Fuschl Conversations 
+·IFSR W. Ashby Memorial Lectures (held at EMCSR Conferences
+·Publication about the IFSR </product><founder>奥地利控制论学会(ASCS)，荷兰系统研究学会(DSSR)，一般系统研究学会(SGSR)等</founder><place>奥地利维也纳</place><leader refer="Yoshiteru Nakamori$R200909200003">President：Matjaz Mulej
+
+In the Board Meeting on March 26, 2008 in Vienna (see p.14) the IFSR Board elected a new vice president: Prof. Yoshiteru Nakamori, Japan.</leader></organization><organization id="O200910150001"><name>SESC,中国系统工程学会 / Systems Engineering Society of China</name><type>学会</type><founder refer="许国志$R200907230003#钱学森$R200907120025#关肇直$R200912050003">钱学森、宋健、关肇直、许国志</founder><link>http://www.iss.ac.cn/sesc/</link><introduce>中国系统工程学会是中国系统科学和系统工程科学技术工作者的学术性社会团体，是中国科学技术协会的组成部分。1979年由钱学森、宋健、关肇直、许国志等21名专家、学者共同倡议并筹备。1980年11月18日在北京正式成立。由自然科学领域的科学家钱学森和社会科学领域的经济学家薛暮桥担任名誉理事长，充分体现系统工程跨部门、跨领域交叉学科性质特点。</introduce><belongto>中国科学技术协会</belongto><year>1980年11月18日 北京</year></organization><organization id="O200910170001" lastedit="2017年3月16日  10时19分5秒"><name>大连理工大学管理学院</name><year>1986年</year><type>学院</type><introduce>大连理工大学是国内最早建立管理学科的6个学校之一，也是国内最早成立管理学院的单位之一。</introduce><belongto refer="大连理工大学$O200907020003">大连理工大学</belongto><link>http://management.dlut.edu.cn/</link><img>http://img5.cache.netease.com/edu/2012/11/23/20121123135527f57d9.jpg</img><history refer="系统工程研究所$O201001210001">大连理工大学管理学院于1986年由管理工程系和系统工程研究所联合成立。管理学院第一任院长由王众托院士担任。管理工程系于1980年和中国工业科技管理大连培训中心同时成立；系统工程研究所由教育部批准成立于1978年。</history></organization><organization id="O200910180001"><name>Basic Books</name><type>出版社</type></organization><organization id="O200910190001"><name>IXIASOFT公司</name><year>1998</year><type>公司</type><introduce>IXIASOFT is a private company which provides XML content management software solutions to hundreds of organizations worldwide. IXIASOFT products and solutions are renowned for their scalability, flexibility and reliability.</introduce><link>http://www.ixiasoft.com/</link><img>http://www.ixiasoft.com/images/ixialogo.gif</img><view>IT,XML</view><product>TEXTML Server, DITA CMS Framework, Whitepapers, Download Center</product><note refer="KMWorld$L200910190004">被KMWorld评为全球“知识管理百强企业”</note></organization><organization id="O200910190002" lastedit="2017年3月16日  10时19分40秒"><name>IPEDO / 倍多科技</name><view refer="SOA$D201211260001">知识管理,可视化,SOA</view><type>公司</type><partner refer="Hewlett-Packard$O200910190003">客户：Anhui Electric, British Telecom, Hewlett-Packard, Navio </partner><introduce>Ipedo's data virtualization software helps organizations extend the value and utility of their existing databases and reporting tools to make better business decisions. Ipedo delivers a new style of integration that creates a virtual database from multiple, physical databases, allowing organizations to more easily use information from distributed sources. Unlike previous integration technologies that rely on time-consuming bulk data movement, Ipedo's approach can deliver instant results from any combination of data sources.</introduce><product>http://www.ipedo.com/html/products.html
+·Ipedo XIP – Integration through Data Virtualization
+·Business Benefits 
+·Technical Benefits
+·Ipedo XML Database for embedded applications</product><link>http://www.ipedo.com/</link></organization><organization id="O200910190003"><name>惠普/hp,Hewlett-Packard</name><type>公司</type></organization><organization id="O200910200001"><name>TED</name><year>1984</year><type>非营利组织</type><introduce>TED is a small nonprofit devoted to Ideas Worth Spreading. It started out (in 1984) as a conference bringing together people from three worlds: Technology, Entertainment, Design. Since then its scope has become ever broader. Along with the annual TED Conference in Long Beach, California, and the TEDGlobal conference in Oxford UK, TED includes the award-winning TEDTalks video site, the Open Translation Program, the new TEDx community program, this year's TEDIndia Conference and the annual TED Prize.</introduce></organization><organization id="O200910200002" lastedit="2012年3月7日  20时57分3秒"><name>牛津大学     / Oxford University / University of Oxford</name><year>1096</year><type>高校</type><introduce>People from all walks of life and all parts of the world have been visiting us for nine centuries and we are delighted that via this website you are joining that long tradition. Oxford was the first University in the English-speaking world. Our aim is to remain at the forefront of centres of learning, teaching and research. </introduce><link>http://www.ox.ac.uk/</link><img>http://www.ox.ac.uk/display_images/logo.gif</img><history>http://www.ox.ac.uk/about_the_university/introducing_oxford/a_brief_history_of_the_university/index.html</history></organization><organization id="O200910210001"><name>科学出版社</name><year>1954</year><type>出版社</type><introduce refer="中国科学院$O200908040002">科学出版社（龙门书局）是中国科学出版集团的核心企业和全国最大的综合性科技出版机构。她由中国科学院编译局与30年代创建的有较大影响的龙门书局合并，于1954年8月成立。1993年8月恢复使用“龙门书局”副牌。2007年4月完成了“科学出版社有限责任公司”工商注册登记。2007年8月，科学出版社有限责任公司董事会、监事会、经营班子成立，2007年9月1日新的领导体制和机制开始运作。</introduce><link>http://www.sciencep.com</link><img>http://www.sciencep.com/templates/image/205.gif</img></organization><organization id="O200910220001"><name>国家自然科学基金委员会 / National Natural Science Foundation of China</name><type>事业单位</type><link>http://www.nsfc.gov.cn/nsfc2009/index.htm</link><img>http://www.nsfc.gov.cn/nsfc/cen/gjhz/images/ind01.jpg</img><introduce>国家自然科学基金委员会是管理国家自然科学基金的事业单位。主要任务是资助基础研究和部分应用研究工作。
+主　要　职　责
+　　1、根据国家发展科学技术的方针，政策和规划，有效地运用科学基金，指导，协调和资助基础研究和部分应用研究工作，发现和培养人才，促进科学技术进步和经济、社会发展。
+　　2、制订和发布基础研究和部分应用研究的项目指南，受理课题申请、组织同行评议、择优资助。
+　　3、接收委托，对国家的基础研究和应用研究方面的重大问题提供咨询和承担有关任务。
+　　4、支持其它面向向全国的科学基金会的工作，并在科学基金业务管理工作上给予协调和指导。
+　　5、同其它国家和地区的科学基金会和有关学术组织建立联系并开展国际合作。 
+基　金　来　源
+　　国家自然科学基金委员会的经费，主要来自国家财政拨款，同时接受国内外单位和个人的捐款。</introduce><product>项目：863项目</product></organization><organization id="O200910220002" lastedit="2018年4月16日  15时40分30秒"><name>山东大学</name><year>1901</year><type>高校</type><introduce>山东大学是一所历史悠久、学科齐全、学术实力雄厚、办学特色鲜明，在国内外具有重要影响的教育部直属全国重点综合性大学，是国家"211工程"和"985工程"重点建设的高水平大学之一。</introduce><img>http://www.sdu.edu.cn/index.files/tt1.gif</img><link>http://www.wcica.info/</link><view>点云</view></organization><organization id="O200910220003"><name>Scientific Research / 科研出版社</name><type>出版社</type><introduce>Scientific Research Publishing (SRP:  http://www.scirp.org) is engaged in the service of academic conferences and publications. It also devotes to the promotion of professional journals. The company has an outstanding work team as well as the widespread third party relations, enables our customers to obtain great satisfactions and convenience in their publications.</introduce><link>http://www.scirp.org/Index.aspx</link><img>http://www.scirp.org/images/scirp/top.jpg</img></organization><organization id="O200910220004"><name>IEEE CS,IEEE Computer Society</name><year>1946</year><type>学会</type><introduce>With nearly 85,000 members, the IEEE Computer Society is the world’s leading organization of computing professionals. Founded in 1946, and the largest of the 38 societies of the Institute of Electrical and Electronics Engineers (IEEE), the CS is dedicated to advancing the theory and application of computer and information-processing technology.</introduce><belongto refer="IEEE$O200910130001">IEEE</belongto><link>http://www.computer.org/portal/web/about</link></organization><organization id="O200910260001"><name>IIASA, International Institute for Applied Systems Analysis/国际应用系统分析研究所</name><year>1972</year><type>国际组织</type><introduce>其成立标志着系统工程的发展进入了一个新的阶段。[info: 系统工程引论]</introduce><infofrom refer="系统工程引论$L200910250001">系统工程引论  p.5
+系统工程 p.10</infofrom></organization><organization id="O200910260002"><name>上海交通大学</name><type>高校</type><img>http://www.sjtu.edu.cn/images/logo.jpg</img><link>http://www.sjtu.edu.cn/</link><year>1896年</year><founder>盛宣怀先生</founder><introduce>上海交通大学是我国历史最悠久的高等学府之一，是教育部直属、教育部与上海市共建的全国重点大学，是国家 “七五”、“八五”重点建设和“211工程”、“985工程”的首批建设高校。经过113年的不懈努力，上海交通大学已经成为一所“综合性、研究型、国际化”的国内一流、国际知名大学，并正在向世界一流大学稳步迈进。</introduce><view>机械,工业工程,纳米科学,海洋工程,系统工程,力学,管理科学,教育学,医学</view></organization><organization id="O200910260003"><name>芝加哥大学 / University of Chicago</name><year>1892</year><type>高校</type><introduce>the University of Chicago is uniquely positioned to contribute to, and draw from, the strength and diversity of this world-class metropolis. We have also made an indelible mark on the world at large. </introduce><link>http://www.uchicago.edu/</link><img>http://www.uchicago.edu/i/template/masthead.gif</img><founder>124</founder></organization><organization id="O200910280001" lastedit="2021年10月27日  11时28分6秒"><name refer="">SAP</name><year>1972</year><type>公司</type><link>http://www.sap.com
+http://www.sap.com/china/index.epx
+http://www.careersatsap.com/#求职
+http://zh.wikipedia.org/wiki/SAP%E5%85%AC%E5%8F%B8#维基百科
+http://www.job592.com/cv/090416/person251999.html</link><founder>Dietmar Hopp, Hans-Werner Hector, Hasso Plattner, Klaus Tschira, and Claus Wellenreuther</founder><nation refer="德国$O201003070004">德国</nation><place>德国沃尔多夫市</place><introduce>是全球最大的企业管理和协同化商务解决方案供应商。</introduce><img>http://pic.baike.soso.com/p/20140505/20140505092212-77569466.jpg</img><view>工业智能化</view></organization><organization id="O200910280002"><name>ゲシュタルト心理学 / Gestalt Psychologie / 格式塔学派 / 完形心理学</name><type>学派</type><introduce>心理学の一学派。人間の精神は部分や要素の集合ではなく、全体性や構造こそ重要視されるべきとした。この全体性を持ったまとまりのある構造をドイツ語でゲシュタルト(Gestalt ：形態)と呼ぶ。</introduce><link>http://ja.wikipedia.org/wiki/%E3%82%B2%E3%82%B7%E3%83%A5%E3%82%BF%E3%83%AB%E3%83%88%E5%BF%83%E7%90%86%E5%AD%A6
+http://zh.wikipedia.org/wiki/%E6%A0%BC%E5%BC%8F%E5%A1%94%E5%AD%A6%E6%B4%BE</link><img>http://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Emergence.jpg/260px-Emergence.jpg</img><founder>由马科斯·韦特墨（1880~1943）、沃尔夫冈·苛勒（1887~1967）和科特·考夫卡（1886~1941）三位德国心理学家在研究似动现象的基础上创立。</founder><standpoint>主张人脑的运作原理是整体的，“整体不同于其部件的总和”。
+格式塔体系的关键特征是整体性、具体化、组织性和恒常性。</standpoint><reference refer="Gestalt Theory$L200912120001#Cognitive Psychology$L200912180006">期刊：
+Gestalt Theory
+论文：
+Sternberg, R.J. (2006). Cognitive Psychology. Belmont, CA: Thomson Higher Education.
+Fiorenza Toccafondi.(2002).RECEPTIONS, READINGS AND INTERPRETATIONS OF GESTALTPSYCHOLOGIE. Gestalt Theory - Vol. 24, No. 3 (September 2002)</reference></organization><organization id="O200910280003" lastedit="2017年3月16日  10时25分39秒"><name>柏林大学/柏林洪堡大学/University of Berlin</name><year>1810</year><type>高校</type><introduce>是德国首都柏林最古老的大学，于1809年由普鲁士教育改革者及语言学家威廉·冯·洪堡及弟弟亚历山大·冯·洪堡（Alexander von Humboldt）所创立，是第一所新制的大学，对于欧洲乃至于全世界的影响都相当深远。</introduce><link>http://zh.wikipedia.org/zh-cn/%E6%9F%8F%E6%9E%97%E6%B4%AA%E5%A0%A1%E5%A4%A7%E5%AD%B8</link><img>http://www.cxy-de.org/images/photo/1hongbao-3.jpg</img></organization><organization id="O200911080001"><name>SFI,圣菲研究所</name><type>研究所</type><introduce>著名的复杂型科学研究基地</introduce><infofrom>知识系统工程[M]</infofrom></organization><organization id="O200911090001" lastedit="2017年3月16日  10时26分27秒"><name>KartOO S.A.</name><year>2001</year><type>公司</type><introduce>leader in Information Visualization,KartOO S.A. developed practical and reliable tools applicable for:
+·Economic Intelligence and Strategic Watch
+·Information Search
+·KM and Innovation Management </introduce><view>可视化,知识管理</view><link>http://www.kartoo.net/</link><infofrom refer="Toward Topic Maps Processing and Visualization$L200911090006">Toward Topic Maps Processing and Visualization</infofrom><product>·K.E-Reputation
+·K.Alert
+·Search and Meta Search Engine
+·Experts Directory / Competency Directory / CV-Resume Management 
+·K.BRAINWAVE -INNOVATION MANAGEMENT
+·Social Network Analysis </product></organization><organization id="O200911110009" lastedit="2019年3月13日  16时26分32秒"><name>莲兮奈若何工作室/莲什</name><founder refer="杜子兮$R200910130001">杜子兮</founder><year>2006年11月</year><type>团队</type><view>知识管理，软件设计，平面设计，游戏设计，Web，可视化</view><img>http://portrait8.sinaimg.cn/1524372743/blog/180</img></organization><organization id="O200911110010"><name>系统所知识团队</name><type>团队</type><belongto refer="系统工程研究所$O201001210001">大连理工大学管理学院 系统工程研究所</belongto><view>系统科学,系统工程,知识科学,知识管理,知识系统工程</view><infofrom>管理学院2楼展板</infofrom><founder refer="王众托$R200907160022">王众托</founder></organization><organization id="O200911110011"><name>中森研究室</name><link>http://www.jaist.ac.jp/ks/labs/nakamori/</link><view>知识科学,感性工程,知识管理</view><introduce>「知識の融合と創造のためのシステム方法論と手法に関する理論および応用研究」について研究しております。</introduce><founder>中森义辉</founder><leader refer="中森义辉$R200909200003">中森义辉</leader><img>http://www.jaist.ac.jp/ks/labs/nakamori/images/IMG_1289.gif</img><member>2009年度下半期メンバー
+PD 閻　宏斌 Mr. YAN Hongbin 
+D 鞠　洪麗　 Ms. JU Hongli 
+</member></organization><organization id="O200911110012"><name>ISS,AMSS /中国科学院 系统科学研究所 /Institute of Systems Science, Chinese Academy of Sciences, Academy of Mathematics and Systems Science</name><link>http://www.iss.ac.cn/iss/chinese.html</link><view>系统科学</view><introduce>http://www.iss.ac.cn/iss/images/logo.jpg</introduce><founder refer="许国志$R200907230003#关肇直$R200912050003#吴文俊$R201004180001">我国著名科学家关肇直院士、吴文俊院士、许国志院士为主要创始人。
+</founder><leader refer="关肇直$R200912050003">关肇直院士为首任所长。继任所长成平研究员、陈翰馥院士、郭雷院士，现任所长高小山研究员，副所长张纪峰研究员，所长助理杨晓光研究员。</leader><year>1979年10月</year></organization><organization id="O200911120001" lastedit="2017年3月16日  10时29分5秒"><name>SRI / 社会资源研究所 / 企业社会责任资源中心</name><year>2008</year><view>教育,环境,金融,社会责任,慈善事业,社会标准,劳工保护,供应链</view><type>研究所</type><introduce>  社会资源研究所（SRI）是一家独立研究机构，工作范畴聚焦于商业和社会之间的交叉领域，工作方向是研究经济发展过程中产生的社会问题，并探索相应的解决方案。  
+使命：推动可持续商业在中国的实现
+  社会资源研究所是一家非营利研究机构，其行动和研究主要集中在企业社会责任（CSR）和非营利部门的可持续发展两个议题上。社会资源研究所积极倡导公民社会对企业社会责任的参与，并致力于拓展公民社会的资源和空间。</introduce><link>http://www.csrglobal.cn/</link><infofrom>Google搜索："企业社会资源管理系统"
+http://www.chinacsrmap.org/OrgShow.asp?CCMOrg_ID=1196</infofrom></organization><organization id="O200911130001"><name>CASOS,Computational Analysis of Social and Organizational Systems</name><view>社会网络,动态网络,复杂系统,Agent</view><type>研究所</type><introduce>CASOS brings together computer science, dynamic network analysis and the empirical study of complex socio-technical systems. Computational and social network techniques are combined to develop a better understanding of the fundamental principles of organizing, coordinating, managing and destabilizing systems of intelligent adaptive agents (human and artificial) engaged in real tasks at the team, organizational or social level. Whether the research involves the development of metrics, theories, computer simulations, toolkits, or new data analysis techniques advances in computer science are combined with a deep understanding of the underlying cognitive, social, political, business and policy issues.</introduce><belongto>School of Computer Science at Carnegie Mellon University</belongto><link>http://www.casos.cs.cmu.edu/index.php</link><product refer="AutoMap$D200911130001">Computational Models and Social Network Tools
+http://www.casos.cs.cmu.edu/computational_tools/tools.html
+·AutoMap</product><img>http://www.casos.cs.cmu.edu/attributes/banner_new.jpg</img></organization><organization id="O200911130002"><name>TSCF,The Social Capital Foundation</name><view>社会资本</view><introduce>The Social Capital Foundation (TSCF) is an independent non-profit institution that pursues the promotion of social capital and social cohesion.  TSCF's orientation emphasizes the necessary social dimension of the market economy, the pivotal role of the middle class in modern society, the necessity for improvement of social cooperation and participation, the development of civil society vs. government, and the preservation of cultural identity for community integration.</introduce><link>http://www.socialcapital-foundation.org/</link><img>http://www.socialcapital-foundation.org/new_new/image/logo.jpg</img><infofrom>http://en.wikipedia.org/wiki/Social_Capital</infofrom><product>TISR Model
+http://www.socialcapital-foundation.org/editorial_information/tisr_model.htm</product></organization><organization id="O200911140001"><name>IBM 知识管理研究院 / IBM：the Institue of Knowledge Management</name><view>知识管理</view><type>研究院</type><belongto refer="IBM$O200910010002">IBM</belongto><link>http://www.crn.com/it-channel/18800685;jsessionid=N33AZMJLZ20YFQE1GHPCKH4ATMY32JVN</link></organization><organization id="O200911190001"><name>CSDN（世纪乐知） /Csdn.net</name><year>1999？</year><view>IT</view><type>公司</type><introduce>CSDN（世纪乐知）是一家服务于中国IT专业人士学习与成长需要的领先综合社区服务平台。CSDN以旗下全球知名中文IT技术社区为基础，通过网站·杂志、教育·培训、人才·交易三大业务群形成从知识传播、技术教育到职业成长的完整知识传播与服务链。</introduce><link>http://www.csdn.net</link><img>http://csdnimg.cn/www/images/csdnindex_piclogo.gif</img></organization><organization id="O200911190002"><name>ASA, American Sociological Association</name><year>1905</year><view>社会学</view><type>国际组织</type><introduce>The American Sociological Association is:
+·a non-profit membership association based in Washington, DC 
+·dedicated to advancing sociology as a scientific discipline and profession serving the public good 
+</introduce><product refer="Sociological Theory$L200911300002">ASA Journals
+·American Sociological Review  
+·Contemporary Sociology: A Journal of Reviews 
+·Contexts 
+·Journal of Health and Social Behavior 
+·Social Psychology Quarterly 
+·Sociological Methodology 
+·Sociological Theory 
+·Sociology of Education 
+·Teaching Sociology </product><link>http://www.asanet.org/cs/journals/asr</link></organization><organization id="O200911190003"><name>密歇根大学 / University of Michigan</name><year>1817</year><view>社会学</view><type>高校</type><introduce>The mission of the University of Michigan is to serve the people of Michigan and the world through preeminence in creating, communicating, preserving and applying knowledge, art, and academic values, and in developing leaders and citizens who will challenge the present and enrich the future.</introduce><img>http://vpcomm.umich.edu/images/seal.gif</img><link>http://www.umich.edu/</link></organization><organization id="O200911200001"><name>大连大学 / Dalian University</name><type>高校</type></organization><organization id="O200911220001"><name>Sony / 索尼公司</name><year>1946年5月</year><view>IT,影视,音乐</view><type>公司</type><introduce>索尼公司是世界上民用/专业视听产品、游戏产品、通讯产品和信息技术等领域的先导之一。它在音乐、影视、计算机娱乐以及在线业务方面的成就也使其成为全球领先的个人宽带娱乐公司。公司在截止到2009年3月31日结束的2008财年中的合并销售额约为789亿美元。</introduce><img>http://www.sony.com.cn/images/head_logo_mb.gif</img><link>http://www.sony.com.cn/index.htm</link><founder>已故的索尼公司创始人井深大先生出生于1908年，1933年毕业于早稻大学科学工程学院，早在还是学生的时候他就以“动态霓虹灯”获得巴黎万国博览会优秀发明奖。1946年5月，他同盛田昭夫先生以19万日元共同创立了东京通信工业株式会社（简称“东通工”，1958年更名为索尼公司），出任公司高级总经理和代理董事。作为一名重视创造力、独特性的技术人员和企业家，他为公司事业的发展付出了毕生精力。</founder></organization><organization id="O200911230001" lastedit="2017年3月29日  14时14分47秒"><name>电子工业出版社</name><year>1982年10月</year><type>出版社</type><introduce refer="工业和信息化部$O201003080001"> 电子工业出版社成立于1982年10月，是工业和信息化部直属的科技与教育出版社，享有"全国优秀出版社"、"讲信誉、重服务"的优秀出版社、"全国版权贸易先进单位"、首届中国出版政府奖、“先进出版单位”等荣誉称号。</introduce><link>http://www.phei.com.cn</link></organization><organization id="O200911250001"><name>耶鲁大学 / Yale University</name><year>1701</year><view>艺术,科学,神学,工程学,环境科学,法律,管理,医学,建筑,戏剧,音乐</view><type>高校</type><introduce>Yale University comprises three major academic components: Yale College (the undergraduate program), the Graduate School of Arts and Sciences, and the professional schools. In addition, Yale encompasses a wide array of centers and programs, libraries, museums, and administrative support offices. Approximately 11,250 students attend Yale.</introduce><link>http://www.yale.edu/</link><img>http://www.yale.edu/res/images/yale_logo_sm.gif</img><nation>美国</nation><place>New Haven</place></organization><organization id="O200911250002"><name>Johns Hopkins University</name><type>高校</type></organization><organization id="O200911260001"><name>南开大学</name><type>高校</type></organization><organization id="O200911260002"><name>UAlbany / University at Albany, SUNY / the State University of New York at Albany</name><year>1844</year><type>高校</type><link>http://en.wikipedia.org/wiki/University_at_Albany,_The_State_University_of_New_York</link><img>http://upload.wikimedia.org/wikipedia/en/9/9d/Ualbany_logo.png</img></organization><organization id="O200911260003"><name>HUMAX公司</name><view>企业社会资本,社会关系,人力资源</view><type>咨询公司</type><leader refer="Baker$R200911250001">研究主管：Wayer Baker</leader><introduce>The Humax Assessment is a scientific diagnosis of the strengths and weaknesses of your and your organization's social capital. The Humax Assessment is the most advanced and comprehensive social capital assessment tool. It combines recent advances in Web technology with sophisticated statistical analyses to provide an accurate diagnosis of your networks.</introduce><link>http://www.humaxnetworks.com/</link><standpoint>Human Capital * Social Capital * Reputation = SUCCESS
+info. from: http://www.humaxnetworks.com/SocialCapital/humaxpresentation.html
+
+People with rich social capital are better informed, more creative, more efficient, and better problem solvers. With the right networks, people save time because they know where to get the information they need. They don't duplicate efforts. With the right networks, they foster cooperation and collaboration. They work smarter.
+info. from: http://www.humaxnetworks.com/socialcap.html</standpoint><newwords>bowtie n.蝶形领结
+entrepreneurial adj. 企业家的,企业性质的
+individualist n. 个人主义者
+intermediary n. 仲裁者,调解者,媒介物
+milestone n. 里程碑
+myth n. 神话
+rags n.破旧衣服
+reciprocity n. 相互性,相互作用,互惠主义
+rugged adj. 高低不平的,崎岖的,粗糙的
+sensation n. 感觉,感情,感动</newwords></organization><organization id="O200911290001"><name>CADRC,Collaborative Agent Design Research Center</name><year>1986</year><view>Agent,决策支持系统,复杂系统</view><type>研究所</type><introduce>The main interests of the Collaborative Agent Design (CAD) Research Center have centered on the development of integrated decision-support systems for the solutions of complex problems using a collaborative multi-agent approach.</introduce><img>http://www.cadrc.calpoly.edu/logos/cadrc_logo_big_cover.gif</img><link>http://www.cadrc.calpoly.edu/</link><belongto>California Polytechnic State University</belongto><leader>Directors:
+= Executive Director: Dr. Jens Pohl
+= Director of Relations: Arthur Chapman
+= Director of Applied Research: Anthony Wood </leader><job>CUSTOMER SUPPORT 
+ Provide services to both internal and external customers for technical support, assistance with problems, training, and distribution of software and hardware updates. 
+
+DEVELOPER 
+ Support development and testing of software for the ICODES (Integrated Computerized Deployment Sytem) project. 
+
+MULTIMEDIA DESIGNER 
+ Maintain the internal and external Web sites for the CADRC and design digital and print media. 
+
+SOFTWARE ENGINEER 
+ Design and develop custom software applications for UNIX and/or Windows NT using C, C++, Java, expert shells, and /or scripting languages. 
+
+TECHNICAL WRITER 
+ Create, design, write, and produce clear and concise technical documents for the CADRC. 
+
+TESTER 
+ Test software applications for bugs with an emphasis on the end-user perspective. </job><place>San Luis Obispo, CA 93407, USA   Phone (805) 756-2841 Fax (805) 756-7568</place><product>CIAT      Collaborative Infrastructure Assessment Tool 
+  
+COACH     Collaborative Agent-Based Control and Help System  
+  
+EMERRS    Emergency Regional Response Systems 
+  
+FALCON    Future Army Leaders Command Operations Network 
+  
+FEAT      Fire Engagement Analysis Tool 
+  
+ICADS     Intelligent Computer-Assisted Design System 
+  
+ICDM      A Design and Execution Toolkit for Agent-Based, Decision-Support Applications 
+  
+ICODES    Integrated Computerized Deployment System 
+  
+IMMACCS   Integrated Marine Multi-Agent Command and Control System 
+  
+JFCT      Joint Forces Collaborative Toolkit 
+  
+KMES      Knowledge Management Enterprise Services 
+  
+KOALA     Knowledge-Oriented Object-Agent Collaboration System 
+  
+LOGGY     Joint Decision-Support System for Tactical Logistic Planning and Coordination 
+  
+OTIS      Ordance Tracking Information System 
+  
+SILS      Shipboard Integration of Logistic Systems  
+  
+TEGRID    Taming the Electrical Grid 
+  
+TIRAC     Toolkit for Information Representation and Agent Collaboration  
+  
+TRANSWAY  Strategic and Theater Distribution Planning and Re-Planning </product></organization><organization id="O200912010001"><name>杜克大学 / Duke University</name><type>高校</type><note>1998 年10 月底至11 月初,“社会资本与社会网络”的国际研讨会在美国杜克大学举行, 十几个国家和地区的学者与会, 交流了有关社会资本的概念、理论和实证研究发现并对这一新的研究领域进行了学术探讨和展望。</note></organization><organization id="O200912030001"><name>INSNA,International Network for Social Network Analysis / 社会关系网络分析的国际性网络</name><year>1978</year><view>社会学,社会网络</view><type>国际组织</type><introduce>INSNA is the professional association for researchers interested in social network analysis. The association is a non-profit organization incorporated in the state of Delaware and founded by Barry Wellman in 1978. </introduce><link>http://www.insna.org/</link><img>http://www.insna.org/images/INSNA_header.jpg</img><founder>Barry Wellman</founder><product>出版物：Connections
+会  议：International Social Networks Conference</product></organization><organization id="O200912040001"><name>AIS,Association for Information Systems</name><year>1994</year><view>信息系统</view><type>学会,国际组织</type><introduce>The Association for Information Systems (AIS), is the premier global organization for academics specializing in information systems. Founded in 1994,  AIS is an international professional society of 4,000 members from 90 countries and a key player in the advancement of the IS academic community.</introduce><link>http://home.aisnet.org</link><img>http://aisel.aisnet.org/assets/md5images/3879533a2232eb56d4d757ffbd747b73.gif</img><partner refer="微软$O200909220002#IBM$O200910010002">合作伙伴：微软, IBM</partner><founder>Bill King, of the University of Pittsburgh, was first among many to play key leadership roles in bringing the association into existence. He served as the first president.</founder><product refer="CAIS$L200912040001#MIS Quarterly$L200909070002">期刊(Journals)：
+AIS Transactions on Human-Computer Interaction
+CAIS,Communications of the Association for Information Systems
+Journal of Information Technology Theory and Application (JITTA)
+Journal of the Association for Information Systems
+MIS Quarterly,Management Information Systems Quarterly
+Pacific Asia Journal of the Association for Information Systems
+Revista Latinoamericana Y Del Caribe De La Associacion De Sistemas De Informacion</product></organization><organization id="O200912050001" lastedit="2020年2月14日  17时30分31秒"><name refer="">微软亚洲研究院</name><view>人工智能,IT</view><type>研究院</type><link>http://blog.sina.com.cn/msra</link><belongto refer="微软$O200909220002">微软</belongto></organization><organization id="O200912050002"><name>東京工業大学 / 东京工业大学</name><type>高校</type></organization><organization id="O200912060001"><name>European Software-Agent Research Center</name><view>Agent</view><type>学会</type><link>http://www.software-agent.eu/</link><img>http://www.software-agent.eu/images/globe_sign.png</img></organization><organization id="O200912060002"><name>复旦大学 / Fudan University</name><year>1905年</year><type>高校</type><introduce>复旦大学创建于1905年，原名复旦公学，是中国人自主创办的第一所高等院校。“复旦”二字由创始人、中国近代知名教育家马相伯先生选定，选自《尚书大传·虞夏传》中“日月光华，旦复旦兮”的名句，意在自强不息，寄托当时中国知识分子自主办学、教育强国的希望。</introduce><founder>马相伯</founder><img>http://www.fudan.edu.cn/images/head-mid1.gif</img><link>http://www.fudan.edu.cn/</link></organization><organization id="O200912160002" creator="lotusawhat"><name>FIPA,Foundation for Intelligent Physical Agents / 智能物理Agent基金会</name><type>学会,国际组织</type><year>1996</year><link>http://www.fipa.org/</link><view>Agent,物理</view><img>http://www.fipa.org/assets/images/fipa_logo__0075_.png</img><introduce>FIPA is an IEEE Computer Society standards organization that promotes agent-based technology and the interoperability of its standards with other technologies.</introduce><belongto refer="IEEE Computer Society$O200910220004">IEEE Computer Society</belongto><leader>Acting chair: James Odell (CSC)
+Acting Regional Chairs:
+-Europe: Stephan Poslad
+-US: Renato Levy</leader></organization><organization id="O200912170001" creator="lotusawhat"><name>ALU,Association of Lisp Users</name><type>学会</type><year>1991</year><link>http://www.alu.org/alu/home</link><view refer="Lisp$D200912170002">Lisp</view><introduce>The Association of Lisp Users is an international organization whose mission is: to support the Lisp community by hosting an annual conference and providing administrative support for Lisp-related projects and local user groups.</introduce><newwords>board n. 董事会</newwords><img>http://www.alu.org/alu/images/small-globe-in-parentheses.jpg</img><leader>President  Ernst van Waning   
+Vice President  Rich Hickey   
+Secretary  Peter Lindahl   
+Treasurer  Rusty Johnson   
+Membership Secretary  Mason Bliss   
+Librarian  Daniel Herring  </leader><partner refer="LispWorks$O200912170002">赞助商：
+LispWorks
+Mathematical Systems Inc.
+Clozure Associates
+Ravenbrook
+Genworks
+http://www.alu.org/alu/alu-sponsors</partner></organization><organization id="O200912170002" creator="lotusawhat"><name>LW,LispWorks</name><type>公司</type><year>January 2005</year><link>http://www.lispworks.com/</link><view refer="Lisp$D200912170002">Lisp</view><img>http://www.alu.org/img/sponsor/lw.gif</img><introduce>The company sells software written using the Common Lisp programming language. Our main products, LispWorks and Liquid Common Lisp, are Lisp development tools. Our primary business is support and development of these tools. We are also experts in application design and development and we provide consultancy services to companies needing implementation of software projects.</introduce><leader>The directors of LispWorks Ltd are:
+= Martin Simmons
+Martin has a first class degree in Computer Science from Jesus College, Cambridge. He has over eighteen years experience in the Lisp business.
+= Dave Fox
+Dave has a first class degree in Mathematics from Christ's College, Cambridge. He has over thirteen years experience in the Lisp business.</leader></organization><organization id="O200912180001" creator="lotusawhat"><name>伯川图书馆</name><type>图书馆</type><year>1949</year><link>http://www.lib.dlut.edu.cn
+http://opac.lib.dlut.edu.cn/opac/search.php</link><view>文献</view><img>http://www.lib.dlut.edu.cn/mit/070114.jpg</img><introduce>大连理工大学图书馆创建于1949年,当时称为大连工学院图书馆,设在市内一二九街,面积不足1000平方米。藏书约为1万册(主要是日伪时期南满州工业专科学校留下的日本图书,少量英文图书及十余种中、日文期刊)。1963年在凌水河校区建成8370平方米的独立馆舍,经过多年努力,逐步发展壮大,形成具有一定规模和影响的大学图书馆。1988年更名为大连理工大学图书馆。1997年兴建伯川图书馆。目前大连理工大学图书馆馆舍面积45627平方米,由五部分组成。</introduce><belongto refer="大连理工大学$O200907020003">大连理工大学</belongto><leader>馆  长   杨海天   教授 
+副馆长   刘  斌   研究馆员
+副馆长   金玉玲   研究馆员
+副馆长   罗远环   副研究员</leader><place>大连理工大学</place></organization><organization id="O200912200001" creator="lotusawhat"><name>James Madison University</name><type>高校</type><link>http://www.jmu.edu/</link><view>管理学</view><img>http://www.jmu.edu/jmuweb/images/va/james-madison-university.gif</img><introduce>It's not just a slogan. It is Madison -- a living, evolving university where change is the status quo. Daily our students, faculty and alumni address the world's needs. We help those struggling with disease, poverty, handicaps or lack of opportunity through science, humanitarianism and service. We expand the world's knowledge through innovative and cutting-edge research, widely available to our undergraduates. We explore new worlds through global-centric perspectives and study abroad programs.</introduce><founder>James Madison</founder></organization><organization id="O200912240001" creator="lotusawhat"><name>NAACSOS,North American Association for Computational Social and Organization Sciences</name><type>学会</type><link>http://www.casos.cs.cmu.edu/naacsos/</link><view>社会科学,组织科学</view><leader>President: Claudio Cioffi-Revilla, George Mason University 
+Vice President: William Griffith, Arizona State University 
+Secretary: Charles Macal, Argonne National Lab 
+Treasurer: Corinne Coen, University of Buffalos 
+Membership Committee Chair: Michael North, Argonne National Lab 
+Webmaster: Carnegie Mellon University </leader></organization><organization id="O200912250001" creator="lotusawhat"><name>新新宇宙绿色游戏设计</name><type>团队</type><view>游戏设计</view><founder refer="蔡江胜$R201001240011">蔡江胜老师</founder><link>http://www.xxyz.com.cn/
+http://www.xxyz.com.cn/_forum/index.asp</link><img>http://www.xxyz.com.cn/images/logo.gif</img></organization><organization id="O200912310001" creator="lotusawhat"><name>中南大学</name><type>高校</type></organization><organization id="O201001010001" creator="lotusawhat"><name>ACM,Association for Computing Machinery / 美国计算机协会</name><type>学会</type><link>http://www.acm.org/
+http://portal.acm.org/portal.cfm</link><img>http://www.acm.org/logo.jpg</img><introduce>ACM, the world’s largest educational and scientific computing society, delivers resources that advance computing as a science and a profession. ACM provides the computing field's premier Digital Library and serves its members and the computing profession with leading-edge publications, conferences, and career resources.</introduce><department refer="SIGKDD$O201001010002#SIGIR$O201001050001">SIGACCESS SIGACT SIGAda SIGAPP SIGARCH SIGART SIGBED SIGCAS 
+SIGCHI SIGCOMM SIGCSE SIGDA SIGDOC SIGecom SIGEVO SIGGRAPH 
+SIGIR SIGITE SIGKDD SIGMETRICS SIGMICRO SIGMIS SIGMM SIGMOBILE 
+SIGMOD SIGOPS SIGPLAN SIGSAC SIGSAM SIGSIM SIGSOFT SIGSPATIAL 
+SIGUCCS SIGWEB </department><product>Magazines 杂志
+
+Communications of the ACM (CACM) [subscribe]
+Computers in Entertainment (CIE) [subscribe]
+Crossroads: The International ACM Student Magazine [subscribe]
+eLearn: Education and Technology in Perspective
+Intelligence: New Visions of AI in Practice (No Longer Published) 
+interactions: experiences · people · technology [subscribe]
+netWorker: the craft of network computing [subscribe]
+StandardView (No Longer Published) 
+acmqueue
+
+Journals 期刊
+
+Collected Algorithms (CALGO) (No Longer Published; folded into TOMS)
+Computing Reviews [subscribe]
+Computing Surveys [subscribe]
+Journal of Data and Information Quality(JDIQ) [subscribe]
+Journal of Experimental Algorithmics (JEA)[subscribe]
+Journal of the ACM (JACM) [subscribe]
+Journal on Computing and Cultural Heritage (JOCCH)[subscribe]
+Journal on Educational Resources in Computing (JERIC) -- Discontinued, replaced by Transactions on Computing Education (TOCE) 
+Journal on Emerging Technologies in Computing Systems (JETC)[subscribe]
+TECHNews
+Ubiquity
+
+Transactions 会议论文?</product></organization><organization id="O201001010002" creator="lotusawhat"><name>SIGKDD</name><type>学会</type><view>知识发现,数据挖掘</view><belongto refer="ACM$O201001010001">ACM</belongto><introduce>SIGKDD's primary mission is to provide the premier forum for advancement, education, and adoption of the "science" of knowledge discovery and data mining from all types of data stored in computers and networks of computers. SIGKDD promotes basic research and development in KDD, adoption of "standards" in the market in terms of terminology, evaluation, methodology and interdisciplinary education among KDD researchers, practitioners, and users. </introduce><leader>SIGKDD Executive Committee 
+Chair  
+Usama Fayyad 
+CEO, Open Insights, USA  
+
+Secretary/Treasurer  
+Osmar R. Zaiane 
+Professor, University of Alberta, Canada  
+
+Board of Directors  
+Johannes Gehrke 
+Associate Professor, Cornell University
+
+Robert Grossman 
+Director, National Center for Data Mining (NCDM) at U. Illinois Chicago Managing Partner, Open Data Partners LLC 
+
+David Jensen 
+Associate Professor of Computer Science and Director of the Knowledge Discovery Laboratory at the U. of Massachusetts Amherst 
+
+Raghu Ramakrishnan 
+Professor of Computer Sciences, U. Wisconsin-Madison, USA 
+
+Sunita Sarawagi 
+Associate Professor, KR School of Information Technology, IIT Bombay, India 
+
+Ramakrishnan Srikant 
+Senior Staff Scientist, Google, USA </leader><link>http://www.sigkdd.org/organization.php</link><img>http://www.sigkdd.org/images/title.jpg</img></organization><organization id="O201001050001" creator="lotusawhat"><name>SIGIR, Special Interest Group on Information Retrieval</name><type>学会</type><link>http://www.acm.org/sigir/</link><view>信息检索</view><infofrom refer="Web数据挖掘$L201001050001">杨光飞师兄2009年12月31日组织的研讨会上推荐阅读相关文献
+Web数据挖掘 p.75</infofrom><img>http://www.sigir.org/images/logo.png</img><belongto refer="ACM$O201001010001">ACM</belongto><introduce>ACM SIGIR addresses issues ranging from theory to user demands in the application of computers to the acquisition, organization, storage, retrieval, and distribution of information.</introduce></organization><organization id="O201001080001" creator="lotusawhat" lastedit="2020年2月14日  17时32分39秒"><name refer="">AAAI</name><note refer="">American Association for Artificial Intelligence</note><type>学会</type><year>1979</year><view>人工智能</view><introduce>is a nonprofit scientific society devoted to advancing the scientific understanding of the mechanisms underlying thought and intelligent behavior and their embodiment in machines. AAAI also aims to increase public understanding of artificial intelligence, improve the teaching and training of AI practitioners, and provide guidance for research planners and funders concerning the importance and potential of current AI developments and future directions.</introduce><leader>President：Eric Horvitz</leader><product refer="AAAI Conference$M201001080001">会议：
+AAAI Conference
+AIIDE Conferences
+IAAI Conferences
+ICWSM Conferences</product><img refer="">http://www.aaai.org/styles/images/aaai-logo.jpg</img><link>http://www.aaai.org/home.html</link></organization><organization id="O201001210001" creator="lotusawhat"><name>系统所 / 系统工程研究所</name><type>研究所</type><view>系统工程,知识科学,物流,电子商务</view><belongto refer="大连理工大学管理学院$O200910170001">大连理工大学管理学院</belongto><year>1978</year><introduce>系统工程研究所于1978年由教育部批准成立，是我国最早的六个系统工程研究机构之一，是大连理工大学管理科学与工程一级国家重点学科建设的负责和承担单位。
+
+经过三十多年的发展，该所目前拥有管理科学与工程博士后流动站，管理科学与工程一级学科博士点，管理系统工程、知识管理、电子商务与物流管理3个二级学科博士点以及管理科学与工程、系统工程、系统分析与集成、知识管理、电子商务与物流管理等5个硕士点。
+
+系统工程研究所拥有一支以王众托院士为首的高素质研究和教学队伍，通过“211工程”和“985工程”的持续建设，已经形成了以“系统”、“管理”、“信息”、“知识”和“服务”为核心词汇的具有鲜明特色的两个研究领域：知识科学与知识管理，电子商务与物流管理，目前正在向服务科学与服务管理、突发事件应急管理两个领域进行拓展研究。</introduce><link>http://management.dlut.edu.cn/AboutUs/systemsengineer.aspx</link><leader>所      长：党延忠
+办公电话：0411-84707659
+传      真：0411-84708342 0411-84707425
+电子信箱：yzhdang@dlut.edu.cn 
+
+副 所 长：潘东华
+办公电话：0411-84707925
+电子信箱：gyise@dlut.edu.cn 
+
+副 所 长：金淳
+办公电话：0411-84709425
+电子信箱：jinchun@dlut.edu.cn </leader></organization><organization id="O201001220001" creator="lotusawhat"><name>大工教育书店</name><type>书店</type><view>图书</view><introduce>经常消遣的地方。精神食粮库。</introduce></organization><organization id="O201001270001" creator="lotusawhat" lastedit="2013年11月17日  16时42分16秒"><name>Keytoon Animation Studio</name><type>工作室</type><link>http://www.keytoon.com</link><view>3D,动画</view></organization><organization id="O201001270002" creator="lotusawhat"><name>技经所 / 技术经济研究所</name><type>研究所</type><view>技术经济</view><belongto refer="大连理工大学管理学院$O200910170001">大连理工大学管理学院</belongto></organization><organization id="O201001270007" creator="lotusawhat"><name>信息管理系</name><type>院系</type><belongto refer="大连理工大学管理学院$O200910170001">大连理工大学管理学院</belongto></organization><organization id="O201002020002" creator="lotusawhat" lastedit="2020年5月13日  15时10分20秒"><name refer="">西门子 / Siements</name><type>公司</type><view>电子，工业智能化</view><infofrom>数字化时代的个人知识管理 p.008</infofrom><nation>德国</nation></organization><organization id="O201002020003" creator="lotusawhat"><name>Gartner Group</name><type>公司</type><link>http://www.gartner.com/</link><view>咨询,IT,市场</view><infofrom refer="数字化时代的个人知识管理$L201002020001">数字化时代的个人知识管理</infofrom><standpoint>建设知识地图的主要活动：(by Gartner Group)
+1.知识审查(Knowledge Audit)
+2.知识制图(Knowledge Mapping)
+3.建立索引(Indexing Knowledge Assets)
+4.知识轮廓与个人化(Knowledge Profiling and Personalization)</standpoint><img>http://na2.www.gartner.com/it/images/homepage/gartner136.gif;pv062f103dc614a642</img><introduce>Gartner, Inc. is the world's leading information technology research and advisory company. We deliver the technology-related insights necessary for our clients to make the right decisions, every day.</introduce></organization><organization id="O201002050001" creator="lotusawhat"><name>大连理工大学创新院</name><type>学院</type><view>数模,IT</view><belongto refer="大连理工大学$O200907020003">大连理工大学</belongto></organization><organization id="O201002100001"><name>Sun</name><type>公司</type><view>IT</view></organization><organization id="O201002170001" lastedit="2015年10月3日  22时25分0秒"><name>中国,中华人民共和国</name><type>国家</type><year>1949年10月1日</year><view>政治</view></organization><organization id="O201002180001"><name>东京工科大学</name><type>高校</type><view>技术,多媒体,生物学,计算机科学</view><infofrom>参观东京电玩展时，拿到了该学校的简介。</infofrom><link>http://www.teu.ac.jp/</link><introduce>组织构成：
+多媒体学部
+应用生物学部
+计算机科学学部
+奖学金制度：
+每年 120万日元，最多给4年  名额：70人~80人 / 年</introduce><leader>校长：轻部 征夫(原东京大学教授)</leader><note>有介绍的小册子。</note></organization><organization id="O201002180002"><name>三菱东京UFJ银行</name><type>银行</type><view>金融</view><infofrom refer="东京工科大学$O201002180001">东京工科大学的传单里</infofrom></organization><organization id="O201002180003"><name>三井住友银行</name><type>银行</type><view>金融</view><infofrom refer="东京工科大学$O201002180001">东京工科大学的传单里</infofrom></organization><organization id="O201002180004"><name>りそな銀行</name><type>银行</type><view>金融</view></organization><organization id="O201002200001" lastedit="2012年3月8日  21时10分56秒"><name>巨人</name><type>集团</type><introduce>上海巨人网络科技有限公司（原上海征途网络科技有限公司）成立于2004年11月18日，是一家以网络游戏为发展起点，集研发、运营、销售为一体的综合性互动娱乐企业。公司拥有雄厚的资本实力、强大的研发能力、熟稔的运营能力、完善精湛的技术支持能力、人性化的客户服务能力，以及强大的销售能力。 
+巨人网络是以自主研发取胜的公司，也是最重视玩家、市场需求的公司，公司成立四年多，积累了许多研发方面的资源和经验，可以同创业者一起分享，从而提升创业者项目成功的概率。</introduce><view>游戏设计</view><link>http://jr.ztgame.com/#官方网站
+http://gamedev.csdn.net/page/f57f78e9-fff4-40a0-8096-1bf13e5172ed#赢在巨人：史玉柱推网络游戏创业平台
+http://www.ga-me.com/cn/win/static/detail/37_detail.html#巨人透露赢在巨人计划进展：已有5个团队加盟</link><img>http://www.ga-me.com/cn/images/newlogo.jpg</img><leader refer="史玉柱$R201002200005">总裁：史玉柱
+网络总裁：刘伟</leader><job>[2008-03-12] 三维美术设计师 2名 
+[2008-03-12] 原画设计师 2名 
+[2008-03-12] 高级信息安全软件工程师 5名 
+[2008-03-12] 系统工程师（数据库DBA） 2名 
+[2008-03-12] 3D引擎程序设计师 2名 
+[2008-03-12] 客户端软件工程师 5名 
+[2008-03-12] 游戏客户端程序设计师 5名 
+[2008-03-12] 服务器端软件工程师 2名 
+[2008-03-12] 游戏服务器端程序设计师（LINUX） 2名 
+http://www.ga-me.com/cn/careers_list.php</job><product>项目：“赢在举人”计划
+http://www.ga-me.com/cn/win/win.shtml
+
+即将推出：
+绿色征途 | 万王之王3 | 体育帝国 | 仙途 | 龙魂 | 征途2
+
+大型网络游戏：
+征途 | 征途时间版 | 征途怀旧版 | 巨人 | 我的小傻瓜
+
+网页游戏：
+黄金国度
+
+娱乐平台：
+嘟嘟</product></organization><organization id="O201002210001"><name>EU</name><infofrom refer="現代情報管理要論$L201002210001">現代情報管理要論 p.7</infofrom></organization><organization id="O201002210002"><name>NAFTA</name><type>组织</type><infofrom refer="現代情報管理要論$L201002210001">現代情報管理要論 p.7</infofrom></organization><organization id="O201002230001" lastedit="2012年3月8日  21时10分34秒"><name>盛大网络</name><type>公司</type><view>游戏设计,网络游戏</view><link>http://www.snda.com/cn/fstpage.html
+http://campus.51job.com/snda2010/about/about.html</link><belongto refer="盛大集团$O201002230002">盛大集团(总部)</belongto><introduce>作为领先的互动娱乐媒体企业，盛大网络通过盛大游戏、盛大文学、盛大在线等主体和其它业务，向广大用户提供多元化的互动娱乐内容和服务。 </introduce><job>管理培训生：
+http://campus.51job.com/snda2010/hr/jieshao1.html</job></organization><organization id="O201002230002"><name>盛大集团</name><type>集团</type><view>Web</view></organization><organization id="O201002240001" lastedit="2012年11月7日  20时29分1秒"><name>贝尔实验室 / Bell Labs / Bell Laboratories</name><type>实验室</type><view>科学</view><infofrom refer="You and Your Research$L201002240001">You and Your Research</infofrom><product refer="C语言$D201202070001">C语言</product></organization><organization id="O201002240002"><name>Joyent</name><type>公司</type><view refer="云计算$D200911020002">云计算</view><infofrom refer="程序员$L200912050001">程序员 2010年 02月刊 p.10</infofrom></organization><organization id="O201002240003" lastedit="2013年3月21日  21时0分50秒"><name>Oracle / 甲骨文</name><type>公司</type><view>IT</view><product>甲骨文公司的主要产品目前分为两大类：
+
+一、服务器及工具（主要竞争对手：IBM、微软） 
+- 数据库服务器：2001年发布9i，2003年发布10g Release 1，2007年发布11G。(主要竞争对手：微软SQL Server、IBM DB2。)
+- 应用服务器：Oracle Application Server
+- 开发工具：Oracle JDeveloper，Oracle Designer，Oracle Developer，等等
+
+二、应用软件（主要竞争对手：德国SAP公司）
+- 企业资源计划(ERP)软件。已有10年以上的历史。2005年，并购了开发企业软件的仁科软件公司以增强在这方面的竞争力。 　　
+- 客户关系管理(CRM)软件。自1998年开始研发这种软件。2005年，并购了开发客户关系管理软件的希柏软件公司（Siebel）。 　
+- 人力资源管理软件(HCM）。收购了仁科(PeopleSoft)软件。 　　
+- 产品生命周期管理软件(PLM)。收购了Agile公司。 　　
+- 商务智能（BI）。收购了海波龙（Hyperion）。
+
+==================================================
+产品
+Oracle 数据库
+工程系统
+企业管理器
+Oracle 融合中间件
+Oracle Applications
+服务器和存储系统
+开发工具
+Oracle 外包服务
+Oracle托管型CRM
+按字母顺序的产品列表
+服务
+高级客户技术支持服务
+咨询服务
+金融服务
+Oracle 外包服务
+技术支持
+Oracle University</product><link>http://baike.baidu.com/view/15020.htm#5</link><introduce>Oracle是世界领先的信息管理软件开发商，因其复杂的关系数据库产品而闻名。Oracle数据库产品为财富排行榜上的前1000家公司所采用，许多大型网站也选用了Oracle系统。</introduce><year>1977年</year><place>总部位于美国加州Redwood shore 美国加州红木滩市 </place><leader>首席执行官： 劳伦斯·埃里森Lawrence (Larry) J. Ellison</leader><img>http://imgsrc.baidu.com/baike/abpic/item/f95898187ea46ae04bedbc10.jpg</img><job>https://irecruitment.oracle.com/</job></organization><organization id="O201002240004"><name>麦思博 / msup</name><type>公司</type><view>培训,咨询,IT,管理,软件</view><link>http://www.msup.com.cn</link><introduce>麦思博(msup)有限公司是一家面向软件研发团队的培训咨询机构，致力于缔造中高端软件研发管理人才，提供原创经验分享和卓越技能传授，讲师原任微软卓越管理领导团队成员，曾获得微软全球杰出研发管理奖。首创以智驱动咨询式培训模式，独特的二十一项管控服务流程，以及享誉三十余年软件研发管理实践而闻名。 </introduce></organization><organization id="O201002240005"><name>Zoho</name><type>公司</type><view>IT</view><nation>印度</nation><infofrom refer="程序员$L200912050001">程序员 2010年 02月刊</infofrom><link>http://www.zoho.com/</link><img>http://t2.gstatic.cn/images?q=tbn:VcdyDANjNk0T5M:</img></organization><organization id="O201002240006"><name>东软 / Neusoft / 东软集团股份有限公司</name><type>集团</type><year>1991年</year><view>IT</view><introduce>东软是中国领先的IT解决方案与服务供应商。
+东软是中国最大的离岸软件外包提供商。</introduce><product>公司主营业务包括：
+行业解决方案、产品工程解决方案及相关软件产品、平台及服务等。
+
+案例：
+- 国家质检总局应用系统总集成
+- 中国人民大学数字化校园平台
+- 国土资源部电子政务平台
+- 广州市劳动保障局信息系统</product><img>http://www.neusoft.com/images/log.gif</img><history>东软来自于大学。
+为了寻求“架设软件研究与应用桥梁”的梦想开始创业。
+
+1991年，东软创立；
+1996年，成为中国第一家上市的软件公司；
+2001年，在中国众多的行业领域获得领先的市场份额，向IT解决方案与服务供应商发展
+2005年，成为中国最大的离岸软件外包提供商
+2008年，东软集团整体上市计划完成。</history><link>http://www.neusoft.com/job/school.html</link></organization><organization id="O201003030001"><name>人民邮电出版社</name><type>出版社</type><year>1953年10月1日</year><view>出版,IT,计算机科学,通信,电子,电工,电气,交通,经济,管理,摄影,人文,外语,集邮,教育,数学</view><link>http://www.ptpress.com.cn</link><img>http://www.ptpress.com.cn/images/logo.jpg</img><introduce refer="工业和信息化部$O201003080001">人民邮电出版社是工业和信息化部主管的大型专业出版社，成立于1953年10月1日。50多年来，人民邮电出版社坚持“立足信息产业、面向现代社会、传播科学知识、服务科教兴国”的出版宗旨，锐意改革探索，不断发展壮大，已经成为集图书、期刊、音像电子出版物和网络出版为一体的，在国内外有专业特色和品牌影响的综合性科技出版大社。</introduce><partner>人民邮电出版社与国际电信联盟、万国邮政联盟等国际组织建立了密切的合作联系；与丹麦Egmont公司合资组建了合资出版公司——童趣出版有限公司；与美国、英国、德国、日本、韩国和我国的香港、台湾等地区的众多出版公司建立了合作关系，是Pearson Education、McGraw-Hill、John Wiley &amp; Sons、Thomson、Cambridge University Press、Elsevier等国际著名出版公司的重要合作伙伴。</partner></organization><organization id="O201003030002"><name>英特尔 / Intel</name><type>公司</type><view>硬件,IT</view><img>http://t3.gstatic.cn/images?q=tbn:RHITOeS-NTGHxM:</img><link>http://www.intel.com</link></organization><organization id="O201003030003"><name>开放手机联盟</name><type>联盟组织</type><year>2007年11月5日</year><view>移动</view><link>http://baike.baidu.com/view/1245202.htm</link><introduce>　开放手机联盟，Open Handset Alliance：是美国Google公司与2007年11月5日宣布组建的一个全球性的联盟组织。这一联盟将会支持Google可能发布的手机操作系统或者应用软件，共同开发名为Android的开放源代码的移动系统。开放手机联盟包括手机制造商、手机芯片厂商和移动运营商几类。目前，联盟成员数量已经达到了34家。</introduce><member refer="英特尔$O201003030002#Google$O200909220003">移动运营商类
+　　China Mobile Communications Corporation 中国移动通信
+　　KDDI CORPORATION 日本KDDI电信
+　　NTT DoCoMo, Inc. 日本多科莫电信
+　　SOFTBANK MOBILE Corp. 日本软银移动
+　　Sprint Nextel（美国）
+　　T-Mobile（德国）
+　　Telecom Italia（意大利）
+　　Telefónica（西班牙）
+　　Vodafone 沃达丰电信
+　　China United Network Communications  中国联通
+　　       China Telecommunications Corporation  中国电信
+　　       Bouygues Telecom （法国）
+
+半导体制造公司
+　AKM Semiconductor Inc
+　　Audience
+　　ARM
+　　Atheros Communications
+　　Broadcom Corporation 博通
+　　CSR Plc. 
+　　       Cypress Semiconductor Corporation
+　　       Freescale Semiconductor 飞思卡尔半导体
+　　Intel Corporation 英特尔公司
+　　       MIPS Technologies, Inc. 
+　　　Marvell Semiconductor, Inc. （收购了intel手机芯片部门的公司）
+　　NVIDIA Corporation （英伟达公司）
+　　Qualcomm Inc.（高通公司）
+　　       ST-Ericsson 
+　　　SiRF Technology Holdings, Inc.（知名GPS芯片制造商）
+　　Synaptics, Inc.
+　　Texas Instruments Incorporated （德州仪器）
+　　        Via Telecom 
+
+电话制造商
+Acer Inc. 宏基
+　　Alcatel mobile phones 阿尔卡特
+　　       ASUSTeK Computer Inc. 华硕
+　　       Foxconn International Holdings Limited 
+　　　Garmin International, Inc. 
+　　HTC Corporation （多普达的母公司）宏达电子
+　　Huawei Technologies 华为科技
+　　Kyocera 京瓷 
+　　LG Electronics, Inc. 乐金电子
+　　Motorola, Inc. 摩托罗拉
+　　Samsung Electronics 三星电子
+　　Sony Ericsson 索尼爱立信
+　　Toshiba Corporation 东芝公司
+　　Lenovo Mobile Communication Technology Ltd. 联想移动
+　　ZTE Corporation 中兴
+
+软件提供公司
+　　Ascender Corp.
+　　eBay Inc.
+　　Esmertec
+　　Google Inc.
+　　LivingImage LTD.
+　　  Myriad 
+　　　Nuance Communications, Inc.
+　　OMRON SOFTWARE Co, Ltd. 欧姆龙软件
+　　PacketVideo (PV)
+　　SkyPop
+　　SONiVOX
+　　SVOX </member><founder refer="Google$O200909220003">Google</founder></organization><organization id="O201003070001"><name>以色列</name><type>国家</type><year>于1948年5月14日宣布独立。</year><link>http://www.hudong.com/wiki/%E4%BB%A5%E8%89%B2%E5%88%97</link><img>http://a3.att.hudong.com/56/09/01300000144064121575094255753_s.jpg</img></organization><organization id="O201003070002"><name>犹太民族</name><type>民族</type><view>宗教</view><introduce>犹太人由于两千多年一直分散在世界各地，语言、文字已经分化，只是靠着统一的宗教维系其单一的民族性。由于犹太教徒认为救世主尚未来临，不承认基督耶稣是救世主，这是一直受到基督教世界歧视和迫害的一个原因。</introduce></organization><organization id="O201003070003"><name>法国</name><type>国家</type></organization><organization id="O201003070004"><name>德国</name><type>国家</type></organization><organization id="O201003070005"><name>美国</name><type>国家</type></organization><organization id="O201003070007"><name>CIA,Central Intelligence Agency / 美国中央情报局</name><type>政府机构</type><year>1947</year><introduce>是美国最大的情报机构，主要任务是公开和秘密地收集和分析关于国外政府、公司和个人；政治、文化、科技等方面的情报，协调其他国内情报机构的活动，并把这些情报报告到美国政府各个部门的工作。它也负责维持大量军事设备，这些设备在冷战期间用于推翻外国政府，例如前苏联，和对美国利益构成威胁的反对者，例如危地马拉的阿本斯和智利的阿连德。中央情报局总部设在维吉尼亚州的兰利。中央情报局的地位和功能相当于英国的军情六处和以色列的摩萨德。</introduce><founder>President Harry S. Truman.</founder><view>政治,文化,科技,信息,知识</view><link>https://www.cia.gov/
+http://zh.wikipedia.org/wiki/%E4%B8%AD%E5%A4%AE%E6%83%85%E6%8A%A5%E5%B1%80</link><infofrom refer="现代情报管理要论$L201002210001">现代情报管理要论</infofrom><nation refer="美国$O201003070005">美国</nation></organization><organization id="O201003080001"><name>工业和信息化部</name><type>政府机构</type><view>工业,信息化</view></organization><organization id="O201003080002"><name>人保部 / 人力资源和社会保障部</name><type>政府机构</type><view>社会</view><infofrom>http://news.qq.com/a/20100308/000144.htm#人保部研究提个税起征点 建议增欠薪逃逸罪</infofrom><link>http://news.qq.com/a/20100308/000144.htm#人保部研究提个税起征点 建议增欠薪逃逸罪</link></organization><organization id="O201003080004"><name>中国知识管理中心/KMCenter</name><view>知识管理,商业智能</view><img>http://www.kmcenter.org/templets/images/logo.jpg</img><link>http://www.kmcenter.org/</link><infofrom refer="数字化时代的个人知识管理$L201002020001">数字化时代的个人知识管理 p.010</infofrom><founder refer="田志刚$R201002020002">田志刚</founder></organization><organization id="O201003080005"><name>Research In Motion (RIM) </name><type>公司</type><view>移动,手机,商业智能</view><product>BlackBerry 智能手机</product><leader>软件部门的首席技术官：大卫·雅克（David Yach）</leader><infofrom refer="中国知识管理中心$O201003080004">中国知识管理中心</infofrom></organization><organization id="O201003080006"><name>可口可乐</name><type>公司</type><year>1892年</year><view>食品,环境</view><link>http://www.coca-cola.com.cn/#中国官网
+http://wiki.mbalib.com/wiki/%E5%8F%AF%E5%8F%A3%E5%8F%AF%E4%B9%90%E5%85%AC%E5%8F%B8# MBA Lib介绍</link><img>http://wiki.mbalib.com/w/images/thumb/8/8f/Coca-Cola_Logo.jpg/130px-Coca-Cola_Logo.jpg</img></organization><organization id="O201003080007"><name>麦当劳</name><type>公司</type><view>食品</view></organization><organization id="O201003080008" lastedit="2017年3月25日  17时22分12秒"><name>海尔集团</name><type>集团,公司</type><view>电气</view><link>http://www.haier.cn/</link><introduce>海尔集团是世界白色家电第一品牌、中国最具价值品牌。海尔在全球建立了29个制造基地，8个综合研发中心，19个海外贸易公司，全球员工总数超过6万人，已发展成为大规模的跨国企业集团，2008年海尔集团实现全球营业额1190亿元。</introduce></organization><organization id="O201003080010" lastedit="2017年3月25日  17时21分46秒"><name>用友</name><type>公司</type><view>管理信息系统</view><img>http://www.zhengbang.com.cn/builder/apps/_public/upload/2014/10/16/543f57151c0.jpg</img></organization><organization id="O201003100001" lastedit="2017年3月25日  17时20分24秒"><name>大连理工大学就业中心</name><type>高校机构</type><link>http://202.118.65.60/#经常变，如果上不去，就从下面的途径上。
+http://www.dlut.edu.cn#招生就业-就业指导
+http://bbs.dlut.edu.cn</link><note>id:200305015
+pw:840107</note></organization><organization id="O201003110001" lastedit="2017年3月25日  17时20分2秒"><name>印度</name><type>国家</type><view>宗教,IT</view><img>http://p3.qhmsg.com/t01915e03ba28539c7e.png</img></organization><organization id="O201003120001" lastedit="2017年3月25日  17时18分36秒"><name>普林斯顿大学 / Princeton University</name><type>高校</type><img>http://img2.tiandaoedu.com/www/ueditor/net/upload/2015-01-16/6f2ef398-5343-4019-81d0-78b297cb4c30.jpg</img></organization><organization id="O201003130001" lastedit="2017年3月25日  17时17分35秒"><name>夏普 / Sharp</name><type>公司</type><img>http://img.sj33.cn/uploads/allimg/201401/7-1401312334355N.png</img></organization><organization id="O201003160001" lastedit="2017年3月25日  17时15分32秒"><name>大连东软信息学院</name><type>高校</type><year>大连东软信息学院是经国家教育部批准设立，由东软集团、亿达集团共同投资举办的一所以工学为主、兼办管理学、文学等学科专业的普通高等院校，其前身是东北大学东软信息学院。</year><view>IT,教育</view><link>http://www.neusoft.edu.cn/</link><department>学院下设计算机科学与技术系、信息技术与商务管理系、嵌入式系统工程系、数字艺术系、英语系、日语系，开设25个本科专业和专业方向，开展普通全日制本科教育，招生纳入国家普通高等学校招生计划。</department><belongto>东软集团、亿达集团</belongto></organization><organization id="O201003190001" lastedit="2017年3月25日  17时15分26秒"><name>亿达集团</name><type>集团</type><view>房地产,IT</view><img>http://n1.itc.cn/img8/wb/recom/2016/08/02/147012040640828369.JPEG</img></organization><organization id="O201003200001"><name>社会规范学派（school of social norm）</name><type>学派</type><view refer="社会资本$D200911120003">社会资本</view><leader refer="普特南$R200911150002#Coleman$R200911150001#经合组织$O200907160001#世界银行$O200907160003">代表人物：
+普特南(Putnam)(2000): 个体之间的联系-社会网络以及在此基础上形成的互惠和信赖的价值规范。 
+
+科尔曼(Coleman)(1988): 社会资本是一种责任与期望、信息渠道以及一套规范与有效的约束，它们能限制或者鼓励某些行为。 
+
+福山(Fukuyama)(1999): 群体成员之间共享的非正式的价值观念、规范，能够促进他们之间的相互合作。如果全体的成员与其他人将会采取可靠和诚实的行动，那么他们就会逐渐相互信任。信任就像是润滑剂，可以使人和群体或组织更高效的运作。 
+
+经合组织(OECD)(2001): 网络以及共享的规范、价值观念和理解，它们有助于促进群体内部或群体之间的合作。 
+
+世界银行(1998): 一个社会的社会资本包括组织机构、关系、态度与价值观念，它们支配人们之间的行为，并有利于经济和社会的发展。</leader></organization><organization id="O201003200002"><name>网络嵌入学派（school of network embededness）</name><type>学派</type><view refer="社会资本$D200911120003">社会资本</view><leader refer="Granovette$R200911260001#Burt$R200911250002">格兰诺维特(Granovette)(1985): 认为无论在早期或现代社会，行为与制度都深受社会关系的限制，经济行为会受到持续进行的社会关系的影响，故提出嵌入的既念。
+ 
+伯特(Burt)(1997): 认为社会资本是指透过人际（朋友、同事、一般的接触）间镶嵌（Embedded）关系的运用，达致个人社会资本与财富之创造。同时提出结构洞概念。 </leader></organization><organization id="O201003200003"><name>社会资源学派（school of social resources）</name><type>学派</type><view refer="社会资本$D200911120003">社会资本</view><leader refer="Bourdieu$R200911190001#Lin Nan$R200911140001">罗瑞(Loury)(1977): 利用“社会资本”概念来探讨种族之间的不平等的问题。
+ 
+布厄迪尔(Bourdieu)(1986): 与群体成员相联系的实际的或潜在的资源的总和，它们可以为群体的每一个成员提供集体共有资本支持。 
+
+林南(Lin Nan)(2001):内嵌于社会网络中的资源，行为人在采取行动时能够获取和使用这些资源。因而，这个概念包含两个重要的方面：一是它代表的是内嵌于社会关系中而非个人所有的资源；二是获取和使用这种资源的权力属于网络中的个人。 </leader></organization><organization id="O201003200004" lastedit="2017年3月25日  17时11分41秒"><name>教育部</name><type>政府机构</type><view>教育,政治,社会</view><link>http://dfjrw.cn/</link><department refer="基础教育二司$O201003200005#大连理工大学$O200907020003">&lt;b&gt;司局结构设置&lt;/b&gt;
+（一）办公厅
+　　负责文电、会务、机要、档案、财务、资产等机关日常运转工作以及政务公开、新闻发布、来信来访、安全保密等工作。
+
+（二）政策法规司
+　　研究教育改革与发展战略并就重大问题进行政策调研；起草综合性教育法律法规草案；承办全国教育系统法制建设和依法行政的有关工作；承担机关有关规范性文件的合法性审核工作，承担有关行政复议和行政应诉工作。
+
+（三）发展规划司
+　　拟订全国教育事业发展规划；承担高等学校管理体制改革的有关工作；会同有关方面拟订高等教育招生计划和高等学校设置标准；参与拟订各级各类学校建设标准；会同有关方面审核高等学校设置、撤销、更名、调整等事项；承担教育基本信息统计、分析工作；承担直属高等学校和直属单位的基建管理工作；承担民办教育的统筹规划、综合协调和宏观管理的有关工作；承担高等学校的安全监督和后勤社会化改革管理工作。
+
+（四）人事司
+　　承担机关和直属单位、直属高等学校、驻外使（领）馆教育处（组）等干部人事工作；规划、指导高等学校教师和教育行政干部队伍建设工作；承担指导教育系统人才队伍建设工作。
+
+（五）财务司
+　　参与拟订教育经费筹措、教育拨款、学生资助的方针、政策；承担统计全国教育经费投入情况的有关工作；负责直属高等学校和直属单位国有资产、预决算、财务管理和内部审计；参与义务教育保障机制经费、有关教育专项经费管理；参与利用国际金融组织等对我国教育贷款的立项工作。
+
+（六）基础教育一司
+　　承担义务教育的宏观管理工作，会同有关方面提出加强农村义务教育的政策措施，拟订推进义务教育均衡发展的政策，提出保障各类学生平等接受义务教育的政策措施；会同有关方面拟订义务教育办学标准，规范义务教育学校办学行为，推进教学改革；指导中小学校的德育、校外教育和安全管理。
+
+（七）基础教育二司
+　　承担普通高中教育、幼儿教育和特殊教育的宏观管理工作；拟订普通高中教育、幼儿教育、特殊教育的发展政策和基础教育的基本教学文件；组织审定基础教育国家课程教科书，推进课程改革；指导中小学教学信息化、图书馆和实验设备配备工作。
+
+（八）职业教育与成人教育司
+　　承担职业教育统筹规划、综合协调和宏观管理工作；拟订中等职业教育专业目录和教学基本要求；会同有关方面拟订中等职业学校设置标准；指导中等职业教育教学改革和教材建设工作；指导中等职业学校教师培养培训工作；承担成人教育以及扫除青壮年文盲的宏观指导工作。
+
+（九）高等教育司
+　　承担高等教育教学的宏观管理工作；指导高等教育教学基本建设和改革工作；指导改进高等教育评估工作；拟订高等学校学科专业目录、教学指导文件；指导各级各类高等继续教育和远程教育工作。
+
+（十）教育督导团办公室
+　　拟订教育督导的规章制度和标准，指导全国教育督导工作；组织对各地中等及中等以下教育、扫除青壮年文盲工作的督导评估和检查验收；发布国家教育督导报告；组织开展全国基础教育发展水平和质量监测；承担国家教育督导团的具体工作。
+
+（十一）民族教育司
+　　指导、协调少数民族教育的特殊性工作；统筹规划少数民族“双语”教育工作；指导中小学生民族团结教育；负责协调对少数民族和少数民族地区的教育援助。
+
+（十二）师范教育司
+　　规划、指导全国中小学教师队伍建设；拟订教师教育标准和各级各类师范院校培养目标、规格及师范教育基本专业目录；指导师范教育教学改革和师资培训工作；会同有关方面拟订各级各类教师资格标准并指导教师资格制度的实施。
+
+（十三）体育卫生与艺术教育司
+　　指导大中小学体育、卫生与健康教育、艺术教育、国防教育工作；拟订相关政策和教育教学指导性文件；规划、指导相关专业的教材建设以及师资培养、培训工作；协调大中学生参加国际体育竞赛和艺术交流活动。
+
+（十四）思想政治工作司
+　　承担高等学校学生与教师的思想政治工作，宏观指导高等学校基层党组织建设、精神文明建设以及辅导员队伍建设工作；负责高等学校稳定工作和政治保卫工作，及时反映和处理高等学校有关重大问题；负责高等学校网络文化建设与管理工作。
+
+（十五）社会科学司
+　　统筹规划和协调高等学校思想政治理论课教育教学工作；规划、组织高等学校哲学社会科学研究工作，组织、协调高等学校承担国家重大哲学社会科学研究项目并指导实施；协调直属高等学校和直属单位出版物的监督管理工作，承担教育系统新闻电视的指导和协调工作。
+
+（十六）科学技术司
+　　规划、指导高等学校科学技术工作；协调、指导高等学校参与国家创新体系建设，以及高等学校承担国家科技重大专项等各类科技计划的实施工作；指导高等学校科技创新平台的发展建设；指导教育信息化和产学研结合等工作。
+
+（十七）高校学生司
+　　承担各类高等学历教育的招生考试和学籍学历管理工作；指导地方教育行政部门和高等学校开展大学生就业指导和服务工作；参与拟订普通高等学校毕业生就业政策；组织实施国家急需毕业生的专项就业计划。
+
+（十八）直属高校工作司
+　　指导直属高等学校制定发展战略规划，规范并监督直属高校办学行为；承担直属高等学校管理体制调整和改革工作；配合有关方面加强直属高等学校领导班子思想政治建设等有关工作。
+
+（十九）学位管理与研究生教育司 （国务院学位委员会办公室）
+　　组织实施《中华人民共和国学位条例》；拟订全国学位与研究生教育工作的改革与发展规划；指导与管理研究生培养和学科建设的有关工作；承担研究生院的设置和国家重点学科的建设与管理工作；承担“211工程”、“985工程”的实施和协调工作；承办国务院学位委员会的具体工作。
+
+（二十）语言文字应用管理司 
+　　拟订语言文字工作的方针、政策和中长期规划；组织实施语言文字规范化工作；监督检查语言文字的应用情况；组织推行《汉语拼音方案》，指导推广普通话工作以及普通话师资培训工作；承办国家语言文字工作委员会的具体工作。
+
+（二十一）语言文字信息管理司
+　　研究并审定语言文字标准和规范，拟订语言文字信息处理标准；指导地方文字规范化建设；承担少数民族语言文字规范化工作，指导少数民族语言文字信息处理的研究与应用。
+
+（二十二）国际合作与交流司（港澳台办公室）
+　　组织指导教育方面的国际合作与交流，拟订出国留学、来华留学、中外合作办学、外籍人员子女学校管理工作的政策；承担教育涉外监管的有关工作；指导驻外使（领）馆教育处（组）的工作；规划、协调、指导汉语国际推广工作，开展与港澳台的教育合作与交流。
+
+机关党委　负责机关和在京直属单位的党群工作。
+
+离退休干部局　负责机关离退休干部工作，指导直属单位的离退休干部工作。
+
+&lt;b&gt;直属单位（主要社团）&lt;/b&gt;
+教育部机关服务中心 国家教育行政学院 中央教育科学研究所 教育部教育发展研究中心 教育部高等学校社会科学发展研究中心 教育部职业技术教育中心研究所 教育部对外汉语教学发展中心（国家汉语国际推广领导小组办公室、孔子学院总部） 教育部科技发展中心 语言文字应用研究所（国家语委普通话与文字应用测试中心） 中央广播电视大学 中央电化教育馆（教育部基础教育资源中心） 中国教育电视台 教育部教学仪器研究所 教育部教育管理信息中心 国家留学基金管理委员会秘书处 教育部基础教育课程教材发展中心 人民教育出版社 高等教育出版社 中国教育报刊社 教育部考试中心 教育部留学服务中心（中国留学服务中心） 全国学生资助管理中心（教育部外资贷款事务中心） 全国高等学校学生信息咨询与就业指导中心 教育部学位与研究生教育发展中心 教育部高等教育教学评估中心 语文出版社（语言文字报刊社、语文音像出版社） 中国教育国际交流协会秘书处 中国教育发展基金会秘书处 中国教师发展基金会 中国教育学会秘书处 中国高等教育学会秘书处 教育部学生体育协会联合秘书处 中国成人教育协会秘书处 中国职业技术教育学会秘书处 
+
+&lt;b&gt;直属高等学校&lt;/b&gt;
+
+
+北京大学 
+ 中国人民大学 
+ 清华大学 
+ 
+北京科技大学 
+ 北京化工大学 
+ 北京师范大学 
+ 
+北京语言大学 
+ 北京外国语大学 
+ 北京交通大学 
+ 
+北京邮电大学　 
+ 中国石油大学（北京） 
+ 中国石油大学（华东） 
+ 
+中国农业大学
+ 中国传媒大学
+ 北京林业大学
+ 
+中国政法大学
+ 中央财经大学
+ 中央音乐学院
+ 
+中央戏剧学院
+ 中央美术学院
+ 北京中医药大学
+ 
+对外经济贸易大学
+ 南开大学
+ 天津大学
+ 
+华北电力大学
+ 东北大学
+ 大连理工大学
+ 
+吉林大学
+ 东北师范大学
+ 东北林业大学
+ 
+复旦大学
+ 同济大学
+ 上海交通大学
+ 
+华东理工大学
+ 东华大学
+ 华东师范大学
+ 
+上海外国语大学
+ 南京大学
+ 上海财经大学
+ 
+东南大学
+ 中国矿业大学
+ 中国矿业大学（北京） 
+ 
+河海大学
+ 江南大学
+ 南京农业大学
+ 
+合肥工业大学
+ 中国药科大学
+ 浙江大学
+ 
+厦门大学
+ 山东大学
+ 中国海洋大学
+ 
+武汉大学
+ 华中科技大学
+ 中国地质大学（武汉） 
+ 
+中国地质大学（北京） 
+ 武汉理工大学
+ 华中师范大学
+ 
+华中农业大学
+ 中南财经政法大学
+ 湖南大学
+ 
+中南大学
+ 中山大学
+ 华南理工大学
+ 
+四川大学
+ 西南财经大学
+ 西南交通大学
+ 
+电子科技大学
+ 重庆大学
+ 西南大学
+ 
+西安交通大学
+ 西北农林科技大学
+ 陕西师范大学
+ 
+西安电子科技大学
+ 长安大学
+ 兰州大学</department></organization><organization id="O201003200005"><name>教育部基础教育司高中教育处</name><type>政府机构</type><view>教育,政治,社会</view></organization><organization id="O201004060005"><name>东软信息学院日语系</name><type>院系</type><view>日语</view><belongto refer="东软信息学院$O201003160001">东软信息学院</belongto></organization><organization id="O201005070001"><name>IACSIT 国际计算机科学与信息技术协会</name><type>国际组织</type><link>http://www.iacsit.org/</link><img>http://www.iacsit.org/partner/NEW2.jpg</img><introduce>IACSIT  is a registered non-profit international scientific association of distinguished scholars engaged in Computer Science and Information Technology. </introduce><infofrom>维普发来的E-mail</infofrom></organization><organization id="O201005110006" lastedit="2020年2月21日  23时21分51秒"><name refer="">中共中央党校</name><type>高校,政治机构</type><year>１９３３年３月１３日</year><view>政治</view><link>http://www.ccps.gov.cn/
+http://www.ccps.gov.cn/dxgk/index.htm#党校概况</link><introduce>中共中央党校是轮训培训党的高中级领导干部和马克思主义理论干部的最高学府。中央党校坚持以马克思列宁主义、毛泽东思想、邓小平理论和“三个代表”重要思想为指导，深入贯彻落实科学发展观，高举中国特色社会主义伟大旗帜，按照党的十七大的部署，以党的执政能力建设和先进性建设为主线，把学习、研究、宣传中国特色社会主义理论体系作为党校工作的中心内容，不断深化教学、科研等各项改革，全面推进党校事业的新发展。</introduce><leader>中央党校现任校长由习近平同志兼任，常务副校长李景田，副校长石泰峰、陈宝生、孙庆聚、李书磊，教育长张伯里。</leader></organization><organization id="O201005120001"><name>经团联,日本经济团体联合会</name><type>社团法人</type><year>1946年8月16日</year><view>经济</view><infofrom>CCTV1 新闻</infofrom><link>http://www.keidanren.or.jp/topimg/kdr01j2.gif#官网
+http://www.shsz.org.cn/book/shownews.asp?num=szzz-2002523111152#介绍
+http://www.chinanews.com.cn/gn/news/2010/05-12/2278851.shtml#温家宝九晤日本经团联：中日企业家要开拓新市场</link><member>会员由制造业、贸易、商业流通、金融、能源等日本117家行业团体和1006家企业(其中外资 企业63家)的代表组成。</member><introduce>"经团联"活动的目的，针对日本经济界面临的国内外重要课题，谋求解决的方法，促进日 本经济以及世界经济的健康发展。"经团联"通过各专业委员会与政府、政党及其他关联机 构的决策提供建议。同样，"经团联"还与各国政府、经济团体和国际机构合作。开展国际间的有关问题的交流，讨论并提出解决方法。</introduce><department>1、"经团联"组织机构图    
+    会员：
+会员总数：1249人
+普通会员：1123个(团体会员117个、法人会员1006个)
+推荐会员：78个
+特别会员：48个   (统计至2001.7.1)
+
+2、"经团联"专业委员会概况
+1)政策委员会：下设6个大类专业委员会，包括综合政策委员会；经济、法制关系委员会；行业改革、产业国土关系委员会；技术、环境、能源关系委员会；社会关系委员会；国际关系委员会。
+2)地区、国家委员会：下属有美国委员会；日本加拿大委员会、中国委员会、欧洲地区委员会、亚洲大洋洲地区委员会等25个。
+3)特别委员会：下设8个委员会，包括防卫、生产委员会；宇宙、开发利用推广会议；国际合作推进协议会；自然保护协议会；企业政治论坛；1%俱乐部；木子-小川原开发推进委员会。
+4)"经团联"运营关系委员会：下设2个委员会，即事业委员会、财务委员会。</department><img>http://www.keidanren.or.jp/topimg/kdr01j2.gif</img></organization><organization id="O201005120002"><name>儒家</name><type>学派</type><link>http://baike.baidu.com/view/51931.htm</link><introduce>儒家是中国古代最有影响的学派。做为华夏固有价值系统的一种表现的儒家,并非通常意义上的学术或学派。一般来说，特别是先秦时，儒家学派也只是诸子之一，与其它诸子一样地位本无所谓主从关系。
+儒家思想基本分为“内圣”与“外王”，即个人修养与政治主张两类。</introduce><year>先秦</year><leader refer="孔子$R200907120051">孔子</leader></organization><organization id="O201006280001" lastedit="2017年3月25日  17时10分10秒"><name>中国一汽集团 / 中国第一汽车集团</name><type>集团</type><year>1953年</year><view>汽车制造</view><link>http://www.faw.com.cn/index.jsp</link><product>自主研发与企业核心竞争能力不断提升，形成了卡车、轿车、轻微型车、客车多品种、宽系列的产品格局。拥有解放、红旗、奔腾、夏利、威志等自主品牌和大众、奥迪、丰田、马自达等合资合作品牌。 </product><department>一汽现有职能部门17个，全资子公司19个、控股子公司14个。其中上市公司4个，分别是一汽轿车股份有限公司、长春一汽富维汽车股份有限公司、天津一汽夏利汽车股份有限公司、启明信息技术股份有限公司。</department><introduce>中国第一汽车集团公司简称“中国一汽”或“一汽”，总部位于吉林省长春市，前身是第一汽车制造厂，毛泽东主席题写厂名。</introduce><history>一汽1953年奠基兴建，1956年建成并投产，制造出新中国第一辆解放牌卡车。1958年制造出新中国第一辆东风牌小轿车和第一辆红旗牌高级轿车。一汽的建成，开创了中国汽车工业新的历史。经过五十多年的发展，一汽已经成为国内最大的汽车企业集团之一。</history><leader>总经理  徐建一</leader><img>http://www.faw.com.cn/yjkf/images/tu.jpg
+http://www.faw.com.cn/images/head_pic.jpg
+http://www.faw.com.cn/jtjj/qybjmap00.gif</img></organization><organization id="O201006280002"><name>ISKME，Institute for the Study of Knowledge Management in Education / 美国教育领域知识管理研究协会</name><type>协会</type><view>知识管理,教育</view><link>http://www.iskme.org/</link><introduce>The Institute for the Study of Knowledge Management in Education (ISKME), an independent, non-profit research institute established in 2002, is a pioneer in knowledge sharing and educational innovations.</introduce><year>2002</year><note>Mailing Address:
+ISKME
+323 Harvard Avenue
+Half Moon Bay, CA 94019
+
+(650) 728-3322
+(650) 728-3344 (fax)</note><founder>主席：Lisa A.Petrides</founder><infofrom>基于知识地图的教师个人知识管理平台的设计与实现</infofrom></organization><organization id="O201008180001" lastedit="2018年3月16日  13时26分12秒"><name>南京大学</name><type>高校</type><year>1902年</year><view>哲学、人工智能</view><img>http://img.qqzhi.com/upload/img_5_569936700D2168080415_23.jpg</img><link>http://www.nju.edu.cn</link><introduce>南京大学坐落于钟灵毓秀、虎踞龙蟠的金陵古都，是一所历史悠久、声誉卓著的百年名校。其前身是创建于1902年的三江师范学堂，此后历经两江师范学堂、南京高等师范学校、国立东南大学、第四中山大学、国立中央大学、国立南京大学等历史时期，于1950年更名为南京大学。1952年，在全国高校院系调整中，南京大学调整出工学、农学、师范等部分院系后与创办于1888年的金陵大学文、理学院等合并，仍名南京大学。校址从四牌楼迁至鼓楼金大原址。
+</introduce></organization><organization id="O201008230001" lastedit="2017年3月25日  17时6分27秒"><name>一汽轿车股份有限公司 / 长春一汽</name><type>公司</type><year>1997年6月10日</year><view>汽车制造</view><belongto refer="中国一汽$O201006280001">中国一汽</belongto><link>http://www.fawcar.com.cn/</link><introduce>一汽轿车股份有限公司是中国第一汽车集团的控股子公司，是一汽集团发展自主品牌乘用车的核心企业，是中国轿车制造业第一家股份制上市公司。公司的主营业务为开发、制造、销售乘用车及其配件。</introduce><place>新址位于长春高新技术产业开发区，毗邻长春汽车产业开发园区，于2004年7月建成投产</place><product>主要产品有红旗HQ3、奔腾、Mazda6等轿车系列。</product><leader>董事会：
+董事长 徐建一
+副董事长 吴绍明
+董事 滕铁骑
+董事 李骏
+董事 张丕杰
+独立董事 杨晓慧
+独立董事 宋冬林
+独立董事 姚德超
+
+监事会：
+监事会主席 马振东
+监事 白羽
+监事 杨延晨
+监事 刘殿伟
+监事 李原子
+
+经营管理委员会成员：
+总经理 张丕杰
+党委书记 白羽
+副总经理 王法长
+副总经理 汪玉春
+副总经理 徐晓剑 </leader><img>http://www.jznews.com.cn/web/2016chezhan/39.png</img></organization><organization id="O201008300001"><name>Anderson College</name><view>个人知识管理</view><infofrom refer="The Artificial Intelligence in Personal Knowledge Management$L201008290005">The Artificial Intelligence in Personal Knowledge Management</infofrom></organization><organization id="O201009030001" lastedit="2021年10月27日  11时19分48秒"><name refer="">NSF / 美国科学基金会</name><view>可视化,知识网络</view><infofrom refer="个人知识管理的知识场视角分析$L201009010001#复杂网络可视化研究综述$L201002020004">复杂网络可视化研究综述
+个人知识管理的知识场视角分析
+《工业大数据————工业4.0时代的工业转型与价值创造》</infofrom><standpoint>(1999年)给知识网络的定义是[ 6 ] : 知识网络是一个社会网
+络,该网络提供知识、信息的利用等。</standpoint><department>智能维护系统 IMS 产学合作中心</department></organization><organization id="O201009290001" lastedit="2017年4月10日  17时3分23秒"><name>腾讯</name><type>公司</type><year>1998年11月</year><view>互联网,游戏，大数据</view><leader>马化腾</leader><introduce>BAT之一</introduce><img>http://pic.baike.soso.com/p/20140211/20140211123235-184515148.jpg</img></organization><organization id="O201010310001" lastedit="2016年2月9日  1时58分27秒"><name>Lotus Notes</name><type>公司</type><view>知识管理</view><standpoint>知识管理是当公司面对非连续性变化日益突出的环境时，针对其生存和发展能力等重要方面所采取的一种应对措施，它贯穿于组织的发展进程中，旨在寻求信息处理能力与人的发明创新能力的有机结合。</standpoint></organization><organization id="O201011160001" lastedit="2018年6月5日  22时22分27秒"><name>海辉软件（国际）集团公司 / 文思海辉</name><type>公司</type><year>1996</year><view>IT外包</view><link>http://cn.hisoft.com/</link><img>http://file.chnsourcing.com.cn/2012/11/2012111200561724643.jpg</img><introduce>海辉是中国值得信赖的科技服务合作伙伴。公司拥有领先的全球运营能力，通过严格的质量标准和交付流程来保证客户的商业价值。</introduce><product refer="云计算$D200911020002">提供世界领先的信息技术、研发和业务流程外包服务。
+研发服务 
+@ 硬件设备测试服务
+@ 研发技术人才服务
+@ 产品全球化服务
+@ 软件产品测试服务
+@ 移动技术服务
+信息技术服务
+@ 应用软件开发与维护
+@ 应用软件测试服务
+@ 云计算服务
+@ 套装软件服务 
+@ IT基础设施管理服务
+@ IT 技术人才服务 
+业务流程外包
+@ 数据管理服务</product><partner refer="野村$O201103060001">野村
+海辉拥有超过100个全球企业客户，其中四分之一为世界500强企业，包括微软、IBM、Intel、英格索兰，、Citrix、Noble Energy、欧特克、Symantec、BEA、甲骨文、惠普、益百利、Sun、尼森集团、奥林巴斯、ADP、Quest、AIG、三菱汽车公司和东芝公司。</partner></organization><organization id="O201012230001" lastedit="2017年3月25日  16时51分47秒"><name>令希图书馆</name><type>图书馆</type><year>2010年12月6日</year><view>文献</view><link>http://wwwd.dlut.edu.cn/info/2017/1151.htm</link><place>大连理工大学西部校区</place><introduce> 令希图书馆位于大连理工大学西部校区，是西部校区的核心建筑，建筑面积30000平方米，是集教学与科研服务为一体的现代化高校图书馆，实行藏、借、阅、管、检五大功能合一、全面开架服务的管理模式，是思想、学术、艺术、文化融合的场所。</introduce><img>http://wwwd.dlut.edu.cn/images/logandicon/noticelogo3.png</img></organization><organization id="O201103060001" lastedit="2012年2月24日  15时34分41秒"><name>野村综合研究所/NRI</name><type>公司</type><view>金融</view><infofrom refer="无处不在的网络社会中的知识网络$L200911040002">无处不在的网络社会中的知识网络</infofrom><product>NRI通过“咨询”、“金融领域IT解决方案”“产业领域IT解决方案”、“IT基础服务”四项业务，支持着社会的机制建设、客户的商务以及人们舒适的生活。</product><year>1965年4月1日</year><link>http://www.nri.co.jp/
+http://baike.baidu.com/view/355925.htm</link><history>2010年9月 成立野村综研(大连)科技有限公司 
+</history><introduce>野村综合研究所(简称NRI)是日本一个著名的研究机构，它的前身是野村证券公司的调查部。</introduce><department>研究所设有以研究为主的镰仓总部和以调查为主的东京总部，有“双头雕”之称。
+1.东京总部。主要工作是围绕证券业务的调查研究，调查对象是日本以及世界主要国家的经济、金融、产业活动，股票市场、债券市场行情等。 　　2.镰仓总部。下设经济研究部、经营计划研究部、社会体制研究部、国际研究部、生物科学研究部五个分部，负责国内外政府、公共团体、产业企业的委托研究课题。 </department><leader>理事长 村上辉康</leader></organization><organization id="O201103190002"><name>国际知识管理协会The International Knowledge Management Institute (KM Institute)</name><type>国际组织</type><year>2004年 弗吉尼亚州</year><view>知识管理</view><infofrom>http://baike.baidu.com/view/3921027.htm</infofrom><introduce>　　国际知识管理协会拥有全球的知识管理专家，讲师和服务商，其在各自的领域都享有盛名。同时与全球几十个国家超过5000位知识管理专业的会员和用户保持着良好的通信与协作。其中不乏全球顶级的知识管理专家和一些最知名的知识管理杰出人物。 　　国际知识管理协会致力于研究、定义、发布和分享各种形式的真正适合学习者需要的知识管理知识。通过经验的分享提  国际知识管理协会
+供给专业知识管理人士怎样对成功的企业进行知识管理和如何在知识经济时代背景更好的发展。寻求从企业到个人的“个性化知识管理”改进。 　　国际知识管理协会发布了一系列完整的知识管理体系和内容，利用最佳的实践实现为各类知识管理者开发和提供知识管理培训课程。在通过相关课程培训后可获得由KM Institute颁发的知识管理认证证书。随着一流的教育工作者、教员、专家和提供商的全球性联盟，国际知识管理协会将建立一个拥有世界一流的知识管理社区及体系。 　　为了推广及扩大影响力，国际知识管理协会在世界各主要国家都设立分部。2010年，国际知识管理协会在中国设立国际知识管理协会北京分会，旨在中国推广最权威，最先进的知识管理理念。</introduce><img>http://imgsrc.baidu.com/baike/abpic/item/e6508eef073ba2afcf1b3e1a.jpg</img></organization><organization id="O201104230001"><name>一宇數位科技</name><type>公司</type><year>2000年</year><view>个人知识管理</view><link>http://www.learningdigital.com/</link><introduce>2000年，是網路熱潮的時代，而一宇數位科技股份有限公司 (Learningdigital.com, Inc.)正從這百家爭鳴的局面崛起，隸屬於 knovia 集團，總公司位於台灣台北，在高雄及上海均設有辦事處。 
+一宇數位一直以來致力於用創新技術和最佳實務，來協助企業提昇人才管理之效能。我們擁有堅強的專業與超過百家大型客戶經驗為後盾，2010年我們更獲得第七屆微軟合作夥伴英雄獎，大型企業客戶組第一名肯定；我們順應人才發展和知識分享的深化應用腳步，積極通過數位學習轉型的考驗；我們秉持客戶為尊的理念，設計創新、實用、高品質的系統解決方案，深入客戶所面臨的挑戰與階段性需求，量身訂作出最合適的人才發展方案。</introduce><place>台湾</place></organization><organization id="O201203080001" lastedit="2020年2月3日  22时52分44秒"><name>株式会社バサラ　/VASARA</name><type>公司，股份公司</type><year>２０００年３月１日</year><view>游戏设计</view><link>http://www.va-sa-ra.co.jp/</link><product refer="SNS$D201002140001">●iPhone●iPadアプリ●Androidアプリ開発
+●WEBシステム開発
+●FLASH●携帯Flash制作
+●SNS/アバターコミュニティーサービスの開発●運営
+●携帯電話向けアプリケーション開発（BREW,DOJA,S!アプリ）
+●WPFテクノロジを用いたWindowsアプリケーションの開発
+●Windows Media Center向けコンテンツ及びシステムの開発
+●ActiveXコントロール利用をしたアプリケーション開発
+●FeliCa、Edy向けコンテンツ及びシステムの開発
+●Webデザイン、ゲームCG制作（2D●3D）
+●着メロデータ、各種楽曲データの制作、作曲</product><leader>代表取締役: 石田　茂暁 
+取締役: 
+渡辺　浩晃
+遠山　理治
+坂本　智  </leader><introduce>我々は、従来の「Weｂページ型」に代わる、次世代Web記述言語であるXMLを利用したサイバースペースシステムを提供し、新しいインターネットスタイルの確立を目標にしています。</introduce></organization><organization id="O201208280001" lastedit="2012年8月28日  17时48分50秒"><name>Falcom</name><type>公司</type><year>1981年3月</year><view>游戏，角色扮演</view><introduce>在日本的游戏界中，FALCOM公司（全称：Nihon Falcom Corp）在角色扮演游戏的表现上一直都相当的亮丽。</introduce><link>http://www.falcom.co.jp/</link><product>英雄传说系列 卡卡布三部曲：
+3 白发魔女
+4 朱红的泪
+5 海之滥歌
+6 空之轨迹系列：
+7 零之轨迹 碧之轨迹
+伊苏系列
+双星物语</product><img>http://imgsrc.baidu.com/baike/pic/item/61183b2dc7bc0264359bf743.jpg</img></organization><organization id="O201209130001" lastedit="2020年2月23日  17时37分13秒"><name refer="">ストリートダンス協会</name><type>协会</type><view>舞蹈</view><img>http://www.streetdancekyoukai.com/img/headerlogo.jpg
+http://www.streetdancekentei.com/img_kijyun/img01.gif
+http://www.streetdancekentei.com/img_kijyun/img02.gif
+http://www.streetdancekentei.com/img_kijyun/img03.gif
+http://www.streetdancekentei.com/img_kijyun/img04.gif
+http://www.streetdancekentei.com/img_kijyun/img05.gif
+http://www.streetdancekentei.com/img_kijyun/img06.gif
+http://www.streetdancekentei.com/img_kijyun/img07.gif</img><link>http://www.streetdancekyoukai.com/
+http://www.streetdancekentei.com/</link><introduce> 一般社団法人ストリートダンス協会は「一般社団法人及び一般財団法人に関する法律」に基づき設立された非営利団体です。</introduce><nation>日本</nation></organization><organization id="O201209130002" lastedit="2020年2月23日  17时31分59秒"><name refer="">SnR, Share and Respect
+大连尊享文化传播有限公司</name><type>工作室</type><year>2012年10月</year><view>舞蹈</view><img>http://ww3.sinaimg.cn/mw690/9f5943f5tw1drfgurl08xj.jpg</img><history>2012.9.16 召开首次会议
+2012.10.30 开账
+2013.12月 SnR与舞线谱、ACT合并，成立US街舞工厂</history></organization><organization id="O201209230001"><name>大工舞协</name><type>社团</type><view>舞蹈</view></organization><organization id="O201210070001" lastedit="2020年2月23日  17时36分10秒"><name refer="">BASE</name><type>培训机构</type><view>舞蹈</view><leader>校长：dominique</leader></organization><organization id="O201212200001" lastedit="2017年3月25日  16时34分37秒"><name>埃森哲信息技术（大连）有限公司</name><type>公司</type><view>IT</view><belongto refer="埃森哲$O200909290002">埃森哲</belongto><member>HR：崔喜淑</member><department>BPO,
+CDC,China Delivery Centre 中国交付中心
+行政服务</department><job>http://www.job592.com/hot-dalian/newjob3929587.html#实习培训生</job><img>http://article.fd.zol-img.com.cn/t_s501x2000/g4/M0B/03/04/Cg-4WVPklt2IXmvUAAEUE-rtL_QAAQUnACfxK8AARQr388.jpg</img></organization><organization id="O201212200002" lastedit="2013年10月16日  14时12分53秒"><name>安博移动互联网学院</name><type>教育机构</type><view>IT，移动</view><link>http://www.523g.org/aboutus.asp</link><introduce>依托安博研究院数年来的潜心研发以及在IT培训领域积累的丰富经验，安博教育整合国际、国内优势移动互联资源，强势推出“安博移动互联网学院”教育合作项目。该项目隶属于安博职业教育集团，以开发并完善系统性的移动互联网教育产品，培养具备综合技能的多元化移动互联网人才为发展目标。</introduce><belongto>安博职业教育集团</belongto><product refer="iOS$D201103310001#Android$D201003030001">Android课程
+iOS课程</product></organization><organization id="O201302020001" lastedit="2020年2月23日  17时37分29秒"><name refer="">JSDA, 日本ストリートダンス協会
+JAPAN STREET DANCE ASSOCIATION</name><type>协会</type><year>2001年</year><view>舞蹈</view><img>http://jsda.info/common/images/logo.gif
+http://jsda.info/exams/images/level1205.jpg</img><introduce>JSDAの理念　JSDAが目指すダンスの未来
+1、ダンサーの社会的信用`地位の向上を目指します。
+2、活躍`表現の場を創出し、世界に羽ばたくダンサーの活動を支援します。
+3、ストリートダンスの普及`発展を促進し、ダンスビジネスの確立`マーケットの拡大に貢献します。</introduce><leader>理事長 青木 義人
+</leader><nation>日本</nation></organization><organization id="O201304230001" lastedit="2017年3月25日  16时32分46秒"><name>华信 / 大连华信计算机技术股份有限公司</name><type>公司</type><year>1996年</year><place>大连</place><view>计算机科学</view><img>http://www.dhc.com.cn/images/cn/logo.jpg</img><link>http://www.dhc.com.cn/cn/index.action?locale=zh_CN</link><introduce>是一家面向全球客户提供领先的应用软件产品、信息服务及行业解决方案的IT企业。是中国软件出口领军企业，也是国内IT解决方案核心提供商。</introduce><department>公司拥有员工近8000人，在北京、济南、沈阳、昆山、深圳、苏州、香港，以及日本东京、冲绳多地设有二十余家分支机构。</department><standpoint>致力于“世界一流的IT服务及解决方案提供商”，大连华信长期以来坚持“国内、国外市场同步发展”的战略。</standpoint><partner>业务覆盖中国、日本、美国、中亚、南亚等国家和地区。</partner><product>至今，大连华信形成了国际市场占比48%，国内市场占比32%，IT服务业务占比19%，培训教育业务占比1%的业务格局。</product></organization><organization id="O201306040001" lastedit="2013年6月4日  18时42分3秒"><name>Ambiera</name><view>IT，3D,Web</view><type>企业</type><img>http://www.ambiera.com/images/ambiera_logo_big.png</img><introduce>Ambiera creates software for creative people</introduce></organization><organization id="O201309240001" lastedit="2017年3月25日  16时26分44秒"><name>蓝鸥科技</name><view>移动，iOS</view><type>公司</type><place>北京，大连</place><img>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1490440456222&amp;di=367d568e9fe3adea4e32801387baf4bd&amp;imgtype=0&amp;src=http%3A%2F%2Fjobsys.oss-cn-shenzhen.aliyuncs.com%2Fdata%2Fuploads%2Fcom%2Flogo%2F2016%2F10%2F08%2Faf728dc52ca87e01ec0d481fdbfca008.png</img></organization><organization id="O201401280001" lastedit="2020年2月23日  17时32分56秒"><name refer="">NOAダンス</name><view>舞蹈</view><type>培训机构</type><place>日本东京</place><link>http://www.noadance.com</link><img>http://www.noadance.com/style_images/logo.jpg</img></organization><organization id="O201504270001" lastedit="2017年3月25日  16时23分44秒"><name>中视典</name><view>虚拟现实</view><type>企业</type><img>http://help.vrp3d.com/logo.png</img></organization><organization id="O201506160001" lastedit="2017年3月25日  16时21分41秒"><name>NVIDIA / 英伟达</name><view>渲染</view><type>公司</type><leader>中国地区 技术总监 林楠</leader><img>http://image.tianjimedia.com/uploadImages/2011/234/0FO2957Z673G_NVLogo_3D_500.png</img></organization><organization id="O201511130001" lastedit="2020年2月23日  12时11分5秒"><name refer="">搭配家/北京京乐网络技术有限公司</name><view>家具、家居、互联网、全屋定制</view><leader refer="肖敏$R201602080001#陆唯超$R201606060001">总经理：肖敏
+CTO: 陆唯超</leader><type>企业</type><year>2014年2月</year><place>北京</place><introduce>“共建、共享、共赢”</introduce><link>http://www.dpjia.com/</link><img>http://cdn.dpjia.com/files/uploads/images/58600feaea6c3d33e3bb87c01fba6c11.png</img></organization><organization id="O201511130002" lastedit="2016年7月21日  16时29分4秒"><name>土巴兔</name><view>家具、家居、家装、互联网</view><type>企业</type><year>2008</year><link>http://www.to8to.com</link><img>http://ecmb.bdimg.com/tam-ogel/5398599724e5127d4a527af888dc971c_121_121.jpg</img></organization><organization id="O201511130003" lastedit="2016年7月21日  15时45分54秒"><name>索菲亚</name><view>家具，家具定制</view><type>企业</type><year>2003</year><product>衣柜</product><img>http://www.suofeiyajia.com/images/logo.png</img></organization><organization id="O201511130004" lastedit="2016年7月21日  16时45分2秒"><name>曲美</name><view>家具、家居、互联网、木业</view><type>企业</type><year>1990年代初期</year><leader>赵瑞海 董事长</leader><product>OAO模式：
+曲美官网、云设计平台、线下曲美生活馆、ERP系统、CRM系统
+</product></organization><organization id="O201511130005" lastedit="2016年7月21日  16时18分20秒"><name>美乐乐</name><view>家具、家居、互联网、O2O</view><type>企业</type><year>2008</year><img>http://ecmb.bdimg.com/tam-ogel/5b0cc584a3875b522818bceb4b4374ca_121_121.jpg</img><link>http://www.meilele.com</link><introduce>2008年，美乐乐家居网正式运营，是中国电子商务企业中最早的经营家具品类的专业类B2C网站之一。
+2011年，美乐乐率先在国内实现由线上美乐乐家居网与线下美乐乐体验馆结合的“O2O双平台”营销模式。</introduce></organization><organization id="O201511130006" lastedit="2016年7月21日  16时41分44秒"><name>尚品宅配</name><view refer="VR$D201607210003">家具、家居、互联网、家具定制、VR</view><type>企业、家具电商、C2B结合O2O</type><year>2004</year><img>http://ecmb.bdimg.com/tam-ogel/a13f44ec1832a36d50321775bcd2f70b_121_121.jpg</img><link>www.homekoo.com</link><introduce>尚品宅配公司在行业12年的成长，每次一转身，每一次营销变革，都在行业消费者层掀起旋风，引领家居消费新观念，而成就尚品宅配从行业品牌向时尚大众品牌的坚实一步。尚品宅配李嘉聪总经理称："携手周迅，正是因为周迅的充满灵气，个性时尚，百变的造型、成为环保大使的责任感，这些都与尚品宅配品牌特完美契合。"</introduce><leader>李嘉聪  总经理</leader><department>目前在广州，上海，北京拥有20家直营店，全国专卖店已达400多家，遍布全国各地和海外。</department><product>衣柜定制</product></organization><organization id="O201511130007"><name>红星美凯龙</name><view>家具、家居</view><type>家居电商</type></organization><organization id="O201511130008"><name>苏宁</name><view>家电</view><type>家居电商</type></organization><organization id="O201511130009" lastedit="2015年11月13日  17时50分48秒"><name>齐家网</name><view>装修</view><type>家居电商</type><link>http://www.jia.com/beijing/</link></organization><organization id="O201511130010" lastedit="2016年10月8日  16时22分49秒"><name>爱福窝</name><view>家装</view><product>爱福窝3D云设计平台</product><founder>3DMyHome斥资创建</founder><hezuohuoban>天猫</hezuohuoban><link>www.fuwo.com</link><img>http://www.cyzone.cn/uploadfile/2015/0514/20150514061328644.jpg</img></organization><organization id="O201511130011"><name>MyHome3D</name><type>公司</type><place>美国</place></organization><organization id="O201511130012"><name>极友家</name><view>家具</view><type>家具电商</type></organization><organization id="O201511130013"><name>东方百盛</name><view>家具</view></organization><organization id="O201511130014"><name>卧王</name><view>家具</view></organization><organization id="O201511130015"><name>天猫</name><view>电商</view><type>电商平台</type></organization><organization id="O201511130016"><name>品图投资人俱乐部</name><view>商务</view><type>投资商</type></organization><organization id="O201511130017"><name>e修哥</name><view>家装</view><type>家装电商</type></organization><organization id="O201511180001" lastedit="2015年11月18日  16时2分6秒"><name>网易家居</name><view>家居</view><type>家居门户</type><link>http://home.163.com/</link></organization><organization id="O201511180002"><name>米兰</name><view>家居</view></organization><organization id="O201511180004"><name>爱空间</name><view>家装</view><type>家居电商</type></organization><organization id="O201512120001" lastedit="2016年11月9日  17时42分3秒"><name>酷家乐/杭州群核信息技术有限公司</name><view>家具、家居、互联网</view><type>企业</type><year>2011年</year><introduce>该公司以分布式并行计算和多媒体数据挖掘为技术核心，推出的大众免费家装产品。
+日访问量突破100万</introduce><department>从13年7月份IDG入股到现在一直保持飞速发展，IDG入股的时候公司只有20个人，
+现在有120个人，暑期有170、180个人.
+Flash开发工程师
+Flash3D开发工程师
+运维工程师
+算法工程师
+前端开发工程师
+后端开发工程师
+高级软件测试工程师
+BD大客户销售代表
+BD大客户销售经理
+渠道管理
+市场拓展
+商家培训
+商家运营
+APP运营
+交互设计
+UI设计师
+客户服务-品控专员
+客服专员-跟单专员
+论坛推广专员
+资深SEM
+</department><leader refer="黄晓煌$R201609300001">CEO 黄晓煌,</leader><link>http://www.kujiale.com/</link><img>http://qhyxpic.oss.kujiale.com/2016/07/08/K57SERAKAEBKMB46AAAAABY8_132x46.png</img></organization><organization id="O201602080001" lastedit="2016年2月8日  23时34分28秒"><name>圆方</name><view>家居，IT</view><type>企业</type><place>广州</place><link>http://www.yfway.com/Index/</link><img>http://www.yfway.com/Public/Index/images/logo.png</img></organization><organization id="O201606090001" lastedit="2016年6月9日  16时51分41秒"><name>西山居</name><view>游戏设计</view><type>工作室</type><year>1995年</year><link>http://www.xishanju.com/cn/history.html</link><img>http://www.xishanju.com/cn/public/images/logo.png</img></organization><organization id="O201607180001" lastedit="2016年7月21日  15时28分55秒"><name>1010</name><view>家具</view><type>企业</type><year>2014</year><place>河南</place><link>http://www.hnjifusen.com/</link><img>http://wap.hnjifusen.com/uploads/allimg/150829/1-150R9155440623.jpg</img><founder>彭富强</founder><product>1010门板 雕刻软件系统、
+1010板式家具设计生产系统、
+1010ERP家具生产管理系统。
+均有彭富章总工程师带领团队从2010年开始完全自主潜心研发、且先后在 
+北京欧标卡其、郑州韩瑞家居、重庆永进门业等软件测试基地长期测试应用，不断改进和完善。
+在确认软件非常成熟的情况下才确认投放市场，引起强烈反应，并以 标杆姿态引领家具企业软件开发行业！</product></organization><organization id="O201607180003" lastedit="2016年11月1日  11时48分48秒"><name>三维家</name><view>家居</view><type>企业，竞品</type><year>2012-01</year><place>中国广州</place><img>http://d.hiphotos.baidu.com/baike/pic/item/d1a20cf431adcbef55a90252abaf2edda2cc9fc0.jpg</img><founder refer="蔡志森$R201607210002">蔡志森</founder><introduce>2012年1月，广东三维家信息科技有限公司注册成立；
+2015年7月，三维家推出：《橱柜3D设计系统2.0》、《衣柜3D设计系统2.0》、《集成吊顶3D系统2.0》，奠定定制家居领域的技术营销新台阶；
+</introduce><link>http://www.3vjia.com/</link></organization><organization id="O201607200001" lastedit="2017年3月14日  17时59分17秒"><name>华为</name><view>互联网</view><type>集团，企业</type><img>http://www.wtoip.com/uploadfile/2014/1226/20141226041548751.png</img></organization><organization id="O201607200002" lastedit="2017年4月10日  17时3分38秒"><name>百度</name><view>互联网，大数据</view><type>集团，企业</type><img>http://imgs.technews.cn/wp-content/uploads/2014/10/Baidu.jpg</img></organization><organization id="O201607200003" lastedit="2017年4月10日  17时3分7秒"><name>阿里巴巴</name><view>互联网，大数据</view><type>集团，企业</type><leader refer="卫哲$R201607210001">CEO 卫哲</leader><img>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1489495494828&amp;di=13b15f48b071ab3194dd1a05cbf06c9d&amp;imgtype=0&amp;src=http%3A%2F%2Fpic.fashiontrenddigest.com%2FdigestPics%2F2014%2F4%2F24%2F42411585867297s.jpg</img></organization><organization id="O201607220001" lastedit="2017年3月14日  17时55分38秒"><name>铭龙科技 / 智慧工匠</name><view>家具，C2M</view><type>企业</type><place>北京</place><leader refer="高树公$R201607190001">高树公</leader><img>http://files.ctex.cn/uploadpic//uploadOne/20160224/1456301533318.jpg</img></organization><organization id="O201607250001" lastedit="2017年3月14日  17时54分20秒"><name>Addison-Wesley</name><view>出版</view><type>出版社</type><img>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1489495267890&amp;di=c5cecef549af58a6776d58b3585c0caa&amp;imgtype=0&amp;src=http%3A%2F%2Fa4.att.hudong.com%2F10%2F44%2F01200000029917134394449238032_s.jpg</img></organization><organization id="O201607250002"><name>McGraw-Hill</name><type>出版社</type></organization><organization id="O201607250003" lastedit="2016年8月16日  15时25分58秒"><name>Morgan Kaufmann</name><type>出版社</type></organization><organization id="O201609120001" lastedit="2016年12月20日  23时26分21秒"><name>Khronos Group,科纳斯组织</name><view>计算机图像学</view><type>组织</type><product refer="OpenGL$D201003030002">OpenGL, OpenGL ES</product><infofrom refer="OpenGL ES 3$L201609120001#WebGL入门$L201308050001">OpenGL ES 3.0 编程指南
+WebGL入门 作序者Ken Russell的从属单位</infofrom></organization><organization id="O201609270001" lastedit="2016年9月27日  10时29分18秒"><name>Cebas</name><view>计算机图形学</view><type>公司</type><product refer="3ds MAX$D201001190002">3ds MAX的一个非常著名插件开发商
+很早就以Luma(光能传递)、Opic（光斑效果）、Bov（体积效果）几个插件而闻名。</product></organization><organization id="O201609270002" lastedit="2017年3月14日  17时49分12秒"><name>Autodesk</name><view>计算机图形学</view><type>公司</type><img>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1489495016953&amp;di=66a5c4244b063eac39a12026d7e9ceb5&amp;imgtype=0&amp;src=http%3A%2F%2Fp4.qhimg.com%2Ft019b3fd6b36e558684.jpg</img></organization><organization id="O201609270003" lastedit="2017年3月14日  17时48分43秒"><name>北京飞鹿研究院</name><view>计算机图形学</view><type>研究院</type><place>北京</place><link>http://www.wware.org/
+不确定</link><img>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1489494989381&amp;di=8b44c674233df5230c5ad46d5ed6672e&amp;imgtype=0&amp;src=http%3A%2F%2Fcdn.joboto-public.jobtong.com%2F9a940f75e350cde9d7c4fb4eed518bf845899390.png</img></organization><organization id="O201609270004" lastedit="2017年3月14日  17时47分51秒"><name>PIXAR</name><view>电影</view><type>公司</type><img>https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1490089655&amp;di=62f8e1d0a15f6b6c5d961bd5a7f6b8c2&amp;imgtype=jpg&amp;er=1&amp;src=http%3A%2F%2Fp4.music.126.net%2FydxlIXaL9F1OKSJ9TWkLlA%3D%3D%2F1419469512055787.jpg</img></organization><organization id="O201611020001" lastedit="2016年11月2日  11时27分49秒"><name>四维时代</name><view>3D</view><type>公司</type><link>http://www.4dage.com/intro.html</link><img>http://www.4dage.com/images/homepage_logo.png</img></organization><organization id="O201612230001" lastedit="2017年3月14日  17时34分7秒"><name>育碧</name><view>游戏开发</view><type>公司、集团</type><img>http://i2.sinaimg.cn/gm/2014/0725/U4341P115DT20140725141229.jpg</img></organization><organization id="O201702010001" lastedit="2020年2月2日  18时23分29秒"><name>大连九州创智科技有限公司</name><view>IT，自动化，人工智能，大数据</view><type>公司</type><year>2011</year><place>大连</place><link>http://www.china-creative.net/</link><product>    港口拖轮无线调度终端
+    移动预算办公系统
+    全面预算管控系列产品
+    风电功率预测系统
+    理财提醒器
+</product><img>https://imgsa.baidu.com/baike/c0%3Dbaike72%2C5%2C5%2C72%2C24/sign=9a97380ed454564ef168ec6bd2b7f7e7/b151f8198618367a09777bc027738bd4b31ce535.jpg</img><partner>株式会社東レシステムセンター
+（株）システムコーディネイト
+日本信号株式会社
+サーキットテクノロジー（株）
+株式会社 暁電機製作所
+株式会社フレックスシステムファーム
+アロカ株式会社
+新川電機株式会社
+株式会社ロジックデザイン
+富士工業株式会社（大连）
+上海深水港船务有限公司
+上海浦东国际集装箱码头有限公司
+东软股份有限公司
+中国煤科院
+大连华锐重工集团
+大连港集团 
+</partner></organization><organization id="O201703300001" lastedit="2017年3月30日  14时26分10秒"><name>WHATWG</name><view>HTML5</view><year>2004</year><infofrom refer="HTML5高级程序设计$L201306290001">HTML5高级程序设计</infofrom><department refer="Apple$O200909220004#Google$D201105050001">Apple,Mozilla,Google,Opera</department><introduce>开发HTML和Web应用API，同时为各浏览器厂商以及其他有意向的组织提供开放式合作。</introduce></organization><organization id="O201703310001"><name>清华大学出版社</name><view>出版</view><type>出版社</type></organization><organization id="O201704050001"><name>ECMA / 欧洲计算机制造商协会</name><view>IT</view><type>协会</type><place>欧洲</place></organization><organization id="O201704060002" lastedit="2018年5月14日  17时49分11秒"><name>卡内基梅隆大学 / CMU,Carnegie Mellon University</name><view>计算机</view><type>高校</type><infofrom>久仰久仰</infofrom><introduce>世界计算机专业最牛的大学</introduce></organization><organization id="O201704070001"><name>Facebook</name><view>社交网络，机器学习</view><type>公司</type></organization><organization id="O201704100001" lastedit="2017年4月10日  13时7分43秒"><name>BAT</name><view>互联网，IT</view><type>统称</type><department refer="百度$O201607200002#阿里巴巴$O201607200003#腾讯$O201009290001">百度
+阿里巴巴
+腾讯</department></organization><organization id="O201704100002"><name>同济大学</name><type>高校</type></organization><organization id="O201704100003"><name>京东</name><view>大数据，电子商务</view><type>集团</type></organization><organization id="O201704100004"><name>小米</name><view>移动，大数据</view><type>公司</type></organization><organization id="O201704230001" lastedit="2017年4月23日  16时10分43秒"><name>DeepMind</name><view>人工智能，机器学习</view><type>公司，团队</type><year>2010</year><place>伦敦</place><belongto refer="Google$O200909220003">Google</belongto><infofrom refer="Mastering the game of Go with deep neural networks and tree search$L201704230002#DeepMind$O201704230001">Mastering the game of Go with deep neural networks and tree search</infofrom><link>https://deepmind.com/</link></organization><organization id="O201707070001" lastedit="2017年7月7日  15时46分57秒"><name>大连集发环渤海集装箱运输有限公司 / DBR</name><view>运输</view><type>公司</type><place>大连</place><link>http://www.dbr.net.cn/index</link><img>http://www.dbr.net.cn/static/DBR/assets/img/dbr/dbr_logo.png</img></organization><organization id="O201707250001" lastedit="2017年7月25日  14时24分31秒"><name>Algorithmia</name><view>机器学习</view><type>公司</type><place>西雅图</place><infofrom>http://news.10jqka.com.cn/20170627/c598997333.shtml</infofrom><introduce>这家公司能够提供一个机器学习的“算法市场”，类似于App Store。也能根据企业在私有云中运行工作负载的需要，让企业用户轻松使用最新的机器学习成果。</introduce></organization><organization id="O201707250002" lastedit="2017年7月25日  14时55分35秒"><name>Cloudera</name><view>大数据</view><type>企业</type><introduce>Hadoop领域市值最高的企业</introduce></organization><organization id="O201708230001" lastedit="2017年8月23日  17时15分32秒"><name>Willow Garage</name><view>机器人</view><type>公司</type><infofrom refer="PCL$D201708220001">PCL库源码的版权信息2010-2012</infofrom></organization><organization id="O201708240001"><name>亚马逊</name><view>出版</view><type>公司</type></organization><organization id="O201709190001" lastedit="2017年9月19日  14时28分56秒"><name>康奈尔大学</name><type>高校</type><infofrom>终极算法</infofrom></organization><organization id="O201710280001"><name>汉王科技</name><view>人脸识别，机器学习</view><type>公司</type><place>北京</place></organization><organization id="O201710280002" lastedit="2018年6月22日  14时42分59秒"><name>科大讯飞</name><view>语音识别与处理、人脸识别</view><type>公司</type><img>http://www.iflytek.com/images/logo.png</img><infofrom>2018年 大连软交会</infofrom><year>1999年12月30日</year><leader>现任董事长兼总裁为刘庆峰</leader><hezuohuoban>主要股东包括：中国移动、中科大资产经营有限公司、上海广信、联想投资、盈富泰克等</hezuohuoban></organization><organization id="O201710280003"><name>川大智胜</name><view>三维人脸识别</view><type>公司</type></organization><organization id="O201710280004" lastedit="2018年6月22日  11时35分37秒"><name>北京市商汤科技开发有限公司</name><view>人脸识别，深度学习，人工智能</view><product>人脸识别、文字识别、人体识别、车辆识别、物体识别、图像处理、语音合成
+特别的：
+人脸属性识别：性别、年龄、种族、表情、饰品、胡须、面部动作状态
+服装属性识别：
+物体检测
+场景识别
+车型识别
+文字识别：票据类、卡证类、车牌
+遥感图像解译
+视频识别：内容审核、视频标签
+视频处理：降噪、修复、滤镜
+机器手
+无人驾驶
+
+
+</product><infofrom>2018 大连软交会</infofrom><img>https://www.sensetime.com/style/image/logo01-1.png</img><note>商汤：夏朝商国君主</note><founder>徐立</founder><leader>徐立</leader></organization><organization id="O201712290001" lastedit="2017年12月29日  12时11分32秒"><name>渤海证券研究所</name><view>航运</view><type>研究所</type><infofrom>航运企业竞争力研究</infofrom></organization><organization id="O201801030001" lastedit="2018年1月3日  14时14分8秒"><name>弗劳恩霍夫协会</name><view>工业</view><type>协会</type><place>德国</place><infofrom>百度百科——工业4.0</infofrom></organization><organization id="O201801030002"><name>德国机械设备制造业联合会（VDMA）</name><view>制造业</view><type>协会</type><place>德国</place></organization><organization id="O201801030003"><name>德国电气和电子工业联合会（ZVEI）</name><view>制造业</view><type>协会</type><place>德国</place></organization><organization id="O201801030004"><name>德国信息技术、通讯、新媒体协会（BITKOM）</name><view>IT</view><type>协会</type><place>德国</place></organization><organization id="O201801030005"><name>美国人口调查局</name><view>社会</view><place>美国</place></organization><organization id="O201803130001"><name>速感科技</name><view>SLAM</view><type>企业</type></organization><organization id="O201803160001"><name>华尔街股票研究公司</name><view>金融</view><type>企业</type><place>华尔街</place></organization><organization id="O201803160002"><name>中国科技大学</name><view>人工智能</view><type>高校</type></organization><organization id="O201803160003"><name>北京师范大学</name><view>认知神经科学</view><type>高校</type></organization><organization id="O201804090001" lastedit="2018年4月9日  14时47分59秒"><name>北京阿丘科技有限公司</name><view>工业，自动化，人工智能，机器人视觉，深度学习</view><type>公司</type><place>北京</place><infofrom>微信群：3D视觉群(dianyunpcl@163.com)</infofrom><link>http://aqrose.com/</link><founder>来自清华大学人工智能实验室</founder><product>复杂缺陷检测
+机器人无序分拣
+箱子尺寸测量</product><img>http://aqrose.com/images/aq-logo.png
+http://aqrose.com/images/aq-app2.png</img></organization><organization id="O201805090001" lastedit="2018年5月9日  13时24分21秒"><name>未动科技</name><view>计算机视觉</view><type>企业</type><founder>孙铮</founder><leader>孙铮(CEO)
+CTO吴昊原微软亚洲研究院研究员，计算机视觉专家
+COO柳莎莎拥有超过10年的高科技企业工作经验，对产业链及商业运作有着深刻的认识与丰富的经验。曾任职微软全球消费者产品集团运营商渠道部总监。</leader><product>计算机3D视觉智能交互软硬件方案
+1、黎曼平台：3D手势识别
+2、欧拉平台：3D人脸识别
+3、笛卡尔平台：运动跟踪（SLAM）
+4、高斯平台：场景重构
+</product><link>http://www.cyzone.cn/a/20170710/312813.html</link><partner>德国pmd公司(www.pmdtec.com)已采用未动科技的黎曼平台作为其3D模组pico flexx的中间件。</partner><introduce>“Untouch拥有全栈智能3D视觉解决方案，团队成员主要来自微软亚洲研究院、中科院、清华和北大等研究机构，拥有全球领先的视觉交互技术，致力于赋予手机、机器人、无人机、AR/VR等智能设备与人、与场景的智能交互能力。” </introduce></organization><organization id="O201805150001" lastedit="2018年5月15日  9时7分36秒"><name>Affectiva</name><view>人工智能，计算机视觉，深度学习，大数据</view><type>公司</type><introduce>最牛逼AI初创公司
+已在87个不同的国家中，收集了650万名驾驶人的开车脸部影像，来训练识别模型</introduce><product>专注于分析人类情感</product></organization><organization id="O201805170001" lastedit="2021年5月7日  12时37分14秒"><name refer="">大连航佳机器人科技有限公司（Navi+）</name><view>机器人，SLAM，计算机视觉</view><type>公司</type><year>2017年8月23日</year><place>大连</place><founder>何国建</founder><leader>何国建</leader><img>http://www.navi-plus.com/Public/Home/index/images/slide2.jpg</img><link>http://www.navi-plus.com/ </link><member>核心成员来自大连理工大学智能机器人实验室</member><product>致力于研发高性能的室内外定位导航系统。
+目前公司拥有自主知识产权的高精度机器人室内定位及导航技术和产品，主要产品包括室内外三维SLAM定位导航模块3D-BOX，三维SLAM激光扫描仪，室内二维激光SLAM定位导航解决方案，室外三维SLAM定位导航解决方案，厂区巡检机器人等。
+
+3D BOX：使用了最先进的3D激光SLAM算法与机器人重定位算法，无需GPS等支持即可实时输出3D点云与六自由度位姿
+定位导航系统：主要基于SLAM算法、粒子滤波算法和迪杰斯特拉算法，实现了构图、定位以及导航核心功能。
+</product></organization><organization id="O201808070001" lastedit="2018年8月7日  15时6分37秒"><name>上海冉青电子科技有限公司</name><view>自动化，点云</view><type>企业</type><year>2002年</year><place>上海</place><link>http://www.rrays.com.cn/</link><infofrom>经理微信群内分享</infofrom><product>RCMS/LCMS
+节能型轮胎吊
+集装箱自动化远程操作系统
+起重机整机系统设计、安装、调试
+堆取料机自动化无人值守系统
+卸船机自动化系统</product></organization><organization id="O201810180001" lastedit="2018年10月18日  17时6分57秒"><name>上海证券交易所</name><view>金融，证券</view><type>金融机构</type><place>上海</place><link>http://www.sse.com.cn/</link><img>http://www.sse.com.cn/images/layout/nav_logo.png</img></organization><organization id="O202002090001" lastedit="2020年2月9日  8时10分33秒"><name refer="">中控</name><view>工业智能化</view><type>企业</type><infofrom>iNeuOS</infofrom></organization><organization id="O202002090002" lastedit="2020年2月9日  9时35分21秒"><name refer="">力控</name><view>工业智能化</view><type>企业</type></organization><organization id="O202002090003"><name>易控</name><view>工业智能化</view><type>企业</type></organization><organization id="O202002090004" lastedit="2020年2月23日  7时5分44秒"><name refer="">北京优诺</name><view>Web3D</view><type>企业</type><link>http://www.uinnova.cn/
+http://www.3dmomoda.com/draw</link></organization><organization id="O202002240001" lastedit="2020年2月24日  13时21分59秒"><name refer="">深兰科技</name><view>人工智能</view><type>企业</type><infofrom>David LanOu</infofrom><link>https://www.deepblueai.com/</link><img>https://gss2.bdstatic.com/9fo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=5bc442027c094b36db921ceb9bf71be4/0b55b319ebc4b74529c00bcbc5fc1e178b821592.jpg</img><year>2014</year><place>上海</place><job>算法工程师：计算机视觉，决策规划，SLAM导航，控制，路径规划，伺服控制
+架构师：后端、前端
+高级专家：硬件、电气</job><founder>陈海波</founder><belongto>投资方：绿地、中金</belongto></organization><organization id="O202003220001" lastedit="2020年3月22日  9时46分21秒"><name refer="">大连美恒时代科技有限公司</name><view>自动化</view><type>企业</type><infofrom>http://www.mh-scada.com</infofrom><product>MH-SCADA</product></organization><organization id="O202004050001" lastedit="2020年4月5日  20时34分36秒"><name refer="">工信部 / 工业和信息化部</name><view>工业智能化</view><type>政府机构</type><link>http://www.miit.gov.cn</link><department>办公厅、政法司、规划司、财务司、科技司、运行局、企业局、节能司、安全司、原材料司、装备一司、装备二司、消费品司、军民司、电子司、信发司、通信司、信管司、网安局、无管局、国际司、人教司、党委、离退司、服务局</department></organization><organization id="O202005130001"><name>AB， Allen-Bradley / 艾伦-布拉德利</name><view>工业智能化</view><type>企业</type></organization><organization id="O202005130002"><name>Modicon / 莫迪康</name><view>工业智能化</view><type>企业</type></organization><organization id="O202005130003"><name>德州仪器 / Texas Instrument</name><view>工业智能化</view><type>企业</type></organization><organization id="O202005130005"><name>施耐德 / Schneider</name><view>工业智能化</view><type>企业</type></organization><organization id="O202005130006"><name>三菱电机 / Mitubishi</name><view>工业智能化</view><type>企业</type></organization><organization id="O202102090001" lastedit="2021年2月9日  9时44分3秒"><name refer="">安世亚太</name><view>仿真</view><type>企业</type><product>− PeraSim.Mech：机械仿真软件
+− PeraSim.Fluid：流体仿真软件
+− PeraSim.Emag：电磁仿真软件
+− PeraSim.Syst：系统仿真软件
+− PeraSim.Cube：多学科优化软件
+− PeraSim.Cloud：仿真云平台
+− PeraSim.App：工业APP平台
+− PeraSim.Space：综合仿真平台</product><img>http://www.peraglobal.com/images/logo.png</img><link>http://www.peraglobal.com/</link></organization><organization id="O202102090002" lastedit="2021年2月9日  10时37分2秒"><name refer="">Famic Technologies Inc. 发密科</name><view>仿真</view><type>企业</type><link>https://www.famictech.com/zh/%E5%85%AC%E5%8F%B8/%E5%85%B3%E4%BA%8E%E6%88%91%E4%BB%AC</link><img>https://www.famictech.com/Portals/0/famic-logo.svg?ver=2020-04-11-172239-657</img><nation>加拿大</nation><leader>董事长Charbel Nasr</leader></organization><organization id="O202102110001" lastedit="2021年2月11日  9时18分18秒"><name refer="">coursera</name><view>教育</view><type>学习平台</type><link>https://www.coursera.org</link></organization><organization id="O202102230001" lastedit="2021年2月23日  11时12分51秒"><name refer="">北科亿力</name><view>冶金、工业智能化</view><type>企业</type><link>http://aismelt.com/#炼铁大数据智能互联网平台
+http://worldmetals.com.cn/viscms/qiyedongtai0275/20170309/240479.html#北科亿力推动炼铁行业大数据应用</link><product>炼铁大数据智能互联网平台：
+无线传输技术、高精度数字测温分析技术、三维料面监测分析技术、红外热成像监测分析技术
+高炉专家系统：</product><partner>河钢集团、首钢集团、中信特钢、山钢集团、酒钢集团</partner><hezuohuoban refer="北京科技大学数理学院$O202102230003">北京科技大学数理学院</hezuohuoban></organization><organization id="O202102230002"><name>北京科技大学</name><view>大数据</view><type>高校</type></organization><organization id="O202102230003" lastedit="2021年2月23日  11时15分6秒"><name refer="">北京科技大学数理学院</name><view>冶金</view><type>学院</type><link>http://shuli.ustb.edu.cn/xinwendongtai/2020-10-20/1616.html</link></organization><organization id="O202102230004"><name>大华中天</name><view>机器人</view><type>公司</type></organization><organization id="O202102230005" lastedit="2021年2月23日  11时12分17秒"><name refer="">高新兴</name><view>机器人</view><type>公司</type><link>https://www.gosunyun.com/gosunyun/home/index.html</link><place>广州市科学城开创大道2819号高新兴科技园</place><note>4001-300098转5386</note><product>激光视觉融合导航：自主导航系统（百万米建图能力）、智能避障、自主规划线路；
+具备云部署能力，可接入百万台机器人，建立立体可视化巡防体系；
+机器人AI OS: Phoenix2.0：信息层、决策层、请求层、行为层、运动层
+安放音视频分析、导航系统、多模态人机交互、人脸识别、目标检测...;
+自主设计与制造：完善的机器人供应链整合及管理能力；</product></organization><organization id="O202104240001" lastedit="2021年4月24日  20时38分6秒"><name refer="">国家标准化管理委员会</name><view>经济</view><type>政府机构</type><link>http://www.sac.gov.cn/</link></organization><organization id="O202104240002" lastedit="2021年4月24日  20时39分0秒"><name refer="">国家市场监督管理总局</name><view>经济</view><type>政府机构</type><link>http://www.samr.gov.cn/</link></organization><organization id="O202104280001" lastedit="2021年4月28日  13时35分51秒"><name refer="">工业互联网产业联盟</name><view>工业智能</view><type>协会</type><link>http://www.aii-alliance.org/index/2020Index.html</link><img>http://www.aii-alliance.org/siteFiles/index/images/logo-white.png</img><introduce>为深入落实工业互联网创新发展战略，推动工业互联网加快发展，强化产业推广及生态建设，持续提升我国工业互联网的影响力，由工业和信息化部、北京市人民政府主办，中国信息通信研究院、北京市经济和信息化局、北京市通信管理局、工业互联网产业联盟联合承办2020工业互联网大会。
+
+本次会议作为工业互联网领域的专业盛会，拟邀请国内外权威专家、先进企业和行业组织代表，通过举办论坛、对话、成果发布等多种形式，从多个视角探讨工业互联网发展新技术、新模式、新趋势，全面展示工业互联网发展的最新进展情况。</introduce></organization><organization id="O202105070001" lastedit="2021年5月7日  12时16分52秒"><name refer="">国际电信联盟</name><view>电信、工业</view><type>国际组织</type></organization><organization id="O202106210001" lastedit="2021年6月21日  15时35分58秒"><name refer="">联结主义</name><view>人工智能</view><type>流派</type><standpoint>模拟人类大脑的神经元网络，将人工神经网络设计成有级结构，低级的输出作为高级的输入。</standpoint><history>1959年，Hubel和Wiesel通过观察猫的视神经元的反应，证明了视觉中枢系统具有简单模式构成复杂模式的功能。</history></organization><organization id="O202106210002" lastedit="2021年6月21日  15时37分8秒"><name refer="">行为主义</name><view>人工智能</view><type>流派</type><standpoint>通过不断模仿人或生物个体的行为超越原有的表现来推进机器的进化，主要依赖具有奖惩控制机制的强化学习方法。</standpoint></organization><organization id="O202106210003" lastedit="2021年6月21日  15时27分10秒"><name refer="">符号主义</name><view>人工智能</view><type>流派</type><introduce>应用逻辑推理法则，从公理出发推演整个理论体系。
+面临挑战：知识的自动获取、多元知识的自动融合、面向知识的表示学习、知识推理与运用</introduce><history>2011年：专家系统IBM沃森在电视知识竞赛《危险边缘》中击败人类赢得冠军</history></organization><organization id="O202108170001"><name>NASA / 美国国家宇航局</name><view>航天</view><type>研究机构</type></organization><organization id="O202108260001"><name>新松</name><view>工业智能化</view><type>公司</type></organization><organization id="O202108260002"><name>中科院沈自所</name><view>工业互联网</view><type>公司</type></organization><organization id="O202110170001"><name>东南大学</name><view>-</view><type>高校</type></organization><organization id="O202110270001" lastedit="2021年10月27日  11时27分46秒"><name refer="">博世 / BOSCH</name><view>工业智能化</view><type>企业</type><infofrom>《工业大数据~》</infofrom></organization><organization id="O202110270002" lastedit="2021年10月27日  11时39分6秒"><name refer="">工业互联网联盟</name><view>工业互联网，工业智能化</view><type>联盟</type><founder>美国通用GE</founder><department>AT&amp;T 美国电话电报公司
+CISCO 思科
+IBM 国际商业机器公司
+Intel 英特尔</department></organization><organization id="O202110270003" lastedit="2021年10月27日  11时41分33秒"><name refer="">DMDI 数字化制造与设计创新联盟</name><view>工业智能</view><type>研究联盟</type><year>2014年5月</year><founder>美国白宫</founder><place>美国芝加哥</place></organization></organizations>

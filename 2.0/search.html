@@ -1,0 +1,196 @@
+<html>
+<head>
+<title>RC-KMS_字符搜索</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
+<script src="js/Web.js"> </script>
+<script src="js/XML.js"> </script>
+<script src="js/RC-KMS.js"> </script>
+
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/rc.css" />
+
+<style type="text/css">
+#keyword {
+	width: 80%;
+	float:left;
+}
+#bt_search {
+	float:left;
+}
+
+#searchNum {
+	clear: left;
+}
+
+#searchResult {
+	clear: left;
+}
+
+#lastedit {
+	clear: left;
+}
+
+.name-node {
+	margin-top: 10px;
+}
+
+.name-node img{
+	margin-right: 5px;
+}
+
+
+</style>
+
+<script>
+var loaded = false;
+var elmClass; // 当前知识要素类型
+var lastElmId = ""; // 上一个知识要素ID
+var domResult;
+
+function visual() {
+	loaded = true;
+	domResult = document.getElementById("searchResult");
+	domResult.innerHTML = "";
+}
+
+function getNameNode (node) {
+
+	var divA = document.createElement("a");
+	divA.setAttribute("href", "#");
+	divA.setAttribute("onclick", "showDetail('"+ lastElmId + "')");
+
+	var domDiv = document.createElement("div");
+	domDiv.setAttribute("class", "name-node");
+	// 图标标签
+	var domImg = document.createElement("img");
+	domImg.setAttribute("src", "img/" + elmInfos[elmClass].img);
+	domDiv.appendChild(domImg);
+
+	// 属性标签
+	var domLabel = document.createElement("label");
+	domLabel.setAttribute("class","control-label");
+	domLabel.innerHTML = node.innerHTML;
+	domDiv.appendChild(domLabel);
+
+	divA.appendChild(domDiv);
+
+	return divA;
+}
+
+function getPropNode(node) {
+	var keyWord = document.getElementById("keyword").value;
+	var domDiv = document.createElement("div");
+	domDiv.setAttribute("class", "prop-node");
+	// 属性标签
+	var domProp = document.createElement("div");
+	domProp.setAttribute("class", "controls");
+
+	domProp.innerHTML = propDictionary[elmClass + "_" + node.tagName] + ":";
+
+	// 按回车符切分
+	var arr = node.innerHTML.split('\n');
+	for (var i = 0; i < arr.length; i++) {
+		var line = arr[i]; // 对于每一行
+		if (line.indexOf(keyWord) >= 0) {
+			// 如果包含
+			domProp.innerHTML += line.MarkKeyword(keyWord) + "<br/>";
+		}
+	}
+
+	domDiv.appendChild(domProp);
+	return domDiv;
+}
+
+function search() {
+	if (!loaded) {
+		return;
+	}
+
+	clearDomChildNodes(domResult);
+	lastElmId = "";
+
+	var keyWord = document.getElementById("keyword").value;
+	var num = 0; // 总个数计数
+
+	// 遍历所有知识元素类型
+	for (var i = 0; i < elmNames.length; i++) {
+		elmClass = elmNames[i];
+		var nodes = elmXmls[elmClass].selectNodeContains(keyWord);
+
+		// 假设：name节点是所有元素的第一个子节点
+		
+		for (var j = 0; j < nodes.length; j++ ){
+			if (nodes[j] == null) {
+				continue;
+			}
+
+			var elmId = nodes[j].parentNode.getAttribute("id");
+			var tempTag = nodes[j].tagName; // 当前标签
+			
+			if (lastElmId != elmId) {
+				lastElmId = elmId;
+				// CASE 1: 新换了一个要素
+				if (tempTag == "name") {
+					// CASE 1.1: 如果当前标签就是name 直接显示标题
+					console.log(nodes[j]);
+					var domDiv = getNameNode(nodes[j]);
+
+					domResult.appendChild(domDiv);
+				} else {
+					// CASE 1.2: 如果换了要素，但属性不是name
+					var nameNode = nodes[j].parentNode.childNodes[0]; // 搜索name
+					var domDiv = getNameNode(nameNode);
+					domResult.appendChild(domDiv);
+
+					var domDivProp = getPropNode(nodes[j]);
+					domResult.appendChild(domDivProp);
+				}
+
+			} else {
+				// CASE 2: 和上一个要素相同，直接显示属性
+				var domDivProp = getPropNode(nodes[j]);
+				domResult.appendChild(domDivProp);
+			}
+			num++;
+		}	
+	}
+	document.getElementById("searchNum").innerHTML = "共找到" + num + "个结果";
+
+}
+
+
+
+</script>
+</head>
+
+<body onload="loadData()">
+
+<div>
+    <a href="http://www.duzixi.com/RC-KMS">
+        <img id="logo" src="img/logo.svg"/>
+        <span class ="title"> RC-KMS</span><span class="subtitle">@duzixi.com</span>
+    </a>
+</div>
+
+<div id="myRadiogroup" class="yui3-widget btn-group btn-group-content">
+	<button class="btn-default btn" onclick="turn('connection.html')">关联</button>
+	<button class="btn-default btn" style="color: #9e7a7a; background-color: white">搜索</button>
+	<button class="btn-default btn" onclick="turn('history.html')">排序</button>
+	<button class="btn-default btn" onclick="turn('classify.html')">分类</button>
+	<button class="btn-default btn" onclick="turn('heat.html')">关注度</button>
+	
+</div>
+
+<div class="controls">
+  <input id="keyword" class="form-control field-required" type="text">
+  <button id="bt_search" class="btn btn-info" type="button" onclick="search()">搜索</button>
+</div>
+
+<div id="searchNum"></div>
+
+<div id="searchResult">(Loading ...)</div>
+
+<div>(Data Ver.</span><span id='lastedit'></span><span>)</div>
+</body>
+</html>
